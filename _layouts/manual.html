@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<main class="manual-page">
+  <div class="manual-shell">
+    <div class="manual-topbar">
+      <a class="back-link" href="{{ '/' | relative_url }}">Back to Manual Center</a>
+    </div>
+
+    <section class="manual-hero card">
+      <div class="manual-hero-copy">
+        <span class="eyebrow">{{ page.category_label | default: page.category }}</span>
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}
+          <p class="lead">{{ page.description }}</p>
+        {% endif %}
+        <div class="hero-actions">
+          {% if page.source_markdown %}
+            <a class="button primary" href="{{ page.source_markdown | relative_url }}">Open Markdown Source</a>
+          {% endif %}
+          <a class="button secondary" href="{{ '/' | relative_url }}">View All Manuals</a>
+        </div>
+      </div>
+      {% if page.at_a_glance %}
+        <aside class="card side-card">
+          <h2>At a Glance</h2>
+          <ul class="stat-list">
+            {% for item in page.at_a_glance %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </aside>
+      {% endif %}
+    </section>
+
+    <section class="manual-content">
+      <article class="card prose-card">
+        {{ content }}
+      </article>
+    </section>
+  </div>
+</main>

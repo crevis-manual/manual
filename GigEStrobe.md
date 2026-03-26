@@ -1,30 +1,43 @@
-# GigEStrobe Manual
+---
+title: GigEStrobe
+description: GigEStrobe manual homepage for setup, wiring, network preparation, and strobe timing configuration.
+category: GigE
+category_label: GigE Vision Manual
+permalink: /GigEStrobe/
+at_a_glance:
+  - Interface: GigE Vision
+  - Main focus: strobe setup and synchronized capture flow
+  - Recommended path: connection, IP setup, discovery, timing adjustment
+  - Reference format: Jekyll-rendered Markdown page
+---
 
 ## Overview
 
 GigEStrobe is a CREVIS GigE Vision product manual page for setup, operation, and troubleshooting.
 
-## Main Sections
-
-1. Product overview
-2. Hardware connection
-3. Network configuration
-4. Strobe setup
-5. Troubleshooting
-
 ## Quick Start
 
-1. Connect GigEStrobe to the host PC with an Ethernet cable.
-2. Apply power and verify the device status.
-3. Set the PC network adapter to the same subnet as the device.
-4. Open the control software and discover the device.
-5. Configure strobe-related parameters and save the settings.
+1. Connect GigEStrobe to the host PC using a qualified Ethernet cable.
+2. Apply power and verify that the device status indicators are normal.
+3. Set the PC network adapter so it shares the same subnet as the device.
+4. Launch the control software and discover the connected device.
+5. Configure strobe timing, trigger options, and save the final setup.
 
-## Notes
+## Main Sections
 
-- Use a stable power source during operation.
-- Check the IP address and firewall settings if the device is not detected.
-- Match trigger timing and exposure settings for stable strobe output.
+- Product overview and supported usage scenarios
+- Hardware connection and power preparation
+- Network configuration and device discovery
+- Strobe control setup and timing alignment
+- Troubleshooting for detection and synchronization issues
+
+## Setup Notes
+
+Use a stable power source during operation. If the device is not detected, check the IP address range, firewall rules, and cable integrity before changing application settings.
+
+<div class="callout">
+  Match trigger timing and exposure settings before validating strobe output. That removes most first-run synchronization issues.
+</div>
 
 ## Support
 

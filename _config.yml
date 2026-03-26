@@ -1,0 +1,20 @@
+title: CREVIS Manual Center
+description: Technical manual hub for CREVIS products.
+lang: ko
+timezone: Asia/Seoul
+markdown: kramdown
+kramdown:
+  input: GFM
+collections:
+  manuals:
+    output: true
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: manuals
+    values:
+      layout: manual

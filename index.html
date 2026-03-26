@@ -1,182 +1,108 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crevis Technical Manual Center</title>
-    <style>
-        :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --text-color: #c9d1d9;
-            --accent-color: #58a6ff;
-            --border-color: #30363d;
-            /* 카테고리별 포인트 컬러 */
-            --tag-gige: #1f6feb;
-            --tag-usb: #238636;
-            --tag-cxp: #9e6a03;
-            --tag-cameralink: #d03535;
-            --tag-grabber: #d29922;
-            --tag-sw: #8957e5;
-            --tag-support: #6e7681; /* Technical Support 전용 그레이-블루 */
-        }
-
-        body { font-family: -apple-system, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; }
-        
-        .brand-container { position: absolute; top: 20px; right: 20px; text-align: right; z-index: 100; }
-        .brand-logo { width: 140px; height: auto; }
-        .camera-photo { width: 110px; height: auto; margin-top: 5px; opacity: 0.9; }
-
-        header { margin-top: 100px; text-align: center; width: 100%; padding: 20px; }
-        header h1 { font-size: 2.2rem; color: white; margin-bottom: 20px; }
-
-        .search-container { margin: 0 auto 30px; max-width: 600px; width: 90%; }
-        #searchInput { width: 100%; padding: 14px 25px; border-radius: 30px; border: 1px solid var(--border-color); background: var(--card-bg); color: white; font-size: 1rem; outline: none; transition: 0.3s; }
-        #searchInput:focus { border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3); }
-
-        .filter-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; padding: 0 20px; }
-        .filter-btn { padding: 8px 18px; border-radius: 20px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); cursor: pointer; transition: 0.2s; font-size: 0.9rem; }
-        .filter-btn.active, .filter-btn:hover { background: var(--accent-color); color: white; border-color: var(--accent-color); }
-
-        .container { max-width: 1200px; width: 92%; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding-bottom: 100px; }
-        
-        .manual-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; text-decoration: none; color: inherit; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
-        .manual-card:hover { transform: translateY(-5px); border-color: var(--accent-color); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-        .manual-card h3 { margin: 0 0 12px 0; color: white; font-size: 1.2rem; }
-        .manual-card p { font-size: 0.9rem; color: #8b949e; line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
-        
-        .tag { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; width: fit-content; }
-        .tag.gige { background: var(--tag-gige); color: white; }
-        .tag.usb { background: var(--tag-usb); color: white; }
-        .tag.cxp { background: var(--tag-cxp); color: white; }
-        .tag.cameralink { background: var(--tag-cameralink); color: white; }
-        .tag.grabber { background: var(--tag-grabber); color: white; }
-        .tag.sw { background: var(--tag-sw); color: white; }
-        .tag.support { background: var(--tag-support); color: white; }
-
-        footer { margin-top: auto; padding: 40px; color: #484f58; font-size: 0.85rem; border-top: 1px solid var(--border-color); width: 100%; text-align: center; }
-
-        @media (max-width: 600px) {
-            .brand-container { position: static; text-align: center; margin-top: 20px; }
-            header { margin-top: 20px; }
-        }
-    </style>
-</head>
-<body>
-
+---
+layout: default
+title: Manual Center
+description: Technical manual hub for CREVIS products.
+body_class: home-page
+---
+<main class="site-shell">
+  <header class="site-header">
     <div class="brand-container">
-        <img src="images/crevis_logo.jpg" alt="Logo" class="brand-logo">
-        <br>
-        <img src="images/gige%20camera.png" alt="Camera" class="camera-photo">
+      <img src="{{ '/images/crevis_logo.jpg' | relative_url }}" alt="CREVIS logo" class="brand-logo">
+      <br>
+      <img src="{{ '/images/gige%20camera.png' | relative_url }}" alt="GigE camera" class="camera-photo">
     </div>
 
-    <header>
-        <h1>Crevis Manual Center</h1>
-        <div class="search-container">
-            <input type="text" id="searchInput" onkeyup="filterManuals()" placeholder="제품명(model name), 인터페이스(interface), 키워드(Keyword)로 검색...">
+    <h1 class="hero-title">CREVIS Manual Center</h1>
+    <p class="hero-copy">
+      제품 매뉴얼과 기술 문서를 한곳에서 찾을 수 있는 CREVIS 기술 문서 허브입니다.
+      모델명, 인터페이스, 키워드로 빠르게 찾고 GitHub Pages의 Jekyll 배포 구조에 맞춰 안정적으로 운영할 수 있도록 정리했습니다.
+    </p>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="모델명, 인터페이스, 키워드로 검색하세요.">
+    </div>
+
+    <div class="filter-container">
+      <button class="filter-btn active" type="button" data-category="all">All</button>
+      <button class="filter-btn" type="button" data-category="GigE">GigE Vision</button>
+      <button class="filter-btn" type="button" data-category="USB">USB 3.0</button>
+      <button class="filter-btn" type="button" data-category="CXP">CoaXpress</button>
+      <button class="filter-btn" type="button" data-category="CameraLink">CameraLink</button>
+      <button class="filter-btn" type="button" data-category="Grabber">Frame Grabber</button>
+      <button class="filter-btn" type="button" data-category="SW">Software</button>
+      <button class="filter-btn" type="button" data-category="Support">Technical Support</button>
+    </div>
+  </header>
+
+  <section class="manual-grid" id="manualGrid">
+    {% for manual in site.data.manuals %}
+      {% assign normalized_category = manual.category | downcase %}
+      <a
+        class="manual-card{% if manual.disabled %} disabled{% endif %}"
+        href="{% if manual.external %}{{ manual.url }}{% else %}{{ manual.url | relative_url }}{% endif %}"
+        data-category="{{ manual.category }}"
+        data-name="{{ manual.title }}"
+        {% if manual.external %}target="_blank" rel="noopener"{% endif %}
+        {% if manual.disabled %}aria-disabled="true"{% endif %}
+      >
+        <div>
+          <h3>{{ manual.title }}</h3>
+          <p>{{ manual.description }}</p>
         </div>
-        <div class="filter-container">
-            <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
-            <button class="filter-btn" onclick="filterCategory('GigE', this)">GigE Vision</button>
-            <button class="filter-btn" onclick="filterCategory('USB', this)">USB 3.0</button>
-            <button class="filter-btn" onclick="filterCategory('CXP', this)">CoaXpress</button>
-            <button class="filter-btn" onclick="filterCategory('CameraLink', this)">CameraLink</button>
-            <button class="filter-btn" onclick="filterCategory('Grabber', this)">Frame Grabber</button>
-            <button class="filter-btn" onclick="filterCategory('SW', this)">Software</button>
-            <button class="filter-btn" onclick="filterCategory('Support', this)">Technical Support</button> </div>
-    </header>
+        <span class="tag {{ normalized_category }}">{{ manual.category_label }}</span>
+      </a>
+    {% endfor %}
+  </section>
 
-    <div class="container" id="manualGrid">
-        <a href="https://crevis-manual.github.io/cvsCamCtrl-manual/" class="manual-card" data-category="SW" data-name="cvsCamCtrl" target="_blank" rel="noopener">
-            <h3>cvsCamCtrl Manual</h3>
-            <p>크래비스 카메라 소프트웨어 사용 가이드 (국문)</p>
-            <span class="tag sw">Software</span>
-        </a>
+  <div class="empty-state" id="emptyState">
+    검색 결과가 없습니다. 다른 모델명이나 카테고리로 다시 찾아보세요.
+  </div>
 
-        <a href="https://crevis-manual.github.io/cvsCamCtrl-manual-en/" class="manual-card" data-category="SW" data-name="cvsCamCtrl" target="_blank" rel="noopener">
-            <h3>cvsCamCtrl Manual</h3>
-            <p>crevis camera software guide (ENG)</p>
-            <span class="tag sw">Software</span>
-        </a>
+  <footer class="site-footer">
+    &copy; 2026 CREVIS Co., Ltd. Technical Manual Center
+  </footer>
+</main>
 
-        <a href="#" class="manual-card" data-category="Support" data-name="FAQ Technical Support" target="_blank" rel="noopener">
-            <h3>Technical Support & FAQ</h3>
-            <p>자주 묻는 질문, 기술 문의 가이드 및 서비스 정책 안내</p>
-            <span class="tag support">Technical Support</span>
-        </a>
+<script>
+  (function () {
+    const searchInput = document.getElementById("searchInput");
+    const buttons = Array.from(document.querySelectorAll(".filter-btn"));
+    const cards = Array.from(document.querySelectorAll(".manual-card"));
+    const emptyState = document.getElementById("emptyState");
+    let activeCategory = "all";
 
-        <a href="https://crevis-manual.github.io/MG-A500M-K-FL/" class="manual-card" data-category="GigE" data-name="MG-A500M-K-FL" target="_blank" rel="noopener">
-            <h3>MG-A500M-K-FL</h3>
-            <p>5Mp GigE Vision Camera</p>
-            <span class="tag gige">GigE Vision</span>
-        </a>
+    function applyFilters() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
 
-        <a href="https://crevis-manual.github.io/MG-A241M-K-FL/" class="manual-card" data-category="GigE" data-name="MG-A241M-K-FL" target="_blank" rel="noopener">
-            <h3>MG-A241M-K-FL</h3>
-            <p>24.5Mp GigE Vision Camera</p>
-            <span class="tag gige">GigE Vision</span>
-        </a>
+      cards.forEach((card) => {
+        const matchesCategory =
+          activeCategory === "all" || card.dataset.category === activeCategory;
+        const haystack = [card.dataset.name, card.dataset.category, card.textContent]
+          .join(" ")
+          .toLowerCase();
+        const matchesQuery = haystack.includes(query);
+        const visible = matchesCategory && matchesQuery;
 
-        <a href="https://crevis-manual.github.io/HG-A130SW/" class="manual-card" data-category="GigE" data-name="HG-A130SW" target="_blank" rel="noopener">
-            <h3>HG-A130SW</h3>
-            <p>1.3Mp SWIR GigE Vision Camera</p>
-            <span class="tag gige">GigE Vision</span>
-        </a>
-
-        <a href="GigEStrobe/index.html" class="manual-card" data-category="GigE" data-name="GigEStrobe" target="_blank" rel="noopener">
-            <h3>GigEStrobe</h3>
-            <p>GigEStrobe manual homepage</p>
-            <span class="tag gige">GigE Vision</span>
-        </a>
-
-        <a href="#" class="manual-card" data-category="CameraLink" data-name="CameraLink MC Series" target="_blank" rel="noopener">
-            <h3>CameraLink MC Series</h3>
-            <p>CameraLink 기반 카메라 제품군 기술 매뉴얼</p>
-            <span class="tag cameralink">CameraLink</span>
-        </a>
-
-        <a href="https://crevis-manual.github.io/CFG-X1204-Manual/" class="manual-card" data-category="Grabber" data-name="CFG-X1204" target="_blank" rel="noopener">
-            <h3>CFG-X1204</h3>
-            <p>4-CH CoaXpress Frame Grabber Hardware Manual</p>
-            <span class="tag grabber">Frame Grabber</span>
-        </a>
-    </div>
-
-    <footer>
-        &copy; 2026 CREVIS Co., Ltd. 전문 기술 지원 센터
-    </footer>
-
-    <script>
-        function filterCategory(category, btn) {
-            const cards = document.querySelectorAll('.manual-card');
-            const btns = document.querySelectorAll('.filter-btn');
-            
-            btns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            });
+        card.style.display = visible ? "flex" : "none";
+        if (visible) {
+          visibleCount += 1;
         }
+      });
 
-        function filterManuals() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.manual-card');
+      emptyState.style.display = visibleCount === 0 ? "block" : "none";
+    }
 
-            cards.forEach(card => {
-                const name = card.getAttribute('data-name').toLowerCase();
-                const category = card.getAttribute('data-category').toLowerCase();
-                if (name.includes(input) || category.includes(input)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeCategory = button.dataset.category;
+        buttons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener("input", applyFilters);
+    applyFilters();
+  }());
+</script>
