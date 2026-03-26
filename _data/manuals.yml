@@ -1,0 +1,61 @@
+- title: cvsCamCtrl Manual
+  description: CREVIS camera software guide (KOR)
+  category: SW
+  category_label: Software
+  url: https://crevis-manual.github.io/cvsCamCtrl-manual/
+  external: true
+
+- title: cvsCamCtrl Manual
+  description: CREVIS camera software guide (ENG)
+  category: SW
+  category_label: Software
+  url: https://crevis-manual.github.io/cvsCamCtrl-manual-en/
+  external: true
+
+- title: Technical Support & FAQ
+  description: Frequently asked questions and technical support guidance will be added here.
+  category: Support
+  category_label: Technical Support
+  url: "#"
+  disabled: true
+
+- title: MG-A500M-K-FL
+  description: 5MP GigE Vision Camera
+  category: GigE
+  category_label: GigE Vision
+  url: https://crevis-manual.github.io/MG-A500M-K-FL/
+  external: true
+
+- title: MG-A241M-K-FL
+  description: 24.5MP GigE Vision Camera
+  category: GigE
+  category_label: GigE Vision
+  url: https://crevis-manual.github.io/MG-A241M-K-FL/
+  external: true
+
+- title: HG-A130SW
+  description: 1.3MP SWIR GigE Vision Camera
+  category: GigE
+  category_label: GigE Vision
+  url: https://crevis-manual.github.io/HG-A130SW/
+  external: true
+
+- title: GigEStrobe
+  description: GigEStrobe manual homepage
+  category: GigE
+  category_label: GigE Vision
+  url: /GigEStrobe/
+
+- title: CameraLink MC Series
+  description: CameraLink product guide will be added here.
+  category: CameraLink
+  category_label: CameraLink
+  url: "#"
+  disabled: true
+
+- title: CFG-X1204
+  description: 4-channel CoaXpress frame grabber hardware manual
+  category: Grabber
+  category_label: Frame Grabber
+  url: https://crevis-manual.github.io/CFG-X1204-Manual/
+  external: true
