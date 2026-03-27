@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TS_jiwon\\source\\repos\\manual\\manuals\\gige-strobe\\index.html||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:manuals\\gige-strobe\\index.html||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TS_jiwon\\source\\repos\\manual\\GigE-Strobe\\index.html||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GigE-Strobe\\index.html||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
@@ -22,24 +18,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\TS_jiwon\\source\\repos\\manual\\manuals\\gige-strobe\\index.html",
-              "RelativeDocumentMoniker": "manuals\\gige-strobe\\index.html",
-              "ToolTip": "C:\\Users\\TS_jiwon\\source\\repos\\manual\\manuals\\gige-strobe\\index.html",
-              "RelativeToolTip": "manuals\\gige-strobe\\index.html",
-              "ViewState": "AgIAAO8BAAAAAAAAAAAAABMCAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-03-27T02:40:35.62Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -49,14 +32,14 @@
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\TS_jiwon\\source\\repos\\manual\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAGwAAAAAAAAAAADwv44AAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAADwv3gAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-03-27T02:25:39.658Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\TS_jiwon\\source\\repos\\manual\\GigE-Strobe\\index.html",
               "RelativeDocumentMoniker": "GigE-Strobe\\index.html",
@@ -64,7 +47,8 @@
               "RelativeToolTip": "GigE-Strobe\\index.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-03-27T02:21:05.469Z"
+              "WhenOpened": "2026-03-27T02:21:05.469Z",
+              "EditorCaption": ""
             }
           ]
         }
