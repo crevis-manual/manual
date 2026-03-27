@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HG-A130SW Full User Manual | Crevis</title>
+    <style>
+        /* --- 디자인 시스템 설정 --- */
+        :root {
+            --primary-color: #1a2a3a;
+            --accent-color: #e67e22;
+            --bg-light: #f4f7f9;
+            --sidebar-width: 280px;
+            --border-color: #e0e0e0;
+            --header-bg: #f1f4f7;
+            --table-header: #f1f4f7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            display: flex;
+            background-color: var(--bg-light);
+        }
+
+        /* 사이드바 네비게이션 */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--primary-color);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #fff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .sidebar ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar li { margin: 12px 0; }
+        .sidebar a { color: #bdc3c7; text-decoration: none; font-size: 0.85rem; transition: 0.3s; display: block; }
+        .sidebar a:hover { color: #3498db; transform: translateX(5px); }
+
+        .sidebar .sub-menu { margin-left: 15px; border-left: 1px solid #444; padding-left: 10px; }
+
+        /* 메인 컨텐츠 영역 */
+        .content {
+            margin-left: var(--sidebar-width);
+            padding: 60px;
+            width: calc(100% - var(--sidebar-width));
+            max-width: 1200px;
+            background: white;
+            min-height: 100vh;
+            box-sizing: border-box;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+        }
+
+        /* 이미지 사이즈 제어 클래스 추가 */
+        .img-full { width: 100%; max-width: 1000px; height: auto; display: block; margin: 10px auto; }
+        .img-large { width: 100%; max-width: 800px; height: auto; display: block; margin: 10px auto; }
+        .img-medium { width: 100%; max-width: 500px; height: auto; display: block; margin: 10px auto; }
+        .img-small { width: 100%; max-width: 300px; height: auto; display: block; margin: 10px auto; }
+        
+        /* UI 스크린샷 전용 (방화벽 설정 등) */
+        .img-ui-screenshot { 
+            width: 100%; 
+            max-width: 650px; 
+            height: auto; 
+            display: block; 
+            margin: 15px auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* 헤더 섹션 */
+        .header-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 4px solid var(--primary-color);
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            gap: 40px;
+        }
+
+        .header-text { flex: 1; min-width: 0; }
+        .header-visual-group { flex: 0 0 280px; display: flex; flex-direction: column; align-items: flex-end; gap: 20px; }
+        .header-logo { width: 100%; max-width: 180px; height: auto; display: block; mix-blend-mode: multiply; }
+        .header-camera-main { width: 100%; max-width: 240px; height: auto; display: block; mix-blend-mode: multiply; }
+
+        .category-label { color: var(--accent-color); font-weight: bold; font-size: 1rem; text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: 1.5px; }
+        .model-title { font-size: 2.8rem; font-weight: 800; color: var(--primary-color); margin: 0; line-height: 1.1; }
+
+        /* 섹션 타이틀 */
+        h2 { font-size: 1.8rem; color: var(--primary-color); border-left: 6px solid var(--accent-color); padding-left: 15px; margin-top: 80px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        h3 { font-size: 1.4rem; color: #2c3e50; margin-top: 50px; background: #f8f9fa; padding: 12px 18px; border-radius: 6px; }
+        h4 { font-size: 1.1rem; color: #34495e; margin-top: 30px; border-bottom: 1px dashed #ddd; padding-bottom: 5px; }
+
+        /* 테이블 디자인 */
+        .table-container { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 800px; margin-bottom: 20px; }
+        th, td { border: 1px solid var(--border-color); padding: 10px 14px; text-align: left; vertical-align: top; }
+        th { background-color: var(--table-header); color: #2c3e50; font-weight: 600; width: 25%; }
+        tr:hover { background-color: #fafafa; }
+
+        /* 시각 자료 및 외관 블록 */
+        .visual-block { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 25px; text-align: center; margin: 25px 0; }
+        .visual-block img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .caption { font-size: 0.85rem; color: #7f8c8d; margin-top: 15px; font-weight: 600; }
+
+        /* 인터페이스 카드 */
+        .interface-card { display: flex; gap: 40px; align-items: flex-start; margin: 25px 0; background: #fff; border: 1px solid #f0f0f0; border-radius: 12px; padding: 30px; }
+        .interface-visual { flex: 0 0 200px; text-align: center; }
+        .interface-table-wrapper { flex: 1; }
+
+        /* 강조 박스 */
+        .box { padding: 20px 25px; border-radius: 8px; margin: 30px 0; display: flex; align-items: flex-start; }
+        .note { background-color: #e8f4fd; border-left: 5px solid #3498db; }
+        .warning { background-color: #fff9db; border-left: 5px solid #fcc419; }
+        .note-icon { margin-right: 20px; font-size: 1.8rem; }
+
+        /* 리스트 스타일 */
+        .feature-list { padding-left: 20px; margin: 15px 0; }
+        .feature-list li { margin-bottom: 8px; }
+
+        footer { margin-top: 100px; padding: 50px 0; border-top: 1px solid #eee; font-size: 0.85rem; color: #95a5a6; text-align: center; }
+
+        @media screen and (max-width: 1024px) {
+            .sidebar { width: 70px; padding: 20px 10px; }
+            .sidebar h2, .sidebar li a span { display: none; }
+            .content { margin-left: 70px; width: calc(100% - 70px); }
+        }
+
+        @media screen and (max-width: 900px) {
+            .header-box { flex-direction: column; align-items: center; text-align: center; }
+            .header-visual-group { align-items: center; flex: 0 0 auto; width: 100%; margin-top: 20px; }
+            .interface-card { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="sidebar">
+    <h2>HG-A130SW Manual</h2>
+    <ul>
+        <li><a href="#prep"><span>1. Getting Started</span></a>
+            <ul class="sub-menu">
+                <li><a href="#prep-pc"><span>1.1 PC Specs</span></a></li>
+                <li><a href="#prep-sdk"><span>1.2 SDK</span></a></li>
+                <li><a href="#prep-cable"><span>1.3 Cables</span></a></li>
+                <li><a href="#prep-firewall"><span>1.4 Firewall & Antivirus</span></a></li>
+                <li><a href="#prep-precautions"><span>1.5 Precautions</span></a></li>
+            </ul>
+        </li>
+        <li><a href="#specs"><span>2. Product Specs</span></a>
+            <ul class="sub-menu">
+                <li><a href="#specs-main"><span>2.1 Main Specifications</span></a></li>
+                <li><a href="#specs-spectral"><span>2.2 Spectral Response</span></a></li>
+            </ul>
+        </li>
+        <li><a href="#interface"><span>3. Camera Interface</span></a>
+            <ul class="sub-menu">
+                <li><a href="#interface-back"><span>3.1 Back Panel</span></a></li>
+                <li><a href="#interface-pin"><span>3.2 Pin Map</span></a></li>
+                <li><a href="#interface-led"><span>3.3 LED Status</span></a></li>
+                <li><a href="#interface-circuit"><span>3.4 I/O Circuit</span></a></li>
+            </ul>
+        </li>
+        <li><a href="#functions"><span>4. Camera Features</span></a>
+            <ul class="sub-menu">
+                <li><a href="#func-img"><span>4.1 Image Format</span></a></li>
+                <li><a href="#func-acq"><span>4.2 Acquisition</span></a></li>
+                <li><a href="#func-trig"><span>4.3 Trigger Mode</span></a></li>
+                <li><a href="#func-exp"><span>4.4 Exposure</span></a></li>
+                <li><a href="#func-analog"><span>4.5 Analog Control</span></a></li>
+                <li><a href="#func-correct"><span>4.6 Corrections</span></a></li>
+                <li><a href="#func-cool"><span>4.7 Cooling Control</span></a></li>
+                <li><a href="#func-transport"><span>4.8 Transport Layer</span></a></li>
+            </ul>
+        </li>
+        <li><a href="#dimensions"><span>5. Appearance</span></a></li>
+    </ul>
+</nav>
+
+<div class="content">
+    
+    <!-- Header -->
+    <header class="header-box">
+        <div class="header-text">
+            <p class="category-label">High-Performance GigE SWIR Camera</p>
+            <h1 class="model-title">HG-A130SW</h1>
+            <p style="font-size: 1.2rem; color: #7f8c8d; margin-top: 10px;">Sony InGaAs SWIR IMX990 | 1.3 Megapixel | Global Shutter</p>
+            <p style="margin-top: 15px; font-weight: 600;">Release Date: 2021. 10. 06 (Rev 1.1)</p>
+        </div>
+        
+        <div class="header-visual-group">
+            <img src="images/crevis_logo.jpg" class="header-logo" alt="Crevis Logo">
+            <img src="images/swir camera.png" class="header-camera-main" alt="HG-A130SW">
+        </div>
+    </header>
+
+    <!-- Section 1: Preparation -->
+    <section id="prep">
+        <h2>1. Getting Started</h2>
+        <div id="prep-pc">
+            <h3>1.1 PC System Requirements</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>CPU</th><td>Intel Core i3 (Minimum), i5 or higher (Recommended)</td></tr>
+                    <tr><th>RAM</th><td>2GB (Minimum), 8GB or higher (Recommended)</td></tr>
+                    <tr><th>OS</th><td>Windows 7 (32/64bit) or higher</td></tr>
+                    <tr><th>LAN Card</th><td>Intel PRO/1000xT or higher</td></tr>
+                    <tr><th>VGA</th><td>FHD support (Minimum), UHD support (Recommended)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="prep-sdk">
+            <h3>1.2 SDK Installation</h3>
+            <p>To acquire images, use the provided Crevis SDK or standard libraries like HALCON, Cognex, or CVB.</p>
+            <p><strong>Download Link:</strong> <a href="https://www.crevis.co.kr/upload/download/cvsCam%20SDK.zip">CVSCam SDK Download</a></p>
+        </div>
+
+        <div id="prep-cable">
+            <h3>1.3 Cables & Network</h3>
+            <ul class="feature-list">
+                <li>Category 5E or higher network cable is required.</li>
+                <li>Power Supply: DC 12V ~ 24V.</li>
+                <li>When using <strong>PoE+</strong>, do not apply external power to the 12-pin connector.</li>
+            </ul>
+        </div>
+
+        <!-- 1.4 방화벽 및 백신프로그램: img-ui-screenshot 클래스 적용 예시 -->
+        <div id="prep-firewall">
+            <h3>1.4 Firewall and Antivirus Programs</h3>
+            <p>For stable packet transmission, firewall and antivirus programs should be disabled or set as exceptions.</p>
+            
+            <h4>Firewall Configuration</h4>
+            <ul class="feature-list">
+                <li><strong>Windows 8, 8.1, 10:</strong> Start > Control Panel > Windows Defender Firewall > Turn Windows Defender Firewall on or off.</li>
+            </ul>
+            <div class="visual-block">
+                <!-- 이미지 추가 시 아래와 같이 class="img-ui-screenshot"을 사용하세요 -->
+                <img src="images/firewall.png" class="img-ui-screenshot" alt="Firewall Settings UI" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <p style="color: #888; display: none;">[Firewall Settings UI Screenshot Placeholder]</p>
+            </div>
+        </div>
+
+        <!-- 1.5 주의사항 -->
+        <div id="prep-precautions">
+            <h3>1.5 Precautions</h3>
+            
+            <h4>Operational Temperature</h4>
+            <ul class="feature-list">
+                <li><strong>Case Temperature:</strong> 0°C to +45°C</li>
+                <li><strong>Sensor Target Temperature:</strong> +15°C</li>
+                <li>Note: Maintain a constant temperature as data output may change based on ambient temperature variations. Power consumption may increase as sensor cooling works to maintain the target.</li>
+            </ul>
+
+            <h4>Network & Communication</h4>
+            <ul class="feature-list">
+                <li>Connecting more than two cameras via an Ethernet hub may cause bandwidth issues.</li>
+                <li><strong>UDP Communication:</strong> Does not guarantee data transmission. Configure the camera and network card according to the Installation Guide to minimize packet loss.</li>
+                <li><strong>Filter Driver:</strong> Run with Administrator privileges to use the filter driver. (CamGuide runs with admin rights automatically).</li>
+            </ul>
+
+            <h4>Packet Size Optimization</h4>
+            <p>Larger packet sizes minimize loss, but the camera packet size must be smaller than the network card's Jumbo Frame/Packet size.</p>
+            <div class="box note">
+                <div class="note-icon">ℹ️</div>
+                <div>
+                    <strong>Recommended Packet Size Formula:</strong><br>
+                    Packet Size = (Image Width × n) + 36<br>
+                    (n is a value where the packet size does not exceed the Jumbo Frame size).<br>
+                    <em>Ex: For 1296x1032 resolution, Recommended Packet Size = (1296 × 6) + 36 = 7812.</em>
+                </div>
+            </div>
+
+            <h4>LED Status Indicators</h4>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Left LED (Link)</th>
+                            <th>Right LED (Status)</th>
+                            <th>Status Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Solid Red</td>
+                            <td>Solid Red</td>
+                            <td>Ethernet disconnected or 10Mb or 100Mb connection established</td>
+                        </tr>
+                        <tr>
+                            <td>Solid Green</td>
+                            <td>Solid Red</td>
+                            <td>DHCP IP setup in progress</td>
+                        </tr>
+                        <tr>
+                            <td>Solid Green</td>
+                            <td>Off</td>
+                            <td>IP setup complete, waiting for Acquisition Start</td>
+                        </tr>
+                        <tr>
+                            <td>Solid Green</td>
+                            <td>Solid Green</td>
+                            <td>Waiting for Trigger input</td>
+                        </tr>
+                        <tr>
+                            <td>Solid Green</td>
+                            <td>Flashing Green</td>
+                            <td>Image data transferring</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>General Warnings</h4>
+            <ul class="feature-list">
+                <li><strong>Moisture:</strong> The product is not waterproof. Avoid exposure to high humidity or water.</li>
+                <li><strong>Magnetic Fields:</strong> Strong magnetic or electric fields may cause signal distortion.</li>
+                <li><strong>Ventilation:</strong> Due to high power consumption, maintain good airflow around the camera. Do not seal the device in a confined space.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 2: Specifications -->
+    <section id="specs">
+        <h2>2. Product Specifications</h2>
+        
+        <div id="specs-overview">
+            <h3>2.1 Product Overview</h3>
+            <ul class="feature-list">
+                <li><strong>Sony SWIR Sensor:</strong> High-performance InGaAs sensor for broad spectral imaging.</li>
+                <li><strong>Advanced Scan Modes:</strong> Supports ROI (Region of Interest) and X/Y Reverse imaging.</li>
+                <li><strong>Dynamic Acquisition:</strong> Freerun and precise Trigger Mode support.</li>
+                <li><strong>Image Enhancement:</strong> Built-in Defective Pixel Correction and Flat Field Correction (Tile FFC).</li>
+                <li><strong>Optimal Clarity:</strong> Sharpness Enhancement and Contrast/Brightness control features.</li>
+                <li><strong>Thermoelectric Cooling:</strong> Active Sensor Cooling Auto Mode (Target: 15°C) to reduce noise.</li>
+                <li><strong>Industrial Standard:</strong> Fully compliant with GigE Vision 1.2 and GenICam protocols.</li>
+                <li><strong>External Control:</strong> External Trigger support via a dedicated 12-pin circular connector.</li>
+                <li><strong>Dual Power Supply:</strong> DC 12V~24V (10.8~26.4V range) or high-efficiency PoE+.</li>
+            </ul>
+        </div>
+
+        <div id="specs-main">
+            <h3>2.2 Main Specifications</h3>
+            <div class="table-container">
+                <table>
+                    <tbody>
+                        <tr><th>Model</th><td colspan="2"><strong>HG-A130SW</strong></td></tr>
+                        <tr><th>Sensor</th><td colspan="2">Sony InGaAs SWIR IMX990-AABA (Global Shutter)</td></tr>
+                        <tr><th>Spectral Response</th><td colspan="2">Visible + SWIR wideband (0.4 µm to 1.7 µm)</td></tr>
+                        <tr><th>Cooling System</th><td colspan="2">Built-in Thermoelectric Cooler (TEC) / Target: +15°C</td></tr>
+                        <tr><th>Resolution</th><td colspan="2">1296 (H) x 1032 (V) | 1.3 Megapixel</td></tr>
+                        <tr><th>Sensor Format</th><td colspan="2">1/2"</td></tr>
+                        <tr><th>Pixel Size</th><td colspan="2">5.0 µm x 5.0 µm</td></tr>
+                        <tr><th>Max Frame Rate</th><td colspan="2">72 fps (Actual 71.5 fps)</td></tr>
+                        <tr><th>Exposure Time</th><td colspan="2">13.1 µs ~ 1 sec (Exposure Offset: 7.372 µs)</td></tr>
+                        <tr><th>Sync System</th><td colspan="2">Internal, External (12-pin), Software Trigger</td></tr>
+                        <tr><th>Gain Control</th><td colspan="2">Analog: 0 ~ 18 dB (1x to 8x) | Digital: 0 ~ 24 dB (1x to 16x)</td></tr>
+                        <tr><th>Black Level</th><td colspan="2">0 ~ 4095 (12-bit)</td></tr>
+                        <tr><th>Pixel Format</th><td colspan="2">Mono8/10/12, Mono10/12 Packed</td></tr>
+                        <tr><th>Optical Filter</th><td colspan="2">900nm Long Pass</td></tr>
+                        <tr><th>Power Supply</th><td colspan="2">DC 12V ~ 24V (±10%) or PoE+ (IEEE 802.3at)</td></tr>
+                        <tr><th>Consumption (DC)</th><td colspan="2">&lt; 3.8 W (Camera only) | Max 15 W (TEC active)</td></tr>
+                        <tr><th>Consumption (PoE+)</th><td colspan="2">&lt; 3.9 W (Excluding sensor cooling)</td></tr>
+                        <tr><th>Dimensions</th><td colspan="2">55 x 55 x 74 mm (Excluding mount and connector)</td></tr>
+                        <tr><th>Weight</th><td colspan="2">&lt; 330 g</td></tr>
+                        <tr><th>IP Rating</th><td colspan="2">IP30</td></tr>
+                        <tr><th>Operating Temp.</th><td colspan="2">0°C ~ +45°C (Based on case temperature)</td></tr>
+                        <tr><th>Standard Compliance</th><td colspan="2">CE (EN61326-1; 2013; Class A), RoHS, WEEE, UL, FCC</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="specs-spectral">
+            <h3>2.3 Spectral Response</h3>
+            <div class="visual-block">
+                <img src="images/qe swir.png" class="img-large" alt="A130SW Spectral Response Graph">
+                <p class="caption">Figure 1. Relative Spectral Response (Wideband Sensitivity 400nm - 1700nm)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Interface -->
+    <section id="interface">
+        <h2>3. Camera Interface</h2>
+        <div id="interface-back">
+            <h3>3.1 Back Panel Layout</h3>
+            <div class="interface-card">
+                <div class="interface-visual"><img src="images/backpanel.png" class="img-small" alt="Back Panel"></div>
+                <div class="interface-table-wrapper">
+                    <table>
+                        <tr><th>1</th><td>Power & External I/O (12-pin Circular)</td></tr>
+                        <tr><th>2</th><td>Gigabit Ethernet (RJ45 with PoE+)</td></tr>
+                        <tr><th>3, 4</th><td>LED Status Indicators</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+<div id="interface-pin">
+            <h3>3.2 12-Pin External I/O Pin Map</h3>
+            <div class="interface-card">
+                <div class="interface-visual">
+                    <!-- 12핀 커넥터 이미지 추가 -->
+                    <img src="images/12pin.png" class="img-small" alt="12-pin Connector Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[12-pin Connector Image Placeholder]</p>
+                    <p class="caption">Hirose 12-pin</p>
+                </div>
+                <div class="interface-table-wrapper">
+                    <div class="table-container" style="margin-top: 0;">
+                        <table>
+                            <thead>
+                                <tr><th>Pin No.</th><th>Name</th><th>I/O</th><th>Description</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="text-center">1</td><td>GND</td><td class="text-center">IN</td><td>Power Ground</td></tr>
+                                <tr><td class="text-center">2</td><td>VCC</td><td class="text-center">IN</td><td>10.8V ~ 26.4V DC Input</td></tr>
+                                <tr><td class="text-center">3</td><td>TRIG1_IN-</td><td class="text-center">IN</td><td>Line 4 (Opto-Isolated Input-)</td></tr>
+                                <tr><td class="text-center">4</td><td>TRIG1_IN+</td><td class="text-center">IN</td><td>Line 4 (Opto-Isolated Input+, 3.3V~24V)</td></tr>
+                                <tr><td class="text-center">5</td><td>TRIG0_IN-</td><td class="text-center">IN</td><td>Line 3 (Opto-Isolated Input-)</td></tr>
+                                <tr><td class="text-center">6</td><td>TRIG0_IN+</td><td class="text-center">IN</td><td>Line 3 (Opto-Isolated Input+, 3.3V~24V)</td></tr>
+                                <tr><td class="text-center">7</td><td>DIO0</td><td class="text-center">I/O</td><td>Line 1 (Direct I/O, 3.3V)</td></tr>
+                                <tr><td class="text-center">8</td><td>DGND</td><td class="text-center">IN</td><td>Direct I/O Ground</td></tr>
+                                <tr><td class="text-center">9</td><td>NC</td><td class="text-center">-</td><td>Do Not Connect</td></tr>
+                                <tr><td class="text-center">10</td><td>DIO1</td><td class="text-center">I/O</td><td>Line 2 (Direct I/O, 3.3V)</td></tr>
+                                <tr><td class="text-center">11</td><td>VCC</td><td class="text-center">IN</td><td>10.8V ~ 26.4V DC Input</td></tr>
+                                <tr><td class="text-center">12</td><td>GND</td><td class="text-center">IN</td><td>Power Ground</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="interface-led">
+            <h3>3.3 LED Status Summary</h3>
+            <p>The camera's current status can be monitored via the LEDs on the back panel.</p>
+            <div class="table-container">
+                <table>
+                    <tr><th>Left LED (Link)</th><td>Off: Power Off / Red: 100Mb Link / Green: Gigabit Link</td></tr>
+                    <tr><th>Right LED (Status)</th><td>Red: IP Conflict / Green Solid: Wait Trigger / Green Flash: Transferring</td></tr>
+                </table>
+            </div>
+        </div>
+<!-- 3.3 RJ45 Connector 추가 -->
+        <div id="interface-rj45">
+            <h3>3.3 RJ45 Connector</h3>
+            <ul class="feature-list">
+                <li>Supports both <strong>Direct</strong> and <strong>Cross</strong> network cables.</li>
+                <li>Compatible with <strong>PoE+ (IEEE 802.3at)</strong> standard.</li>
+                <li>Supports Category 5E UTP cables. However, <strong>Category 6 STP</strong> cables are highly recommended for enhanced electromagnetic stability and performance.</li>
+            </ul>
+        </div>
+
+        <!-- 3.4 LED Status 상세화 -->
+        <div id="interface-led">
+            <h3>3.4 LED Status Summary</h3>
+            <p>The camera's real-time operating status can be monitored through the two LEDs located on the back panel.</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>LED Position</th>
+                            <th>Color / Behavior</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="3" class="text-center"><strong>Left LED (Link)</strong></td>
+                            <td>Off</td>
+                            <td>Power is disconnected or system is booting.</td>
+                        </tr>
+                        <tr>
+                            <td>Solid Red</td>
+                            <td>10Mb or 100Mb connection established.</td>
+                        </tr>
+                        <tr>
+                            <td>Solid Green</td>
+                            <td>Gigabit connection established.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="4" class="text-center"><strong>Right LED (Status)</strong></td>
+                            <td>Off</td>
+                            <td>Standby state (No active acquisition).</td>
+                        </tr>
+                        <tr>
+                            <td>Solid Red</td>
+                            <td>IP assignment failed or IP address conflict detected.</td>
+                        </tr>
+                        <tr>
+                            <td>Solid Green</td>
+                            <td>Ready state - Waiting for external/software trigger input.</td>
+                        </tr>
+                        <tr>
+                            <td>Flashing Green</td>
+                            <td>Active state - Image data is being acquired or transferred.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 3.5 I/O Circuit 추가 -->
+        <div id="interface-circuit">
+            <h3>3.5 External I/O Internal Circuit</h3>
+            <p>Understand the internal circuitry to ensure correct electrical wiring and avoid hardware damage.</p>
+            
+            <h4>Line 1 & Line 2 (Direct I/O)</h4>
+            <div class="visual-block">
+                <img src="images/circuit_direct.png" class="img-small" alt="Direct I/O Circuit Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <p style="color: #888; display: none;">[Direct I/O Circuit Diagram Placeholder]</p>
+                <p class="caption">Internal Circuit for Line 1 and Line 2 (TTL 3.3V)</p>
+            </div>
+
+            <h4>Line 3 & Line 4 (Opto-Isolated Input)</h4>
+            <div class="visual-block">
+                <img src="images/circuit_opto.png" class="img-medium" alt="Opto-Isolated Circuit Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <p style="color: #888; display: none;">[Opto-Isolated Circuit Diagram Placeholder]</p>
+                <p class="caption">Internal Circuit for Line 3 and Line 4 (Trigger Input)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Features -->
+     <!-- Section 4: Features (UPDATED 4.1 & 4.2) -->
+    <section id="functions">
+        <h2>4. Camera Features & Functions</h2>
+        
+        <div id="func-img">
+            <h3>4.1 Image Format Control</h3>
+            <p>Provides controls for output image size, position, pixel depth, and orientation.</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>Parameter</th><th>Value / Range</th><th>Description</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>Sensor Width / Height</th><td>1296 / 1032</td><td>Maximum pixel dimensions of the IMX990 sensor.</td></tr>
+                        <tr><th>Width / Height</th><td>8 to 1296 / 2 to 1032</td><td>Adjustable output resolution. Width must be a multiple of 8.</td></tr>
+                        <tr><th>Offset X / Offset Y</th><td>0 to 1288 / 0 to 1030</td><td>Horizontal and vertical starting point for ROI.</td></tr>
+                        <tr><th>Pixel Format</th><td>Mono8 / 10 / 12 / 10Packed / 12Packed</td><td>Selects the bit depth of the output data.</td></tr>
+                        <tr><th>Test Pattern</th><td>Grey Ramp / Color Bar / etc.</td><td>Internal patterns used for diagnostic purposes.</td></tr>
+                        <tr><th>Reverse X / Reverse Y</th><td>On / Off</td><td>Horizontal or Vertical mirror imaging.</td></tr>
+                        <tr><th>Decimation H / V</th><td>1, 2</td><td>Sub-sampling factor to reduce resolution and increase frame rate.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+<div id="func-img-size">
+                <h4>4.1.1 Image Size and Position (ROI)</h4>
+                <p>The Region of Interest (ROI) allows you to define a specific sub-area of the sensor for output. Reducing the image <strong>Height</strong> significantly increases the maximum possible frame rate.</p>
+
+                    <img src="images/roi_diagram.png" class="img-large" alt="ROI Configuration Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[ROI Concept & Offset Diagram Placeholder]</p>
+                    <p class="caption">Figure 4.1.1 Image Area and Offset Configuration</p>
+
+            </div>
+
+            <div id="func-img-decimation">
+                <h4>4.1.2 Decimation (Sub-sampling)</h4>
+                <p>Decimation reduces image resolution by skipping pixels (columns or rows) during sensor readout. </p>
+                <ul class="feature-list">
+                    <li><strong>Decimation Horizontal:</strong> Reduces image width (x1, x2). Reduces data bandwidth usage.</li>
+                    <li><strong>Decimation Vertical:</strong> Reduces image height (x1, x2). <strong>Increases the maximum frame rate.</strong></li>
+                </ul>
+
+                    <img src="images/decimation_concept.png" class="img-large" alt="Decimation Principle" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Decimation Skipping Logic Diagram Placeholder]</p>
+                    <p class="caption">Figure 4.1.2 Pixel Decimation Logic</p>
+
+            </div>
+
+            <div id="func-img-reverse">
+                <h4>4.1.3 Reverse X and Reverse Y (Mirroring)</h4>
+                <p>Flips the image data horizontally or vertically. This operation is performed on the camera side, saving PC processing resources.</p>
+
+                    <img src="images/reverse_example.png" class="img-large" alt="Image Reverse Examples" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Mirroring/Reverse Image Examples Placeholder]</p>
+                    <p class="caption">Figure 4.1.3 Reverse X (Horizontal) and Reverse Y (Vertical)</p>
+
+            </div>
+	  <div class="box note">
+                    <div class="note-icon">ℹ️</div>
+                    <div>
+                        <strong>Notes on Mirroring:</strong>
+                        <ul class="feature-list" style="margin: 0;">
+                            <li>The Reverse operation is processed during the sensor readout stage.</li>
+                            <li>Enabling Reverse X or Reverse Y does <strong>not</strong> affect the maximum frame rate or bandwidth.</li>
+                            <li>Ensure that your inspection software is calibrated to the mirrored coordinate system if this feature is enabled.</li>
+                        </ul>
+                    </div>
+             </div>
+
+                    <img src="images/reverse_note.png" class="img-large" alt="Image Reverse note" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Mirroring/Reverse Image Examples Placeholder]</p>
+
+            <div id="func-img-pixel">
+                <h4>4.1.4 Pixel Format</h4>
+                <p>Defines the bit depth and data alignment of the output pixels. Choose a format based on your inspection precision and network bandwidth requirements.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr><th>Format Name</th><th>Data Depth</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Mono8</strong></td><td>8-bit</td><td>Standard grayscale, lowest bandwidth.</td></tr>
+                            <tr><td><strong>Mono10 / Mono12</strong></td><td>10/12-bit</td><td>Higher precision (transmitted as 16-bit per pixel).</td></tr>
+                            <tr><td><strong>Mono10/12Packed</strong></td><td>10/12-bit</td><td>Compressed bit depth to optimize Gigabit Ethernet bandwidth.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+	<div class="visual-block">
+	<img src="images/pixel format.png" class="img-medium" alt="pixel format" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            </div>
+            <div id="func-img-test">
+                <h4>4.1.5 Test Pattern</h4>
+                <p>Generates internal digital patterns instead of sensor data. Useful for verifying the connection and software integration without a lens or light source.</p>
+                <ul class="feature-list">
+                    <li><strong>Off:</strong> Normal sensor output.</li>
+                    <li><strong>Grey Ramp:</strong> Gradually increasing grayscale values.</li>
+                    <li><strong>Static Pattern:</strong> Fixed diagnostic patterns.</li>
+                </ul>
+
+                    <img src="images/test_pattern_ui.png" class="img-medium" alt="SDK Test Pattern UI" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Test Pattern Output Screenshot Placeholder]</p>
+                    <p class="caption">Figure 4.1.5 Internal Diagnostic Test Patterns</p>
+
+            </div>
+        </div>
+
+<div id="func-acq">
+            <h3>4.2 Acquisition Control</h3>
+            <p>This function configures the image acquisition method from the camera.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Item</th>
+                            <th style="width: 20%;">Setting Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Acquisition Mode</strong></td>
+                            <td>Continuous<br>Single Frame<br>Multi Frame</td>
+                            <td>Acquires images from the 'Acquisition Start' command based on the following conditions:<br>
+                                - <strong>Continuous:</strong> Acquires continuously until an 'Acquisition Stop' command.<br>
+                                - <strong>Single Frame:</strong> Acquires exactly one image and stops.<br>
+                                - <strong>Multi Frame:</strong> Acquires a defined number of frames and stops automatically.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Acquisition Start</strong></td>
+                            <td>Execute</td>
+                            <td>Command to start image acquisition.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Acquisition Stop</strong></td>
+                            <td>Execute</td>
+                            <td>Command to terminate image acquisition.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Acquisition Frame Count</strong></td>
+                            <td>0 to 255</td>
+                            <td>Number of images to transmit in Burst mode from the start point. Only valid when mode is 'Multi Frame'.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="func-acq-single">
+                <h4>4.2.1 Single Frame</h4>
+                <p>Captures and transmits one image every time the 'Acquisition Start' command is issued. Since it automatically stops after one frame, a separate 'Acquisition Stop' command is not required.</p>
+                <div class="visual-block">
+                    <img src="images/single_frame_timing.png" class="img-large" alt="Single Frame Timing Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;"></p>
+                    <p class="caption">Figure 4.2.1 Timing Diagram of Single Frame Mode</p>
+                </div>
+                <ul class="feature-list">
+                    <li>If 'Trigger Mode' is 'On', exposure and transmission occur upon trigger input.</li>
+                    <li>If 'Trigger Mode' is 'Off', a new image can be acquired using only the 'Acquisition Start' command.</li>
+                </ul>
+            </div>
+
+            <div id="func-acq-multi">
+                <h4>4.2.2 Multi Frame</h4>
+                <p>Captures and transmits the specific number of images defined in 'Acquisition Frame Count' every time the 'Acquisition Start' command is issued. Acquisition stops automatically after the count is reached.</p>
+                <div class="visual-block">
+                    <img src="images/multi_frame_timing.png" class="img-large" alt="Multi Frame Timing Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;"></p>
+                    <p class="caption">Figure 4.2.2 Timing Diagram of Multi Frame Mode</p>
+                </div>
+            </div>
+
+            <div id="func-acq-cont">
+                <h4>4.2.3 Continuous</h4>
+                <p>Captures and transmits images periodically based on the cycle defined in 'Acquisition Frame Rate' from the point the 'Acquisition Start' command is issued. If 'Acquisition Stop' is called during grabbing, the camera completes the current readout/transmission before stopping.</p>
+                <div class="visual-block">
+                    <img src="images/continuous_timing.png" class="img-large" alt="Continuous Timing Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;"></p>
+                    <p class="caption">Figure 4.2.3 Timing Diagram of Continuous Mode</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="func-trig">
+            <h3>4.3 Trigger Mode Control</h3>
+            <p>Controls the timing of image acquisition and output. Acquisition can be synchronized via external signals (Trigger Mode = On) or internal signals (Trigger Mode = Off, Freerun Mode).</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Item</th>
+                            <th style="width: 20%;">Setting Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Trigger Mode</strong></td>
+                            <td>Off<br>On</td>
+                            <td>- <strong>Off:</strong> Freerun mode. Internal trigger signals are generated based on 'Acquisition Frame Rate'.<br>
+                                - <strong>On:</strong> Trigger mode. Exposure starts based on hardware (Line 1~4) or software trigger commands.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Resulting Frame Rate</strong></td>
+                            <td>(Read Only)</td>
+                            <td>Displays the frame rate when 'Trigger Mode' is set to 'Off'. It is determined by Image size, 'Acquisition Frame Rate', 'Exposure Time', 'Pixel Format', 'Decimation', etc.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trigger Source</strong></td>
+                            <td>Line 1 ~ 4<br>Software</td>
+                            <td>Selects the source for the trigger signal.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trigger Delay</strong></td>
+                            <td>0 to 57,868,838 (µs)</td>
+                            <td>Defines the delay time from trigger reception to the start of sensor exposure.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transfer Delay</strong></td>
+                            <td>0 to 57,868,838 (µs)</td>
+                            <td>Defines the delay time for image packet transmission after readout. Only valid when 'Low Latency Mode' is Off.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trigger Activation</strong></td>
+                            <td>Rising Edge (Read Only)</td>
+                            <td>Defines the phase reference for the internal trigger signal (Fixed to Rising Edge).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="func-trig-mode">
+                <h4>4.3.1 Trigger Mode</h4>
+                <p>When <strong>Trigger Mode is Off</strong>, the camera operates in Freerun mode, capturing images at the maximum possible frame rate defined by current settings. When <strong>Trigger Mode is On</strong>, exposure start or duration is determined by the input trigger signal.</p>
+    
+                    <!-- Timing Diagram of Freerun Mode -->
+                    <img src="images/freerun_timing.png" class="img-large" alt="Freerun Mode Timing Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Image: Timing Diagram of Freerun Mode]</p>
+                    <p class="caption">Figure 4.3.1 Timing Diagram of Freerun Mode</p>
+    
+    
+                    <!-- Timing Diagram of Trigger Signals -->
+                    <img src="images/trigger_timing.png" class="img-large" alt="Trigger Timing Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Image: Timing Diagram of Trigger Signals]</p>
+                    <p class="caption">Figure 4.3.2 Timing Diagram of Trigger Signals</p>
+    
+
+                <div class="table-container">
+                    <p><strong>* Hardware Delay (Opto-isolated Input)</strong></p>
+                    <table style="width: 50%; min-width: 300px;">
+                        <thead>
+                            <tr><th>Edge Type</th><th>Delay Time</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Rising Edge</td><td>4.5 µs</td></tr>
+                            <tr><td>Falling Edge</td><td>35 µs</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="func-trig-source">
+                <h4>4.3.2 Trigger Source</h4>
+                <p>Selects the source of the trigger signal. Both hardware signals and software commands are supported.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr><th>Source</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Software</strong></td><td>Internal trigger signal generated by the 'TriggerSoftware' command. (Valid only in Timed Mode)</td></tr>
+                            <tr><td><strong>Line 1</strong></td><td>Hardware trigger via Line 1 (Direct I/O, TTL 3.3V).</td></tr>
+                            <tr><td><strong>Line 2</strong></td><td>Hardware trigger via Line 2 (Direct I/O, TTL 3.3V).</td></tr>
+                            <tr><td><strong>Line 3</strong></td><td>Hardware trigger via Line 3 (Opto-isolated Input).</td></tr>
+                            <tr><td><strong>Line 4</strong></td><td>Hardware trigger via Line 4 (Opto-isolated Input).</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+<div class="box note">
+                    <div class="note-icon">ℹ️</div>
+                    <div>
+                        <strong>Manual Note:</strong>
+                        <ul class="feature-list" style="margin: 0;">
+                            <li>By setting the <strong>'Counter Selector'</strong> in the 'Counter And Timer Control' category to <strong>'Line Trigger'</strong>, the total number of valid triggers input to the camera is returned in <strong>'Counter Value'</strong>.</li>
+                            <li>The current counter can be updated using the <strong>'Counter Update Feature'</strong> parameter.</li>
+                            <li>This counter is initialized (reset) to 0 by the <strong>'Acquisition Start'</strong> command.</li>
+                            <li>When using 'Software' triggers, the 'Exposure Mode' must be set to 'Timed'.</li>
+                        </ul>
+                    </div>
+                </div>
+		<img src="images/counter.png" class="img-medium" alt="Trigger Delay Timing Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div id="func-trig-delay">
+                <h4>4.3.3 Trigger Delay</h4>
+                <p>This function defines a specific delay between the reception of a trigger signal and the actual start of the sensor's exposure. It is used to synchronize the camera with external components such as lighting or conveyors.</p>
+                <ul class="feature-list">
+                    <li>Important Note: If a new trigger signal is input while a trigger delay is already in progress, the current delay operation will continue and the subsequent new trigger will be <strong>ignored (Dismissed)</strong>.</li>
+                    <li>If the delay time exceeds the input trigger period, it will result in missing image captures and a decreased Frame Rate.</li>
+                </ul>
+             </div>
+
+            <!-- Detailed Transfer Delay Section updated from user image -->
+            <div id="func-trig-transfer">
+                <h4>4.3.4 Transfer Delay</h4>
+                <p>This function defines a delay time for initiating image packet transmission after the camera has finished internal image pre-processing. This is primarily used to balance and distribute the network bandwidth load when multiple cameras are transmitting data to a single host PC.</p>
+                <div class="box warning">
+                    <div>
+                        <strong>Manual Note:</strong> This feature is only configurable when the <strong>'Low Latency Mode Enable'</strong> parameter is set to <strong>'False'</strong>.
+                    </div>
+                </div>
+              <p>For more detailed timing information, please refer to Section <strong>4.16.1 Low Latency Mode</strong>.</p>
+            </div>
+        </div>
+
+      <div id="func-exp">
+            <h3>4.4 Exposure Control</h3>
+            <p>This section explains how to configure the sensor exposure time and control mode. Exposure can be managed using a fixed timer or the input trigger pulse width.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Item</th>
+                            <th style="width: 20%;">Setting Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Exposure Mode</strong></td>
+                            <td>Timed<br>Trigger Width</td>
+                            <td>- <strong>Timed:</strong> Exposure time is fixed by the 'Exposure Time' parameter.<br>
+                                - <strong>Trigger Width:</strong> Exposure time matches the active width of the trigger pulse.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exposure Time</strong></td>
+                            <td>13.1 to 1,000,000 (µs)</td>
+                            <td>Sets the specific exposure duration in Timed mode.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exposure Auto</strong></td>
+                            <td>Off<br>Once<br>Continuous</td>
+                            <td>Automatically adjusts 'Exposure Time' based on target image brightness.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="func-exp-mode">
+                <h4>4.4.1 Exposure Mode</h4>
+                <p>Selects the method used to control the duration of sensor integration.</p>
+                <ul class="feature-list">
+                    <li><strong>Timed:</strong> The trigger signal starts the exposure, and its duration is determined by the internal 'Exposure Time' setting.</li>
+                    <li><strong>Trigger Width:</strong> The sensor begins exposure at the trigger signal's rising edge and terminates it at the falling edge. This allows for variable exposure times controlled by external hardware.</li>
+                </ul>
+
+                    <img src="images/exposure_mode_timing.png" class="img-large" alt="Exposure Mode Timing Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Image: Timing Diagram of Timed vs Trigger Width Exposure]</p>
+                    <p class="caption">Figure 4.4.1 Comparison of Exposure Modes</p>
+
+            </div>
+
+            <div id="func-exp-time">
+                <h4>4.4.2 Exposure Time</h4>
+                <p>In Timed mode, this parameter directly sets the integration time in microseconds.</p>
+                <ul class="feature-list">
+                    <li><strong>Range:</strong> 13.1 µs to 1,000,000 µs (1 second).</li>
+                    <li><strong>Internal Delay:</strong> There is a fixed internal delay of <strong>3HD</strong> (Horizontal period) from trigger reception to exposure start.</li>
+                    <li><strong>Exposure Offset:</strong> An internal sensor offset of <strong>7.372 µs</strong> is applied to the actual exposure duration.</li>
+                </ul>
+            </div>
+
+<div id="func-exp-auto">
+                <h4>4.4.3 Exposure Auto</h4>
+                <p>This function automatically adjusts the ‘Exposure Time’ to maintain a constant desired brightness level. It is available when the ‘Exposure Mode’ is set to ‘Timed’. The ‘Exposure Time’ is adjusted only within the range defined between ‘Auto Exposure Time Lower Limit’ and ‘Auto Exposure Time Upper Limit’.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr><th>Item</th><th>Setting Value</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Exposure Auto</strong></td>
+                                <td>Off<br>Once<br>Continuous</td>
+                                <td>- <strong>Off:</strong> Sets the exposure time manually.<br>
+                                    - <strong>Once:</strong> Adjusts the exposure time once to achieve the target brightness.<br>
+                                    - <strong>Continuous:</strong> Continuously adjusts the exposure time to maintain target brightness.
+                                </td>
+                            </tr>
+                            <tr><td><strong>Auto Exposure Target</strong></td><td>0 to 255 (8-bit DN)</td><td>Sets the target brightness value desired by the user.</td></tr>
+                            <tr><td><strong>Auto Exposure Time Lower Limit</strong></td><td>(Unit: µs)</td><td>The minimum allowed exposure time for the variable shutter range.</td></tr>
+                            <tr><td><strong>Auto Exposure Time Upper Limit</strong></td><td>(Unit: µs)</td><td>The maximum allowed exposure time for the variable shutter range.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box note">
+                    <div class="note-icon">ℹ️</div>
+                    <div>
+                        <strong>Manual Note:</strong> Setting to 'Once' performs a one-time adjustment, while 'Continuous' maintains the target brightness in real-time.
+                    </div>
+                </div>
+                
+                <div class="box warning">
+                    <div class="note-icon">⚠️</div>
+                    <div>
+                        <strong>Precautions:</strong>
+                        <ul class="feature-list" style="margin: 0;">
+                            <li>If the Exposure Time is set too short, the output image may flicker depending on the frequency of the lighting source.</li>
+                            <li>If the 'Exposure Time' becomes longer than the frame period (1/FPS) to reach the target brightness, the frame rate may decrease.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="func-digital">
+            <h3>4.5 Digital I/O Control</h3>
+            <p>Configures the external input and output signals of the camera. The logical behavior and physical direction of each port can be defined through this section.</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Item</th>
+                            <th style="width: 20%;">Setting Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Line Selector</strong></td>
+                            <td>Line 1<br>Line 2<br>Line 3<br>Line 4</td>
+                            <td>Selects the specific I/O line to configure.<br>
+                                - <strong>Line 1, 2:</strong> Direct I/O ports.<br>
+                                - <strong>Line 3, 4:</strong> Opto-isolated Input ports.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Line Debouncer Time</strong></td>
+                            <td>0 to 882.995 (µs)</td>
+                            <td>Adjusts the debounce filter time. Refer to Section 4.5.1 for details.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Line Mode</strong></td>
+                            <td>Input<br>Output</td>
+                            <td>Defines the physical direction of the signal.<br>
+                                - Line 1, 2 support both <strong>Input/Output</strong>.<br>
+                                - Line 3, 4 support <strong>Input</strong> only.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Line Inverter</strong></td>
+                            <td>True<br>False</td>
+                            <td>- <strong>True:</strong> Inverts the logic phase of the selected input or output.<br>
+                                - <strong>False:</strong> Standard non-inverted logic.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Line Status</strong></td>
+                            <td>True<br>False (Read Only)</td>
+                            <td>Returns the current logical state of the selected line. <strong>True</strong> represents Logical High.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Line Source</strong></td>
+                            <td>Exposure Active<br>Timer Active<br>User Output 1</td>
+                            <td>Selects the signal source for the selected Output line.<br>
+                                - <strong>Exposure Active:</strong> Strobe signal active during integration.<br>
+                                - <strong>Timer Active:</strong> Pulse defined by internal Timer Duration.<br>
+                                - <strong>User Output 1:</strong> Manual output level defined by 'User Output Value'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>User Output Value</strong></td>
+                            <td>True<br>False</td>
+                            <td>Sets the manual output level when 'Line Source' is set to 'User Output 1'.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+	<img src="images/digital io control.png" class="img-large" alt="Diagram of Digital IO control" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Image: Diagram of Digital IO control]</p>
+                    <p class="caption">Figure 4.5 Diagram of Digital I/O control</p>
+	<div id="func-digital-debouncer">
+                <h4>4.5.1 Line Debouncer Time</h4>
+                <p>The debouncer is used to filter out noise or mechanical chattering from the input signals. A valid input state must persist for at least the configured 'Line Debouncer Time' before the camera recognizes it as a valid trigger. The internal trigger recognition is delayed exactly by the duration of the Debouncer Time.</p>
+             
+                    <img src="images/debouncer_timing.png" class="img-large" alt="Line Debouncer Timing Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Image: Timing Diagram of Line Debouncer]</p>
+                    <p class="caption">Figure 4.5.1 Noise Filtering Logic of Line Debouncer</p>
+            </div>
+
+<div id="func-timer">
+            <h3>4.6 Timer Control</h3>
+            <p>In Timer Control, you can configure the strobe signal outputted externally from the camera. Depending on the current 'Trigger Mode', different timing sources can be used to synchronize with external lighting or mechanical devices.</p>
+
+            <ul class="feature-list">
+                <li><strong>Trigger Mode = Off (Freerun):</strong> The Timer Flash signal generation timing can be selected as either <strong>'Exposure Start'</strong> or <strong>'Internal VD Start'</strong>. (Refer to Section 4.3.1 timing diagrams). Note that VD initialization occurs before the shutter operation, so a 'Timer Delay' might be necessary to perfectly synchronize with lighting.</li>
+                <li><strong>Trigger Mode = On:</strong> The generation point can be set to <strong>'Exposure Start'</strong> or <strong>'Acquisition Trigger'</strong> (the point when the trigger signal is detected/state transition). You can align the flash duration with the actual exposure window using 'Timer Delay'.</li>
+            </ul>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Item</th>
+                            <th style="width: 20%;">Setting Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Timer Duration</strong></td>
+                            <td>0 to 57,868,838 (µs)</td>
+                            <td>Defines the Pulse Width of the outputted Timer Flash signal. A setting of 0 effectively turns the output Off.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Timer Delay</strong></td>
+                            <td>0 to 57,868,838 (µs)</td>
+                            <td>Defines the generation delay time for the outputted Flash signal. A setting of 0 indicates no delay.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Timer Trigger Source</strong></td>
+                            <td>Exposure Start<br>Acquisition Trigger<br>Internal VD Start</td>
+                            <td>Selects the trigger point that initiates the Flash Timer:<br>
+                                - <strong>Exposure Start:</strong> Triggered when sensor integration begins.<br>
+                                - <strong>Acquisition Trigger:</strong> Triggered at the point of external trigger signal input.<br>
+                                - <strong>Internal VD Start:</strong> Triggered at the internal counter reset point during Freerun mode.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+<div id="func-counter">
+            <h3>4.7 Counter Control</h3>
+            <p>This function provides step-by-step counters to monitor the sequence of receiving triggers, performing exposures, and reading out images. It is particularly useful for verifying the reliability of camera operations against external trigger signals and checking for signal inputs that exceed camera specifications.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Item</th>
+                            <th style="width: 20%;">Setting Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Counter Selector</strong></td>
+                            <td>LineTrigger<br>ExposureStart<br>ExposureEnd<br>FrameEnd<br>ExposureOverTrigger<br>ReadoutOverTrigger</td>
+                            <td>Selects the specific event counter to monitor:<br>
+                                - <strong>LineTrigger:</strong> Total number of valid triggers received (Line 1~4 and Software).<br>
+                                - <strong>ExposureStart:</strong> Number of times actual exposure has started.<br>
+                                - <strong>ExposureEnd:</strong> Number of times actual exposure has completed.<br>
+                                - <strong>FrameEnd:</strong> Number of frames successfully readout from the sensor.<br>
+                                - <strong>ExposureOverTrigger:</strong> Number of triggers received while the sensor was already exposing.<br>
+                                - <strong>ReadoutOverTrigger:</strong> Number of times a new exposure completed while the previous frame was still being readout (Active only when Trigger Mask Enable is On).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Counter Value</strong></td>
+                            <td>(Read Only)</td>
+                            <td>Displays the current value of the selected counter. All counter values are reset to 0 upon the 'Acquisition Start' command.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="func-counter-overtrigger">
+                <h4>4.7.1 Exposure Over Trigger</h4>
+                <p>When the 'Exposure Mode' is set to 'Timed', any trigger signal received during an active exposure period is ignored. The 'ExposureOverTrigger' counter increments each time this event occurs, allowing users to diagnose timing conflicts in high-speed applications.</p>
+                
+                    <img src="images/overtrigger_timing.png" class="img-large" alt="Exposure Over Trigger Timing Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Image: Timing Diagram of Exposure Over Trigger]</p>
+                    <p class="caption">Figure 4.7.1 Timing Diagram of Exposure Over Trigger Event</p>
+                
+            </div>
+
+            <div id="func-counter-readout-overtrigger">
+                <h4>4.7.2 Readout Over Trigger</h4>
+                <p>When the 'Exposure Mode' is set to 'Trigger Width', if a new trigger signal is input faster than the minimum required cycle, a 'Readout Over Trigger' event occurs. In this case, a new frame begins readout while the previous frame is still being processed, which leads to outputting a <strong>corrupted image</strong>.</p>
+
+                    <img src="images/readout_overtrigger_timing.png" class="img-large" alt="Readout Over Trigger Timing Diagram" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <p style="color: #888; display: none;">[Image: Timing Diagram of Readout Over Trigger]</p>
+                    <p class="caption">Figure 4.7.2 Timing Diagram of Readout Over Trigger Event</p>
+
+                <div class="box note">
+                    <div class="note-icon">ℹ️</div>
+                    <div>
+                        <strong>Diagnostic Note:</strong> The CamGuide SDK typically displays images only when complete, intact packets are received. To diagnose image corruption or skipped frames caused by overtriggering, enable the <strong>'Device Missing Packet Display'</strong> option in the 'Device Option Control' category.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="func-transport">
+            <h3>4.8 Transport Layer Control</h3>
+            <ul class="feature-list">
+                <li><strong>Low Latency Mode:</strong> Packets are sent immediately after line readout (Minimum delay).</li>
+                <li><strong>Full Framed Mode:</strong> Packets are buffered until the whole frame is ready (Allows Transfer Delay).</li>
+                <li><strong>SCPS Packet Size:</strong> Optimized for network performance (Recommended: 7812 or higher).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 5: Dimensions -->
+    <section id="dimensions">
+        <h2>5. Appearance & Dimensions</h2>
+        <div class="visual-block">
+            <img src="images/dimension.png" class="img-large" alt="Outline Drawing">
+            <p class="caption">Mechanical Outline: 55 × 55 × 74 mm (79.49 mm including mount)</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Crevis Technology Co., Ltd. All rights reserved. <br>
+        Specifications and functions are subject to change without notice for quality improvement.
+    </footer>
+</div>
+
+</body>
+</html>
