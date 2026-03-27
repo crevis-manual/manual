@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG-A241M/K-FL Datasheet | Crevis</title>
+    <style>
+        /* --- 디자인 시스템 설정 --- */
+        :root {
+            --primary-color: #1a2a3a;
+            --accent-color: #e67e22;
+            --bg-light: #f4f7f9;
+            --sidebar-width: 260px;
+            --border-color: #e0e0e0;
+            --table-header: #f1f4f7;
+            
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            display: flex;
+            background-color: var(--bg-light);
+        }
+
+        /* 사이드바 네비게이션 */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--primary-color);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #fff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin: 15px 0;
+        }
+
+        .sidebar a {
+            color: #bdc3c7;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            color: #3498db;
+            transform: translateX(5px);
+        }
+
+        /* 메인 컨텐츠 영역 */
+        .content {
+            margin-left: var(--sidebar-width);
+            padding: 60px;
+            width: calc(100% - var(--sidebar-width));
+            max-width: 1200px;
+            background: white;
+            min-height: 100vh;
+            box-sizing: border-box;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+        }
+
+        /* 헤더 섹션 - 겹침 방지 레이아웃 */
+        .header-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 4px solid var(--primary-color);
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            gap: 40px;
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .header-visual-group {
+            flex: 0 0 280px; /* 이미지 영역 너비 고정 */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .header-logo {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            mix-blend-mode: multiply; /* 로고 배경 합성 */
+        }
+
+        .header-camera-main {
+            width: 100%;
+            max-width: 260px; /* 카메라 이미지 크기 최적화 */
+            height: auto;
+            mix-blend-mode: multiply; /* 투명 배경 색상 이질감 해결 */
+            display: block;
+        }
+
+        .category-label {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+            letter-spacing: 1.5px;
+        }
+
+        .model-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .model-subtitle {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin: 15px 0 0 0;
+        }
+
+        /* 섹션 공통 스타일 */
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            border-left: 6px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 70px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-top: 40px;
+            background: #f8f9fa;
+            padding: 12px 18px;
+            border-radius: 6px;
+        }
+
+        /* 주요 특징 그리드 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .feature-item strong {
+            display: block;
+            color: var(--primary-color);
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        /* 테이블 공통 디자인 */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 500px;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f4f7;
+            color: #2c3e50;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        tr:hover {
+            background-color: #fafafa;
+        }
+
+        .text-center { text-align: center; }
+
+        /* 인터페이스 사이드-바이-사이드 레이아웃 */
+        .interface-card {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin: 25px 0;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .interface-visual {
+            flex: 0 0 200px; /* 이미지 영역 고정 */
+            text-align: center;
+        }
+
+        .interface-visual img {
+            height: auto;
+            border: 1px solid #eee;
+            padding: 10px;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        .img-backpanel { max-width: 150px; }
+        .img-pinmap { max-width: 130px; }
+
+        .interface-table-wrapper {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* 광학 QE 그래프 그리드 */
+        .visual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .visual-block {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .visual-block img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* 외형 도면 블록 */
+        .dimension-block {
+            background: #fff;
+            border: 1px solid #d1d9e0;
+            border-radius: 12px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .dimension-block img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .caption {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* 정보 박스 */
+        .box {
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .note {
+            background-color: #e8f4fd;
+            border-left: 5px solid #3498db;
+        }
+
+        .note-icon {
+            margin-right: 20px;
+            font-size: 1.8rem;
+            color: #3498db;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 50px 0;
+            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+            color: #95a5a6;
+            text-align: center;
+        }
+
+        /* --- 반응형 최적화 (모바일/태블릿) --- */
+        @media screen and (max-width: 1024px) {
+            .sidebar { width: 60px; padding: 20px 10px; }
+            .sidebar h2, .sidebar li a span { display: none; }
+            .content { margin-left: 60px; width: calc(100% - 60px); padding: 40px; }
+        }
+
+        @media screen and (max-width: 900px) {
+            .header-box { flex-direction: column; align-items: center; text-align: center; gap: 30px; }
+            .header-visual-group { align-items: center; flex: 0 0 auto; width: 100%; }
+            .interface-card { flex-direction: column; padding: 20px; }
+            .interface-visual { flex: 0 0 auto; width: 100%; }
+            .visual-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            .sidebar { display: none; }
+            .content { margin-left: 0; padding: 20px; width: 100%; }
+            .interface-card, .visual-block, .dimension-block { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 사이드바 -->
+<nav class="sidebar">
+    <h2>MG-A241M/K-FL</h2>
+    <ul>
+        <li><a href="#overview"><span>1. Product Overview</span></a></li>
+        <li><a href="#features"><span>2. Key Features</span></a></li>
+        <li><a href="#optical"><span>3. Optical Response</span></a></li>
+        <li><a href="#mechanical"><span>4. Dimensions</span></a></li>
+        <li><a href="#interface"><span>5. Interface & Pin Map</span></a></li>
+        <li><a href="#specifications"><span>6. Specifications</span></a></li>
+        <li><a href="#warranty"><span>7. Warranty</span></a></li>
+    </ul>
+</nav>
+
+<!-- 메인 컨텐츠 -->
+<div class="content">
+    
+    <!-- 1. 헤더 (로고 및 사진 포함) -->
+    <header class="header-box">
+        <div class="header-text">
+            <p class="category-label">High Resolution GigE Vision Camera</p>
+            <h1 class="model-title">MG-A241M/K-FL</h1>
+            <p class="model-subtitle">Sony CMOS Pregius S IMX540 | 24.5 MP | Global Shutter</p>
+        </div>
+        
+        <div class="header-visual-group">
+            <!-- 크래비스 로고 -->
+            <img src="images/crevis_logo.jpg" class="header-logo" alt="Crevis Logo" onerror="this.style.display='none'">
+            <!-- 메인 제품 사진 -->
+            <img src="images/gige camera.png" class="header-camera-main" alt="MG-A241 Camera Photo" onerror="this.style.background='#eee'">
+        </div>
+    </header>
+
+    <!-- 2. 제품 개요 -->
+    <section id="overview">
+        <h2>1. Product Overview</h2>
+        <p>
+            The <strong>MG-A241M/K-FL</strong> represents the pinnacle of industrial imaging, featuring the renowned <strong>Sony® Pregius S IMX540</strong> global shutter sensor. 
+            By delivering a staggering 24.5 megapixel resolution through a Gigabit Ethernet interface, it provides the exceptional clarity and precision required for advanced semiconductor inspection, flat-panel display quality control, and large-scale battery manufacturing.
+        </p>
+    </section>
+
+    <!-- 3. 주요 특징 -->
+    <section id="features">
+        <h2>2. Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>Sony Pregius S Technology</strong>
+                Utilizes the 4th generation IMX540 sensor for back-illuminated pixel structures, ensuring higher sensitivity and lower noise.
+            </div>
+            <div class="feature-item">
+                <strong>GigE Vision Standard</strong>
+                Fully compliant with GigE Vision 1.2 and GenICam standards, allowing for seamless integration with universal software libraries.
+            </div>
+            <div class="feature-item">
+                <strong>Advanced PoE Capability</strong>
+                Simplifies deployment with Power over Ethernet, reducing cabling complexity while maintaining high data reliability.
+            </div>
+            <div class="feature-item">
+                <strong>Compact Industrial Design</strong>
+                A rugged 29x29x40mm housing ensures the camera can be integrated into space-critical machinery without sacrificing thermal performance.
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 광학 특성 -->
+    <section id="optical">
+        <h2>3. Optical Characteristics (QE)</h2>
+        <div class="visual-grid">
+            <div class="visual-block">
+                <img src="images/qe mono.png" alt="Mono Spectral Response" onerror="this.parentElement.innerHTML='<p>Mono QE Image Pending</p>'">
+                <p class="caption">Figure 1. Spectral Response - Mono Model (MG-A241M-FL)</p>
+            </div>
+            <div class="visual-block">
+                <img src="images/qe color.png" alt="Color Spectral Response" onerror="this.parentElement.innerHTML='<p>Color QE Image Pending</p>'">
+                <p class="caption">Figure 2. Spectral Response - Color Model (MG-A241K-FL)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 외형 도면 -->
+    <section id="mechanical">
+        <h2>4. Mechanical Dimensions</h2>
+        <div class="dimension-block">
+            <img src="images/dimension.png" alt="MG-A241 Mechanical Outline" onerror="this.parentElement.innerHTML='<p>Dimension Image Pending</p>'">
+            <p class="caption">Figure 3. Detailed Mechanical Outline (Unit: mm)</p>
+        </div>
+        <div class="box note">
+            <div class="note-icon">📏</div>
+            <div>
+                <strong>Mounting Guide:</strong>
+                C-Mount lens compatibility (Flange back: 17.526mm).
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 인터페이스 및 핀 맵 -->
+    <section id="interface">
+        <h2>5. Interface & Pin Map</h2>
+        
+        <h3>5.1 Back Panel Layout</h3>
+        <div class="interface-card">
+            <div class="interface-visual">
+                <img src="images/backpanel.png" class="img-backpanel" alt="Back Panel View" onerror="this.style.background='#f9f9f9'">
+                <p class="caption">Camera Back Panel</p>
+            </div>
+            <div class="interface-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;" class="text-center">NO.</th>
+                            <th style="width: 45%;">Name</th>
+                            <th>Remark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="text-center">1</td><td>Gigabit Ethernet Connector</td><td>RJ45 with PoE</td></tr>
+                        <tr><td class="text-center">2</td><td>Power & External I/O</td><td>6-Pin Hirose compatible</td></tr>
+                        <tr><td class="text-center">3, 4</td><td>Status LED Indicators</td><td>Link/Active Status</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3>5.2 6-Pin Circular Connector Pin Assignment</h3>
+        <div class="interface-card">
+            <div class="interface-visual">
+                <img src="images/6pin.png" class="img-pinmap" alt="6-Pin Assignment" onerror="this.style.background='#f9f9f9'">
+                <p class="caption">6-Pin Connector</p>
+            </div>
+            <div class="interface-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 12%;" class="text-center">No.</th>
+                            <th style="width: 28%;">Name</th>
+                            <th style="width: 15%;" class="text-center">I/O</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="text-center">1</td><td>DC VCC</td><td class="text-center">IN</td><td>+12V DC (±10%)</td></tr>
+                        <tr><td class="text-center">2</td><td>TRIGGER+</td><td class="text-center">IN</td><td>Opto-Isolated Input</td></tr>
+                        <tr><td class="text-center">3</td><td>STROBE-</td><td class="text-center">OUT</td><td>Common Ground (Out)</td></tr>
+                        <tr><td class="text-center">4</td><td>STROBE+</td><td class="text-center">OUT</td><td>Opto-Isolated Output</td></tr>
+                        <tr><td class="text-center">5</td><td>TRIGGER-</td><td class="text-center">IN</td><td>Common Ground (In)</td></tr>
+                        <tr><td class="text-center">6</td><td>DC GND</td><td class="text-center">IN</td><td>Power Ground</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 상세 사양 -->
+    <section id="specifications">
+        <h2>6. Specifications</h2>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Parameter</th>
+                        <th>MG-A241M-FL (Mono)</th>
+                        <th>MG-A241K-FL (Color)</th>
+                    </tr>
+                </thead>
+            <tbody>
+                <tr><th>Spectrum</th><td>MonoChrome</td><td>Color</td></tr>
+                <tr><th>Sensor Model</th><td colspan="2">Sony CMOS Pregius S IMX540</td></tr>
+                <tr><th>Sensor Size / Shutter</th><td colspan="2">1.2" / Global Shutter</td></tr>
+                <tr><th>Resolution</th><td colspan="2">5328 x 4608</td></tr>
+                <tr><th>Pixel Size</th><td colspan="2">2.74 µm x 2.74 µm</td></tr>
+                <tr><th>Frame Rate (at maximum resolution)</th><td colspan="2">4 fps</td></tr>
+                <tr><th>SNR</th><td>38 dB</td><td>39 dB</td></tr>
+                <tr><th>Scanning Method</th><td>Full / ROI / Reverse / Decimation / Binning</td><td>Full / ROI / Reverse / Decimation</td></tr>
+                <tr><th>Pixel Data Format</th><td>Mono 8/10/12, Mono 10/12 Packed</td><td>Bayer RG 8/10/12, YUV422 Packed</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.2 Camera Control & Functions</h3>
+        <table>
+            <tbody>
+                <tr><th style="width: 30%;">Synchronization</th><td colspan="2">Internal, External, Software trigger</td></tr>
+                <tr><th>Shutter Speed</th><td colspan="2">1 µs ~ 3 sec</td></tr>
+                <tr><th>Gain Control</th><td colspan="2">Analog/Digital : 0 ~ 24 dB</td></tr>
+                <tr><th>Black Level</th><td colspan="2">Analog/Digital : 0 ~ 4095 (12-bit)</td></tr>
+                <tr><th>Gamma / LUT</th><td colspan="2">Adjustable Gamma and 12-bit LUT</td></tr>
+                <tr><th>Functions</th><td colspan="2">GainAuto, ExposureAuto, Noise Reduction, Line Debouncer</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.3 Electrical & Environmental</h3>
+        <table>
+            <tbody>
+                <tr><th style="width: 30%;">Interface</th><td colspan="2">Ethernet 1000 Base-T (GigE Vision)</td></tr>
+                <tr><th>Power Supply</th><td colspan="2">12VDC ± 10% or PoE</td></tr>
+                <tr><th>Consumption</th><td colspan="2">DC : < 3.8 W / PoE : < 4.3 W</td></tr>
+                <tr><th>Dimension / Weight</th><td colspan="2">29 x 29 x 40 mm / Weight < 65 g</td></tr>
+                <tr><th>Operating Temp.</th><td colspan="2">0°C ~ +50°C (at housing)</td></tr>
+                <tr><th>Vibration / Shock</th><td colspan="2">10.0 G (98 m/s²) / 20.0 G (196 m/s²)</td></tr>
+                <tr><th>Standard</th><td colspan="2">CE, FCC, RoHS, WEEE, UL</td></tr>
+                <tr><th>IP rating</th><td colspan="2">IP30</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <!-- 8. 보증 -->
+    <section id="warranty">
+        <h2>7. Warranty</h2>
+        <div class="box note">
+            <div>
+                <strong>3-Year Premium Warranty:</strong> 
+                Crevis warrants that its products will be free from defects in materials and workmanship for a period of <strong>3 years</strong> from the date of shipment. 
+                Our commitment to quality ensures long-term reliability for your mission-critical applications.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Crevis Technology Co., Ltd. All rights reserved. <br>
+        Due to continuous product improvement, specifications are subject to change without notice.
+    </footer>
+</div>
+
+</body>
+</html>

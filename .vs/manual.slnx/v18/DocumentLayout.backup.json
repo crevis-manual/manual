@@ -38,7 +38,8 @@
               "RelativeToolTip": "manuals\\gige-strobe\\index.html",
               "ViewState": "AgIAAO8BAAAAAAAAAAAAABMCAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-03-27T02:40:35.62Z"
+              "WhenOpened": "2026-03-27T02:40:35.62Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -48,7 +49,7 @@
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\TS_jiwon\\source\\repos\\manual\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAHgAAAAAAAAAAADwv3cAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAADwv30AAACDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-03-27T02:25:39.658Z",
               "EditorCaption": ""
