@@ -2,11 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\manuals",
-    "\\manuals\\cameras",
-    "\\manuals\\cameras\\gige",
     "\\manuals\\framegrabber",
     "\\manuals\\framegrabber\\CFG-X1204"
   ],
-  "SelectedNode": "\\manuals\\framegrabber\\CFG-X1204",
+  "SelectedNode": "\\manuals\\framegrabber",
   "PreviewInSolutionExplorer": false
 }
