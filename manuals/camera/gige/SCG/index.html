@@ -114,13 +114,8 @@
             box-shadow: inset 0 0 0 1px rgba(239, 125, 34, 0.08);
         }
         h3::before {
-            content: "";
-            width: 8px;
-            height: 8px;
-            flex: 0 0 8px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-orange) 100%);
-            box-shadow: 0 0 0 5px rgba(20, 157, 151, 0.08);
+            content: none !important;
+            display: none !important;
         }
         .header-box {
             align-items: center;
@@ -1345,6 +1340,10 @@
                 grid-template-rows: auto;
             }
         }
+        h3::before {
+            content: none !important;
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -1453,10 +1452,8 @@
 <p>5) VGA : FHD지원(최소), UHD 지원 이상(권장)</p>
 <h3 id="1-2-sdk">1.2 SDK</h3>
 <ul class="feature-list">
-<li>크래비스 GigE 카메라를 사용하려면 크래비스에서 제공하는 SDK를 이용하여 영상을 받거나,</li>
+<li>크래비스 GigE 카메라를 사용하려면 크래비스에서 제공하는 SDK를 이용하여 영상을 받거나, GigE Vision을 지원하는 이미지 라이브러리(Cognex, HALCON, Euresys, CVB 등)를 사용하여 영상을 취득할 수 있습니다.</li>
 </ul>
-<p>GigE Vision을 지원하는 이미지 라이브러리(Cognex, HALCON, Euresys, CVB 등)를 사용하여</p>
-<p>영상을 취득할 수 있습니다.</p>
 <ul class="feature-list">
 <li>크래비스 SDK 다운로드 링크 : <a href="https://www.crevis.co.kr/kor/support/download/CamGuideCL.zip" target="_blank" rel="noopener">https://www.crevis.co.kr/kor/support/download/CamGuideCL.zip</a></li>
 </ul>
@@ -1491,23 +1488,20 @@
 </div>
 <h3 id="1-5-주의사항">1.5 주의사항</h3>
 <ul class="feature-list">
-<li>동작 온도 : 0℃ ~ +40℃</li>
+<li>동작 온도 : 0℃ ~ +40℃ : 주변 온도 변화에 따라 데이터 출력이 변할 수 있으므로 일정하게 온도를 유지하십시오.</li>
 </ul>
-<p>주변 온도 변화에 따라 데이터 출력이 변할 수 있으므로 일정하게 온도를 유지하십시오.</p>
 <ul class="feature-list">
 <li>이더넷 허브를 통해 두 개 이상의 카메라를 연결하면, 대역폭 문제가 발생할 수 있습니다.</li>
 <li>UDP 통신은 데이터 전송을 보장하지 않습니다.</li>
-<li>패킷 손실 등을 줄이기 위해 SDK 설치 시 제공되는 Installation Guide를 참고하여 카메라 및</li>
+<li>패킷 손실 등을 줄이기 위해 SDK 설치 시 제공되는 Installation Guide를 참고하여 카메라 및 네트워크 카드를 설정하십시오.</li>
 </ul>
-<p>네트워크 카드를 설정하십시오.</p>
 <ul class="feature-list">
 <li>필터드라이버를 사용하기 위해선, 관리자 권한으로 실행하십시오.</li>
 <li>CamGuide는 자동으로 관리자 권한으로 실행됩니다.</li>
-<li>큰 사이즈의 패킷 사이즈는 패킷 손실을 최소화 합니다. 다만 카메라의 패킷 사이즈가 네트워크</li>
+<li>큰 사이즈의 패킷 사이즈는 패킷 손실을 최소화 합니다. 다만 카메라의 패킷 사이즈가 네트워크 카드의 점보 프레임 또는 점보 패킷 사이즈 보다 낮아야 합니다.</li>
 </ul>
-<p>카드의 점보 프레임 또는 점보 패킷 사이즈 보다 낮아야 합니다.</p>
 <ul class="feature-list">
-<li># 권장 패킷 사이즈 = (Image_Width * n) + 36.</li>
+<li>권장 패킷 사이즈 = (Image_Width * n) + 36.</li>
 </ul>
 <p>(단, n은 패킷 사이즈가 점보 프레임을 초과하지 않는 범위의 값).</p>
 <p>Ex) 2048 * 1024 해상도의 이미지를 전송할 경우의 권장 패킷 사이즈 = (2048 * 8) + 36 = 8228.</p>
@@ -1545,8 +1539,7 @@
 <ul class="feature-list">
 <li>자기장 및 전기장</li>
 </ul>
-<p>입출력신호가 강한 자기장 및 전기장에 노출되면 신호의 왜곡을 일으킬 수 있으므로 주의하셔야</p>
-<p>합니다.</p>
+<p>입출력신호가 강한 자기장 및 전기장에 노출되면 신호의 왜곡을 일으킬 수 있으므로 주의하셔야 합니다.</p>
 <ul class="feature-list">
 <li>환기</li>
 </ul>
@@ -2644,8 +2637,7 @@
 <img src="images/pdf-extracted/page17_01_xref119.png" alt="ROI diagram" class="img-full">
 </figure>
 </div>
-<p class="inline-note-title note">※ 참고 사항</p>
-<p>ROI 로 인해 변경된 Frame Rate 은 &#x27;Resulting Frame Rate&#x27; 파라미터를 통해 확인할 수 있습니다.</p>
+<p class="inline-note-title note">참고 사항 : ROI 로 인해 변경된 Frame Rate 은 &#x27;Resulting Frame Rate&#x27; 파라미터를 통해 확인할 수 있습니다.</p>
 <h3 id="4-1-2-decimation-horizontal-vertical">4.1.2 Decimation Horizontal / Vertical</h3>
 <p>이미지 센서에서 수직 또는 수평 방향으로 1-Pixel 씩 건너뛰며 읽어내는 기능입니다. 이미지의 해상도는 절반으로 줄어드는 반면 Frame Rate 는 증가합니다. Color 모델의 경우, 네 개의 컬러 채널을 모두 표현하기 위해 2-Pixel 단위로 건너뛰게 됩니다.</p>
 <div class="decimation-grid">
@@ -2653,13 +2645,11 @@
 <figure class="image-card decimation-card"><img src="images/pdf-extracted/page18_02_decimation_h1_v2_padded.png" alt="Decimation Hor. = 1x / Vert. = 2x" class="img-full"></figure>
 <figure class="image-card decimation-card"><img src="images/pdf-extracted/page18_03_decimation_h2_v1_clean.png" alt="Decimation Hor. = 2x / Vert. = 1x" class="img-full"></figure>
 </div>
-<p class="inline-note-title note">※ 참고 사항</p>
-<p>Decimation 으로 인해 변경된 Frame Rate 은 &#x27;Resulting Frame Rate&#x27; 파라미터를 통해 확인할 수 있습니다.</p>
+<p class="inline-note-title note"> 참고 사항 : Decimation 으로 인해 변경된 Frame Rate 은 &#x27;Resulting Frame Rate&#x27; 파라미터를 통해 확인할 수 있습니다.</p>
 <h3 id="4-1-3-binning-horizontal-vertical-mg-a160m-72-모델에-한함">4.1.3 Binning Horizontal / Vertical (MG-A160M-72 모델에 한함)</h3>
 <p>이미지 센서에서 수직 또는 수평 방향으로 인접한 픽셀끼리 누적한 다음 차례로 읽어내는 기능입니다.</p>
 <p>Decimation 과 동일한 해상도를 갖는 반면, Binning 은 영상 신호가 더해지기 때문에 감도 또한 약 두배 가량 상승하게 됩니다.</p>
-<p class="inline-note-title note">※ 참고 사항</p>
-<p>Binning 으로 인해 변경된 Frame Rate 은 &#x27;Resulting Frame Rate&#x27; 파라미터를 통해 확인할 수 있습니다.</p>
+<p class="inline-note-title note"> 참고 사항 : Binning 으로 인해 변경된 Frame Rate 은 &#x27;Resulting Frame Rate&#x27; 파라미터를 통해 확인할 수 있습니다.</p>
 <h3 id="4-1-4-reverse-x-y">4.1.4 Reverse X, Y</h3>
 <p>영상의 좌/우 또는 상/하를 반전하여 출력하는 기능입니다. Color 모델의 경우 &#x27;Reverse Mode&#x27; 따라 &#x27;Bayer Pixel Order&#x27;도 함께 바뀐 상태로 이미지가 출력 됩니다.</p>
 <p>1) Reverse X 모드를 True 로 설정시, 영상의 좌/우가 반전됩니다. (Bayer RG → Bayer GR)</p>
@@ -2670,7 +2660,7 @@
 <figure class="reverse-card"><img src="images/pdf-extracted/page19_07_xref134.png" alt="Reverse X = False, Reverse Y = True"><figcaption class="caption">Reverse X = False, Reverse Y = True<br>(Bayer GB)</figcaption></figure>
 <figure class="reverse-card"><img src="images/pdf-extracted/page19_08_xref135.png" alt="Reverse X = True, Reverse Y = True"><figcaption class="caption">Reverse X = True, Reverse Y = True<br>(Bayer BG)</figcaption></figure>
 </div>
-<p class="inline-note-title warning">※ 유의사항</p>
+<p class="inline-note-title warning"> 유의사항</p>
 <p>1) &#x27;Reverse Y&#x27; 선택 시 Defect Filter 사용이 제한되기 때문에 불량 화소가 나타날 수 있습니다. 이로 인해 노출된 불량화소는 &#x27;Defect Pixel Correction&#x27; 카테고리에서 제거할 수 있습니다. (&#x27;Defect Pixel Correction&#x27;절 참고)</p>
 <p>2) ROI 와 Reverse 가 동시에 사용될 경우, 반전된 이미지로부터 ROI 기능이 적용됩니다. 아래 그림과 같이 Reverse 가 활성화 될 경우 Image 의 시작 좌표인 (0,0) Pixel 의 위치가 반전됩니다. 이 때문에 Reverse 적용 이전과 동일한 영역을 촬상하기 위해선 Total Size - ROI Size 만큼의 Image Offset 이 필요합니다.</p>
 <div class="reverse-grid reverse-grid-four">
