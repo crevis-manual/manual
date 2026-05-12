@@ -284,12 +284,6 @@
 
             display: inline-flex;
 
-            align-items: center;
-
-            gap: 10px;
-
-            flex-wrap: wrap;
-
             margin-left: 18px;
 
             position: static;
@@ -349,140 +343,6 @@
             color: #fff;
 
             box-shadow: 0 6px 14px rgba(20, 157, 151, 0.22);
-
-        }
-
-        .manual-search {
-
-            position: relative;
-
-            width: min(240px, 34vw);
-
-            min-width: 160px;
-
-        }
-
-        .manual-search::before {
-
-            content: "";
-
-            position: absolute;
-
-            left: 14px;
-
-            top: 50%;
-
-            width: 10px;
-
-            height: 10px;
-
-            border: 1.8px solid #5f6b77;
-
-            border-radius: 50%;
-
-            transform: translateY(-58%);
-
-            pointer-events: none;
-
-        }
-
-        .manual-search::after {
-
-            content: "";
-
-            position: absolute;
-
-            left: 24px;
-
-            top: 23px;
-
-            width: 7px;
-
-            height: 1.8px;
-
-            border-radius: 999px;
-
-            background: #5f6b77;
-
-            transform: rotate(45deg);
-
-            pointer-events: none;
-
-        }
-
-        .manual-search input {
-
-            width: 100%;
-
-            height: 38px;
-
-            padding: 0 42px 0 38px;
-
-            border: 1px solid var(--brand-line);
-
-            border-radius: 999px;
-
-            background: rgba(255, 255, 255, 0.9);
-
-            color: var(--brand-ink);
-
-            font: inherit;
-
-            font-size: 0.9rem;
-
-            outline: 0;
-
-            box-sizing: border-box;
-
-        }
-
-        .manual-search input:focus {
-
-            border-color: rgba(20, 157, 151, 0.55);
-
-            box-shadow: 0 0 0 4px rgba(20, 157, 151, 0.12);
-
-        }
-
-        .search-key {
-
-            position: absolute;
-
-            right: 11px;
-
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            color: #5f6b77;
-
-            font-size: 0.72rem;
-
-            line-height: 1;
-
-            padding: 3px 6px;
-
-            border: 1px solid #d3e2e4;
-
-            border-radius: 6px;
-
-            background: #fff;
-
-            pointer-events: none;
-
-        }
-
-        .search-match {
-
-            background: #fff2a8;
-
-            color: #102a38;
-
-            border-radius: 3px;
-
-            padding: 0 2px;
-
-            box-shadow: 0 0 0 2px rgba(255, 213, 79, 0.35);
 
         }
 
@@ -2750,12 +2610,6 @@
 
             }
 
-            .manual-search {
-
-                width: min(100%, 280px);
-
-            }
-
             .header-visual-group {
 
                 position: relative;
@@ -3043,10 +2897,6 @@
                             <a href="index.html?lang=ko">KOR</a>
                             <a class="active" href="index_en.html">ENG</a>
                         </div>
-                        <label class="manual-search" aria-label="Search this manual">
-                            <input id="manualSearchInput" type="search" placeholder="Search" autocomplete="off">
-                            <span class="search-key">K</span>
-                        </label>
                     </div>
                 </div>
                 <p class="model-subtitle">Sony CMOS GigE Camera User Manual</p>
@@ -8676,133 +8526,7 @@
         }
 
 
-        function setupManualSearch() {
-
-            const searchInput = document.getElementById('manualSearchInput');
-
-            const searchRoot = document.querySelector('.content');
-
-            if (!searchInput || !searchRoot) return;
-
-
-            const normalize = (text) => text.replace(/\s+/g, ' ').trim();
-
-            const clearSearch = () => {
-
-                searchRoot.querySelectorAll('mark.search-match').forEach((mark) => {
-
-                    mark.replaceWith(document.createTextNode(mark.textContent));
-
-                });
-
-                searchRoot.normalize();
-
-            };
-
-            const runSearch = () => {
-
-                clearSearch();
-
-                const query = normalize(searchInput.value);
-
-                if (!query) return;
-
-
-                const queryLower = query.toLowerCase();
-
-                const walker = document.createTreeWalker(
-
-                    searchRoot,
-
-                    NodeFilter.SHOW_TEXT,
-
-                    {
-
-                        acceptNode(node) {
-
-                            const parent = node.parentElement;
-
-                            if (!parent || ['SCRIPT', 'STYLE', 'MARK'].includes(parent.tagName)) {
-
-                                return NodeFilter.FILTER_REJECT;
-
-                            }
-
-                            return node.nodeValue.toLowerCase().includes(queryLower)
-
-                                ? NodeFilter.FILTER_ACCEPT
-
-                                : NodeFilter.FILTER_REJECT;
-
-                        }
-
-                    }
-
-                );
-
-
-                const matchNode = walker.nextNode();
-
-                if (!matchNode) return;
-
-
-                const text = matchNode.nodeValue;
-
-                const index = text.toLowerCase().indexOf(queryLower);
-
-                const range = document.createRange();
-
-                range.setStart(matchNode, index);
-
-                range.setEnd(matchNode, index + query.length);
-
-                const mark = document.createElement('mark');
-
-                mark.className = 'search-match';
-
-                range.surroundContents(mark);
-
-                mark.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            };
-
-
-            let searchTimer = 0;
-
-            searchInput.addEventListener('input', () => {
-
-                window.clearTimeout(searchTimer);
-
-                searchTimer = window.setTimeout(runSearch, 180);
-
-            });
-
-            searchInput.addEventListener('keydown', (event) => {
-
-                if (event.key === 'Enter') {
-
-                    event.preventDefault();
-
-                    runSearch();
-
-                }
-
-                if (event.key === 'Escape') {
-
-                    searchInput.value = '';
-
-                    clearSearch();
-
-                }
-
-            });
-
-        }
-
-
         buildScgSpecModelList();
-
-        setupManualSearch();
 
     </script>
 </body>
