@@ -6,7 +6,164 @@
 
 /* SCU wrapping polish */
 .content p,.content li,.content td,.content th,.sidebar a,.page-outline a{word-break:keep-all;overflow-wrap:break-word;hyphens:auto;text-wrap:pretty}.spec-model-card table{table-layout:fixed}.spec-model-card th,.spec-model-card td{white-space:normal;line-height:1.65;word-break:keep-all;overflow-wrap:break-word}.spec-model-card th{width:30%}.spec-model-card td{width:70%}.spec-model-card h4{word-break:keep-all;overflow-wrap:break-word}@media(max-width:860px){.content a,.content td,.content th,.sidebar a{overflow-wrap:break-word;word-break:keep-all}.spec-model-card th,.spec-model-card td{width:100%;box-sizing:border-box}.manual-search input{font-size:.86rem}}
-</style></head><body><header class="manual-topbar"><div class="topbar-title">CREVIS Camera Manual</div><div class="topbar-actions"><nav class="topbar-language" aria-label="Manual language selector"><a href="index.html">KOR</a><a class="active" href="index_en.html">ENG</a></nav><label class="manual-search" aria-label="Search this manual"><input id="manualSearchInput" type="search" placeholder="Search" autocomplete="off"><span class="search-key">K</span></label></div></header><nav class="sidebar"><div class="sidebar-logo" aria-label="CREVIS">CREVIS</div><div class="eyebrow">USB3Vision User Manual</div><h2>SCU</h2><div class="rev">Version 1.1<br>Release Date: 2021. 03. 17</div><a class="back-link" href="../../../../index.html"><span>← Manual Center</span></a><ul class="toc"><li><a href="#1"><span>1. Preparation</span></a></li><li class="toc-sub"><a href="#1-1-pc"><span>1.1 PC Minimum/Recommended Specifications</span></a></li><li class="toc-sub"><a href="#1-2-sdk"><span>1.2 SDK</span></a></li><li class="toc-sub"><a href="#1-3"><span>1.3 Cable</span></a></li><li class="toc-sub"><a href="#1-4"><span>1.4 Precautions</span></a></li><li><a href="#2"><span>2. Product Specifications</span></a></li><li class="toc-sub"><a href="#2-1"><span>2.1 Product Overview</span></a></li><li class="toc-sub"><a href="#2-2"><span>2.2 Key Specifications</span></a></li><li class="toc-sub"><a href="#2-3-spectral-response"><span>2.3 Spectral Response</span></a></li><li><a href="#3"><span>3. Camera Interface</span></a></li><li class="toc-sub"><a href="#3-1-back-panel"><span>3.1 Back Panel</span></a></li><li class="toc-sub"><a href="#3-2-dc-in-and-external-i-o-pin-map"><span>3.2 Camera DC IN &amp; External I/O Pin Map</span></a></li><li class="toc-sub"><a href="#3-3-usb3-1-gen-1-micro-b-type-connector"><span>3.3 USB3.1 Gen.1 Micro-B Type Connector</span></a></li><li class="toc-sub"><a href="#3-4-led-status"><span>3.4 LED status</span></a></li><li class="toc-sub"><a href="#3-5-external-i-o"><span>3.5 External I/O Internal Circuit</span></a></li><li><a href="#4"><span>4. Camera Features</span></a></li><li class="toc-sub"><a href="#4-1-device-control"><span>4.1 Device Control</span></a></li><li class="toc-sub"><a href="#4-1-1-device-link-througput-limit"><span>4.1.1 Device Link Througput Limit</span></a></li><li class="toc-sub"><a href="#4-1-2-device-temperature"><span>4.1.2 Device Temperature</span></a></li><li class="toc-sub"><a href="#4-1-3-device-temperature-state"><span>4.1.3 Device Temperature State</span></a></li><li class="toc-sub"><a href="#4-1-4-device-reset"><span>4.1.4 Device Reset</span></a></li><li class="toc-sub"><a href="#4-1-5-device-sleep-mode"><span>4.1.5 Device Sleep Mode</span></a></li><li class="toc-sub"><a href="#4-2-image-format-control"><span>4.2 Image Format Control</span></a></li><li class="toc-sub"><a href="#4-2-1-roi-region-of-interest"><span>4.2.1 ROI (Region Of Interest)</span></a></li><li class="toc-sub"><a href="#4-2-2-decimation-horizontal-vertical"><span>4.2.2 Decimation Horizontal / Vertical</span></a></li><li class="toc-sub"><a href="#4-2-3-binning-horizontal-vertical-mu-a160m-226-mu-a320m-118"><span>4.2.3 Binning Horizontal / Vertical (MU-A160M-226 and MU-A320M-118 models only)</span></a></li><li class="toc-sub"><a href="#4-2-4-reverse-x-y"><span>4.2.4 Reverse X, Y</span></a></li><li class="toc-sub"><a href="#4-2-5-pixel-format"><span>4.2.5 Pixel Format</span></a></li><li class="toc-sub"><a href="#4-2-6-test-pattern"><span>4.2.6 Test Pattern</span></a></li><li class="toc-sub"><a href="#4-3-acquisition-control"><span>4.3 Acquisition Control</span></a></li><li class="toc-sub"><a href="#4-4-trigger-mode-control"><span>4.4 Trigger Mode Control</span></a></li><li class="toc-sub"><a href="#4-4-1-trigger-mode"><span>4.4.1 Trigger Mode</span></a></li><li class="toc-sub"><a href="#4-4-2-trigger-source"><span>4.4.2 Trigger Source</span></a></li><li class="toc-sub"><a href="#4-4-3-trigger-delay"><span>4.4.3 Trigger Delay</span></a></li><li class="toc-sub"><a href="#4-4-4-transfer-delay"><span>4.4.4 Transfer Delay</span></a></li><li class="toc-sub"><a href="#4-5-exposure-control"><span>4.5 Exposure Control</span></a></li><li class="toc-sub"><a href="#4-5-1-exposure-mode"><span>4.5.1 Exposure mode</span></a></li><li class="toc-sub"><a href="#4-5-2-exposure-time"><span>4.5.2 Exposure Time</span></a></li><li class="toc-sub"><a href="#4-4-3-sensor-shutter-mode-mu-a121r-l-31-mu-a201r-l-18"><span>4.4.3 Sensor Shutter Mode (MU-A121R/L-31 and MU-A201R/L-18 models only)</span></a></li><li class="toc-sub"><a href="#4-5-4-exposure-auto"><span>4.5.4 Exposure Auto</span></a></li><li class="toc-sub"><a href="#4-6-digital-i-o-control"><span>4.6 Digital I/O Control</span></a></li><li class="toc-sub"><a href="#4-6-1-line-debouncer"><span>4.6.1 Line Debouncer</span></a></li><li class="toc-sub"><a href="#4-7-timer-control"><span>4.7 Timer Control</span></a></li><li class="toc-sub"><a href="#4-5-exposure-control-trigger"><span>As mentioned in ‘Exposure Control’ in Section 4.5, the trigger signal input to the camera and the actual signal to the image sensor</span></a></li><li class="toc-sub"><a href="#4-8-counter-control"><span>4.8 Counter Control</span></a></li><li class="toc-sub"><a href="#4-9-chunk-data-control"><span>4.9 Chunk Data Control</span></a></li><li class="toc-sub"><a href="#4-10-event-control"><span>4.10 Event Control</span></a></li><li class="toc-sub"><a href="#4-11-analog-control"><span>4.11 Analog Control</span></a></li><li class="toc-sub"><a href="#4-11-1-gain-gain-auto"><span>4.11.1 Gain, Gain Auto</span></a></li><li class="toc-sub"><a href="#4-11-2-black-level"><span>4.11.2 Black Level</span></a></li><li class="toc-sub"><a href="#4-11-3-gamma"><span>4.11.3 Gamma</span></a></li><li class="toc-sub"><a href="#4-11-4-pattern-noise-removal-mu-a121r-l-31-mu-a201r-l-18"><span>4.11.4 Pattern Noise Removal (MU-A121R/L-31 and MU-A201R/L-18 models only)</span></a></li><li class="toc-sub"><a href="#4-11-5-noise-reduction-filter"><span>4.11.5 Noise Reduction Filter</span></a></li><li class="toc-sub"><a href="#4-12-balance-ratio-control"><span>4.12 Balance Ratio Control</span></a></li><li class="toc-sub"><a href="#4-13-user-set-control"><span>4.13 User Set Control</span></a></li><li class="toc-sub"><a href="#4-14-lut-control"><span>4.14 LUT Control</span></a></li><li class="toc-sub"><a href="#4-15-defect-pixel-correction"><span>4.15 Defect Pixel Correction</span></a></li><li class="toc-sub"><a href="#4-16-low-latency-mode"><span>4.16 Low-Latency Mode</span></a></li><li class="toc-sub"><a href="#4-17-color-transformation-control"><span>4.17 Color Transformation Control</span></a></li><li class="toc-sub"><a href="#4-18-device-temperature-state"><span>4.18 Device Temperature State</span></a></li><li><a href="#5"><span>5. Camera Appearance</span></a></li><li><a href="#1-sdk"><span>1. SDK Installation</span></a></li><li class="toc-sub"><a href="#2-1-camguide"><span>2.1 Run CamGuide</span></a></li><li class="toc-sub"><a href="#2-2-select-and-connect-camera"><span>2.2 Select and Connect Camera: Double-click the camera you want to set up.</span></a></li><li class="toc-sub"><a href="#2-3"><span>2.3 Camera Settings</span></a></li><li><a href="#revision-history"><span>Revision History</span></a></li></ul></nav><aside class="page-outline" aria-label="On this page"><p class="page-outline-title">On this page</p><div id="pageOutlineLinks"></div></aside><div class="content"><header class="header-box"><div class="header-text"><p class="category-label">USB3Vision Camera Manual</p><div class="title-row"><h1 class="model-title">SCU Product Manual</h1><div class="header-topbar"><div class="language-switch" aria-label="Manual language selector"><a href="index.html">KOR</a><a class="active" href="index_en.html">ENG</a></div></div></div><p class="model-subtitle">Sony CMOS Sensor USB3Vision Camera USER MANUAL</p></div><div class="header-visual-group"><img src="images/crevis_logo.jpg" class="header-logo" alt="Crevis Logo"><img src="images/pdf-extracted/page46_01.png" class="header-camera-main" alt="USB3Vision camera visual"></div></header><section id="1">
+
+/* SCU comfort design pass */
+:root{--scu-ink:#1f3347;--scu-text:#3f4f61;--scu-blue:#2d6fb7;--scu-blue-strong:#145ca8;--scu-blue-soft:#eaf3fc;--scu-cyan:#4aa4b3;--scu-orange:#d9783b;--scu-paper:#fbfcfe;--scu-panel:#f4f8fc;--scu-line:#d7e3ef}
+body{background:linear-gradient(180deg,#f6f9fc 0%,#fff 34%,#f8fbfd 100%);color:var(--scu-text)}
+.manual-topbar{background:rgba(251,253,255,.96);border-bottom:1px solid var(--scu-line);box-shadow:0 10px 28px rgba(31,51,71,.08)}
+.manual-topbar:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:linear-gradient(90deg,var(--scu-blue-strong),var(--scu-cyan),var(--scu-orange))}
+.topbar-title{color:var(--scu-ink)}
+.topbar-language{background:#eef5fb;border-color:#d8e5f1}
+.topbar-language a{color:#5f7081}
+.topbar-language a.active{background:var(--scu-blue-strong);color:#fff;box-shadow:0 5px 14px rgba(20,92,168,.22)}
+.manual-search input{background:#fff;border-color:#d8e5f1;box-shadow:0 6px 18px rgba(31,51,71,.06)}
+.sidebar{background:linear-gradient(180deg,#f7fbff 0%,#eef6fc 58%,#e8f3f8 100%);border-right:1px solid var(--scu-line);box-shadow:10px 0 28px rgba(31,51,71,.07)}
+.sidebar-logo{color:var(--scu-blue);text-shadow:none}
+.sidebar .eyebrow{background:#fff;color:var(--scu-blue);border:1px solid #d9e8f5;border-left:4px solid var(--scu-orange);box-shadow:0 6px 16px rgba(45,111,183,.06)}
+.sidebar h2{color:var(--scu-ink)}
+.sidebar .rev{color:#637486}
+.sidebar .back-link{border-color:#b8d0e9;color:var(--scu-blue);background:#fff}
+.sidebar .back-link:hover{background:#f4f9fe}
+.sidebar .toc>li>a{color:#23384d;background:linear-gradient(90deg,rgba(255,255,255,.78),rgba(255,255,255,.35))}
+.sidebar .toc-sub{border-left-color:#c8ddeb}
+.sidebar .toc-sub a{color:#51677b}
+.sidebar .toc span{display:inline}
+.sidebar a.is-active,.sidebar .toc>li>a:hover,.sidebar .toc-sub a:hover{background:linear-gradient(90deg,#fff,#eef6fc);color:var(--scu-blue-strong)!important;border-left-color:var(--scu-orange)!important;box-shadow:0 6px 16px rgba(45,111,183,.1)}
+.content{background:linear-gradient(180deg,#f8fbfd 0%,#fff 14%,#f8fbfd 100%);padding-top:116px}
+.content:before{display:inline-flex;align-items:center;padding:8px 12px;border:1px solid var(--scu-line);border-radius:999px;background:#fff;color:#5c6f82;box-shadow:0 8px 20px rgba(31,51,71,.05)}
+.header-box{position:relative;overflow:hidden;margin-bottom:54px;padding:34px 34px 38px;border:1px solid #c8daeb;border-radius:14px;background:linear-gradient(135deg,rgba(45,111,183,.11),rgba(74,164,179,.075) 46%,rgba(217,120,59,.06)),repeating-linear-gradient(135deg,rgba(45,111,183,.055) 0 1px,transparent 1px 18px),#fff;box-shadow:0 18px 46px rgba(31,51,71,.1)}
+.header-box:after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--scu-blue-strong),var(--scu-cyan),var(--scu-orange))}
+.content .category-label{display:inline-flex;padding:7px 12px;border:1px solid rgba(20,92,168,.18);border-radius:999px;background:linear-gradient(90deg,var(--scu-blue-strong),var(--scu-blue));color:#fff;font-weight:760;box-shadow:0 7px 16px rgba(20,92,168,.16)}
+.model-title{font-size:clamp(2.15rem,3.3vw,3.1rem);font-weight:800;color:var(--scu-ink)}
+.model-title:after{width:58px;height:5px;background:linear-gradient(90deg,var(--scu-blue-strong),var(--scu-cyan),var(--scu-orange))}
+.model-subtitle{font-size:1.05rem;color:#5a6d80}
+.header-visual-group{border:1px solid var(--scu-line);border-radius:12px;background:linear-gradient(180deg,#fff,#f2f7fb);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 14px 30px rgba(31,51,71,.07)}
+.header-camera-main{filter:drop-shadow(0 13px 20px rgba(31,51,71,.13))}
+.header-visual-group{border:0;background:radial-gradient(ellipse at center,rgba(255,255,255,.96) 0%,rgba(232,241,248,.62) 48%,rgba(255,255,255,0) 74%);box-shadow:none;padding:18px clamp(16px,4vw,48px)}
+.header-camera-main{width:min(640px,100%);max-height:300px;filter:drop-shadow(0 24px 26px rgba(23,35,49,.24));mix-blend-mode:normal}
+.content>section{position:relative;margin:0 0 54px;padding:0 0 12px;border-bottom:1px solid #e1eaf3}
+.content>section:before{content:"";position:absolute;left:0;top:-16px;width:100%;height:1px;background:linear-gradient(90deg,rgba(45,111,183,.18),rgba(74,164,179,.12),transparent)}
+.content>section>h2{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding:13px 17px;border:1px solid #d2e1ef;border-radius:10px;background:linear-gradient(90deg,#e8f3fb,#fff 78%);box-shadow:0 8px 22px rgba(31,51,71,.055)}
+.content>section>h2:before{content:"";width:9px;height:26px;border-radius:999px;background:linear-gradient(180deg,var(--scu-blue-strong),var(--scu-orange));flex:0 0 auto}
+.content h3{padding:9px 13px;border-left:4px solid var(--scu-cyan);border-radius:9px;background:linear-gradient(90deg,rgba(74,164,179,.075),transparent)}
+.feature-list li{border-color:#dce8f2;background:linear-gradient(90deg,#f7fbfd,#fff);box-shadow:0 5px 16px rgba(31,51,71,.035)}
+.feature-list li:before{background:linear-gradient(135deg,var(--scu-blue),var(--scu-cyan));box-shadow:0 0 0 4px rgba(74,164,179,.08)}
+.table-container,.image-card,.spec-model-card{border-color:#dbe7f1;box-shadow:0 10px 24px rgba(31,51,71,.055)}
+table th,thead th{background:linear-gradient(180deg,#edf5fb,#f7fbfd);color:var(--scu-ink)}
+table td{background:#fff}
+.spec-model-list{gap:20px}
+.spec-model-card{border-radius:10px;overflow:hidden}
+.spec-model-card h4{background:linear-gradient(90deg,var(--scu-blue-strong),var(--scu-blue));color:#fff;border-bottom:0;border-left:5px solid var(--scu-orange);box-shadow:inset 0 -1px 0 rgba(255,255,255,.16)}
+.spec-model-card th{background:#f5f9fc;color:#2e4357}
+.spec-model-card td{background:#fff}
+.search-hit{outline-color:rgba(217,120,59,.22)}
+@media(max-width:860px){.manual-topbar{background:rgba(251,253,255,.98)}.content{padding-top:36px}.header-box{padding:24px 18px 26px;border-radius:12px}.model-title{font-size:2.12rem}.content>section>h2{align-items:flex-start}.content>section>h2:before{height:22px;margin-top:2px}.manual-search{min-width:132px}.header-visual-group{padding:20px 12px}.sidebar{background:linear-gradient(180deg,#f7fbff,#eaf4fa)}}
+
+/* SCU readability refinement */
+:root{--scu-readable-max:1100px;--scu-copy-max:76ch;--scu-ink:#172331;--scu-text:#263647;--scu-muted:#4d5f73;--scu-blue-strong:#153f66;--scu-blue:#276c9f;--scu-teal:#257f86;--scu-orange:#c9672f;--scu-page:#eef3f7;--scu-paper:#ffffff;--scu-soft:#f6f9fc;--scu-line:#c9d6e4}
+html{font-size:16px}
+body{background:linear-gradient(180deg,var(--scu-page) 0%,#f8fafc 30%,var(--scu-page) 100%);color:var(--scu-text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.manual-topbar{background:rgba(255,255,255,.97);border-bottom-color:var(--scu-line);box-shadow:0 8px 22px rgba(23,35,49,.1)}
+.manual-topbar:after{height:4px;background:linear-gradient(90deg,var(--scu-blue-strong),var(--scu-teal) 58%,var(--scu-orange))}
+.topbar-title{color:var(--scu-ink);font-weight:800}
+.manual-search input{background:#fff;border-color:#bdcbd9;color:var(--scu-ink)}
+.sidebar{background:#f8fafc;border-right-color:var(--scu-line);box-shadow:8px 0 22px rgba(23,35,49,.06)}
+.sidebar .eyebrow{background:#fff;color:var(--scu-blue-strong);border-color:#c8d6e4;border-left-color:var(--scu-orange)}
+.sidebar .toc>li>a{color:#203145;background:transparent}
+.sidebar .toc-sub a{color:#40546a}
+.sidebar a.is-active,.sidebar .toc>li>a:hover,.sidebar .toc-sub a:hover{background:#fff;color:var(--scu-blue-strong)!important;border-left-color:var(--scu-orange)!important;box-shadow:0 4px 14px rgba(23,35,49,.08)}
+.sidebar .back-link{margin:0 0 24px;border-color:#9fb5cb;background:#fff;color:#12395e;box-shadow:0 5px 14px rgba(23,35,49,.06)}
+.sidebar h2{margin-top:20px}
+.sidebar .toc>li>a{color:#102132;background:#dfe8f1;border-left-color:#9badbf;font-weight:800}
+.sidebar .toc-sub{border-left-color:#a7b9ca}
+.sidebar .toc-sub a{color:#26394d;background:#edf3f8;font-weight:650}
+.sidebar .toc>li>a:hover,.sidebar .toc-sub a:hover,.sidebar a.is-active{background:#173b5c;color:#fff!important;border-left-color:var(--scu-orange)!important;box-shadow:0 6px 16px rgba(23,35,49,.16)}
+.content{background:transparent;padding-left:clamp(40px,5.2vw,74px);padding-right:clamp(40px,5.2vw,74px)}
+.content:before{margin-bottom:30px;border-color:var(--scu-line);background:#fff;color:var(--scu-muted);box-shadow:0 6px 18px rgba(23,35,49,.06)}
+.header-box,.content>section,footer{max-width:var(--scu-readable-max);margin-left:auto;margin-right:auto}
+.header-box{background:linear-gradient(135deg,#fff 0%,#f3f8fc 70%,#fff7ef 100%);border-color:#b7c8d8;box-shadow:0 14px 34px rgba(23,35,49,.09)}
+.model-title{color:#101a25;text-wrap:balance}
+.model-subtitle,.content .category-label{color:#40546a}
+.content>section{margin-bottom:64px;padding-bottom:30px;border-bottom:1px solid var(--scu-line)}
+.content>section:before{top:-22px;background:linear-gradient(90deg,rgba(21,63,102,.22),rgba(37,127,134,.14),transparent)}
+.content>section>h2{margin-bottom:30px;padding:14px 18px 14px 20px;border:0;color:#fff;background:linear-gradient(90deg,var(--scu-blue-strong) 0%,var(--scu-blue) 72%,var(--scu-orange) 100%);box-shadow:0 10px 24px rgba(23,35,49,.13)}
+.content>section>h2:before{width:4px;height:24px;background:#fff;opacity:.88}
+.content h3,.content h4,.content h5{max-width:var(--scu-copy-max);color:var(--scu-ink)}
+.content h3{margin-top:40px;padding-left:14px;border-left:4px solid var(--scu-orange);font-size:1.22rem;line-height:1.45}
+.content h4{margin-top:28px;font-size:1.08rem}
+.content>section>p,.content>section>ul,.content>section>ol{max-width:var(--scu-copy-max)}
+.content p,.content li{color:var(--scu-text);font-size:1rem;line-height:1.82}
+.content p{margin:12px 0}
+.feature-list{display:grid;gap:10px;margin:18px 0}
+.feature-list li{margin:0;padding:13px 16px 13px 44px;border:1px solid var(--scu-line);border-left:4px solid var(--scu-orange);border-radius:8px;background:#fff;box-shadow:0 4px 14px rgba(23,35,49,.045);line-height:1.72}
+.feature-list li:before{left:16px;width:11px;height:11px;background:var(--scu-blue-strong);box-shadow:0 0 0 4px #e6eef6}
+.table-container{margin:24px 0 32px;border-color:#bccbd9;background:#fff;box-shadow:0 8px 24px rgba(23,35,49,.06)}
+table{font-size:.94rem}
+td,th{padding:11px 14px;border-color:#d8e2ec;color:#253647;line-height:1.62}
+thead th,table th{background:#e7f0f8;color:#132235}
+tbody tr:nth-child(even) td{background:#fbfdff}
+td:first-child{background:#f4f8fc;color:#182839}
+.image-card{margin:24px 0 34px;padding:18px;border-color:#c6d3df;background:#fff;box-shadow:0 8px 22px rgba(23,35,49,.07)}
+.image-card img{max-height:560px}
+.caption{color:var(--scu-muted)}
+.spec-model-card{border-color:#c6d3df;box-shadow:0 8px 22px rgba(23,35,49,.06)}
+.spec-model-card h4{background:#e8f1f8;color:#142439}
+.spec-model-toggle{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;width:100%;margin:0;padding:16px 18px;border:0;border-left:5px solid var(--scu-orange);background:#e8f1f8;color:#142439;font:inherit;text-align:left;cursor:pointer}
+.spec-model-toggle:hover,.spec-model-toggle:focus-visible{background:#dfeaf4;outline:0}
+.spec-model-toggle:focus-visible{box-shadow:inset 0 0 0 3px rgba(21,63,102,.18)}
+.spec-model-name{font-size:1.02rem;font-weight:800;line-height:1.35;word-break:keep-all;overflow-wrap:break-word}
+.spec-model-state{display:inline-flex;align-items:center;gap:8px;min-width:max-content;padding:6px 10px;border:1px solid #b8c8d8;border-radius:999px;background:#fff;color:var(--scu-blue-strong);font-size:.82rem;font-weight:800}
+.spec-model-state:after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s ease}
+.spec-model-card.is-open .spec-model-state:after{transform:rotate(225deg) translate(-1px,-1px)}
+.spec-model-panel{border-top:1px solid #cbd8e5;background:#fff}
+.spec-model-panel[hidden]{display:none}
+.spec-model-panel table{margin:0}
+.spec-model-card th{background:#f4f8fc;color:#1f3347}
+.page-outline{background:#fbfcfe;border-left-color:var(--scu-line)}
+.page-outline-title{color:var(--scu-ink)}
+.page-outline a{color:#506276}
+.page-outline a:hover,.page-outline a.is-active{color:var(--scu-blue-strong);border-left-color:var(--scu-orange)}
+.search-hit{outline-color:rgba(201,103,47,.26)}
+@media(max-width:860px){.content{padding:34px 18px 48px}.header-box,.content>section,footer{max-width:none}.content>section{margin-bottom:44px;padding-bottom:22px}.content>section>h2{padding:13px 15px;font-size:1.28rem}.content h3{font-size:1.12rem}.content p,.content li{font-size:.98rem;line-height:1.76}.feature-list li{padding-right:14px}.table-container{margin-left:-2px;margin-right:-2px}td,th{padding:10px 12px}.spec-model-toggle{grid-template-columns:1fr;padding:14px 15px}.spec-model-state{width:fit-content}}
+.content .category-label{color:#fff}
+@media(max-width:860px){.manual-topbar{left:0;right:auto;width:100vw;box-sizing:border-box;padding:0 14px;gap:10px;overflow:hidden}.topbar-actions{display:flex;align-items:center;justify-content:flex-start;gap:10px;width:100%;max-width:100%;min-width:0;overflow:hidden}.topbar-language{min-width:max-content}.manual-search{display:none}.search-key{display:none}}
+/* SCU final text flow pass */
+.content,.content>section,.header-box,.header-text,.sidebar,.sidebar a,.page-outline,.spec-model-card,.table-container{min-width:0}
+.model-subtitle,.content p,.content li,.content h3,.content h4,.content h5,.content td,.content th,.sidebar a,.page-outline a,.spec-model-name,.spec-model-card th,.spec-model-card td{line-break:auto;text-wrap:pretty;word-break:normal;overflow-wrap:break-word;hyphens:auto}
+.content>section>p,.content>section>ul,.content>section>ol,.content h3,.content h4,.content h5{max-width:min(100%,72ch)}
+.model-subtitle{max-width:min(100%,72ch);line-height:1.6;white-space:normal}
+.content>section>h2,.model-title{text-wrap:balance}
+.sidebar .toc>li>a,.sidebar .toc-sub a{line-height:1.44}
+.sidebar .toc a span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-width:0;max-width:100%;white-space:normal}
+.sidebar .toc>li>a span{-webkit-line-clamp:2}
+.sidebar .toc,.sidebar .toc li,.sidebar .toc-sub{max-width:100%;box-sizing:border-box}
+.sidebar .toc>li>a,.sidebar .toc-sub a{width:100%;max-width:100%;box-sizing:border-box;overflow:hidden}
+.page-outline a{line-height:1.45}
+.spec-model-toggle{min-width:0}
+.spec-model-name{min-width:0;line-height:1.45}
+.spec-model-state{white-space:nowrap}
+td,th{overflow-wrap:break-word}
+@media(max-width:860px){body{overflow-x:hidden}.content{width:100%;max-width:100vw;box-sizing:border-box}.content:before{display:block;max-width:100%;box-sizing:border-box;white-space:normal;line-height:1.5}.header-box{width:100%;max-width:100%;box-sizing:border-box;overflow:hidden}.header-text{width:100%;max-width:100%;text-align:left}.content .category-label{max-width:100%;white-space:normal;text-align:center;line-height:1.35}.model-title{font-size:clamp(2rem,10vw,2.55rem);line-height:1.12}.model-subtitle{max-width:100%;font-size:.98rem;line-height:1.58}.header-visual-group{width:100%;max-width:100%;padding:14px 0 0;overflow:hidden}.header-camera-main{display:block;width:100%;max-width:100%;height:auto;max-height:240px;margin:0 auto;object-fit:contain;object-position:center}.sidebar .toc>li>a,.sidebar .toc-sub a{padding-top:9px;padding-bottom:9px;line-height:1.45}.sidebar .toc-sub{margin-left:0;padding-left:14px}.spec-model-toggle{grid-template-columns:minmax(0,1fr);gap:10px}.spec-model-state{min-width:0;width:fit-content;max-width:100%;justify-self:start}td,th{line-height:1.68}}
+/* SCU copy wrap correction */
+.model-subtitle,.content p,.content li{word-break:normal;overflow-wrap:normal;hyphens:auto}
+.content a,.content td,.content th,.sidebar a,.spec-model-name,.spec-model-card th,.spec-model-card td{overflow-wrap:break-word}
+@media(max-width:860px){.model-subtitle{overflow-wrap:normal}.header-camera-main{width:min(92%,520px);max-height:220px}}
+@media(max-width:860px){.content{padding-left:18px;padding-right:18px}.content:before,.header-box,.content>section,footer{width:calc(100vw - 36px);max-width:calc(100vw - 36px);box-sizing:border-box}.model-subtitle{width:min(100%,30ch);max-width:30ch}.header-visual-group{box-sizing:border-box}.header-camera-main{width:92%;max-width:360px}}
+@media(max-width:860px){.sidebar{width:100vw;max-width:100vw;box-sizing:border-box;overflow:hidden}.sidebar .toc{width:100%;max-width:100%}.sidebar .toc>li>a,.sidebar .toc-sub a{padding-right:34px}.sidebar .toc-sub a{padding-left:14px}.sidebar .toc a span{word-break:normal;overflow-wrap:break-word}}
+@media(max-width:860px){.sidebar .toc a span{width:100%;max-width:calc(100vw - 96px)!important}}
+@media(max-width:860px){.sidebar .toc a span{display:block!important;max-height:2.9em;white-space:normal}}
+@media(max-width:860px){.sidebar .toc>li>a{width:calc(100vw - 36px)!important}.sidebar .toc-sub a{width:calc(100vw - 70px)!important}}
+@media(max-width:860px){.sidebar .toc-sub a{font-size:.78rem}}
+/* SCU wide reading pass */
+:root{--manual-rightbar:0px;--scu-readable-max:1280px;--scu-copy-max:118ch}
+.page-outline{display:none!important}
+.content{margin-right:0!important;padding-right:clamp(46px,6vw,92px)}
+.header-box,.content>section,footer{max-width:var(--scu-readable-max)}
+.content>section>p,.content>section>ul,.content>section>ol,.content h3,.content h4,.content h5{max-width:var(--scu-copy-max)}
+.content p{line-height:1.78}
+.model-subtitle{max-width:var(--scu-copy-max)}
+@media(max-width:860px){:root{--scu-readable-max:none;--scu-copy-max:none}.content{padding-right:18px}.content>section>p,.content>section>ul,.content>section>ol,.content h3,.content h4,.content h5,.model-subtitle{max-width:100%}}
+</style></head><body><header class="manual-topbar"><div class="topbar-title">CREVIS Camera Manual</div><div class="topbar-actions"><nav class="topbar-language" aria-label="Manual language selector"><a href="index.html">KOR</a><a class="active" href="index_en.html">ENG</a></nav><label class="manual-search" aria-label="Search this manual"><input id="manualSearchInput" type="search" placeholder="Search" autocomplete="off"><span class="search-key">K</span></label></div></header><nav class="sidebar"><div class="sidebar-logo" aria-label="CREVIS">CREVIS</div><div class="eyebrow">USB3Vision User Manual</div><a class="back-link" href="../../../../index.html"><span>← Manual Center</span></a><h2>SCU</h2><div class="rev">Version 1.1<br>Release Date: 2021. 03. 17</div><ul class="toc"><li><a href="#1"><span>1. Preparation</span></a></li><li class="toc-sub"><a href="#1-1-pc"><span>1.1 PC Minimum/Recommended Specifications</span></a></li><li class="toc-sub"><a href="#1-2-sdk"><span>1.2 SDK</span></a></li><li class="toc-sub"><a href="#1-3"><span>1.3 Cable</span></a></li><li class="toc-sub"><a href="#1-4"><span>1.4 Precautions</span></a></li><li><a href="#2"><span>2. Product Specifications</span></a></li><li class="toc-sub"><a href="#2-1"><span>2.1 Product Overview</span></a></li><li class="toc-sub"><a href="#2-2"><span>2.2 Key Specifications</span></a></li><li class="toc-sub"><a href="#2-3-spectral-response"><span>2.3 Spectral Response</span></a></li><li><a href="#3"><span>3. Camera Interface</span></a></li><li class="toc-sub"><a href="#3-1-back-panel"><span>3.1 Back Panel</span></a></li><li class="toc-sub"><a href="#3-2-dc-in-and-external-i-o-pin-map"><span>3.2 Camera DC IN &amp; External I/O Pin Map</span></a></li><li class="toc-sub"><a href="#3-3-usb3-1-gen-1-micro-b-type-connector"><span>3.3 USB3.1 Gen.1 Micro-B Type Connector</span></a></li><li class="toc-sub"><a href="#3-4-led-status"><span>3.4 LED status</span></a></li><li class="toc-sub"><a href="#3-5-external-i-o"><span>3.5 External I/O Internal Circuit</span></a></li><li><a href="#4"><span>4. Camera Features</span></a></li><li class="toc-sub"><a href="#4-1-device-control"><span>4.1 Device Control</span></a></li><li class="toc-sub"><a href="#4-1-1-device-link-througput-limit"><span>4.1.1 Device Link Througput Limit</span></a></li><li class="toc-sub"><a href="#4-1-2-device-temperature"><span>4.1.2 Device Temperature</span></a></li><li class="toc-sub"><a href="#4-1-3-device-temperature-state"><span>4.1.3 Device Temperature State</span></a></li><li class="toc-sub"><a href="#4-1-4-device-reset"><span>4.1.4 Device Reset</span></a></li><li class="toc-sub"><a href="#4-1-5-device-sleep-mode"><span>4.1.5 Device Sleep Mode</span></a></li><li class="toc-sub"><a href="#4-2-image-format-control"><span>4.2 Image Format Control</span></a></li><li class="toc-sub"><a href="#4-2-1-roi-region-of-interest"><span>4.2.1 ROI (Region Of Interest)</span></a></li><li class="toc-sub"><a href="#4-2-2-decimation-horizontal-vertical"><span>4.2.2 Decimation Horizontal / Vertical</span></a></li><li class="toc-sub"><a href="#4-2-3-binning-horizontal-vertical-mu-a160m-226-mu-a320m-118"><span>4.2.3 Binning Horizontal / Vertical (MU-A160M-226 and MU-A320M-118 models only)</span></a></li><li class="toc-sub"><a href="#4-2-4-reverse-x-y"><span>4.2.4 Reverse X, Y</span></a></li><li class="toc-sub"><a href="#4-2-5-pixel-format"><span>4.2.5 Pixel Format</span></a></li><li class="toc-sub"><a href="#4-2-6-test-pattern"><span>4.2.6 Test Pattern</span></a></li><li class="toc-sub"><a href="#4-3-acquisition-control"><span>4.3 Acquisition Control</span></a></li><li class="toc-sub"><a href="#4-4-trigger-mode-control"><span>4.4 Trigger Mode Control</span></a></li><li class="toc-sub"><a href="#4-4-1-trigger-mode"><span>4.4.1 Trigger Mode</span></a></li><li class="toc-sub"><a href="#4-4-2-trigger-source"><span>4.4.2 Trigger Source</span></a></li><li class="toc-sub"><a href="#4-4-3-trigger-delay"><span>4.4.3 Trigger Delay</span></a></li><li class="toc-sub"><a href="#4-4-4-transfer-delay"><span>4.4.4 Transfer Delay</span></a></li><li class="toc-sub"><a href="#4-5-exposure-control"><span>4.5 Exposure Control</span></a></li><li class="toc-sub"><a href="#4-5-1-exposure-mode"><span>4.5.1 Exposure mode</span></a></li><li class="toc-sub"><a href="#4-5-2-exposure-time"><span>4.5.2 Exposure Time</span></a></li><li class="toc-sub"><a href="#4-4-3-sensor-shutter-mode-mu-a121r-l-31-mu-a201r-l-18"><span>4.4.3 Sensor Shutter Mode (MU-A121R/L-31 and MU-A201R/L-18 models only)</span></a></li><li class="toc-sub"><a href="#4-5-4-exposure-auto"><span>4.5.4 Exposure Auto</span></a></li><li class="toc-sub"><a href="#4-6-digital-i-o-control"><span>4.6 Digital I/O Control</span></a></li><li class="toc-sub"><a href="#4-6-1-line-debouncer"><span>4.6.1 Line Debouncer</span></a></li><li class="toc-sub"><a href="#4-7-timer-control"><span>4.7 Timer Control</span></a></li><li class="toc-sub"><a href="#4-5-exposure-control-trigger"><span>As mentioned in ‘Exposure Control’ in Section 4.5, the trigger signal input to the camera and the actual signal to the image sensor</span></a></li><li class="toc-sub"><a href="#4-8-counter-control"><span>4.8 Counter Control</span></a></li><li class="toc-sub"><a href="#4-9-chunk-data-control"><span>4.9 Chunk Data Control</span></a></li><li class="toc-sub"><a href="#4-10-event-control"><span>4.10 Event Control</span></a></li><li class="toc-sub"><a href="#4-11-analog-control"><span>4.11 Analog Control</span></a></li><li class="toc-sub"><a href="#4-11-1-gain-gain-auto"><span>4.11.1 Gain, Gain Auto</span></a></li><li class="toc-sub"><a href="#4-11-2-black-level"><span>4.11.2 Black Level</span></a></li><li class="toc-sub"><a href="#4-11-3-gamma"><span>4.11.3 Gamma</span></a></li><li class="toc-sub"><a href="#4-11-4-pattern-noise-removal-mu-a121r-l-31-mu-a201r-l-18"><span>4.11.4 Pattern Noise Removal (MU-A121R/L-31 and MU-A201R/L-18 models only)</span></a></li><li class="toc-sub"><a href="#4-11-5-noise-reduction-filter"><span>4.11.5 Noise Reduction Filter</span></a></li><li class="toc-sub"><a href="#4-12-balance-ratio-control"><span>4.12 Balance Ratio Control</span></a></li><li class="toc-sub"><a href="#4-13-user-set-control"><span>4.13 User Set Control</span></a></li><li class="toc-sub"><a href="#4-14-lut-control"><span>4.14 LUT Control</span></a></li><li class="toc-sub"><a href="#4-15-defect-pixel-correction"><span>4.15 Defect Pixel Correction</span></a></li><li class="toc-sub"><a href="#4-16-low-latency-mode"><span>4.16 Low-Latency Mode</span></a></li><li class="toc-sub"><a href="#4-17-color-transformation-control"><span>4.17 Color Transformation Control</span></a></li><li class="toc-sub"><a href="#4-18-device-temperature-state"><span>4.18 Device Temperature State</span></a></li><li><a href="#5"><span>5. Camera Appearance</span></a></li><li><a href="#1-sdk"><span>1. SDK Installation</span></a></li><li class="toc-sub"><a href="#2-1-camguide"><span>2.1 Run CamGuide</span></a></li><li class="toc-sub"><a href="#2-2-select-and-connect-camera"><span>2.2 Select and Connect Camera: Double-click the camera you want to set up.</span></a></li><li class="toc-sub"><a href="#2-3"><span>2.3 Camera Settings</span></a></li><li><a href="#revision-history"><span>Revision History</span></a></li></ul></nav><div class="content"><header class="header-box"><div class="header-text"><p class="category-label">USB3Vision Camera Manual</p><div class="title-row"><h1 class="model-title">SCU Product Manual</h1><div class="header-topbar"><div class="language-switch" aria-label="Manual language selector"><a href="index.html">KOR</a><a class="active" href="index_en.html">ENG</a></div></div></div><p class="model-subtitle">Sony CMOS Sensor USB3Vision Camera USER MANUAL</p></div><div class="header-visual-group"><img src="images/crevis_logo.jpg" class="header-logo" alt="Crevis Logo"><img src="../../gige/SCG/images/camera_photo_cutout.png" class="header-camera-main" alt="SCG camera photo"></div></header><section id="1">
 <h2 id="1">1. Preparation</h2>
 <h3 id="1-1-pc">1.1 PC Minimum/Recommended Specifications</h3>
 <p>1) CPU: Intel Core i3 (minimum), i5 or higher (recommended)</p>
@@ -23,19 +180,15 @@
 <p>▶ External power can be applied separately through the 6Pin connector.</p>
 <h3 id="1-4">1.4 Precautions</h3>
 <p>▶ Operating temperature: 0℃ ~ +40℃</p>
-<p>Keep the temperature constant as data output may change as ambient temperature changes. more stable</p><p>It is recommended to use a heat sink of 40mm x 60mm x 10mm or larger combined with the product for optimal operation.</p><p>c.</p>
-<p>▶ Some models limit image sensor video output when the temperature limit is reached. This condition determines the quality of the video</p>
-<p>This means that immediate heat dissipation measures are required as the durability of the product cannot be guaranteed. Let's see</p><p>For further details, please refer to ‘Device Temperature State’ in Section 4-18.</p>
-<p>▶ If you acquire images simultaneously by connecting two or more cameras through a USB Host Card or HUB, the bandwidth</p>
-<p>Problems may arise.</p>
+<p>Keep the ambient temperature constant, as data output may change with temperature changes. For more stable operation, it is recommended to attach a heat sink of 40mm x 60mm x 10mm or larger to the product.</p>
+<p>▶ Some models limit image sensor video output when the temperature limit is reached. This condition means immediate heat dissipation measures are required, as the video quality and product durability cannot be guaranteed. For further details, please refer to ‘Device Temperature State’ in Section 4-18.</p>
+<p>▶ If you acquire images simultaneously by connecting two or more cameras through a USB Host Card or HUB, bandwidth problems may arise.</p>
 <p>▶ LED status window</p>
-<p>You can check the current status of the camera through the LED on the back of the camera. The connection between the host and the camera is</p>
-<p>If it is limited or image acquisition fails, check the status of the LED.</p>
+<p>You can check the current status of the camera through the LED on the back of the camera. If the connection between the host and the camera is limited or image acquisition fails, check the status of the LED.</p>
 <p>▶ Be careful of water leaks and moisture</p>
 <p>Since the product itself does not have a waterproof function, you must be careful not to expose it to excessive moisture.</p>
 <p>▶ Magnetic and electric fields</p>
 <p>If the input/output signal is exposed to a strong magnetic or electric field, it may cause distortion of the signal, so be careful.</p>
-<p>I do.</p>
 <p>▶ Ventilation</p>
 <p>Power consumption varies depending on the usage environment, but since power consumption is high, seal the area around the product or</p>
 <p>Do not block air flow and maintain ventilation.</p>
@@ -1103,13 +1256,39 @@
       });
     }
 
+    const isKorean = document.documentElement.lang.toLowerCase().startsWith('ko');
+    const openLabel = isKorean ? '접기' : 'Hide';
+    const closedLabel = isKorean ? '펼치기' : 'View';
+    const setSpecCardOpen = (card, open) => {
+      const toggle = card.querySelector('.spec-model-toggle');
+      const panel = card.querySelector('.spec-model-panel');
+      const state = card.querySelector('.spec-model-state');
+      if (!toggle || !panel || !state) return;
+      card.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      panel.hidden = !open;
+      state.textContent = open ? openLabel : closedLabel;
+    };
+
     const list = document.createElement('div');
     list.className = 'spec-model-list';
-    models.forEach(model => {
+    models.forEach((model, index) => {
       const card = document.createElement('article');
       card.className = 'spec-model-card';
-      const h = document.createElement('h4');
-      h.textContent = model.name;
+      const panelId = `spec-model-panel-${index + 1}`;
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'spec-model-toggle';
+      toggle.setAttribute('aria-controls', panelId);
+      const name = document.createElement('span');
+      name.className = 'spec-model-name';
+      name.textContent = model.name;
+      const state = document.createElement('span');
+      state.className = 'spec-model-state';
+      toggle.append(name, state);
+      const panel = document.createElement('div');
+      panel.className = 'spec-model-panel';
+      panel.id = panelId;
       const cardTable = document.createElement('table');
       const tbody = document.createElement('tbody');
       model.specs.forEach(spec => {
@@ -1123,7 +1302,16 @@
         tbody.appendChild(tr);
       });
       cardTable.appendChild(tbody);
-      card.append(h, cardTable);
+      panel.appendChild(cardTable);
+      card.append(toggle, panel);
+      setSpecCardOpen(card, false);
+      toggle.addEventListener('click', () => {
+        const shouldOpen = !card.classList.contains('is-open');
+        list.querySelectorAll('.spec-model-card.is-open').forEach(openCard => {
+          if (openCard !== card) setSpecCardOpen(openCard, false);
+        });
+        setSpecCardOpen(card, shouldOpen);
+      });
       list.appendChild(card);
     });
 
@@ -1196,6 +1384,25 @@
     match.textContent = text.slice(index, index + query.length);
     const after = document.createTextNode(text.slice(index + query.length));
     node.replaceWith(before, match, after);
+    const specCard = match.closest('.spec-model-card');
+    if (specCard) {
+      document.querySelectorAll('.spec-model-card.is-open').forEach(openCard => {
+        if (openCard !== specCard) {
+          openCard.classList.remove('is-open');
+          openCard.querySelector('.spec-model-toggle')?.setAttribute('aria-expanded', 'false');
+          const panel = openCard.querySelector('.spec-model-panel');
+          const state = openCard.querySelector('.spec-model-state');
+          if (panel) panel.hidden = true;
+          if (state) state.textContent = document.documentElement.lang.toLowerCase().startsWith('ko') ? '펼치기' : 'View';
+        }
+      });
+      specCard.classList.add('is-open');
+      specCard.querySelector('.spec-model-toggle')?.setAttribute('aria-expanded', 'true');
+      const panel = specCard.querySelector('.spec-model-panel');
+      const state = specCard.querySelector('.spec-model-state');
+      if (panel) panel.hidden = false;
+      if (state) state.textContent = document.documentElement.lang.toLowerCase().startsWith('ko') ? '접기' : 'Hide';
+    }
     match.closest('section, article, tr, p, li, h2, h3, h4')?.classList.add('search-hit');
     match.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
