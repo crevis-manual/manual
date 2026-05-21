@@ -734,7 +734,7 @@
 
             display: grid;
 
-            gap: 18px;
+            gap: 12px;
 
             margin: 22px 0;
 
@@ -746,7 +746,7 @@
 
             border: 1px solid #dce9ec;
 
-            border-radius: 18px;
+            border-radius: 14px;
 
             overflow: hidden;
 
@@ -754,7 +754,25 @@
 
         }
 
-        .spec-model-card h4 {
+        .spec-model-card[open] {
+
+            border-color: rgba(20, 157, 151, 0.42);
+
+            box-shadow: 0 8px 22px rgba(22, 57, 74, 0.08);
+
+        }
+
+        .spec-model-summary {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 14px;
 
             margin: 0;
 
@@ -762,11 +780,53 @@
 
             color: var(--brand-ink);
 
+            cursor: pointer;
+
             font-size: 1.08rem;
+
+            font-weight: 700;
 
             background: linear-gradient(90deg, rgba(239, 125, 34, 0.08), rgba(20, 157, 151, 0.05));
 
+            list-style: none;
+
+        }
+
+        .spec-model-summary::-webkit-details-marker {
+
+            display: none;
+
+        }
+
+        .spec-model-summary::after {
+
+            content: "";
+
+            width: 10px;
+
+            height: 10px;
+
+            flex: 0 0 auto;
+
+            border-right: 2px solid var(--brand-teal);
+
+            border-bottom: 2px solid var(--brand-teal);
+
+            transform: rotate(45deg);
+
+            transition: transform 0.18s ease;
+
+        }
+
+        .spec-model-card[open] .spec-model-summary {
+
             border-bottom: 1px solid #dce9ec;
+
+        }
+
+        .spec-model-card[open] .spec-model-summary::after {
+
+            transform: rotate(225deg);
 
         }
 
@@ -2740,9 +2800,9 @@
 
         <h2>SCG</h2>
 
-        <div class="rev">Version 1.4<br>Release Date: 2022. 02. 15</div>
-
         <a class="back-link" href="../../../../index.html"><span>← Manual Center</span></a>
+
+        <div class="rev">Version 1.4<br>Release Date: 2022. 02. 15</div>
 
         <ul class="toc">
 
@@ -8472,16 +8532,18 @@
                 if (!items.length) continue;
 
 
-                const card = document.createElement('article');
+                const card = document.createElement('details');
 
                 card.className = 'spec-model-card';
 
 
-                const heading = document.createElement('h4');
+                const summary = document.createElement('summary');
 
-                heading.textContent = modelName;
+                summary.className = 'spec-model-summary';
 
-                card.appendChild(heading);
+                summary.textContent = modelName;
+
+                card.appendChild(summary);
 
 
                 const table = document.createElement('table');
@@ -8520,6 +8582,26 @@
 
 
             target.replaceChildren(fragment);
+
+            const cards = Array.from(target.querySelectorAll('.spec-model-card'));
+
+            cards.forEach((card, index) => {
+
+                if (index === 0) card.open = true;
+
+                card.addEventListener('toggle', () => {
+
+                    if (!card.open) return;
+
+                    cards.forEach((otherCard) => {
+
+                        if (otherCard !== card) otherCard.open = false;
+
+                    });
+
+                });
+
+            });
 
             sourceTables.forEach((table) => table.closest('.spec-table-stack')?.classList.add('spec-table-source-hidden'));
 
