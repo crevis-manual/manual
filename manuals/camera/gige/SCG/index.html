@@ -19,21 +19,135 @@
         }
         html { scroll-behavior: smooth; }
         body {
+            padding-top: 70px;
             background:
                 radial-gradient(circle at top right, rgba(20, 157, 151, 0.07), transparent 22%),
                 radial-gradient(circle at top left, rgba(239, 125, 34, 0.08), transparent 18%),
                 var(--bg-light);
         }
+        .manual-top-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            height: 70px;
+            padding: 0 36px;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #e1e9ef;
+            box-shadow: 0 8px 24px rgba(22, 57, 74, 0.06);
+        }
+        .manual-top-banner::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #17394a 0%, var(--brand-teal) 55%, var(--brand-orange) 100%);
+        }
+        .manual-banner-title {
+            color: #162536;
+            font-size: 1.05rem;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+        .manual-banner-tools {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 0;
+        }
+        .manual-search {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: min(260px, 28vw);
+            min-width: 190px;
+        }
+        .manual-search::before {
+            content: "";
+            position: absolute;
+            left: 16px;
+            width: 13px;
+            height: 13px;
+            border: 1.8px solid #64748b;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+        .manual-search::after {
+            content: "";
+            position: absolute;
+            left: 28px;
+            width: 7px;
+            height: 1.8px;
+            background: #64748b;
+            border-radius: 999px;
+            transform: translate(1px, 7px) rotate(45deg);
+        }
+        .manual-search input {
+            width: 100%;
+            height: 40px;
+            padding: 0 44px 0 42px;
+            border: 1px solid #cbd8e4;
+            border-radius: 999px;
+            color: #172335;
+            background: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            box-shadow: inset 0 1px 2px rgba(22, 57, 74, 0.04);
+        }
+        .manual-search input:focus {
+            border-color: rgba(20, 157, 151, 0.72);
+            box-shadow: 0 0 0 3px rgba(20, 157, 151, 0.12);
+        }
+        .manual-search kbd {
+            position: absolute;
+            right: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 20px;
+            height: 20px;
+            border: 1px solid #cad6e2;
+            border-radius: 7px;
+            color: #64748b;
+            background: #fbfdff;
+            font: 700 0.72rem/1 "Segoe UI", sans-serif;
+        }
+        .manual-search-highlight {
+            border-radius: 3px;
+            background: rgba(255, 214, 76, 0.72);
+            color: inherit;
+            scroll-margin-top: 92px;
+        }
+        .manual-search-highlight.is-current {
+            background: #ef7d22;
+            color: #fff;
+            box-shadow: 0 0 0 2px rgba(239, 125, 34, 0.22);
+        }
         .sidebar {
+            top: 70px;
+            height: calc(100vh - 70px);
             background: linear-gradient(180deg, #16384a 0%, #1b4654 100%);
             border-right: 1px solid rgba(255, 255, 255, 0.06);
         }
         .sidebar .eyebrow {
-            margin: 0 0 8px;
+            margin: 0 0 15px;
             color: #90ddd8;
             font-size: 0.76rem;
             text-transform: uppercase;
             letter-spacing: 0.16em;
+        }
+        .sidebar h2 {
+            margin-top: 0;
         }
         .sidebar .rev {
             display: inline-block;
@@ -134,13 +248,6 @@
             box-shadow: 0 10px 26px rgba(22, 57, 74, 0.07);
             position: relative;
         }
-        .header-topbar {
-            display: inline-flex;
-            margin-left: 18px;
-            position: static;
-            z-index: 3;
-            vertical-align: middle;
-        }
         .language-switch {
             display: inline-flex;
             vertical-align: middle;
@@ -163,9 +270,9 @@
             letter-spacing: 0.04em;
         }
         .language-switch a.active {
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-orange));
+            background: #153f62;
             color: #fff;
-            box-shadow: 0 6px 14px rgba(20, 157, 151, 0.22);
+            box-shadow: 0 6px 14px rgba(21, 63, 98, 0.24);
         }
         .header-text {
             position: relative;
@@ -456,9 +563,9 @@
             position: absolute;
             left: 14px;
             top: 50%;
-            width: 13px;
-            height: 13px;
-            margin-top: -6px;
+            width: 11.5px;
+            height: 11.5px;
+            margin-top: -5.75px;
             border-radius: 50%;
             background:
                 radial-gradient(circle at 50% 50%, #fff 0 26%, transparent 27%),
@@ -761,6 +868,13 @@
         .format-card.format-wide {
             grid-column: 1 / -1;
         }
+        .content p,
+        .content li,
+        .content td,
+        .content th,
+        .content .caption {
+            color: #111827;
+        }
         .inline-note-title {
             margin: 18px 0 10px;
             font-weight: 800;
@@ -771,32 +885,33 @@
             position: relative;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 7px;
             max-width: 100%;
             box-sizing: border-box;
-            padding: 8px 14px 8px 12px;
-            border: 1px solid rgba(217, 75, 69, 0.22);
-            border-radius: 10px;
-            background: #fff5f4;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
             color: #9f2520;
-            box-shadow: 0 6px 14px rgba(217, 75, 69, 0.07);
+            box-shadow: none;
         }
         .inline-note-title.note::before,
         .inline-note-title.warning::before {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 18px;
-            height: 18px;
-            flex: 0 0 18px;
+            width: 1.12em;
+            height: 1.12em;
+            flex: 0 0 1.12em;
             border-radius: 50%;
-            font-size: 0.74rem;
-            font-weight: 800;
             background: #ffe1df;
-            color: var(--brand-warn);
+            color: #9f2520;
+            font-size: 0.76em;
+            font-weight: 800;
+            line-height: 1;
         }
         .inline-note-title.note::before {
-            content: "i";
+            content: "!";
         }
         .inline-note-title.warning {
             color: #8f2824;
@@ -804,25 +919,80 @@
         .inline-note-title.warning::before {
             content: "!";
         }
+        .inline-note-callout {
+            margin: 18px 0 20px;
+            padding: 16px 18px;
+            border: 1px solid rgba(217, 75, 69, 0.2);
+            border-radius: 8px;
+            background: #fff8f7;
+            color: #8f2824;
+            box-shadow: none;
+        }
+        .inline-note-callout.note {
+            border-color: rgba(217, 75, 69, 0.18);
+            background: #fffaf9;
+        }
+        .inline-note-callout > .inline-note-title.note,
+        .inline-note-callout > .inline-note-title.warning {
+            margin: 0 0 10px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+        .inline-note-callout p,
+        .inline-note-callout li,
+        .inline-note-callout td,
+        .inline-note-callout th {
+            color: #111827;
+        }
+        .inline-note-callout p {
+            margin: 8px 0;
+        }
+        .inline-note-callout > :last-child {
+            margin-bottom: 0;
+        }
+        .inline-note-callout .feature-list {
+            margin: 10px 0;
+        }
+        .inline-note-callout .feature-list li {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+        .inline-note-callout .feature-list li::before {
+            content: none;
+            display: none;
+        }
         #1-5-주의사항 p,
         #1-5-주의사항 li,
         #1-5-주의사항 strong,
         #1-5-주의사항 .caption,
         #1-5-주의사항 .image-card > p:last-child,
         #1-5-주의사항 .image-card > p:first-child {
-            color: #8f2824;
+            color: #111827;
         }
         #1-5-주의사항 .feature-list li,
         #1-5-주의사항 .image-card > p:first-child,
         #1-5-주의사항 .image-card > p:last-child {
-            background: linear-gradient(90deg, rgba(217, 75, 69, 0.1), rgba(255, 241, 240, 0.96));
-            border-color: rgba(217, 75, 69, 0.18);
+            background: linear-gradient(90deg, rgba(255, 247, 246, 0.98), rgba(255, 255, 255, 0.98));
+            border-color: rgba(217, 75, 69, 0.12);
+        }
+        #1-5-주의사항 .feature-list {
+            margin: 8px 0;
+        }
+        #1-5-주의사항 .feature-list li {
+            margin: 6px 0;
+            padding: 9px 14px;
+            border-left: 3px solid rgba(217, 75, 69, 0.58);
+            border-radius: 8px;
+            box-shadow: none;
+            line-height: 1.55;
         }
         #1-5-주의사항 .feature-list li::before {
-            background:
-                radial-gradient(circle at 50% 50%, #fff 0 26%, transparent 27%),
-                linear-gradient(135deg, #e0625d 0%, #c83f39 100%);
-            box-shadow: 0 0 0 4px rgba(217, 75, 69, 0.1);
+            content: none;
+            display: none;
         }
         .sidebar::before {
             content: "";
@@ -1324,12 +1494,23 @@
             opacity: 0.75;
         }
         @media screen and (max-width: 1024px) {
+            .manual-top-banner {
+                padding: 0 18px;
+                gap: 14px;
+            }
+            .manual-banner-title {
+                font-size: 0.94rem;
+            }
+            .manual-banner-tools {
+                gap: 10px;
+            }
+            .manual-search {
+                width: min(230px, 34vw);
+                min-width: 150px;
+            }
             .header-box {
                 display: block;
                 padding-left: 30px;
-            }
-            .header-topbar {
-                margin-left: 0;
             }
             .header-visual-group {
                 position: relative;
@@ -1390,9 +1571,50 @@
                 grid-template-rows: auto;
             }
         }
+        @media screen and (max-width: 720px) {
+            body {
+                padding-top: 116px;
+            }
+            .manual-top-banner {
+                align-items: flex-start;
+                flex-direction: column;
+                height: 116px;
+                padding: 14px 16px 16px;
+            }
+            .manual-banner-tools {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .manual-search {
+                flex: 1;
+                width: auto;
+                min-width: 0;
+            }
+            .language-switch a {
+                min-width: 40px;
+                padding: 7px 9px;
+            }
+            .sidebar {
+                top: 116px;
+                height: calc(100vh - 116px);
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="manual-top-banner">
+        <a class="manual-banner-title" href="../../../../index.html">CREVIS Camera Manual</a>
+        <div class="manual-banner-tools">
+            <div class="language-switch" aria-label="Manual language selector">
+                <a class="active" href="index.html?lang=ko">KOR</a>
+                <a href="index_en.html">ENG</a>
+            </div>
+            <div class="manual-search" role="search">
+                <input type="search" data-manual-search placeholder="Search" aria-label="Search manual">
+                <kbd>K</kbd>
+            </div>
+        </div>
+    </div>
     <nav class="sidebar">
         <div class="eyebrow">GigE User Manual</div>
         <h2>SCG</h2>
@@ -1473,12 +1695,6 @@
                 <p class="category-label">GigE Vision Camera Manual</p>
                 <div class="title-row">
                     <h1 class="model-title">SCG제품매뉴얼</h1>
-                    <div class="header-topbar">
-                        <div class="language-switch" aria-label="Manual language selector">
-                            <a class="active" href="index.html?lang=ko">KOR</a>
-                            <a href="index_en.html">ENG</a>
-                        </div>
-                    </div>
                 </div>
                 <p class="model-subtitle">Sony CMOS GigE Camera USER MANUAL</p>
             </div>
@@ -2916,8 +3132,7 @@
 <p>Software 함수를 통해 카메라 내부에 트리거를 생성합니다. 이 설정에서는 &#x27;Exposure Mode&#x27;가 &#x27;Timed&#x27;셔터 모드로만 지원됩니다.</p>
 <p class="inline-note-title note">참고사항</p>
 <p>&#x27;Counter And Timer Control&#x27; 카테고리의 &#x27;Counter Selector&#x27;를 &#x27;Line Trigger&#x27; 로 설정하면 카메라로</p>
-<p>입력한 총 유효 트리거 수가 &#x27;Counter Value&#x27;로 리턴 됩니다. 이 카운터는 &#x27;Acquisition Start&#x27; 커맨드에</p>
-<p>의해 0으로 초기화 됩니다.</p>
+<p>입력한 총 유효 트리거 수가 &#x27;Counter Value&#x27;로 리턴 됩니다. 이 카운터는 &#x27;Acquisition Start&#x27; 커맨드에 의해 0으로 초기화 됩니다.</p>
 <div class="image-grid">
 <figure class="image-card"><img src="images/pdf-extracted/page26_01_xref168.png" alt="Counter selector line trigger" class="img-full"></figure>
 </div>
@@ -3049,8 +3264,7 @@
 </table></div>
 <p class="inline-note-title warning">유의사항</p>
 <p>1) Exposure Time이 너무 짧을 경우 조명 깜빡임에 의해 깜빡이는 영상이 출력될 수 있습니다.</p>
-<p>2) 최대 밝기에 도달하기 위해 &#x27;Exposure Time&#x27;이 Frame 주기 보다 길어질 경우 Frame Rate가</p>
-<p>감소할 수 있습니다.</p>
+<p>2) 최대 밝기에 도달하기 위해 &#x27;Exposure Time&#x27;이 Frame 주기 보다 길어질 경우 Frame Rate가 감소할 수 있습니다. </p>
 <h3 id="4-5-digital-i-o-control">4.5 Digital I/O Control</h3>
 <p>카메라 외부 I/O 신호를 설정할 수 있는 기능입니다. 각 I/O의 입/출력 방향은 고정되어 있으며, I/O 포트를 통한 신호의 논리적 사양을 변경할 수 있습니다.</p>
 <div class="table-container"><table>
@@ -4303,6 +4517,153 @@
         }
 
         buildScgSpecModelList();
+
+        function setupScgInlineCallouts() {
+            const content = document.querySelector('.content');
+            if (!content) return;
+
+            const titlePattern = /^(※\s*)?(참고사항|유의사항|note|precautions)\s*:?$/i;
+            const shouldWrap = (element) => {
+                if (element.closest('.inline-note-callout')) return false;
+                if (element.classList.contains('inline-note-title')) return true;
+                return titlePattern.test((element.textContent || '').trim());
+            };
+            const getType = (element) => /유의|precaution|warning/i.test(element.textContent || '') || element.classList.contains('warning')
+                ? 'warning'
+                : 'note';
+            const isAllowedContent = (element) => element.matches('p, ul, ol, .feature-list');
+            const splitInlineNoteBody = (title) => {
+                const text = (title.textContent || '').trim();
+                const colonIndex = text.indexOf(':');
+                if (colonIndex < 0) return;
+
+                const label = text.slice(0, colonIndex).trim();
+                const body = text.slice(colonIndex + 1).trim();
+                if (!label || !body) return;
+
+                title.textContent = label;
+                const bodyParagraph = document.createElement('p');
+                bodyParagraph.textContent = body;
+                title.after(bodyParagraph);
+            };
+
+            Array.from(content.querySelectorAll('p')).filter(shouldWrap).forEach((title) => {
+                if (title.closest('.inline-note-callout')) return;
+
+                const type = getType(title);
+                splitInlineNoteBody(title);
+                title.classList.add('inline-note-title', type);
+
+                const callout = document.createElement('div');
+                callout.className = `inline-note-callout ${type}`;
+                title.before(callout);
+                callout.appendChild(title);
+
+                let sibling = callout.nextElementSibling;
+                while (sibling && !sibling.matches('h2, h3, h4, .inline-note-callout, .inline-note-title')) {
+                    if (!isAllowedContent(sibling)) break;
+                    const next = sibling.nextElementSibling;
+                    callout.appendChild(sibling);
+                    sibling = next;
+                }
+            });
+        }
+
+        setupScgInlineCallouts();
+
+        function setupScgManualSearch() {
+            const input = document.querySelector('[data-manual-search]');
+            const content = document.querySelector('.content');
+            if (!input || !content) return;
+
+            let matches = [];
+            let currentIndex = -1;
+
+            const clearHighlights = () => {
+                content.querySelectorAll('mark.manual-search-highlight').forEach((mark) => {
+                    mark.replaceWith(document.createTextNode(mark.textContent || ''));
+                });
+                content.normalize();
+                matches = [];
+                currentIndex = -1;
+            };
+
+            const highlightTextNode = (node, query) => {
+                const text = node.nodeValue || '';
+                const lowerText = text.toLowerCase();
+                const lowerQuery = query.toLowerCase();
+                let start = 0;
+                let index = lowerText.indexOf(lowerQuery, start);
+                if (index === -1) return;
+
+                const fragment = document.createDocumentFragment();
+                while (index !== -1) {
+                    fragment.append(document.createTextNode(text.slice(start, index)));
+                    const mark = document.createElement('mark');
+                    mark.className = 'manual-search-highlight';
+                    mark.textContent = text.slice(index, index + query.length);
+                    fragment.append(mark);
+                    matches.push(mark);
+                    start = index + query.length;
+                    index = lowerText.indexOf(lowerQuery, start);
+                }
+                fragment.append(document.createTextNode(text.slice(start)));
+                node.replaceWith(fragment);
+            };
+
+            const goToMatch = (index) => {
+                if (!matches.length) return;
+                currentIndex = (index + matches.length) % matches.length;
+                matches.forEach((match) => match.classList.remove('is-current'));
+                const current = matches[currentIndex];
+                current.classList.add('is-current');
+                current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            };
+
+            const runSearch = () => {
+                const query = input.value.trim();
+                clearHighlights();
+                if (!query) return;
+
+                const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+                    acceptNode(node) {
+                        const parent = node.parentElement;
+                        if (!parent || parent.closest('script, style, mark')) return NodeFilter.FILTER_REJECT;
+                        return node.nodeValue?.toLowerCase().includes(query.toLowerCase())
+                            ? NodeFilter.FILTER_ACCEPT
+                            : NodeFilter.FILTER_REJECT;
+                    }
+                });
+                const nodes = [];
+                while (walker.nextNode()) nodes.push(walker.currentNode);
+                nodes.forEach((node) => highlightTextNode(node, query));
+                goToMatch(0);
+            };
+
+            input.addEventListener('input', runSearch);
+
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    input.value = '';
+                    clearHighlights();
+                    return;
+                }
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    goToMatch(currentIndex + (event.shiftKey ? -1 : 1));
+                }
+            });
+
+            window.addEventListener('keydown', (event) => {
+                const target = event.target;
+                const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
+                if (isTyping || event.ctrlKey || event.metaKey || event.altKey || event.key.toLowerCase() !== 'k') return;
+                event.preventDefault();
+                input.focus();
+            });
+        }
+
+        setupScgManualSearch();
 
         const scgUrlParams = new URLSearchParams(window.location.search);
         const scgLang = (scgUrlParams.get('lang') || '').toLowerCase();

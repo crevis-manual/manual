@@ -38,6 +38,8 @@
 
         body {
 
+            padding-top: 70px;
+
             background:
 
                 radial-gradient(circle at top right, rgba(20, 157, 151, 0.07), transparent 22%),
@@ -48,7 +50,227 @@
 
         }
 
+        .manual-top-banner {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            z-index: 1200;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 24px;
+
+            height: 70px;
+
+            padding: 0 36px;
+
+            box-sizing: border-box;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            border-bottom: 1px solid #e1e9ef;
+
+            box-shadow: 0 8px 24px rgba(22, 57, 74, 0.06);
+
+        }
+
+        .manual-top-banner::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 0;
+
+            height: 4px;
+
+            background: linear-gradient(90deg, #17394a 0%, var(--brand-teal) 55%, var(--brand-orange) 100%);
+
+        }
+
+        .manual-banner-title {
+
+            color: #162536;
+
+            font-size: 1.05rem;
+
+            font-weight: 800;
+
+            text-decoration: none;
+
+            letter-spacing: 0.01em;
+
+            white-space: nowrap;
+
+        }
+
+        .manual-banner-tools {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            min-width: 0;
+
+        }
+
+        .manual-search {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            width: min(260px, 28vw);
+
+            min-width: 190px;
+
+        }
+
+        .manual-search::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 16px;
+
+            width: 13px;
+
+            height: 13px;
+
+            border: 1.8px solid #64748b;
+
+            border-radius: 50%;
+
+            box-sizing: border-box;
+
+        }
+
+        .manual-search::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 28px;
+
+            width: 7px;
+
+            height: 1.8px;
+
+            background: #64748b;
+
+            border-radius: 999px;
+
+            transform: translate(1px, 7px) rotate(45deg);
+
+        }
+
+        .manual-search input {
+
+            width: 100%;
+
+            height: 40px;
+
+            padding: 0 44px 0 42px;
+
+            border: 1px solid #cbd8e4;
+
+            border-radius: 999px;
+
+            color: #172335;
+
+            background: #fff;
+
+            font-size: 0.95rem;
+
+            outline: none;
+
+            box-shadow: inset 0 1px 2px rgba(22, 57, 74, 0.04);
+
+        }
+
+        .manual-search input:focus {
+
+            border-color: rgba(20, 157, 151, 0.72);
+
+            box-shadow: 0 0 0 3px rgba(20, 157, 151, 0.12);
+
+        }
+
+        .manual-search kbd {
+
+            position: absolute;
+
+            right: 12px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 20px;
+
+            height: 20px;
+
+            border: 1px solid #cad6e2;
+
+            border-radius: 7px;
+
+            color: #64748b;
+
+            background: #fbfdff;
+
+            font: 700 0.72rem/1 "Segoe UI", sans-serif;
+
+        }
+
+        .manual-search-highlight {
+
+            border-radius: 3px;
+
+            background: rgba(255, 214, 76, 0.72);
+
+            color: inherit;
+
+            scroll-margin-top: 92px;
+
+        }
+
+        .manual-search-highlight.is-current {
+
+            background: #ef7d22;
+
+            color: #fff;
+
+            box-shadow: 0 0 0 2px rgba(239, 125, 34, 0.22);
+
+        }
+
         .sidebar {
+
+            top: 70px;
+
+            height: calc(100vh - 70px);
 
             background: linear-gradient(180deg, #16384a 0%, #1b4654 100%);
 
@@ -58,7 +280,7 @@
 
         .sidebar .eyebrow {
 
-            margin: 0 0 8px;
+            margin: 0 0 15px;
 
             color: #90ddd8;
 
@@ -67,6 +289,12 @@
             text-transform: uppercase;
 
             letter-spacing: 0.16em;
+
+        }
+
+        .sidebar h2 {
+
+            margin-top: 0;
 
         }
 
@@ -280,20 +508,6 @@
 
         }
 
-        .header-topbar {
-
-            display: inline-flex;
-
-            margin-left: 18px;
-
-            position: static;
-
-            z-index: 3;
-
-            vertical-align: middle;
-
-        }
-
         .language-switch {
 
             display: inline-flex;
@@ -338,11 +552,11 @@
 
         .language-switch a.active {
 
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-orange));
+            background: #153f62;
 
             color: #fff;
 
-            box-shadow: 0 6px 14px rgba(20, 157, 151, 0.22);
+            box-shadow: 0 6px 14px rgba(21, 63, 98, 0.24);
 
         }
 
@@ -924,11 +1138,11 @@
 
             top: 50%;
 
-            width: 15px;
+            width: 11.5px;
 
-            height: 15px;
+            height: 11.5px;
 
-            margin-top: -7px;
+            margin-top: -5.75px;
 
             border-radius: 50%;
 
@@ -1534,6 +1748,16 @@
 
         }
 
+        .content p,
+        .content li,
+        .content td,
+        .content th,
+        .content .caption {
+
+            color: #111827;
+
+        }
+
         .inline-note-title {
 
             margin: 18px 0 8px;
@@ -1554,9 +1778,15 @@
 
             align-items: center;
 
-            gap: 10px;
+            gap: 7px;
 
-            padding: 9px 14px 9px 12px;
+            padding: 0;
+
+            border: 0;
+
+            background: transparent;
+
+            box-shadow: none;
 
         }
 
@@ -1570,25 +1800,29 @@
 
             justify-content: center;
 
-            width: 18px;
+            width: 1.12em;
 
-            height: 18px;
+            height: 1.12em;
+
+            flex: 0 0 1.12em;
 
             border-radius: 50%;
 
-            font-size: 0.74rem;
+            background: #ffe1df;
+
+            color: #9f2520;
+
+            font-size: 0.76em;
 
             font-weight: 800;
+
+            line-height: 1;
 
         }
 
         .inline-note-title.note::before {
 
-            content: "i";
-
-            background: rgba(20, 157, 151, 0.14);
-
-            color: var(--brand-teal);
+            content: "!";
 
         }
 
@@ -1596,9 +1830,9 @@
 
             color: #8f2824;
 
-            background: linear-gradient(90deg, rgba(217, 75, 69, 0.12), rgba(255, 241, 240, 0.95));
+            background: transparent;
 
-            border: 1px solid rgba(217, 75, 69, 0.18);
+            border: 0;
 
         }
 
@@ -1606,9 +1840,93 @@
 
             content: "!";
 
-            background: rgba(217, 75, 69, 0.16);
+        }
 
-            color: var(--brand-warn);
+        .inline-note-callout {
+
+            margin: 18px 0 20px;
+
+            padding: 16px 18px;
+
+            border: 1px solid rgba(217, 75, 69, 0.2);
+
+            border-radius: 8px;
+
+            background: #fff8f7;
+
+            color: #8f2824;
+
+            box-shadow: none;
+
+        }
+
+        .inline-note-callout.note {
+
+            border-color: rgba(217, 75, 69, 0.18);
+
+            background: #fffaf9;
+
+        }
+
+        .inline-note-callout > .inline-note-title.note,
+        .inline-note-callout > .inline-note-title.warning {
+
+            margin: 0 0 10px;
+
+            padding: 0;
+
+            border: 0;
+
+            background: transparent;
+
+            box-shadow: none;
+
+        }
+
+        .inline-note-callout p,
+        .inline-note-callout li,
+        .inline-note-callout td,
+        .inline-note-callout th {
+
+            color: #111827;
+
+        }
+
+        .inline-note-callout p {
+
+            margin: 8px 0;
+
+        }
+
+        .inline-note-callout > :last-child {
+
+            margin-bottom: 0;
+
+        }
+
+        .inline-note-callout .feature-list {
+
+            margin: 10px 0;
+
+        }
+
+        .inline-note-callout .feature-list li {
+
+            padding: 0;
+
+            border: 0;
+
+            background: transparent;
+
+            box-shadow: none;
+
+        }
+
+        .inline-note-callout .feature-list li::before {
+
+            content: none;
+
+            display: none;
 
         }
 
@@ -1624,7 +1942,7 @@
 
         #1-5-주의사항 .image-card > p:first-child {
 
-            color: #8f2824;
+            color: #111827;
 
         }
 
@@ -1634,21 +1952,39 @@
 
         #1-5-주의사항 .image-card > p:last-child {
 
-            background: linear-gradient(90deg, rgba(217, 75, 69, 0.1), rgba(255, 241, 240, 0.96));
+            background: linear-gradient(90deg, rgba(255, 247, 246, 0.98), rgba(255, 255, 255, 0.98));
 
-            border-color: rgba(217, 75, 69, 0.18);
+            border-color: rgba(217, 75, 69, 0.12);
+
+        }
+
+        #1-5-주의사항 .feature-list {
+
+            margin: 8px 0;
+
+        }
+
+        #1-5-주의사항 .feature-list li {
+
+            margin: 6px 0;
+
+            padding: 9px 14px;
+
+            border-left: 3px solid rgba(217, 75, 69, 0.58);
+
+            border-radius: 8px;
+
+            box-shadow: none;
+
+            line-height: 1.55;
 
         }
 
         #1-5-주의사항 .feature-list li::before {
 
-            background:
+            content: none;
 
-                radial-gradient(circle at 50% 50%, #fff 0 26%, transparent 27%),
-
-                linear-gradient(135deg, #e0625d 0%, #c83f39 100%);
-
-            box-shadow: 0 0 0 4px rgba(217, 75, 69, 0.1);
+            display: none;
 
         }
 
@@ -2656,17 +2992,39 @@
 
         @media screen and (max-width: 1024px) {
 
+            .manual-top-banner {
+
+                padding: 0 18px;
+
+                gap: 14px;
+
+            }
+
+            .manual-banner-title {
+
+                font-size: 0.94rem;
+
+            }
+
+            .manual-banner-tools {
+
+                gap: 10px;
+
+            }
+
+            .manual-search {
+
+                width: min(230px, 34vw);
+
+                min-width: 150px;
+
+            }
+
             .header-box {
 
                 display: block;
 
                 padding-left: 30px;
-
-            }
-
-            .header-topbar {
-
-                margin-left: 0;
 
             }
 
@@ -2788,11 +3146,81 @@
 
         }
 
+        @media screen and (max-width: 720px) {
+
+            body {
+
+                padding-top: 116px;
+
+            }
+
+            .manual-top-banner {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                height: 116px;
+
+                padding: 14px 16px 16px;
+
+            }
+
+            .manual-banner-tools {
+
+                width: 100%;
+
+                justify-content: space-between;
+
+            }
+
+            .manual-search {
+
+                flex: 1;
+
+                width: auto;
+
+                min-width: 0;
+
+            }
+
+            .language-switch a {
+
+                min-width: 40px;
+
+                padding: 7px 9px;
+
+            }
+
+            .sidebar {
+
+                top: 116px;
+
+                height: calc(100vh - 116px);
+
+            }
+
+        }
+
     </style>
 
 </head>
 
 <body>
+
+    <div class="manual-top-banner">
+        <a class="manual-banner-title" href="../../../../index.html">CREVIS Camera Manual</a>
+        <div class="manual-banner-tools">
+            <div class="language-switch" aria-label="Manual language selector">
+                <a href="index.html?lang=ko">KOR</a>
+                <a class="active" href="index_en.html">ENG</a>
+            </div>
+            <div class="manual-search" role="search">
+                <input type="search" data-manual-search placeholder="Search" aria-label="Search manual">
+                <kbd>K</kbd>
+            </div>
+        </div>
+    </div>
 
     <nav class="sidebar">
 
@@ -2952,12 +3380,6 @@
 
                 <div class="title-row">
                     <h1 class="model-title">SCG User Manual</h1>
-                    <div class="header-topbar">
-                        <div class="language-switch" aria-label="Manual language selector">
-                            <a href="index.html?lang=ko">KOR</a>
-                            <a class="active" href="index_en.html">ENG</a>
-                        </div>
-                    </div>
                 </div>
                 <p class="model-subtitle">Sony CMOS GigE Camera User Manual</p>
 
@@ -8609,6 +9031,153 @@
 
 
         buildScgSpecModelList();
+
+        function setupScgInlineCallouts() {
+            const content = document.querySelector('.content');
+            if (!content) return;
+
+            const titlePattern = /^(※\s*)?(참고사항|유의사항|note|precautions)\s*:?$/i;
+            const shouldWrap = (element) => {
+                if (element.closest('.inline-note-callout')) return false;
+                if (element.classList.contains('inline-note-title')) return true;
+                return titlePattern.test((element.textContent || '').trim());
+            };
+            const getType = (element) => /유의|precaution|warning/i.test(element.textContent || '') || element.classList.contains('warning')
+                ? 'warning'
+                : 'note';
+            const isAllowedContent = (element) => element.matches('p, ul, ol, .feature-list');
+            const splitInlineNoteBody = (title) => {
+                const text = (title.textContent || '').trim();
+                const colonIndex = text.indexOf(':');
+                if (colonIndex < 0) return;
+
+                const label = text.slice(0, colonIndex).trim();
+                const body = text.slice(colonIndex + 1).trim();
+                if (!label || !body) return;
+
+                title.textContent = label;
+                const bodyParagraph = document.createElement('p');
+                bodyParagraph.textContent = body;
+                title.after(bodyParagraph);
+            };
+
+            Array.from(content.querySelectorAll('p')).filter(shouldWrap).forEach((title) => {
+                if (title.closest('.inline-note-callout')) return;
+
+                const type = getType(title);
+                splitInlineNoteBody(title);
+                title.classList.add('inline-note-title', type);
+
+                const callout = document.createElement('div');
+                callout.className = `inline-note-callout ${type}`;
+                title.before(callout);
+                callout.appendChild(title);
+
+                let sibling = callout.nextElementSibling;
+                while (sibling && !sibling.matches('h2, h3, h4, .inline-note-callout, .inline-note-title')) {
+                    if (!isAllowedContent(sibling)) break;
+                    const next = sibling.nextElementSibling;
+                    callout.appendChild(sibling);
+                    sibling = next;
+                }
+            });
+        }
+
+        setupScgInlineCallouts();
+
+        function setupScgManualSearch() {
+            const input = document.querySelector('[data-manual-search]');
+            const content = document.querySelector('.content');
+            if (!input || !content) return;
+
+            let matches = [];
+            let currentIndex = -1;
+
+            const clearHighlights = () => {
+                content.querySelectorAll('mark.manual-search-highlight').forEach((mark) => {
+                    mark.replaceWith(document.createTextNode(mark.textContent || ''));
+                });
+                content.normalize();
+                matches = [];
+                currentIndex = -1;
+            };
+
+            const highlightTextNode = (node, query) => {
+                const text = node.nodeValue || '';
+                const lowerText = text.toLowerCase();
+                const lowerQuery = query.toLowerCase();
+                let start = 0;
+                let index = lowerText.indexOf(lowerQuery, start);
+                if (index === -1) return;
+
+                const fragment = document.createDocumentFragment();
+                while (index !== -1) {
+                    fragment.append(document.createTextNode(text.slice(start, index)));
+                    const mark = document.createElement('mark');
+                    mark.className = 'manual-search-highlight';
+                    mark.textContent = text.slice(index, index + query.length);
+                    fragment.append(mark);
+                    matches.push(mark);
+                    start = index + query.length;
+                    index = lowerText.indexOf(lowerQuery, start);
+                }
+                fragment.append(document.createTextNode(text.slice(start)));
+                node.replaceWith(fragment);
+            };
+
+            const goToMatch = (index) => {
+                if (!matches.length) return;
+                currentIndex = (index + matches.length) % matches.length;
+                matches.forEach((match) => match.classList.remove('is-current'));
+                const current = matches[currentIndex];
+                current.classList.add('is-current');
+                current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            };
+
+            const runSearch = () => {
+                const query = input.value.trim();
+                clearHighlights();
+                if (!query) return;
+
+                const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+                    acceptNode(node) {
+                        const parent = node.parentElement;
+                        if (!parent || parent.closest('script, style, mark')) return NodeFilter.FILTER_REJECT;
+                        return node.nodeValue?.toLowerCase().includes(query.toLowerCase())
+                            ? NodeFilter.FILTER_ACCEPT
+                            : NodeFilter.FILTER_REJECT;
+                    }
+                });
+                const nodes = [];
+                while (walker.nextNode()) nodes.push(walker.currentNode);
+                nodes.forEach((node) => highlightTextNode(node, query));
+                goToMatch(0);
+            };
+
+            input.addEventListener('input', runSearch);
+
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    input.value = '';
+                    clearHighlights();
+                    return;
+                }
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    goToMatch(currentIndex + (event.shiftKey ? -1 : 1));
+                }
+            });
+
+            window.addEventListener('keydown', (event) => {
+                const target = event.target;
+                const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
+                if (isTyping || event.ctrlKey || event.metaKey || event.altKey || event.key.toLowerCase() !== 'k') return;
+                event.preventDefault();
+                input.focus();
+            });
+        }
+
+        setupScgManualSearch();
 
     </script>
 </body>
