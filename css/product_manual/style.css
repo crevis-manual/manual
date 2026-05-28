@@ -419,8 +419,7 @@ tr:hover {
     padding: 20px 25px;
     border-radius: 8px;
     margin: 30px 0;
-    display: flex;
-    align-items: flex-start;
+    display: block;
 }
 
 .note {
@@ -434,9 +433,7 @@ tr:hover {
 }
 
 .note-icon {
-    margin-right: 20px;
-    font-size: 1.8rem;
-    color: #3498db;
+    display: none;
 }
 
 footer {
