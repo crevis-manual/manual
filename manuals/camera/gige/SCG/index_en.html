@@ -8865,7 +8865,7 @@
 
             const uniqueModelNames = [];
 
-            const nameCounts = new Map();
+            const seenModelItems = new Set();
 
             const modelEntries = [];
 
@@ -8879,15 +8879,7 @@
                 if (modelStart === -1) continue;
 
 
-                const modelNames = headers.slice(modelStart).filter(Boolean).map((name) => {
-
-                    const count = (nameCounts.get(name) || 0) + 1;
-
-                    nameCounts.set(name, count);
-
-                    return count === 1 ? name : `${name} (${count})`;
-
-                });
+                const modelNames = headers.slice(modelStart).filter(Boolean);
 
                 const modelCount = modelNames.length;
 
@@ -8930,6 +8922,12 @@
                         const valueHtml = values[index]?.innerHTML.trim();
 
                         if (!valueHtml) return;
+
+                        const entryKey = `${modelName}\u0000${label}\u0000${valueHtml}`;
+
+                        if (seenModelItems.has(entryKey)) return;
+
+                        seenModelItems.add(entryKey);
 
                         modelEntries.push({ modelName, label, valueHtml });
 
