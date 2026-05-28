@@ -1116,7 +1116,7 @@
 
             margin: 10px 0;
 
-            padding: 11px 14px;
+            padding: 11px 14px 11px 44px;
 
             border: 1px solid #e4edef;
 
@@ -1130,9 +1130,29 @@
 
         .feature-list li::before {
 
-            content: none;
+            content: "";
 
-            display: none;
+            position: absolute;
+
+            left: 14px;
+
+            top: 50%;
+
+            width: 11.5px;
+
+            height: 11.5px;
+
+            margin-top: -5.75px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(circle at 50% 50%, #fff 0 26%, transparent 27%),
+
+                linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-orange) 100%);
+
+            box-shadow: 0 0 0 4px rgba(20, 157, 151, 0.08);
 
         }
 
@@ -1728,6 +1748,16 @@
 
         }
 
+        .content p,
+        .content li,
+        .content td,
+        .content th,
+        .content .caption {
+
+            color: #111827;
+
+        }
+
         .inline-note-title {
 
             margin: 18px 0 8px;
@@ -1744,7 +1774,11 @@
 
             position: relative;
 
-            display: block;
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
 
             padding: 0;
 
@@ -1760,15 +1794,35 @@
 
         .inline-note-title.warning::before {
 
-            content: none;
+            display: inline-flex;
 
-            display: none;
+            align-items: center;
+
+            justify-content: center;
+
+            width: 1.12em;
+
+            height: 1.12em;
+
+            flex: 0 0 1.12em;
+
+            border-radius: 50%;
+
+            background: #ffe1df;
+
+            color: #9f2520;
+
+            font-size: 0.76em;
+
+            font-weight: 800;
+
+            line-height: 1;
 
         }
 
         .inline-note-title.note::before {
 
-            content: none;
+            content: "!";
 
         }
 
@@ -1784,7 +1838,7 @@
 
         .inline-note-title.warning::before {
 
-            content: none;
+            content: "!";
 
         }
 
@@ -1834,7 +1888,7 @@
         .inline-note-callout td,
         .inline-note-callout th {
 
-            color: #8f2824;
+            color: #111827;
 
         }
 
@@ -1888,7 +1942,7 @@
 
         #1-5-주의사항 .image-card > p:first-child {
 
-            color: #8f2824;
+            color: #111827;
 
         }
 
@@ -8992,11 +9046,26 @@
                 ? 'warning'
                 : 'note';
             const isAllowedContent = (element) => element.matches('p, ul, ol, .feature-list');
+            const splitInlineNoteBody = (title) => {
+                const text = (title.textContent || '').trim();
+                const colonIndex = text.indexOf(':');
+                if (colonIndex < 0) return;
+
+                const label = text.slice(0, colonIndex).trim();
+                const body = text.slice(colonIndex + 1).trim();
+                if (!label || !body) return;
+
+                title.textContent = label;
+                const bodyParagraph = document.createElement('p');
+                bodyParagraph.textContent = body;
+                title.after(bodyParagraph);
+            };
 
             Array.from(content.querySelectorAll('p')).filter(shouldWrap).forEach((title) => {
                 if (title.closest('.inline-note-callout')) return;
 
                 const type = getType(title);
+                splitInlineNoteBody(title);
                 title.classList.add('inline-note-title', type);
 
                 const callout = document.createElement('div');

@@ -552,15 +552,25 @@
         .feature-list li {
             position: relative;
             margin: 10px 0;
-            padding: 11px 14px;
+            padding: 11px 14px 11px 44px;
             border: 1px solid #e4edef;
             border-radius: 14px;
             background: linear-gradient(90deg, rgba(20, 157, 151, 0.045), rgba(255, 255, 255, 0.96));
             box-shadow: 0 3px 10px rgba(22, 57, 74, 0.025);
         }
         .feature-list li::before {
-            content: none;
-            display: none;
+            content: "";
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            width: 11.5px;
+            height: 11.5px;
+            margin-top: -5.75px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 50% 50%, #fff 0 26%, transparent 27%),
+                linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-orange) 100%);
+            box-shadow: 0 0 0 3px rgba(20, 157, 151, 0.08);
         }
         .image-grid {
             display: grid;
@@ -858,6 +868,13 @@
         .format-card.format-wide {
             grid-column: 1 / -1;
         }
+        .content p,
+        .content li,
+        .content td,
+        .content th,
+        .content .caption {
+            color: #111827;
+        }
         .inline-note-title {
             margin: 18px 0 10px;
             font-weight: 800;
@@ -866,7 +883,9 @@
         .inline-note-title.note,
         .inline-note-title.warning {
             position: relative;
-            display: block;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
             max-width: 100%;
             box-sizing: border-box;
             padding: 0;
@@ -878,17 +897,27 @@
         }
         .inline-note-title.note::before,
         .inline-note-title.warning::before {
-            content: none;
-            display: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.12em;
+            height: 1.12em;
+            flex: 0 0 1.12em;
+            border-radius: 50%;
+            background: #ffe1df;
+            color: #9f2520;
+            font-size: 0.76em;
+            font-weight: 800;
+            line-height: 1;
         }
         .inline-note-title.note::before {
-            content: none;
+            content: "!";
         }
         .inline-note-title.warning {
             color: #8f2824;
         }
         .inline-note-title.warning::before {
-            content: none;
+            content: "!";
         }
         .inline-note-callout {
             margin: 18px 0 20px;
@@ -915,7 +944,7 @@
         .inline-note-callout li,
         .inline-note-callout td,
         .inline-note-callout th {
-            color: #8f2824;
+            color: #111827;
         }
         .inline-note-callout p {
             margin: 8px 0;
@@ -942,7 +971,7 @@
         #1-5-주의사항 .caption,
         #1-5-주의사항 .image-card > p:last-child,
         #1-5-주의사항 .image-card > p:first-child {
-            color: #8f2824;
+            color: #111827;
         }
         #1-5-주의사항 .feature-list li,
         #1-5-주의사항 .image-card > p:first-child,
@@ -3103,8 +3132,7 @@
 <p>Software 함수를 통해 카메라 내부에 트리거를 생성합니다. 이 설정에서는 &#x27;Exposure Mode&#x27;가 &#x27;Timed&#x27;셔터 모드로만 지원됩니다.</p>
 <p class="inline-note-title note">참고사항</p>
 <p>&#x27;Counter And Timer Control&#x27; 카테고리의 &#x27;Counter Selector&#x27;를 &#x27;Line Trigger&#x27; 로 설정하면 카메라로</p>
-<p>입력한 총 유효 트리거 수가 &#x27;Counter Value&#x27;로 리턴 됩니다. 이 카운터는 &#x27;Acquisition Start&#x27; 커맨드에</p>
-<p>의해 0으로 초기화 됩니다.</p>
+<p>입력한 총 유효 트리거 수가 &#x27;Counter Value&#x27;로 리턴 됩니다. 이 카운터는 &#x27;Acquisition Start&#x27; 커맨드에 의해 0으로 초기화 됩니다.</p>
 <div class="image-grid">
 <figure class="image-card"><img src="images/pdf-extracted/page26_01_xref168.png" alt="Counter selector line trigger" class="img-full"></figure>
 </div>
@@ -3236,8 +3264,7 @@
 </table></div>
 <p class="inline-note-title warning">유의사항</p>
 <p>1) Exposure Time이 너무 짧을 경우 조명 깜빡임에 의해 깜빡이는 영상이 출력될 수 있습니다.</p>
-<p>2) 최대 밝기에 도달하기 위해 &#x27;Exposure Time&#x27;이 Frame 주기 보다 길어질 경우 Frame Rate가</p>
-<p>감소할 수 있습니다.</p>
+<p>2) 최대 밝기에 도달하기 위해 &#x27;Exposure Time&#x27;이 Frame 주기 보다 길어질 경우 Frame Rate가 감소할 수 있습니다. </p>
 <h3 id="4-5-digital-i-o-control">4.5 Digital I/O Control</h3>
 <p>카메라 외부 I/O 신호를 설정할 수 있는 기능입니다. 각 I/O의 입/출력 방향은 고정되어 있으며, I/O 포트를 통한 신호의 논리적 사양을 변경할 수 있습니다.</p>
 <div class="table-container"><table>
@@ -4505,11 +4532,26 @@
                 ? 'warning'
                 : 'note';
             const isAllowedContent = (element) => element.matches('p, ul, ol, .feature-list');
+            const splitInlineNoteBody = (title) => {
+                const text = (title.textContent || '').trim();
+                const colonIndex = text.indexOf(':');
+                if (colonIndex < 0) return;
+
+                const label = text.slice(0, colonIndex).trim();
+                const body = text.slice(colonIndex + 1).trim();
+                if (!label || !body) return;
+
+                title.textContent = label;
+                const bodyParagraph = document.createElement('p');
+                bodyParagraph.textContent = body;
+                title.after(bodyParagraph);
+            };
 
             Array.from(content.querySelectorAll('p')).filter(shouldWrap).forEach((title) => {
                 if (title.closest('.inline-note-callout')) return;
 
                 const type = getType(title);
+                splitInlineNoteBody(title);
                 title.classList.add('inline-note-title', type);
 
                 const callout = document.createElement('div');
