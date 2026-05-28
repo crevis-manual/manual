@@ -18,7 +18,49 @@
                 radial-gradient(circle at top left, rgba(239, 125, 34, 0.08), transparent 18%),
                 var(--bg-light);
         }
+        .manual-topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            height: 66px;
+            padding: 0 34px;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #dce7ec;
+            box-sizing: border-box;
+            box-shadow: 0 8px 22px rgba(22, 57, 74, 0.04);
+        }
+        .manual-topbar::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-teal), rgba(20, 157, 151, 0.55), rgba(239, 125, 34, 0.7), var(--brand-orange));
+        }
+        .topbar-title {
+            color: #172536;
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            min-width: 0;
+        }
         .sidebar {
+            top: 66px;
+            height: calc(100vh - 66px);
             background: linear-gradient(180deg, #16384a 0%, #1b4654 100%);
             border-right: 1px solid rgba(255, 255, 255, 0.06);
         }
@@ -54,6 +96,7 @@
             max-width: 1320px;
             background: linear-gradient(180deg, #ffffff 0%, #fcfefe 100%);
             counter-reset: manual-section;
+            padding-top: 126px;
         }
         .content > section {
             position: relative;
@@ -130,6 +173,8 @@
         }
         .header-topbar {
             display: inline-flex;
+            align-items: center;
+            gap: 10px;
             margin-left: 18px;
             position: static;
             z-index: 3;
@@ -160,6 +205,103 @@
             background: linear-gradient(135deg, var(--brand-teal), var(--brand-orange));
             color: #fff;
             box-shadow: 0 6px 14px rgba(20, 157, 151, 0.22);
+        }
+        .manual-topbar .language-switch {
+            gap: 8px;
+            padding: 5px;
+            border-color: #cfdfea;
+            background: #f7fbfd;
+        }
+        .manual-topbar .language-switch a {
+            min-width: 54px;
+            padding: 9px 12px;
+            color: #102437;
+            font-size: 0.8rem;
+            letter-spacing: 0;
+        }
+        .manual-topbar .language-switch a.active {
+            background: #153a5b;
+            color: #fff;
+            box-shadow: 0 7px 14px rgba(21, 58, 91, 0.24);
+        }
+        .manual-search {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            width: clamp(150px, 16vw, 230px);
+            min-width: 0;
+        }
+        .manual-search::before {
+            content: "";
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            border: 2px solid #607887;
+            border-radius: 50%;
+            transform: translateY(-58%);
+            pointer-events: none;
+        }
+        .manual-search::after {
+            content: "";
+            position: absolute;
+            left: 23px;
+            top: 23px;
+            width: 7px;
+            height: 2px;
+            border-radius: 999px;
+            background: #607887;
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+        .manual-search input {
+            width: 100%;
+            height: 42px;
+            padding: 0 56px 0 38px;
+            border: 1px solid var(--brand-line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.86);
+            color: var(--brand-ink);
+            font: inherit;
+            font-size: 0.88rem;
+            font-weight: 700;
+            outline: 0;
+            box-shadow: 0 8px 20px rgba(22, 57, 74, 0.08);
+        }
+        .manual-search input:focus {
+            border-color: rgba(20, 157, 151, 0.5);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(20, 157, 151, 0.12), 0 8px 20px rgba(22, 57, 74, 0.08);
+        }
+        .manual-search .search-key {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 3px 6px;
+            border: 1px solid #d5e3e6;
+            border-radius: 7px;
+            background: #fff;
+            color: #607887;
+            font-size: 0.68rem;
+            font-weight: 800;
+            line-height: 1;
+            pointer-events: none;
+        }
+        .manual-topbar .manual-search {
+            width: min(260px, 24vw);
+        }
+        .manual-topbar .manual-search input {
+            height: 42px;
+            border-color: #cad9e8;
+            background: #fff;
+            box-shadow: none;
+            font-weight: 500;
+        }
+        .manual-topbar .manual-search .search-key {
+            border-radius: 999px;
+            color: #52708a;
         }
         .header-text {
             position: relative;
@@ -1289,6 +1431,18 @@
             opacity: 0.75;
         }
         @media screen and (max-width: 1024px) {
+            .manual-topbar {
+                padding: 0 18px;
+            }
+            .topbar-title {
+                font-size: 0.9rem;
+            }
+            .topbar-actions {
+                gap: 10px;
+            }
+            .manual-topbar .manual-search {
+                width: min(220px, 42vw);
+            }
             .header-box {
                 display: block;
                 padding-left: 30px;
@@ -1422,6 +1576,9 @@
         .scu-manual-header .header-topbar {
             margin-left: 0;
         }
+        .scu-manual-header .manual-search {
+            width: clamp(140px, 14vw, 210px);
+        }
         .scu-manual-header .model-title {
             margin-bottom: 8px;
             font-size: clamp(2rem, 3.2vw, 2.65rem);
@@ -1505,8 +1662,40 @@
             }
         }
         @media screen and (max-width: 640px) {
+            .manual-topbar {
+                height: auto;
+                min-height: 66px;
+                flex-wrap: wrap;
+                padding: 10px 14px 12px;
+            }
+            .topbar-actions {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 8px;
+            }
+            .manual-topbar .language-switch a {
+                min-width: 40px;
+                padding: 8px 8px;
+            }
+            .manual-topbar .manual-search {
+                width: 168px;
+            }
+            .sidebar {
+                top: 112px;
+                height: calc(100vh - 112px);
+            }
+            .content {
+                padding-top: 146px;
+            }
             .scu-manual-header {
                 padding: 18px 18px 20px;
+            }
+            .scu-manual-header .header-topbar {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            .scu-manual-header .manual-search {
+                width: min(100%, 240px);
             }
             .header-visual-group.scu-header-visual-group {
                 justify-items: center;
@@ -1569,7 +1758,7 @@
             content: none;
             display: none;
         }
-    </style></head><body><nav class="sidebar"><div class="eyebrow">USB3Vision User Manual</div><h2>SCU</h2><div class="rev">Version 1.1<br>Release Date: 2021. 03. 17</div><a class="back-link" href="../../../../index.html"><span>← Manual Center</span></a><ul class="toc"><li><a href="#1"><span>1. Preparation</span></a></li><li class="toc-sub"><a href="#1-1-pc"><span>1.1 PC Minimum/Recommended Specifications</span></a></li><li class="toc-sub"><a href="#1-2-sdk"><span>1.2 SDK</span></a></li><li class="toc-sub"><a href="#1-3"><span>1.3 Cable</span></a></li><li class="toc-sub"><a href="#1-4"><span>1.4 Precautions</span></a></li><li><a href="#2"><span>2. Product Specifications</span></a></li><li class="toc-sub"><a href="#2-1"><span>2.1 Product Overview</span></a></li><li class="toc-sub"><a href="#2-2"><span>2.2 Key Specifications</span></a></li><li><a href="#3"><span>3. Camera Interface</span></a></li><li class="toc-sub"><a href="#3-1-back-panel"><span>3.1 Back Panel</span></a></li><li class="toc-sub"><a href="#3-2-dc-in-and-external-i-o-pin-map"><span>3.2 Camera DC IN &amp; External I/O Pin Map</span></a></li><li class="toc-sub"><a href="#3-3-usb3-1-gen-1-micro-b-type-connector"><span>3.3 USB3.1 Gen.1 Micro-B Type Connector</span></a></li><li class="toc-sub"><a href="#3-4-led-status"><span>3.4 LED status</span></a></li><li class="toc-sub"><a href="#3-5-external-i-o"><span>3.5 External I/O Internal Circuit</span></a></li><li><a href="#4"><span>4. Camera Features</span></a></li><li class="toc-sub"><a href="#4-1-device-control"><span>4.1 Device Control</span></a></li><li class="toc-sub"><a href="#4-1-1-device-link-througput-limit"><span>4.1.1 Device Link Througput Limit</span></a></li><li class="toc-sub"><a href="#4-1-2-device-temperature"><span>4.1.2 Device Temperature</span></a></li><li class="toc-sub"><a href="#4-1-3-device-temperature-state"><span>4.1.3 Device Temperature State</span></a></li><li class="toc-sub"><a href="#4-1-4-device-reset"><span>4.1.4 Device Reset</span></a></li><li class="toc-sub"><a href="#4-1-5-device-sleep-mode"><span>4.1.5 Device Sleep Mode</span></a></li><li class="toc-sub"><a href="#4-2-image-format-control"><span>4.2 Image Format Control</span></a></li><li class="toc-sub"><a href="#4-2-1-roi-region-of-interest"><span>4.2.1 ROI (Region Of Interest)</span></a></li><li class="toc-sub"><a href="#4-2-2-decimation-horizontal-vertical"><span>4.2.2 Decimation Horizontal / Vertical</span></a></li><li class="toc-sub"><a href="#4-2-3-binning-horizontal-vertical-mu-a160m-226-mu-a320m-118"><span>4.2.3 Binning Horizontal / Vertical (MU-A160M-226 and MU-A320M-118 models only)</span></a></li><li class="toc-sub"><a href="#4-2-4-reverse-x-y"><span>4.2.4 Reverse X, Y</span></a></li><li class="toc-sub"><a href="#4-2-5-pixel-format"><span>4.2.5 Pixel Format</span></a></li><li class="toc-sub"><a href="#4-2-6-test-pattern"><span>4.2.6 Test Pattern</span></a></li><li class="toc-sub"><a href="#4-3-acquisition-control"><span>4.3 Acquisition Control</span></a></li><li class="toc-sub"><a href="#4-4-trigger-mode-control"><span>4.4 Trigger Mode Control</span></a></li><li class="toc-sub"><a href="#4-4-1-trigger-mode"><span>4.4.1 Trigger Mode</span></a></li><li class="toc-sub"><a href="#4-4-2-trigger-source"><span>4.4.2 Trigger Source</span></a></li><li class="toc-sub"><a href="#4-4-3-trigger-delay"><span>4.4.3 Trigger Delay</span></a></li><li class="toc-sub"><a href="#4-4-4-transfer-delay"><span>4.4.4 Transfer Delay</span></a></li><li class="toc-sub"><a href="#4-5-exposure-control"><span>4.5 Exposure Control</span></a></li><li class="toc-sub"><a href="#4-5-1-exposure-mode"><span>4.5.1 Exposure mode</span></a></li><li class="toc-sub"><a href="#4-5-2-exposure-time"><span>4.5.2 Exposure Time</span></a></li><li class="toc-sub"><a href="#4-4-3-sensor-shutter-mode-mu-a121r-l-31-mu-a201r-l-18"><span>4.4.3 Sensor Shutter Mode (MU-A121R/L-31 and MU-A201R/L-18 models only)</span></a></li><li class="toc-sub"><a href="#4-5-4-exposure-auto"><span>4.5.4 Exposure Auto</span></a></li><li class="toc-sub"><a href="#4-6-digital-i-o-control"><span>4.6 Digital I/O Control</span></a></li><li class="toc-sub"><a href="#4-6-1-line-debouncer"><span>4.6.1 Line Debouncer</span></a></li><li class="toc-sub"><a href="#4-7-timer-control"><span>4.7 Timer Control</span></a></li><li class="toc-sub"><a href="#4-5-exposure-control-trigger"><span>As mentioned in ‘Exposure Control’ in Section 4.5, the trigger signal input to the camera and the actual signal to the image sensor</span></a></li><li class="toc-sub"><a href="#4-8-counter-control"><span>4.8 Counter Control</span></a></li><li class="toc-sub"><a href="#4-9-chunk-data-control"><span>4.9 Chunk Data Control</span></a></li><li class="toc-sub"><a href="#4-10-event-control"><span>4.10 Event Control</span></a></li><li class="toc-sub"><a href="#4-11-analog-control"><span>4.11 Analog Control</span></a></li><li class="toc-sub"><a href="#4-11-1-gain-gain-auto"><span>4.11.1 Gain, Gain Auto</span></a></li><li class="toc-sub"><a href="#4-11-2-black-level"><span>4.11.2 Black Level</span></a></li><li class="toc-sub"><a href="#4-11-3-gamma"><span>4.11.3 Gamma</span></a></li><li class="toc-sub"><a href="#4-11-4-pattern-noise-removal-mu-a121r-l-31-mu-a201r-l-18"><span>4.11.4 Pattern Noise Removal (MU-A121R/L-31 and MU-A201R/L-18 models only)</span></a></li><li class="toc-sub"><a href="#4-11-5-noise-reduction-filter"><span>4.11.5 Noise Reduction Filter</span></a></li><li class="toc-sub"><a href="#4-12-balance-ratio-control"><span>4.12 Balance Ratio Control</span></a></li><li class="toc-sub"><a href="#4-13-user-set-control"><span>4.13 User Set Control</span></a></li><li class="toc-sub"><a href="#4-14-lut-control"><span>4.14 LUT Control</span></a></li><li class="toc-sub"><a href="#4-15-defect-pixel-correction"><span>4.15 Defect Pixel Correction</span></a></li><li class="toc-sub"><a href="#4-16-low-latency-mode"><span>4.16 Low-Latency Mode</span></a></li><li class="toc-sub"><a href="#4-17-color-transformation-control"><span>4.17 Color Transformation Control</span></a></li><li class="toc-sub"><a href="#4-18-device-temperature-state"><span>4.18 Device Temperature State</span></a></li><li><a href="#5"><span>5. Camera Appearance</span></a></li><li><a href="#1-sdk"><span>1. SDK Installation</span></a></li><li class="toc-sub"><a href="#2-1-camguide"><span>2.1 Run CamGuide</span></a></li><li class="toc-sub"><a href="#2-2-select-and-connect-camera"><span>2.2 Select and Connect Camera: Double-click the camera you want to set up.</span></a></li><li class="toc-sub"><a href="#2-3"><span>2.3 Camera Settings</span></a></li><li><a href="#revision-history"><span>Revision History</span></a></li></ul></nav><div class="content"><header class="header-box scu-manual-header"><div class="header-text"><p class="category-label">USB3Vision Camera Manual</p><div class="title-row"><h1 class="model-title">SCU Product Manual</h1><div class="header-topbar"><div class="language-switch" aria-label="Manual language selector"><a href="index.html">KOR</a><a class="active" href="index_en.html">ENG</a></div></div></div><p class="model-subtitle">Sony CMOS Sensor USB3Vision Camera USER MANUAL</p></div><div class="header-visual-group scu-header-visual-group"><img src="images/crevis_logo.jpg" class="header-logo" alt="Crevis Logo"><div class="scu-hero-visual"><img src="images/scu_camera_hero_cutout.png" class="header-camera-main scu-hero-main" alt="SCU camera product image"><img src="images/scu_camera_views_cutout.png" class="scu-hero-views" alt="SCU camera front, side, and rear views"></div></div></header><section id="1">
+    </style></head><body><div class="manual-topbar"><div class="topbar-title">CREVIS Camera Manual</div><div class="topbar-actions"><div class="language-switch topbar-language" aria-label="Manual language selector"><a href="index.html">KOR</a><a class="active" href="index_en.html">ENG</a></div><label class="manual-search" aria-label="Search manual"><input id="manualSearchInput" type="search" placeholder="Search" autocomplete="off"><span class="search-key">K</span></label></div></div><nav class="sidebar"><div class="eyebrow">USB3Vision User Manual</div><h2>SCU</h2><div class="rev">Version 1.1<br>Release Date: 2021. 03. 17</div><a class="back-link" href="../../../../index.html"><span>← Manual Center</span></a><ul class="toc"><li><a href="#1"><span>1. Preparation</span></a></li><li class="toc-sub"><a href="#1-1-pc"><span>1.1 PC Minimum/Recommended Specifications</span></a></li><li class="toc-sub"><a href="#1-2-sdk"><span>1.2 SDK</span></a></li><li class="toc-sub"><a href="#1-3"><span>1.3 Cable</span></a></li><li class="toc-sub"><a href="#1-4"><span>1.4 Precautions</span></a></li><li><a href="#2"><span>2. Product Specifications</span></a></li><li class="toc-sub"><a href="#2-1"><span>2.1 Product Overview</span></a></li><li class="toc-sub"><a href="#2-2"><span>2.2 Key Specifications</span></a></li><li><a href="#3"><span>3. Camera Interface</span></a></li><li class="toc-sub"><a href="#3-1-back-panel"><span>3.1 Back Panel</span></a></li><li class="toc-sub"><a href="#3-2-dc-in-and-external-i-o-pin-map"><span>3.2 Camera DC IN &amp; External I/O Pin Map</span></a></li><li class="toc-sub"><a href="#3-3-usb3-1-gen-1-micro-b-type-connector"><span>3.3 USB3.1 Gen.1 Micro-B Type Connector</span></a></li><li class="toc-sub"><a href="#3-4-led-status"><span>3.4 LED status</span></a></li><li class="toc-sub"><a href="#3-5-external-i-o"><span>3.5 External I/O Internal Circuit</span></a></li><li><a href="#4"><span>4. Camera Features</span></a></li><li class="toc-sub"><a href="#4-1-device-control"><span>4.1 Device Control</span></a></li><li class="toc-sub"><a href="#4-1-1-device-link-througput-limit"><span>4.1.1 Device Link Througput Limit</span></a></li><li class="toc-sub"><a href="#4-1-2-device-temperature"><span>4.1.2 Device Temperature</span></a></li><li class="toc-sub"><a href="#4-1-3-device-temperature-state"><span>4.1.3 Device Temperature State</span></a></li><li class="toc-sub"><a href="#4-1-4-device-reset"><span>4.1.4 Device Reset</span></a></li><li class="toc-sub"><a href="#4-1-5-device-sleep-mode"><span>4.1.5 Device Sleep Mode</span></a></li><li class="toc-sub"><a href="#4-2-image-format-control"><span>4.2 Image Format Control</span></a></li><li class="toc-sub"><a href="#4-2-1-roi-region-of-interest"><span>4.2.1 ROI (Region Of Interest)</span></a></li><li class="toc-sub"><a href="#4-2-2-decimation-horizontal-vertical"><span>4.2.2 Decimation Horizontal / Vertical</span></a></li><li class="toc-sub"><a href="#4-2-3-binning-horizontal-vertical-mu-a160m-226-mu-a320m-118"><span>4.2.3 Binning Horizontal / Vertical (MU-A160M-226 and MU-A320M-118 models only)</span></a></li><li class="toc-sub"><a href="#4-2-4-reverse-x-y"><span>4.2.4 Reverse X, Y</span></a></li><li class="toc-sub"><a href="#4-2-5-pixel-format"><span>4.2.5 Pixel Format</span></a></li><li class="toc-sub"><a href="#4-2-6-test-pattern"><span>4.2.6 Test Pattern</span></a></li><li class="toc-sub"><a href="#4-3-acquisition-control"><span>4.3 Acquisition Control</span></a></li><li class="toc-sub"><a href="#4-4-trigger-mode-control"><span>4.4 Trigger Mode Control</span></a></li><li class="toc-sub"><a href="#4-4-1-trigger-mode"><span>4.4.1 Trigger Mode</span></a></li><li class="toc-sub"><a href="#4-4-2-trigger-source"><span>4.4.2 Trigger Source</span></a></li><li class="toc-sub"><a href="#4-4-3-trigger-delay"><span>4.4.3 Trigger Delay</span></a></li><li class="toc-sub"><a href="#4-4-4-transfer-delay"><span>4.4.4 Transfer Delay</span></a></li><li class="toc-sub"><a href="#4-5-exposure-control"><span>4.5 Exposure Control</span></a></li><li class="toc-sub"><a href="#4-5-1-exposure-mode"><span>4.5.1 Exposure mode</span></a></li><li class="toc-sub"><a href="#4-5-2-exposure-time"><span>4.5.2 Exposure Time</span></a></li><li class="toc-sub"><a href="#4-4-3-sensor-shutter-mode-mu-a121r-l-31-mu-a201r-l-18"><span>4.4.3 Sensor Shutter Mode (MU-A121R/L-31 and MU-A201R/L-18 models only)</span></a></li><li class="toc-sub"><a href="#4-5-4-exposure-auto"><span>4.5.4 Exposure Auto</span></a></li><li class="toc-sub"><a href="#4-6-digital-i-o-control"><span>4.6 Digital I/O Control</span></a></li><li class="toc-sub"><a href="#4-6-1-line-debouncer"><span>4.6.1 Line Debouncer</span></a></li><li class="toc-sub"><a href="#4-7-timer-control"><span>4.7 Timer Control</span></a></li><li class="toc-sub"><a href="#4-5-exposure-control-trigger"><span>As mentioned in ‘Exposure Control’ in Section 4.5, the trigger signal input to the camera and the actual signal to the image sensor</span></a></li><li class="toc-sub"><a href="#4-8-counter-control"><span>4.8 Counter Control</span></a></li><li class="toc-sub"><a href="#4-9-chunk-data-control"><span>4.9 Chunk Data Control</span></a></li><li class="toc-sub"><a href="#4-10-event-control"><span>4.10 Event Control</span></a></li><li class="toc-sub"><a href="#4-11-analog-control"><span>4.11 Analog Control</span></a></li><li class="toc-sub"><a href="#4-11-1-gain-gain-auto"><span>4.11.1 Gain, Gain Auto</span></a></li><li class="toc-sub"><a href="#4-11-2-black-level"><span>4.11.2 Black Level</span></a></li><li class="toc-sub"><a href="#4-11-3-gamma"><span>4.11.3 Gamma</span></a></li><li class="toc-sub"><a href="#4-11-4-pattern-noise-removal-mu-a121r-l-31-mu-a201r-l-18"><span>4.11.4 Pattern Noise Removal (MU-A121R/L-31 and MU-A201R/L-18 models only)</span></a></li><li class="toc-sub"><a href="#4-11-5-noise-reduction-filter"><span>4.11.5 Noise Reduction Filter</span></a></li><li class="toc-sub"><a href="#4-12-balance-ratio-control"><span>4.12 Balance Ratio Control</span></a></li><li class="toc-sub"><a href="#4-13-user-set-control"><span>4.13 User Set Control</span></a></li><li class="toc-sub"><a href="#4-14-lut-control"><span>4.14 LUT Control</span></a></li><li class="toc-sub"><a href="#4-15-defect-pixel-correction"><span>4.15 Defect Pixel Correction</span></a></li><li class="toc-sub"><a href="#4-16-low-latency-mode"><span>4.16 Low-Latency Mode</span></a></li><li class="toc-sub"><a href="#4-17-color-transformation-control"><span>4.17 Color Transformation Control</span></a></li><li class="toc-sub"><a href="#4-18-device-temperature-state"><span>4.18 Device Temperature State</span></a></li><li><a href="#5"><span>5. Camera Appearance</span></a></li><li><a href="#1-sdk"><span>1. SDK Installation</span></a></li><li class="toc-sub"><a href="#2-1-camguide"><span>2.1 Run CamGuide</span></a></li><li class="toc-sub"><a href="#2-2-select-and-connect-camera"><span>2.2 Select and Connect Camera: Double-click the camera you want to set up.</span></a></li><li class="toc-sub"><a href="#2-3"><span>2.3 Camera Settings</span></a></li><li><a href="#revision-history"><span>Revision History</span></a></li></ul></nav><div class="content"><header class="header-box scu-manual-header"><div class="header-text"><p class="category-label">USB3Vision Camera Manual</p><div class="title-row"><h1 class="model-title">SCU Product Manual</h1></div><p class="model-subtitle">Sony CMOS Sensor USB3Vision Camera USER MANUAL</p></div><div class="header-visual-group scu-header-visual-group"><img src="images/crevis_logo.jpg" class="header-logo" alt="Crevis Logo"><div class="scu-hero-visual"><img src="images/scu_camera_hero_cutout.png" class="header-camera-main scu-hero-main" alt="SCU camera product image"><img src="images/scu_camera_views_cutout.png" class="scu-hero-views" alt="SCU camera front, side, and rear views"></div></div></header><section id="1">
 <h2 id="1">1. Preparation</h2>
 <h3 id="1-1-pc">1.1 PC Minimum/Recommended Specifications</h3>
 <p>1) CPU: Intel Core i3 (minimum), i5 or higher (recommended)</p>
