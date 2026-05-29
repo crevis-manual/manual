@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CameraLink Polarization Camera User Manual | Crevis</title>
+    <link rel="stylesheet" href="../../../../css/product_manual/style.css">
+    <link rel="stylesheet" href="style-local.css">
+</head>
+<body>
+    <div class="manual-top-banner">
+        <a class="manual-banner-title" href="../../../../index.html">CREVIS Camera Manual</a>
+        <div class="manual-banner-tools">
+            <div class="language-switch" aria-label="Manual language selector">
+                <a class="active" href="index.html">KOR</a>
+                <a href="index_en.html">ENG</a>
+            </div>
+            <div class="manual-search" role="search">
+                <input type="search" data-manual-search placeholder="Search" aria-label="Search manual">
+                <kbd>K</kbd>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar">
+        <div class="eyebrow">CameraLink User Manual</div>
+        <h2>CL Polarization</h2>
+        <a class="back-link" href="../../../../index.html"><span>&larr; Manual Center</span></a>
+        <div class="rev">Version 1.0<br>Release Date: 2020. 06. 30</div>
+        <ul class="toc">
+            <li><a href="#preparation"><span>1. 준비하기</span></a></li>
+            <li class="toc-sub"><a href="#required-items"><span>1.1 필수 준비 요소</span></a></li>
+            <li class="toc-sub"><a href="#sdk"><span>1.2 SDK</span></a></li>
+            <li class="toc-sub"><a href="#precautions"><span>1.3 주의사항</span></a></li>
+            <li><a href="#specifications"><span>2. 제품 사양</span></a></li>
+            <li class="toc-sub"><a href="#overview"><span>2.1 제품 개요</span></a></li>
+            <li class="toc-sub"><a href="#main-spec"><span>2.2 주요 사양</span></a></li>
+            <li><a href="#interface"><span>3. 카메라 인터페이스</span></a></li>
+            <li class="toc-sub"><a href="#back-panel"><span>3.1 Back Panel</span></a></li>
+            <li class="toc-sub"><a href="#dc-connector"><span>3.2 카메라 DC Connector</span></a></li>
+            <li class="toc-sub"><a href="#led-status"><span>3.3 LED status</span></a></li>
+            <li class="toc-sub"><a href="#cameralink-pin-map"><span>3.4 CameraLink Connector Pin map</span></a></li>
+            <li class="toc-sub"><a href="#cameralink-timing"><span>3.5 CameraLink Interface Timing</span></a></li>
+            <li><a href="#functions"><span>4. 카메라 기능</span></a></li>
+            <li class="toc-sub"><a href="#image-format-control"><span>4.1 Image Format Control</span></a></li>
+            <li class="toc-sub"><a href="#roi"><span>4.1.1 ROI</span></a></li>
+            <li class="toc-sub"><a href="#reverse"><span>4.1.2 Reverse X, Y</span></a></li>
+            <li class="toc-sub"><a href="#pixel-format"><span>4.1.3 Pixel Format</span></a></li>
+            <li class="toc-sub"><a href="#output-format-selector"><span>4.1.4 Output Format Selector</span></a></li>
+            <li class="toc-sub"><a href="#test-pattern"><span>4.1.5 Test Pattern</span></a></li>
+            <li><a href="#contact"><span>Contact</span></a></li>
+            <li><a href="#revision-history"><span>Revision History</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <header class="header-box">
+            <div class="header-text">
+                <p class="category-label">CameraLink Camera Manual</p>
+                <div class="title-row">
+                    <h1 class="model-title">CameraLink Polarization Camera</h1>
+                </div>
+                <p class="model-subtitle">Sony CMOS Polarized Sensor USER MANUAL</p>
+                <p class="hero-model-name">MC-A500P-163 / MC-A121P-67</p>
+            </div>
+            <div class="header-visual-group">
+                <img src="images/crevis_logo.jpg" class="header-logo" alt="Crevis Logo">
+                <img src="images/camera_photo_cutout.png" class="header-camera-main" alt="CameraLink polarization camera photo">
+            </div>
+        </header>
+
+        <section id="preparation">
+            <h2>1. 준비하기</h2>
+
+            <h3 id="required-items">1.1 필수 준비 요소</h3>
+            <ul class="feature-list">
+                <li>CameraLink 프로토콜을 지원하는 Frame Grabber가 필요합니다.</li>
+                <li>Frame Grabber가 아래 사양을 충족하지 못하는 경우 연결이 안될 수 있습니다.</li>
+            </ul>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>항목</th><th>필수 버전</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>GenICam(GenApi)</td><td>Ver_2.3.1</td></tr>
+                        <tr><td>SFNC</td><td>Ver_2.0.0</td></tr>
+                        <tr><td>GenICam_CLProtocol_Standard</td><td>Ver_1.1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="sdk">1.2 SDK</h3>
+            <ul class="feature-list">
+                <li>크래비스 카메라링크 카메라는 크래비스에서 제공하는 SDK를 이용하여 카메라 연결 및 카메라 환경 설정이 가능합니다.</li>
+                <li>크래비스 SDK 다운로드 링크 : <a href="http://www.crevis.co.kr/kor/support/download/CamGuideCL.zip" target="_blank" rel="noopener">http://www.crevis.co.kr/kor/support/download/CamGuideCL.zip</a></li>
+            </ul>
+
+            <h3 id="precautions">1.3 주의사항</h3>
+            <ul class="feature-list">
+                <li>동작 온도 : 0℃ ~ +45℃. 주변 온도 변화에 따라 데이터 출력이 변할 수 있으므로 일정하게 온도를 유지하십시오.</li>
+                <li>누수 및 습기 주의 : 제품 자체에 방수 기능이 없으므로 지나친 습기에 노출되지 않도록 주의하셔야 합니다.</li>
+                <li>자기장 및 전기장 : 입출력 신호가 LVDS 300mV대의 미소 전압 및 전류이므로 강한 자기장 및 전기장에 노출되면 신호의 왜곡을 일으킬 수 있습니다.</li>
+                <li>환기 : 소비전력은 사용환경에 따라 차이가 나지만 전력 소비량이 높으므로 제품 주변을 밀폐시키거나 공기 흐름을 차단하지 말고 통풍성을 유지하여야 합니다.</li>
+                <li>초기 동작 상태 : 제품 전원 인가 시 Camera와 Frame Grabber에 Cable이 연결된 상태에서 전원을 인가해야 합니다.</li>
+                <li>제품 성능은 Cable 특성에 따라 달라질 수 있습니다.</li>
+                <li>CE 규격을 준수하기 위해서는 표준 Camera Link™ Cable 또는 동급 이상의 Shield 특성이 좋은 케이블을 사용해야 합니다. 추천 Cable은 제조사 3M의 14B26-SZLB-xxx-SKC입니다.</li>
+                <li>이 제품은 제품의 기능 및 성능 개선을 위해 예고 없이 수정될 수 있습니다.</li>
+            </ul>
+        </section>
+
+        <section id="specifications">
+            <h2>2. 제품 사양</h2>
+
+            <h3 id="overview">2.1 제품 개요</h3>
+            <div class="feature-grid">
+                <div class="feature-item"><strong>Sony CMOS Polarized Sensor</strong>IMX250MZR, IMX253MZR 기반 편광 센서</div>
+                <div class="feature-item"><strong>Global Electronic Shutter</strong>고속 촬상 환경을 위한 글로벌 셔터 지원</div>
+                <div class="feature-item"><strong>Polarization Algorithm</strong>편광 알고리즘 내재</div>
+                <div class="feature-item"><strong>CameraLink Interface</strong>Freerun 및 Trigger Mode 지원</div>
+                <div class="feature-item"><strong>Power Supply</strong>DC 24V 또는 PoCL 지원</div>
+            </div>
+
+            <h3 id="main-spec">2.2 주요 사양</h3>
+            <div class="spec-model-list" data-spec-model-list></div>
+            <div class="table-container spec-table-stack">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Spec.</th>
+                            <th>MC-A500P-163</th>
+                            <th>MC-A121P-67</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>Sensor</th><td>5M<br>IMX250MZR</td><td>12M<br>IMX253MZR</td></tr>
+                        <tr><th>Sensor Format</th><td>2/3”</td><td>1.1”</td></tr>
+                        <tr><th>Pixel Size(um)</th><td>3.45 x 3.45</td><td>3.45 x 3.45</td></tr>
+                        <tr><th>Active Pixels (10Tap)</th><td>2464 x 2056<br>(2440 x 2056)</td><td>4096 x 3000<br>(4080 x 3000)</td></tr>
+                        <tr><th>C/L Pixel Freq.</th><td>85MHz</td><td>85MHz</td></tr>
+                        <tr><th>C/L Tap</th><td>10Tap / 8Tap / 4Tap / 3Tap / 2Tap / 1Tap</td><td>10Tap / 8Tap / 4Tap / 3Tap / 2Tap / 1Tap</td></tr>
+                        <tr><th>Frame Rate (Max)* 10tap</th><td>163fps</td><td>67fps</td></tr>
+                        <tr><th>Exposure Time</th><td>Min. 3.7us(1H) + 13.73us</td><td>Min. 6.06us(1H) + 14.26us</td></tr>
+                        <tr><th>Scanning Method</th><td>Full / ROI(Horizontal+Vertical) / Reverse(X,Y,All)</td><td>Full / ROI(Horizontal+Vertical) / Reverse(X,Y,All)</td></tr>
+                        <tr><th>Sync. System</th><td>Internal(Freerun), External(CC1 ~ CC4), Software trigger via PC</td><td>Internal(Freerun), External(CC1 ~ CC4), Software trigger via PC</td></tr>
+                        <tr><th>Trigger Mode</th><td>Timed, Trigger Width</td><td>Timed, Trigger Width</td></tr>
+                        <tr><th>Shutter</th><td>Global Shutter</td><td>Global Shutter</td></tr>
+                        <tr><th>Gain Abs</th><td>Analog : 0dB ~ 24dB (1x ~ 15.8x)<br>Digital : 0dB ~ 18dB (1x ~ 8x)</td><td>Analog : 0dB ~ 24dB (1x ~ 15.8x)<br>Digital : 0dB ~ 18dB (1x ~ 8x)</td></tr>
+                        <tr><th>Black Level (Analog/Digital)</th><td>Analog : 0 ~ 1023(10bit) / Digital : 0 ~ 1023(10bit)</td><td>Analog : 0 ~ 1023(10bit) / Digital : 0 ~ 1023(10bit)</td></tr>
+                        <tr><th>Gamma</th><td>Adjustable LUT (10bit to 10bit)</td><td>Adjustable LUT (10bit to 10bit)</td></tr>
+                        <tr><th>Video I/F</th><td>CameraLink Full (SDR x 2)</td><td>CameraLink Full (SDR x 2)</td></tr>
+                        <tr><th>Pixel Format</th><td>Mono8/10, Bayer8/10, RGB8 Degree, RGB8 Polarization</td><td>Mono8/10, Bayer8/10, RGB8 Degree, RGB8 Polarization</td></tr>
+                        <tr><th>Communication</th><td>RS232 via CameraLink connector</td><td>RS232 via CameraLink connector</td></tr>
+                        <tr><th>Minimum Illumination</th><td>1.0 lx, F1.4, Gain MAX, without IR cut filter</td><td>1.0 lx, F1.4, Gain MAX, without IR cut filter</td></tr>
+                        <tr><th>SNR</th><td>43.85dB</td><td>46.64dB</td></tr>
+                        <tr><th>Function Control</th><td>GainAuto, ExposureAuto, Acquisition Frame Rate(Adjustable), Shading Correction(FFC), Noise Reduction</td><td>GainAuto, ExposureAuto, Acquisition Frame Rate(Adjustable), Shading Correction(FFC), Noise Reduction</td></tr>
+                        <tr><th>Lens mount</th><td>C mount</td><td>C mount</td></tr>
+                        <tr><th>Optical accuracy</th><td>Optical center ≤ ± 0.1 mm</td><td>Optical center ≤ ± 0.1 mm</td></tr>
+                        <tr><th>Power Supply</th><td>DC(12V ~ 24V ± 10%) or PoCL</td><td>DC(12V ~ 24V ± 10%) or PoCL</td></tr>
+                        <tr><th>Consumption (DC/PoCL)</th><td>&lt; 3.2W</td><td>&lt; 3.6W</td></tr>
+                        <tr><th>Weight</th><td>47g</td><td>47g</td></tr>
+                        <tr><th>Dimension</th><td>29 x 29 x 29 mm (Without mount, Connector)</td><td>29 x 29 x 29 mm (Without mount, Connector)</td></tr>
+                        <tr><th>Operating / Storage</th><td>0℃ ~ +45℃ (with &lt; 20~80% RH) / -20℃ ~ +60℃</td><td>0℃ ~ +45℃ (with &lt; 20~80% RH) / -20℃ ~ +60℃</td></tr>
+                        <tr><th>Vibration / Shock</th><td>98 m/s² (10G) / 196m/s² (20G)</td><td>98 m/s² (10G) / 196m/s² (20G)</td></tr>
+                        <tr><th>Standard Compliancy</th><td>CE (EN61326-1; 2006년; Class A)</td><td>CE (EN61326-1; 2006년; Class A)</td></tr>
+                        <tr><th>Environments</th><td>RoHS / WEEE</td><td>RoHS / WEEE</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="interface">
+            <h2>3. 카메라 인터페이스</h2>
+
+            <h3 id="back-panel">3.1 Back Panel</h3>
+            <figure class="figure-wide">
+                <img src="images/pdf-extracted/back_panel.png" alt="Camera back panel">
+                <figcaption>Back Panel</figcaption>
+            </figure>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>No.</th><th>Name</th><th>Remark</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>CameraLink Connector</td><td>SDR26</td></tr>
+                        <tr><td>2</td><td>Power Connector</td><td>4 Pin Circular Connector</td></tr>
+                        <tr><td>3</td><td>LED indicator</td><td>LED</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="dc-connector">3.2 카메라 DC Connector</h3>
+            <figure class="figure-card">
+                <img src="images/pdf-extracted/dc_connector.png" alt="4 pin circular connector">
+                <figcaption>4 pin Circular Connector</figcaption>
+            </figure>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>No.</th><th>Name</th><th>IN/OUT</th><th>Description</th><th>Remark</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Power IN</td><td>IN</td><td>10.8V ~ 26.4V Input Range</td><td></td></tr>
+                        <tr><td>2</td><td>Power IN</td><td>IN</td><td>10.8V ~ 26.4V Input Range</td><td></td></tr>
+                        <tr><td>3</td><td>GND</td><td>IN</td><td>Power GND</td><td></td></tr>
+                        <tr><td>4</td><td>GND+</td><td>IN</td><td>Power GND</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="led-status">3.3 LED status</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Light</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr><td>Orange</td><td>카메라 초기화.</td></tr>
+                        <tr><td>Green</td><td>정상동작.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="cameralink-pin-map">3.4 CameraLink Connector Pin map</h3>
+            <div class="figure-pair">
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/mini_cameralink_connector.png" alt="Mini CameraLink connector 1 SDR">
+                    <figcaption>Mini CameraLink™ Connector1 (SDR)</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/mini_cameralink_connector.png" alt="Mini CameraLink connector 2 SDR">
+                    <figcaption>Mini CameraLink™ Connector2 (SDR)</figcaption>
+                </figure>
+            </div>
+            <div class="figure-pair">
+                <div class="table-container">
+                    <table>
+                        <caption>Mini CameraLink™ Connector1 (SDR)</caption>
+                        <thead><tr><th>PIN NO.</th><th>Signal Name</th><th>PIN NO.</th><th>Signal Name</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>GND</td><td>14</td><td>GND</td></tr>
+                            <tr><td>2</td><td>X0-</td><td>15</td><td>X0+</td></tr>
+                            <tr><td>3</td><td>X1-</td><td>16</td><td>X1+</td></tr>
+                            <tr><td>4</td><td>X2-</td><td>17</td><td>X2+</td></tr>
+                            <tr><td>5</td><td>Xclk-</td><td>18</td><td>Xclk+</td></tr>
+                            <tr><td>6</td><td>X3-</td><td>19</td><td>X3+</td></tr>
+                            <tr><td>7</td><td>SerTC+</td><td>20</td><td>SerTC-</td></tr>
+                            <tr><td>8</td><td>SerTFG-</td><td>21</td><td>SerTFG+</td></tr>
+                            <tr><td>9</td><td>CC1-</td><td>22</td><td>CC1+</td></tr>
+                            <tr><td>10</td><td>CC2+</td><td>23</td><td>CC2-</td></tr>
+                            <tr><td>11</td><td>CC3-</td><td>24</td><td>CC3+</td></tr>
+                            <tr><td>12</td><td>CC4+</td><td>25</td><td>CC4-</td></tr>
+                            <tr><td>13</td><td>GND</td><td>26</td><td>GND</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <caption>Mini CameraLink™ Connector2 (SDR)</caption>
+                        <thead><tr><th>PIN NO.</th><th>Signal Name</th><th>PIN NO.</th><th>Signal Name</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>GND</td><td>14</td><td>GND</td></tr>
+                            <tr><td>2</td><td>Y0-</td><td>15</td><td>Y0+</td></tr>
+                            <tr><td>3</td><td>Y1-</td><td>16</td><td>Y1+</td></tr>
+                            <tr><td>4</td><td>Y2-</td><td>17</td><td>Y2+</td></tr>
+                            <tr><td>5</td><td>Yclk-</td><td>18</td><td>Yclk+</td></tr>
+                            <tr><td>6</td><td>Y3-</td><td>19</td><td>Y3+</td></tr>
+                            <tr><td>7</td><td>100ohm terminated</td><td>20</td><td>100ohm terminated</td></tr>
+                            <tr><td>8</td><td>Z0-</td><td>21</td><td>Z0+</td></tr>
+                            <tr><td>9</td><td>Z1-</td><td>22</td><td>Z1+</td></tr>
+                            <tr><td>10</td><td>Z2-</td><td>23</td><td>Z2+</td></tr>
+                            <tr><td>11</td><td>Zclk-</td><td>24</td><td>Zclk+</td></tr>
+                            <tr><td>12</td><td>Z3-</td><td>25</td><td>Z3+</td></tr>
+                            <tr><td>13</td><td>GND</td><td>26</td><td>GND</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h3 id="cameralink-timing">3.5 CameraLink Interface Timing</h3>
+            <figure class="figure-wide">
+                <img src="images/pdf-extracted/cameralink_data_order.png" alt="Data order of the CameraLink">
+                <figcaption>3.5.1 Data order of the CameraLink</figcaption>
+            </figure>
+            <figure class="figure-wide">
+                <img src="images/pdf-extracted/mono_color_bayer_order.png" alt="Mono or color Bayer order">
+                <figcaption>3.5.2 Mono or Color Bayer Order</figcaption>
+            </figure>
+        </section>
+
+        <section id="functions">
+            <h2>4. 카메라 기능</h2>
+
+            <h3 id="image-format-control">4.1 Image Format Control</h3>
+            <p>카메라의 이미지 출력 Size 및 Format에 대한 설정을 변경할 수 있는 기능입니다.</p>
+            <div class="table-container">
+                <table class="parameter-list">
+                    <thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>Width, Height,<br>Offset X, Offset Y</td>
+                            <td>(Integer)</td>
+                            <td>이미지의 출력 Size 및 Offset(Pixel 좌표)를 변경합니다.<br>WidthMAX ≥ Offset X + Width<br>HeightMAX ≥ Offset Y + Height</td>
+                        </tr>
+                        <tr>
+                            <td>ReverseX, ReverseY</td>
+                            <td>True / False</td>
+                            <td>이미지의 상/하 또는 좌/우 반전 기능입니다.</td>
+                        </tr>
+                        <tr>
+                            <td>Pixel Format</td>
+                            <td>Mono8/10<br>Bayer8/10<br>RGB8 Degree<br>RGB8 Polarization</td>
+                            <td>이미지를 Host로 전송할 때의 Format을 변경할 수 있습니다. 세부적인 전송 Order는 4.1.4절을 참고해 주시기 바랍니다.</td>
+                        </tr>
+                        <tr>
+                            <td>Output Format Selector</td>
+                            <td>Intensity(S0)<br>AoP<br>DoLP<br>0 Degree<br>45 Degree<br>90 Degree<br>135 Degree</td>
+                            <td>AoP : 픽셀에 입사된 빛 각도의 평균 값을 출력합니다.<br>DoLP : 픽셀에 입사된 편광의 정도를 밝기값으로 출력합니다.<br>Intensity : 입사된 빛의 밝기값을 출력합니다.<br>Degree : 0˚, 45˚, 90˚, 135˚의 각도별 이미지를 출력합니다.</td>
+                        </tr>
+                        <tr>
+                            <td>Test Pattern</td>
+                            <td>Off<br>Vertical Ramp<br>Horizontal Ramp</td>
+                            <td>테스트 이미지를 선택할 수 있습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="roi">4.1.1 ROI (Region Of Interest)</h3>
+            <p>Width, Height, Offset X, Offset Y를 설정함으로써 원하는 영역의 이미지만 출력하는 것이 가능합니다. 출력 이미지 사이즈가 작아질수록 Frame Rate이 증가합니다.</p>
+            <figure class="figure-wide">
+                <img src="images/pdf-extracted/roi_diagram.png" alt="ROI region of interest diagram">
+                <figcaption>ROI 설정 개념</figcaption>
+            </figure>
+            <p class="inline-note-title note">※ 참고 사항</p>
+            <ol class="feature-list">
+                <li>ROI로 인해 변경된 Frame Rate은 ‘Resulting Frame Rate’ 파라미터를 통해 확인할 수 있습니다.</li>
+            </ol>
+
+            <h3 id="reverse">4.1.2 Reverse X, Y</h3>
+            <p>영상의 좌/우 또는 상/하를 반전하여 출력하는 기능입니다.</p>
+            <ol class="feature-list">
+                <li>Reverse X 모드를 True로 설정 시, 영상의 좌/우가 반전됩니다. (Bayer RG → Bayer GR)</li>
+                <li>Reverse Y 모드를 True로 설정 시, 영상의 상/하가 반전됩니다. (Bayer RG → Bayer GB)</li>
+            </ol>
+            <div class="figure-quad">
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/reverse_x_false_y_false.jpg" alt="Reverse X false Reverse Y false">
+                    <figcaption>Reverse X = False<br>Reverse Y = False</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/reverse_x_true_y_false.jpg" alt="Reverse X true Reverse Y false">
+                    <figcaption>Reverse X = True<br>Reverse Y = False</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/reverse_x_false_y_true.jpg" alt="Reverse X false Reverse Y true">
+                    <figcaption>Reverse X = False<br>Reverse Y = True</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/reverse_x_true_y_true.jpg" alt="Reverse X true Reverse Y true">
+                    <figcaption>Reverse X = True<br>Reverse Y = True</figcaption>
+                </figure>
+            </div>
+            <p class="inline-note-title warning">※ 유의사항</p>
+            <ol class="feature-list">
+                <li>'Reverse Y' 선택 시 Defect Filter 사용이 제한되기 때문에 불량 화소가 나타날 수 있습니다. 이로 인해 노출된 불량화소는 ‘Defect Pixel Correction’ 카테고리에서 제거할 수 있습니다.</li>
+                <li>ROI와 Reverse가 동시에 사용될 경우, 반전된 이미지로부터 ROI 기능이 적용됩니다. Reverse가 활성화될 경우 Image의 시작 좌표인 (0,0) Pixel의 위치가 반전됩니다. 이 때문에 Reverse 적용 이전과 동일한 영역을 촬상하기 위해서는 Total Size - ROI Size 만큼의 Image Offset이 필요합니다.</li>
+            </ol>
+            <div class="figure-quad">
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/reverse_roi_full.jpg" alt="Full image before ROI">
+                    <figcaption>Image Size : 4024 * 3036<br>Offset X : 0, Offset Y : 0<br>Reverse X : False, Reverse Y : False</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/reverse_roi_half_left_or_shifted.jpg" alt="ROI image before reverse">
+                    <figcaption>Image Size : 2012 * 1518<br>Offset X : 0, Offset Y : 0<br>Reverse X : False, Reverse Y : False</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/reverse_roi_half_reverse.jpg" alt="ROI image after reverse">
+                    <figcaption>Image Size : 2012 * 1518<br>Offset X : 0, Offset Y : 0<br>Reverse X : True, Reverse Y : False</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/reverse_roi_half_left_or_shifted.jpg" alt="ROI image with compensated offset">
+                    <figcaption>Image Size : 2012 * 1518<br>Offset X : 2012, Offset Y : 0<br>Reverse X : True, Reverse Y : False</figcaption>
+                </figure>
+            </div>
+
+            <h3 id="pixel-format">4.1.3 Pixel Format</h3>
+            <p>영상의 Pixel Format을 변경할 수 있는 기능입니다. 각 Pixel Format별 이미지 데이터의 전송량에 차이가 있기 때문에 전송 속도 및 Bandwidth가 달라질 수 있습니다.</p>
+            <div class="figure-trio">
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/pixel_format_8bit.png" alt="8-bit image data format">
+                    <figcaption><strong>Mono8 / Bayer8</strong><br>8-bit image data into 8bits<br>Description : 8-bit monochrome unsigned<br>Pixel Size : 1byte<br>Pixel Value range : 0 to 255</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/pixel_format_10bit.png" alt="10-bit image data format">
+                    <figcaption><strong>Mono10 / Bayer10</strong><br>10-bit image data into 16-bits<br>Description : 10-bit monochrome<br>Pixel Size : 2byte<br>Pixel Value range : 0 to 1023</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/pixel_format_bgr8.png" alt="BGR8 image data format">
+                    <figcaption><strong>BGR8</strong><br>24-bit image data into 24-bits<br>Description : 8-bit color component in one byte<br>Pixel Size : 3 bytes for 1 pixel<br>Pixel Value range : 0 to 255</figcaption>
+                </figure>
+            </div>
+
+            <h3 id="output-format-selector">4.1.4 Output Format Selector</h3>
+            <ul class="feature-list">
+                <li>AoP : Sensor에 입사된 빛 각도의 평균 값을 출력하며, 촬상 물체 각도에 따라 DN 값이 변화합니다.</li>
+                <li>DoLP : Sensor에 입사된 빛의 편광된 정도를 밝기값으로 출력하며, 편광된 빛일수록 포화된 이미지를 출력합니다.</li>
+            </ul>
+            <div class="figure-pair">
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/aop_example.jpg" alt="AoP example">
+                    <figcaption>AoP 예제 이미지</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/dolp_example.jpg" alt="DoLP example">
+                    <figcaption>DoLP 예제 이미지</figcaption>
+                </figure>
+            </div>
+            <div class="figure-pair">
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/polarizer_before.jpg" alt="Before using polarization film">
+                    <figcaption>* 편광 필름 사용 전</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/polarizer_after.jpg" alt="After using polarization film">
+                    <figcaption>* 편광 필름 사용 후</figcaption>
+                </figure>
+            </div>
+            <ul class="feature-list">
+                <li>Intensity(S0) : Sensor로 입사된 빛의 세기를 출력하며, 이는 기존 흑백 카메라의 이미지 표현 방식과 동일합니다.</li>
+                <li>0, 45, 90, 135 Degree : 선택한 Degree 값에 입사각이 가까울수록 포화된 영상이 출력됩니다.</li>
+                <li>Ex) 0 Degree : 입사각이 0˚에 가까울수록 포화된 영상이 출력됩니다.</li>
+            </ul>
+            <div class="figure-pair">
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/intensity_s0_example.jpg" alt="Intensity S0 setting image">
+                    <figcaption>* Intensity(S0) 설정 이미지 (0˚ 편광필름 사용)</figcaption>
+                </figure>
+                <figure class="figure-card">
+                    <img src="images/pdf-extracted/degree_0_example.jpg" alt="0 Degree setting image">
+                    <figcaption>* 0 Degree 설정 이미지 (0˚ 편광필름 사용)</figcaption>
+                </figure>
+            </div>
+
+            <h3 id="test-pattern">4.1.5 Test Pattern</h3>
+            <p class="inline-note-title note">원본 PDF 포함 범위</p>
+            <p>제공된 PDF 파일에는 4.1.5 Test Pattern 제목까지만 본문이 포함되어 있어, 이 항목 이후의 상세 설명은 추가하지 않았습니다.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <article class="contact-card">
+                    <h3>Product Inquiry (Sales)</h3>
+                    <p>Tel : +82-31-899-4503 / 4504 / 4507</p>
+                    <p>Fax : +82-31-899-4509</p>
+                    <p><a href="mailto:sh_lee@crevis.co.kr">sh_lee@crevis.co.kr</a><br><a href="mailto:dkahn@crevis.co.kr">dkahn@crevis.co.kr</a><br><a href="mailto:mysung@crevis.co.kr">mysung@crevis.co.kr</a></p>
+                </article>
+                <article class="contact-card">
+                    <h3>Technical Support</h3>
+                    <p>Tel : +82-31-899-4567</p>
+                    <p><a href="mailto:tjmoon@crevis.co.kr">tjmoon@crevis.co.kr</a></p>
+                    <p>29-4, Gigok-ro, Giheung-gu, Yongin-si, Gyeonggi-do, Korea</p>
+                    <p><a href="http://www.crevis.co.kr" target="_blank" rel="noopener">www.crevis.co.kr</a></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="revision-history">
+            <h2>Revision History</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Version</th><th>Release Date</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td>1.0</td><td>2020. 06. 30</td><td>CameraLink Polarization Camera USER MANUAL</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function buildSpecModelList() {
+            const specSection = document.getElementById('specifications');
+            const target = specSection?.querySelector('[data-spec-model-list]');
+            if (!specSection || !target) return;
+
+            const sourceTables = Array.from(specSection.querySelectorAll('.spec-table-stack table'));
+            if (!sourceTables.length) return;
+
+            const normalize = (text) => text.replace(/\s+/g, ' ').trim();
+            const uniqueModelNames = [];
+            const seenModelItems = new Set();
+            const modelEntries = [];
+
+            for (const table of sourceTables) {
+                const headers = Array.from(table.querySelectorAll('thead th')).map((cell) => normalize(cell.textContent));
+                const modelStart = headers.findIndex((text) => text && !/^spec\.?$/i.test(text));
+                if (modelStart === -1) continue;
+
+                const modelNames = headers.slice(modelStart).filter(Boolean);
+                const modelCount = modelNames.length;
+
+                for (const row of Array.from(table.querySelectorAll('tbody tr'))) {
+                    const cells = Array.from(row.children).filter((cell) => /^(TD|TH)$/.test(cell.tagName));
+                    if (!cells.length) continue;
+
+                    const leadingCount = cells.length - modelCount;
+                    if (leadingCount < 1) continue;
+
+                    const label = cells.slice(0, leadingCount)
+                        .map((cell) => normalize(cell.textContent))
+                        .filter(Boolean)
+                        .join(' / ');
+                    if (!label) continue;
+
+                    const values = cells.slice(leadingCount);
+                    if (values.length !== modelCount) continue;
+
+                    modelNames.forEach((modelName, index) => {
+                        const valueHtml = values[index]?.innerHTML.trim();
+                        if (!valueHtml) return;
+                        const entryKey = `${modelName}\u0000${label}\u0000${valueHtml}`;
+                        if (seenModelItems.has(entryKey)) return;
+                        seenModelItems.add(entryKey);
+                        modelEntries.push({ modelName, label, valueHtml });
+                        if (!uniqueModelNames.includes(modelName)) uniqueModelNames.push(modelName);
+                    });
+                }
+            }
+
+            if (!modelEntries.length) return;
+
+            const fragment = document.createDocumentFragment();
+            for (const modelName of uniqueModelNames) {
+                const card = document.createElement('details');
+                card.className = 'spec-model-card';
+
+                const summary = document.createElement('summary');
+                summary.className = 'spec-model-summary';
+                summary.textContent = modelName;
+                card.appendChild(summary);
+
+                const table = document.createElement('table');
+                const tbody = document.createElement('tbody');
+
+                modelEntries
+                    .filter((entry) => entry.modelName === modelName)
+                    .forEach((item) => {
+                        const tr = document.createElement('tr');
+                        const th = document.createElement('th');
+                        const td = document.createElement('td');
+                        th.scope = 'row';
+                        th.textContent = item.label;
+                        td.innerHTML = item.valueHtml;
+                        tr.append(th, td);
+                        tbody.appendChild(tr);
+                    });
+
+                table.appendChild(tbody);
+                card.appendChild(table);
+                fragment.appendChild(card);
+            }
+
+            target.replaceChildren(fragment);
+            Array.from(target.querySelectorAll('.spec-model-card')).forEach((card) => {
+                card.open = false;
+            });
+            sourceTables.forEach((table) => table.closest('.spec-table-stack')?.classList.add('spec-table-source-hidden'));
+        }
+
+        buildSpecModelList();
+
+        function setupInlineCallouts() {
+            const content = document.querySelector('.content');
+            if (!content) return;
+
+            const titlePattern = /^(※\s*)?(참고\s*사항|유의사항|note|precautions|원본 PDF 포함 범위)\s*:?$/i;
+            const shouldWrap = (element) => {
+                if (element.closest('.inline-note-callout')) return false;
+                if (element.classList.contains('inline-note-title')) return true;
+                return titlePattern.test((element.textContent || '').trim());
+            };
+            const getType = (element) => /유의|precaution|warning/i.test(element.textContent || '') || element.classList.contains('warning') ? 'warning' : 'note';
+            const isAllowedContent = (element) => element.matches('p, ul, ol, .feature-list');
+
+            Array.from(content.querySelectorAll('p')).filter(shouldWrap).forEach((title) => {
+                if (title.closest('.inline-note-callout')) return;
+
+                const type = getType(title);
+                title.classList.add('inline-note-title', type);
+
+                const callout = document.createElement('div');
+                callout.className = `inline-note-callout ${type}`;
+                title.before(callout);
+                callout.appendChild(title);
+
+                let sibling = callout.nextElementSibling;
+                while (sibling && !sibling.matches('h2, h3, h4, .inline-note-callout, .inline-note-title')) {
+                    if (!isAllowedContent(sibling)) break;
+                    const next = sibling.nextElementSibling;
+                    callout.appendChild(sibling);
+                    sibling = next;
+                }
+            });
+        }
+
+        setupInlineCallouts();
+
+        function setupManualSearch() {
+            const input = document.querySelector('[data-manual-search]');
+            const content = document.querySelector('.content');
+            if (!input || !content) return;
+
+            let matches = [];
+            let currentIndex = -1;
+
+            const clearHighlights = () => {
+                content.querySelectorAll('mark.manual-search-highlight').forEach((mark) => {
+                    mark.replaceWith(document.createTextNode(mark.textContent || ''));
+                });
+                content.normalize();
+                matches = [];
+                currentIndex = -1;
+            };
+
+            const highlightTextNode = (node, query) => {
+                const text = node.nodeValue || '';
+                const lowerText = text.toLowerCase();
+                const lowerQuery = query.toLowerCase();
+                let start = 0;
+                let index = lowerText.indexOf(lowerQuery, start);
+                if (index === -1) return;
+
+                const fragment = document.createDocumentFragment();
+                while (index !== -1) {
+                    fragment.append(document.createTextNode(text.slice(start, index)));
+                    const mark = document.createElement('mark');
+                    mark.className = 'manual-search-highlight';
+                    mark.textContent = text.slice(index, index + query.length);
+                    fragment.append(mark);
+                    matches.push(mark);
+                    start = index + query.length;
+                    index = lowerText.indexOf(lowerQuery, start);
+                }
+                fragment.append(document.createTextNode(text.slice(start)));
+                node.replaceWith(fragment);
+            };
+
+            const goToMatch = (index) => {
+                if (!matches.length) return;
+                currentIndex = (index + matches.length) % matches.length;
+                matches.forEach((match) => match.classList.remove('is-current'));
+                const current = matches[currentIndex];
+                current.classList.add('is-current');
+                current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            };
+
+            const runSearch = () => {
+                const query = input.value.trim();
+                clearHighlights();
+                if (!query) return;
+
+                const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+                    acceptNode(node) {
+                        const parent = node.parentElement;
+                        if (!parent || parent.closest('script, style, mark')) return NodeFilter.FILTER_REJECT;
+                        return node.nodeValue?.toLowerCase().includes(query.toLowerCase()) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+                    }
+                });
+                const nodes = [];
+                while (walker.nextNode()) nodes.push(walker.currentNode);
+                nodes.forEach((node) => highlightTextNode(node, query));
+                goToMatch(0);
+            };
+
+            input.addEventListener('input', runSearch);
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    input.value = '';
+                    clearHighlights();
+                    return;
+                }
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    goToMatch(currentIndex + (event.shiftKey ? -1 : 1));
+                }
+            });
+
+            window.addEventListener('keydown', (event) => {
+                const target = event.target;
+                const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
+                if (isTyping || event.ctrlKey || event.metaKey || event.altKey || event.key.toLowerCase() !== 'k') return;
+                event.preventDefault();
+                input.focus();
+            });
+        }
+
+        setupManualSearch();
+    </script>
+</body>
+</html>
