@@ -1,0 +1,809 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CXP Sony SWIR Series Manual | Crevis</title>
+<link href="../../../../css/product_manual/style.css" rel="stylesheet"/>
+<link href="style-local.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="manual-top-banner">
+<a class="manual-banner-title" href="../../../../index.html">CREVIS Camera Manual</a>
+<div class="manual-banner-tools">
+<div aria-label="Manual language selector" class="language-switch"><a href="index.html">KOR</a><a class="active" href="index_en.html">ENG</a></div>
+<div class="manual-search" role="search">
+<input aria-label="Search manual" data-manual-search="" placeholder="Search" type="search"/>
+<kbd>K</kbd>
+</div>
+</div>
+</div>
+<nav class="sidebar">
+<div class="eyebrow">CoaXPress User Manual</div>
+<h2>Sony SWIR</h2>
+<a class="back-link" href="../../../../index.html"><span>← Manual Center</span></a>
+<div class="rev">Version 0.2<br/>Release Date: 2025. 04. 28</div>
+<ul class="toc">
+<li><a href="#preparation"><span>1. Preparation</span></a></li>
+<li class="toc-sub"><a href="#required-items"><span>1.1 Required Items</span></a></li>
+<li class="toc-sub"><a href="#sdk"><span>1.2 SDK</span></a></li>
+<li class="toc-sub"><a href="#precautions"><span>1.3 Precautions</span></a></li>
+<li><a href="#specifications"><span>2. Product Specifications</span></a></li>
+<li class="toc-sub"><a href="#overview"><span>2.1 Product Overview</span></a></li>
+<li class="toc-sub"><a href="#main-spec"><span>2.2 Key Specifications</span></a></li>
+<li><a href="#appearance"><span>3. Camera Appearance</span></a></li>
+<li><a href="#functions"><span>4. Camera Functions</span></a></li>
+<li><a href="#appendix-a"><span>Appendix A</span></a></li>
+<li><a href="#appendix-b"><span>Appendix B</span></a></li>
+<li><a href="#appendix-c"><span>Appendix C</span></a></li>
+<li><a href="#appendix-d"><span>Appendix D</span></a></li>
+<li><a href="#contact"><span>Contact</span></a></li>
+<li><a href="#revision-history"><span>Revision History</span></a></li>
+</ul>
+</nav>
+<div class="content">
+<header class="header-box">
+<div class="header-text">
+<p class="category-label">CoaXPress Camera Manual</p>
+<div class="title-row"><h1 class="model-title">Sony SWIR Camera</h1></div>
+<p class="model-subtitle">CoaXPress Camera User Manual</p>
+<p class="hero-model-name">HX-A130SW / HX-A530SW</p>
+</div>
+<div class="header-visual-group">
+<img alt="Crevis Logo" class="header-logo" src="images/crevis_logo.jpg"/>
+<img alt="Sony SWIR CXP camera" class="header-camera-main" src="images/camera_photo_cutout.png"/>
+</div>
+</header>
+<section id="preparation">
+<h2>1. Preparation</h2>
+<article class="pdf-page-block" data-page="5"><h3 id="1-1">1.1 Required Items</h3>
+<p>▶ A Frame Grabber that supports CoaXPress V2.0 protocol is required.</p>
+<p>▶ If the Frame Grabber does not meet the specifications below, connection may not be possible.</p>
+<ul class="pdf-bullet-list"><li>CoaXPress CXP-12 / 1-Channel or more</li></ul>
+<ul class="pdf-bullet-list"><li>GenApi V3.2 or higher, plus</li></ul>
+<ul class="pdf-bullet-list"><li>SFNC V2.5 or higher</li></ul>
+<h3 id="1-2-sdk">1.2 SDK</h3>
+<p>▶ The camera can be connected and set up using the SDK provided by the Frame Grabber manufacturer.</p>
+<h3 id="1-3">1.3 Precautions</h3>
+<p>▶ Operating temperature (Performance guarantee temperature)</p>
+<p>Case temperature: 0℃ ~ +35℃</p>
+<p>Sensor temperature: +15℃</p>
+<ul class="pdf-bullet-list"><li>Data output may vary depending on ambient temperature changes, so keep the temperature constant.</li></ul>
+<ul class="pdf-bullet-list"><li>Depending on changes in surrounding temperature, power consumption due to sensor cooling may increase.</li></ul>
+<ul class="pdf-bullet-list"><li>The external case temperature is recommended to be below 50℃. If it exceeds this, appropriate heat dissipation measures are required and no physical contact is required.</li></ul>
+<p>You must be careful.</p>
+<p>▶ Be careful of water leaks and moisture</p>
+<ul class="pdf-bullet-list"><li>Since the product itself does not have a waterproof function, you must be careful not to expose it to excessive moisture.</li></ul>
+<p>▶ Magnetic and electric fields</p>
+<ul class="pdf-bullet-list"><li>When input/output signals are exposed to strong magnetic and electric fields of high-speed, minute voltages and currents, signal distortion may occur.</li></ul>
+<p>So you need to be careful.</p>
+<p>▶ Ventilation</p>
+<ul class="pdf-bullet-list"><li>Power consumption varies depending on the usage environment, but since power consumption is high, seal the area around the product or ventilate it.</li></ul>
+<p>It must maintain ventilation without blocking the flow.</p>
+<p>▶ Product performance may vary depending on cable characteristics.</p>
+<p>▶ In order to comply with CE standards, use standard CoaXPress™ Cable or a cable with good shielding characteristics of the same level or higher.</p>
+<p>You have to use it. (Recommended Cable: Belden 1694A cable)</p>
+<p>▶ The product may be modified without notice to improve its functions and performance.</p>
+</article>
+</section>
+<section id="specifications">
+<h2>2. Product Specifications</h2>
+<h3 id="overview">2.1 Product Overview</h3>
+<div class="summary-grid product-overview-grid">
+<div class="summary-card"><strong>Sensor &amp; Shutter</strong><ul class="feature-list"><li>Sony SWIR Sensor Camera</li><li>Global Electronic Shutter</li><li>Sensor Cooling Auto Mode</li></ul></div>
+<div class="summary-card"><strong>Power &amp; Interface</strong><ul class="feature-list"><li>Power Supply : DC (12V~24V ±10%) or PoCXP Support</li><li>CoaXPress2.0 Interface</li><li>Supported CoaXPress Speed, Channels : HX-A130/530SW - CXP6, 10, 12 / 1Ch</li></ul></div>
+<div class="summary-card"><strong>Scan &amp; Acquisition</strong><ul class="feature-list"><li>ROI Scan and X, Y Reverse</li><li>Decimation (Horizontal / Vertical), Binning (Horizontal / Vertical)</li><li>Freerun / Trigger Mode</li></ul></div>
+<div class="summary-card"><strong>I/O &amp; Output</strong><ul class="feature-list"><li>External General Purpose I/O(TTL) 2ch, OptoCoupled Input 2ch</li><li>Strobe Output</li><li>Status LED</li></ul></div>
+<div class="summary-card"><strong>Correction &amp; Control</strong><ul class="feature-list"><li>Flat Field Correction</li><li>Defect Pixel Correction</li><li>Gain / Black Level Control</li><li>Auto Exposure / Auto Gain</li></ul></div>
+<div class="summary-card"><strong>Image Processing</strong><ul class="feature-list"><li>LUT, Gamma Control</li><li>Sharpness Enhancement</li><li>Contrast / Brightness Control</li></ul></div>
+</div>
+<h3 id="main-spec">2.2 Key Specifications</h3>
+<div class="spec-model-list">
+<details class="spec-model-card">
+<summary class="spec-model-summary">HX-A130SW</summary><table><tbody>
+<tr>
+<th scope="row">Sensor</th>
+<td>1.3M (IMX990) / Visible + SWIR wideband sensor (0.4um to 1.7um)<br/>Built-in thermoelectric cooler (Performance guarantee temperature: +15?)</td>
+</tr>
+<tr>
+<th scope="row">Sensor Format</th>
+<td>1/2?</td>
+</tr>
+<tr>
+<th scope="row">Pixel Size (um)</th>
+<td>5 x 5</td>
+</tr>
+<tr>
+<th scope="row">Active Pixels</th>
+<td>1296 x 1032</td>
+</tr>
+<tr>
+<th scope="row">Max Frame Rate (Full Size)</th>
+<td>134.7fps</td>
+</tr>
+<tr>
+<th scope="row">Exposure Time</th>
+<td>7us ~ 3sec (Exposure Offset: 7.372us)</td>
+</tr>
+<tr>
+<th scope="row">Scanning Method</th>
+<td>Full / ROI / Reverse(X,Y,All) / Decimation / Binning</td>
+</tr>
+<tr>
+<th scope="row">ROI</th>
+<td>Horizontal / Vertical ROI Support</td>
+</tr>
+<tr>
+<th scope="row">Sync. System</th>
+<td>Internal(Freerun), External(CXP or Circular), Software trigger via PC</td>
+</tr>
+<tr>
+<th scope="row">Exposure Mode</th>
+<td>Timed(Fixed), Trigger Pulse Width</td>
+</tr>
+<tr>
+<th scope="row">Shutter</th>
+<td>Global Shutter</td>
+</tr>
+<tr>
+<th scope="row">Gain Abs</th>
+<td>Analog: 0dB ~ 6dB (ADC 8bit), 0dB ~ 18dB (ADC 10/12bit)<br/>Digital: 0dB ~ 18dB</td>
+</tr>
+<tr>
+<th scope="row">Black Level</th>
+<td>Analog: 0 ~ 255(8bit), 0 ~ 1023(10bit), 0 ~ 4095(12bit)<br/>Digital: 0 ~ 4095(12bit)</td>
+</tr>
+<tr>
+<th scope="row">Auto Gain / Exposure</th>
+<td>Off / Once / Continuous</td>
+</tr>
+<tr>
+<th scope="row">Gamma / LUT</th>
+<td>Gamma 0 ~ 3.999 / Adjustable LUT (12bit to 12bit)</td>
+</tr>
+<tr>
+<th scope="row">Video I/F</th>
+<td>CoaXPress / Micro BNC</td>
+</tr>
+<tr>
+<th scope="row">Video Format</th>
+<td>Mono 8, Mono 10, Mono 12</td>
+</tr>
+<tr>
+<th scope="row">GPIO</th>
+<td>TTL Input/Output 2ch, OptoCoupled Input 2ch</td>
+</tr>
+<tr>
+<th scope="row">Lens Mount</th>
+<td>C mount</td>
+</tr>
+<tr>
+<th scope="row">Optical Filter</th>
+<td>900nm Long Pass</td>
+</tr>
+<tr>
+<th scope="row">Power Supply</th>
+<td>DC(12V ~ 24V ? 10%) or PoCXP</td>
+</tr>
+<tr>
+<th scope="row">Consumption (Typical)</th>
+<td>7.0W</td>
+</tr>
+<tr>
+<th scope="row">Weight</th>
+<td>&lt; 400g</td>
+</tr>
+<tr>
+<th scope="row">Dimension</th>
+<td>55 x 55 x 74 mm (Without Mount, Connector)</td>
+</tr>
+<tr>
+<th scope="row">Warranty</th>
+<td>3 Years</td>
+</tr>
+</tbody></table></details>
+<details class="spec-model-card">
+<summary class="spec-model-summary">HX-A530SW</summary><table><tbody>
+<tr>
+<th scope="row">Sensor</th>
+<td>5.3M (IMX992) / Visible + SWIR wideband sensor (0.4um to 1.7um)<br/>Built-in thermoelectric cooler (Performance guarantee temperature: +15?)</td>
+</tr>
+<tr>
+<th scope="row">Sensor Format</th>
+<td>1/1.4?</td>
+</tr>
+<tr>
+<th scope="row">Pixel Size (um)</th>
+<td>3.45 x 3.45</td>
+</tr>
+<tr>
+<th scope="row">Active Pixels</th>
+<td>2592 x 2056</td>
+</tr>
+<tr>
+<th scope="row">Max Frame Rate (Full Size)</th>
+<td>131.9fps</td>
+</tr>
+<tr>
+<th scope="row">Exposure Time</th>
+<td>1us ~ 3sec (Exposure Offset: 14.802us)</td>
+</tr>
+<tr>
+<th scope="row">Scanning Method</th>
+<td>Full / ROI / Reverse(X,Y,All) / Decimation / Binning</td>
+</tr>
+<tr>
+<th scope="row">ROI</th>
+<td>Horizontal / Vertical ROI Support</td>
+</tr>
+<tr>
+<th scope="row">Sync. System</th>
+<td>Internal(Freerun), External(CXP or Circular), Software trigger via PC</td>
+</tr>
+<tr>
+<th scope="row">Exposure Mode</th>
+<td>Timed(Fixed), Trigger Pulse Width</td>
+</tr>
+<tr>
+<th scope="row">Shutter</th>
+<td>Global Shutter</td>
+</tr>
+<tr>
+<th scope="row">Gain Abs</th>
+<td>Analog: 0dB ~ 24dB (1x ~ 16x)<br/>Digital: 0dB ~ 18dB</td>
+</tr>
+<tr>
+<th scope="row">Black Level</th>
+<td>Analog: 0 ~ 255(8bit), 0 ~ 1023(10bit), 0 ~ 4095(12bit)<br/>Digital: 0 ~ 4095(12bit)</td>
+</tr>
+<tr>
+<th scope="row">Auto Gain / Exposure</th>
+<td>Off / Once / Continuous</td>
+</tr>
+<tr>
+<th scope="row">Gamma / LUT</th>
+<td>Gamma 0 ~ 3.999 / Adjustable LUT (12bit to 12bit)</td>
+</tr>
+<tr>
+<th scope="row">Video I/F</th>
+<td>CoaXPress / Micro BNC</td>
+</tr>
+<tr>
+<th scope="row">Video Format</th>
+<td>Mono 8, Mono 10, Mono 12</td>
+</tr>
+<tr>
+<th scope="row">GPIO</th>
+<td>TTL Input/Output 2ch, OptoCoupled Input 2ch</td>
+</tr>
+<tr>
+<th scope="row">Lens Mount</th>
+<td>C mount</td>
+</tr>
+<tr>
+<th scope="row">Optical Filter</th>
+<td>900nm Long Pass</td>
+</tr>
+<tr>
+<th scope="row">Power Supply</th>
+<td>DC(12V ~ 24V ? 10%) or PoCXP</td>
+</tr>
+<tr>
+<th scope="row">Consumption (Typical)</th>
+<td>9.0W</td>
+</tr>
+<tr>
+<th scope="row">Weight</th>
+<td>&lt; 400g</td>
+</tr>
+<tr>
+<th scope="row">Dimension</th>
+<td>55 x 55 x 74 mm (Without Mount, Connector)</td>
+</tr>
+<tr>
+<th scope="row">Warranty</th>
+<td>3 Years</td>
+</tr>
+</tbody></table></details>
+</div>
+</section>
+<section id="appearance">
+<h2>3. Camera Appearance</h2>
+<article class="pdf-page-block" data-page="9"><h3 id="3-1-appearance">3.1 Appearance</h3>
+<ul class="pdf-bullet-list"><li>HX-A130(530)SW</li></ul>
+<h3 id="3-2-back-panel">3.2 Back Panel</h3>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">No.</th><th scope="col">Name</th><th scope="col">etc</th></tr></thead><tbody><tr><td>1</td><td>Power &amp; I/O Connector</td><td>12Pin Circular Connector</td></tr><tr><td>2</td><td>LED Indicator</td><td>LED</td></tr><tr><td>3</td><td>CoaXPress Connector</td><td>Micro BNC Type</td></tr></tbody></table></div><div class="pdf-figure-grid">
+<figure class="pdf-figure-card"><img alt="HX-A130/HX-A530SW camera appearance" src="images/pdf-extracted/page09_xref894.png"/></figure>
+<figure class="pdf-figure-card"><img alt="Back panel connector layout" src="images/pdf-extracted/page09_xref896.png"/></figure>
+</div>
+</article><article class="pdf-page-block" data-page="10"><h3 id="3-3-led-indicator-status">3.3 LED Indicator Status</h3>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Indication</th><th scope="col">State</th></tr></thead><tbody><tr><td>Off</td><td>No power</td></tr><tr><td>Solid orange</td><td>System booting</td></tr><tr><td>Slow pulse red</td><td>Powered, but not connected</td></tr><tr><td>Solid green</td><td>Device – Host connected, but no data being transferred</td></tr><tr><td>Blinking green</td><td>Data being transferred</td></tr></tbody></table></div><h3 id="3-4-coaxpress-connector">3.4 CoaXPress Connector</h3>
+<p>CoaXPress automatically detects cameras with plug-and-play functionality.</p>
+<p>The camera transmits data to the Frame Grabber at up to 12.5Gbps via coaxial cable.</p>
+<p>If PoCXP is supported, the frame grabber supplies power to the camera through a coaxial cable.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Channel</th><th scope="col">Maximum Bit Rate</th><th scope="col">Connection Type</th><th scope="col">PoCXP Support</th></tr></thead><tbody><tr><td>Connector 1</td><td>12.5Gbps</td><td>Master</td><td>Yes</td></tr></tbody></table></div><h3 id="3-5-external-i-o-connector">3.5 External I/O Connector</h3>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Pin No.</th><th scope="col">Name</th><th scope="col">IN/OUT</th><th scope="col">Description</th></tr></thead><tbody><tr><td>1</td><td>GND</td><td>IN</td><td>Power GND</td></tr><tr><td>2</td><td>VCC</td><td>IN</td><td>12V ~ 24V Input Range</td></tr><tr><td>3</td><td>Line 7(-)</td><td>IN</td><td>OptoCoupled Trigger Input-</td></tr><tr><td>4</td><td>Line 7(+)</td><td>IN</td><td>OptoCoupled Trigger Input+, 3.3V~24V</td></tr><tr><td>5</td><td>Line 6(-)</td><td>IN</td><td>OptoCoupled Trigger Input-</td></tr><tr><td>6</td><td>Line 6(+)</td><td>IN</td><td>OptoCoupled Trigger Input+, 3.3V~24V</td></tr><tr><td>7</td><td>Line 4</td><td>IN/OUT</td><td>Direct IO, 3.3V</td></tr><tr><td>8</td><td>DGND</td><td>IN</td><td>Direct IO GND</td></tr><tr><td>9</td><td>NC</td><td>-</td><td>Do not Connect</td></tr><tr><td>10</td><td>Line 5</td><td>IN/OUT</td><td>Direct IO, 3.3V</td></tr><tr><td>11</td><td>VCC</td><td>IN</td><td>12V ~ 24V Input Range</td></tr><tr><td>12</td><td>GND</td><td>IN</td><td>Power GND</td></tr></tbody></table></div><div class="pdf-figure-grid">
+<figure class="pdf-figure-card"><img alt="12-pin external I/O connector pinout" src="images/pdf-extracted/page10_xref1174.png"/></figure>
+</div>
+</article><article class="pdf-page-block" data-page="11"><h3 id="3-6-external-i-o">3.6 External I/O internal circuit</h3>
+<ul class="pdf-bullet-list"><li>Line 4, 5 (Direct I/O)</li></ul>
+<ul class="pdf-bullet-list"><li>Line 6, 7 (OptoCoupled Input)</li></ul>
+<div class="pdf-figure-grid">
+<figure class="pdf-figure-card"><img alt="Line 4 and Line 5 direct I/O internal circuit" src="images/pdf-extracted/page11_xref1193.png"/></figure>
+<figure class="pdf-figure-card"><img alt="Line 6 and Line 7 optocoupled input internal circuit" src="images/pdf-extracted/page11_xref1195.png"/></figure>
+</div>
+</article>
+</section>
+<section id="functions">
+<h2>4. Camera Functions</h2>
+<article class="pdf-page-block" data-page="12"><h3 id="4-1-image-format-control">4.1 Image Format Control</h3>
+<h4 id="4-1-1-roi-region-of-interest">4.1.1 ROI (Region Of Interest)</h4>
+<ul class="pdf-bullet-list"><li>ROI</li></ul>
+<p>By setting Width, Height, Offset X, and Offset Y, you can output only the image of the desired area. Output Height</p>
+<p>As the size gets smaller, the frame rate increases.</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 1 – ROI Setting" src="images/pdf-extracted/page12_xref1351.png"/><figcaption>Figure 1 – ROI Setting</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>WidthMax / HeightMax</td><td>(Read Only)</td><td>Maximum output size of the image.</td></tr><tr><td>Width / Height / Offset X / Offset Y</td><td>(Integer)</td><td>Changes the image output size and offset in pixel coordinates.<br/>WidthMax ≥ Offset X + Width<br/>HeightMax ≥ Offset Y + Height</td></tr></tbody></table></div><p>＊Frame rate changes due to ROI can be checked through the ‘Resulting Frame Rate’ Feature.</p>
+<p>＊However, if 'Exposure Time' is longer than Frame Period (=1/Max.FrameRate), the Frame Rate may decrease. (Exposure</p>
+<p>priority mode)</p>
+<p>＊The characteristics of 'Width' and 'Height' for each model are as follows.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><caption>Table 1 - Minimum &amp; Unit Size of ROI</caption><thead><tr><th scope="col">Model</th><th scope="col">Minimum Width</th><th scope="col">Minimum Height</th><th scope="col">Width Unit</th><th scope="col">Height Unit</th></tr></thead><tbody><tr><td>All models</td><td>176</td><td>8</td><td>16</td><td>4</td></tr></tbody></table></div>
+</article>
+<article class="pdf-page-block" data-page="13"><h4 id="4-1-2-binning">4.1.2 Binning</h4>
+<p>This is a function that cumulatively reads adjacent pixels in the horizontal or vertical direction. Same as Decimation</p>
+<p>While it has higher resolution, binning can also increase sensitivity by about two times because video signals are added.</p>
+<p>Because digital binning is applied, the frame rate does not increase, but when ROI is applied together, the frame rate increases.</p>
+<p>You can do it.</p>
+<p>Original (1296 * 1032) Binning Horizontal (648 * 1032)</p>
+<p>Binning Vertical (1296 * 516) Binning Horizontal, Vertical (648 * 516)</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 2 – Binning(Sum) Image (1)" src="images/pdf-extracted/page13_xref1386.png"/><figcaption>Figure 2 – Binning(Sum) Image (1)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 2 – Binning(Sum) Image (2)" src="images/pdf-extracted/page13_xref1390.png"/><figcaption>Figure 2 – Binning(Sum) Image (2)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 2 – Binning(Sum) Image (3)" src="images/pdf-extracted/page13_xref1402.png"/><figcaption>Figure 2 – Binning(Sum) Image (3)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 2 – Binning(Sum) Image (4)" src="images/pdf-extracted/page13_xref1407.png"/><figcaption>Figure 2 – Binning(Sum) Image (4)</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Binning Horizontal<br/>Mode /<br/>Binning Vertical Mode</td><td>Average</td><td>Selects the method for accumulating adjacent pixels.<br/>- Average : Outputs the average of adjacent pixels<br/>- Sum : Outputs the sum of adjacent pixels</td></tr><tr><td class="blank-cell"></td><td>Sum</td><td class="blank-cell"></td></tr><tr><td>Binning Horizontal<br/>/ Binning Vertical</td><td>1</td><td>Reduces image resolution and accumulates adjacent pixels for output.<br/>- 1 : Output original image<br/>- 2 : Output binned image</td></tr><tr><td class="blank-cell"></td><td>2</td><td class="blank-cell"></td></tr></tbody></table></div><p>＊However, if 'Exposure Time' is longer than Frame Period (=1/Max.FrameRate), the Frame Rate may decrease. (Exposure</p>
+<p>priority mode)</p>
+<h4 id="4-1-3-decimation">4.1.3 Decimation</h4>
+<p>This is a function that reads quickly from the sensor, skipping 1 pixel in the horizontal or vertical direction. Year of Image</p>
+<p>The resolution is reduced by half while the frame rate is increased.</p>
+</article>
+<article class="pdf-page-block" data-page="14"><p>DecimationHorizontal = 1</p>
+<p>DecimationVertical = 1</p>
+<p>DecimationHorizontal = 1</p>
+<p>DecimationVertical = 2</p>
+<p>DecimationHorizontal = 2</p>
+<p>DecimationVertical = 1</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 3 – Decimation (1)" src="images/pdf-extracted/page14_xref1527.png"/><figcaption>Figure 3 – Decimation (1)</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Decimation Horizontal / Decimation Vertical</td><td>1</td><td>Reduces image resolution and increases frame rate.<br/>- 1 : Output original image<br/>- 2 : Output decimated image</td></tr><tr><td class="blank-cell"></td><td>2</td><td class="blank-cell"></td></tr></tbody></table></div><p>＊The Frame Rate changed due to Decimation can be checked through the ‘Resulting Frame Rate’ Feature.</p>
+<p>＊However, if 'Exposure Time' is longer than Frame Period (=1/Max.FrameRate), the Frame Rate may decrease. (Exposure</p>
+<p>priority mode)</p>
+<h4 id="4-1-4-reverse">4.1.4 Reverse</h4>
+<p>This is the function to output the image by inverting the left/right or top/bottom.</p>
+<p>Original Reverse X</p>
+<p>Reverse Y Reverse X, Y</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 4 – Reverse Image (2)" src="images/pdf-extracted/page14_xref1531.png"/><figcaption>Figure 4 – Reverse Image (2)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 4 – Reverse Image (3)" src="images/pdf-extracted/page14_xref1535.png"/><figcaption>Figure 4 – Reverse Image (3)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 4 – Reverse Image (4)" src="images/pdf-extracted/page14_xref1635.png"/><figcaption>Figure 4 – Reverse Image (4)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 4 – Reverse Image (5)" src="images/pdf-extracted/page14_xref1639.png"/><figcaption>Figure 4 – Reverse Image (5)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 4 – Reverse Image (6)" src="images/pdf-extracted/page14_xref1651.png"/><figcaption>Figure 4 – Reverse Image (6)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 4 – Reverse Image (7)" src="images/pdf-extracted/page14_xref1656.png"/><figcaption>Figure 4 – Reverse Image (7)</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>ReverseX / ReverseY</td><td>True</td><td>Flips the image horizontally or vertically.</td></tr><tr><td class="blank-cell"></td><td>False</td><td class="blank-cell"></td></tr></tbody></table></div>
+</article>
+<article class="pdf-page-block" data-page="15"><p>＊When ROI and Reverse are used simultaneously, the ROI function is applied from the reversed image. In other words, reverse as shown below.</p>
+<p>When activated, the position of (0,0) Pixel, which is the starting coordinate of the Image, is reversed. Because of this, the same area as before applying Reverse</p>
+<p>To capture an image, an Image Offset equal to Total Size – ROI Size is required.</p>
+<p>Image Size : 2592 * 2056</p>
+<p>Offset X : 0</p>
+<p>Offset Y : 0</p>
+<p>Reverse X : False</p>
+<p>Reverse Y : False</p>
+<p>Image Size : 1296 * 1028</p>
+<p>Offset X : 0</p>
+<p>Offset Y : 0</p>
+<p>Reverse X : False</p>
+<p>Reverse Y : False</p>
+<p>Image Size : 1296 * 1028</p>
+<p>Offset X : 0</p>
+<p>Offset Y : 0</p>
+<p>Reverse X : True</p>
+<p>Reverse Y : False</p>
+<p>Image Size : 1296 * 1028</p>
+<p>Offset X : 1296</p>
+<p>Offset Y : 0</p>
+<p>Reverse X : True</p>
+<p>Reverse Y : False</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 5 – ROI &amp; Reverse Image (1)" src="images/pdf-extracted/page15_xref1745.png"/><figcaption>Figure 5 – ROI &amp; Reverse Image (1)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 5 – ROI &amp; Reverse Image (2)" src="images/pdf-extracted/page15_xref1749.png"/><figcaption>Figure 5 – ROI &amp; Reverse Image (2)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 5 – ROI &amp; Reverse Image (3)" src="images/pdf-extracted/page15_xref1753.png"/><figcaption>Figure 5 – ROI &amp; Reverse Image (3)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 5 – ROI &amp; Reverse Image (4)" src="images/pdf-extracted/page15_xref1757.png"/><figcaption>Figure 5 – ROI &amp; Reverse Image (4)</figcaption></figure></div><h4 id="4-1-5-adc-bit-depth">4.1.5 ADC Bit Depth</h4>
+<p>This is a function to set the bit depth when converting data from sensor to digital. Depending on the ADC Bit Depth setting</p>
+<p>The Max Frame Rate is different, and in the same environment, the brightness of the video in 8bit mode is 10bit, and the brightness of the video is 12bit in 12bit mode.</p>
+<p>It is about 4 times brighter than</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>ADC Bit Depth</td><td>8bit</td><td>Selects the sensor digital data depth.</td></tr><tr><td class="blank-cell"></td><td>10bit</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>12bit</td><td class="blank-cell"></td></tr></tbody></table></div><h4 id="4-1-6-pixel-format">4.1.6 Pixel Format</h4>
+<p>Set the Pixel Format of the image output from the camera. There is a difference in image transfer amount for each pixel format.</p>
+<p>Therefore, the frame rate may change depending on the bandwidth.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Pixel Format</td><td>Mono 8</td><td>Sets the format of image data transmitted to the Frame Grabber.</td></tr><tr><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Mono 12</td><td class="blank-cell"></td></tr></tbody></table></div><p>＊The format of image data cannot be larger than the ‘ADC Bit Depth’ of the sensor.</p>
+<p>＊The 'Pixel Format' supported for each model is as follows.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><caption>Table 2 - Pixel Format Values</caption><thead><tr><th scope="col">Model</th><th scope="col">Pixel Format Support</th></tr></thead><tbody><tr><td>All models</td><td>Mono 8, Mono 10, Mono 12</td></tr></tbody></table></div><p>＊Data processing method according to ‘Pixel Format’ is as follows.</p>
+</article>
+<article class="pdf-page-block" data-page="16"><div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 6 – Pixel Format (1)" src="images/pdf-extracted/page16_xref2006.png"/><figcaption>Figure 6 – Pixel Format (1)</figcaption></figure></div><h4 id="4-1-7-test-pattern">4.1.7 Test Pattern</h4>
+<p>At the intermediate stage of image processing, the image is replaced with a test pattern and transmitted. Activate the Test Pattern function</p>
+<p>Even if enabled, functions related to image acquisition such as ROI Size, Trigger input, and Acquisition Frame Rate are valid.</p>
+<p>all. Test Pattern Image is created in 8bit gray level (0~255DN).</p>
+<p>Grey Horizontal Ramp Grey Vertical Ramp Grey Horizontal Vertical Ramp</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 7 – Test Pattern Image (2)" src="images/pdf-extracted/page16_xref2010.png"/><figcaption>Figure 7 – Test Pattern Image (2)</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Test Pattern</td><td>Off</td><td>Selects the test image.<br/>- Off : Output sensor image<br/>- Grey Horizontal Ramp : Brightness increases horizontally<br/>- Grey Vertical Ramp : Brightness increases vertically<br/>- Grey Horizontal Vertical Ramp : Brightness increases diagonally</td></tr><tr><td class="blank-cell"></td><td>Grey Horizontal<br/>Ramp</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Grey Vertical<br/>Ramp</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Grey Horizontal<br/>Vertical Ramp</td><td class="blank-cell"></td></tr></tbody></table></div><h3 id="4-2-acquisition-control">4.2 Acquisition Control</h3>
+<h4 id="4-2-1-acquisition-control">4.2.1 Acquisition Control</h4><div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 8 – Acquisition Start/Stop (3)" src="images/pdf-extracted/page16_xref2014.png"/><figcaption>Figure 8 – Acquisition Start/Stop (3)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 8 – Acquisition Start/Stop (4)" src="images/pdf-extracted/page16_xref2098.png"/><figcaption>Figure 8 – Acquisition Start/Stop (4)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 8 – Acquisition Start/Stop (5)" src="images/pdf-extracted/page16_xref2100.png"/><figcaption>Figure 8 – Acquisition Start/Stop (5)</figcaption></figure></div>
+<p>This is a function to set the camera's image acquisition time and method.</p>
+</article>
+<article class="pdf-page-block" data-page="17"><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Acquisition Mode</td><td>Continuous</td><td>Acquires images from the Acquisition Start command until the condition below.<br/>- Continuous : Continues acquisition until the Acquisition Stop command</td></tr><tr><td>Acquisition Start</td><td>Command</td><td>Starts image acquisition by command input.</td></tr><tr><td>Acquisition Stop</td><td>Command</td><td>Stops image acquisition by command input.</td></tr><tr><td>Acquisition Frame<br/>Rate</td><td>1 ~ Max.FPS</td><td>Sets the desired frame rate in Freerun Mode.</td></tr><tr><td>Acquisition Frame<br/>Rate Enable</td><td>Off</td><td>Enables or disables Acquisition Frame Rate in Freerun Mode.</td></tr><tr><td class="blank-cell"></td><td>On</td><td class="blank-cell"></td></tr><tr><td>Resulting Frame Rate</td><td>(Read Only)</td><td>Outputs the actual camera frame rate in Freerun Mode.</td></tr></tbody></table></div><p>＊After entering the 'Acquisition Start' command, the image is acquired by Internal Freerun Counter or External Trigger.</p>
+<p>＊The 'Acquisition Start' command is also input when executing streaming-related functions in the frame grabber dedicated program.</p>
+<p>＊Max.FPS changes depending on ROI, Decimation, 'Pixel Format', 'Exposure Time', and 'CXP Link Configuration' settings.</p>
+<p>＊Freerun Mode is ‘Trigger Mode’ = ‘Off’.</p>
+<h4 id="4-2-2-exposure-control">4.2.2 Exposure Control</h4>
+<p>Set the camera exposure method. Exposure start time is determined by Internal Freerun Counter or External Trigger.</p>
+<p>Once determined, Timed Shutter exposes for the amount of time set in Exposure Time, and Trigger Width Shutter is a trigger.</p>
+<p>Exposure is as much as the pulse width of the trigger in the mode. Exposure Time is set to Timed Shutter when Exposure Mode is set to Timed Shutter.</p>
+<p>Applies only to right.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Exposure Mode</td><td>Timed</td><td>- Timed : Exposure time is controlled by the Exposure Time setting<br/>- Trigger Width : Exposure time is controlled by the pulse width of the external trigger</td></tr><tr><td class="blank-cell"></td><td>Trigger Width</td><td class="blank-cell"></td></tr><tr><td>Exposure Time</td><td>1 ~ 3,000,000<br/>(Unit : us)</td><td>Sets the exposure time for Timed Shutter.</td></tr></tbody></table></div><p>＊However, if 'Exposure Time' is longer than Frame Period (=1/Max.FrameRate), the Frame Rate may decrease. (Exposure</p>
+<p>priority mode)</p>
+<p>＊If 'Trigger Mode' is 'Off' or 'Trigger Source' is 'Software', it operates as a 'Timed' Shutter.</p>
+<p>＊Set ‘Counter Event Source’ in the ‘Counter and Timer Control’ category to ‘Exposure Start’ or ‘Exposure Stop’</p>
+<p>When you do this, the start and end times of exposure are output as 'Counter Value'. Current with 'Counter Update Feature' Command</p>
+<p>You can update the counter. This Counter is initialized to 0 by the 'Counter Reset' Command.</p>
+<p>＊There is a certain amount of time delay (Hardware Delay+Exposure Start Delay) from the external trigger input to the actual exposure of the sensor.</p>
+<p>(Refer to Appendix B, C)</p>
+<p>＊There is an error (Exposure Offset) between 'Exposure Time' and the actual exposure time. (Refer to Appendix C)</p>
+<p>Exposure Auto is a function where the camera automatically adjusts the Exposure Time to acquire an image with the desired brightness.</p>
+<p>It can be used when Exposure Mode is Timed.</p>
+</article>
+<article class="pdf-page-block" data-page="18"><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Exposure Auto</td><td>Off</td><td>- Off : Set Exposure Time manually<br/>- Once : Turns Exposure Auto off when the image reaches the target brightness<br/>- Continuous : Continuously adjusts Exposure Time to maintain target brightness</td></tr><tr><td class="blank-cell"></td><td>Once</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Continuous</td><td class="blank-cell"></td></tr><tr><td>Auto Exposure Target</td><td>0 ~ 255<br/>(DN @8bit)</td><td>Sets the desired average brightness.</td></tr><tr><td>Auto Exposure Time<br/>Lower Limit</td><td>100 ~ 3,000,000<br/>(Unit : us)</td><td>Sets the variable Exposure Time range for Exposure Auto.<br/>Lower Limit ≤ Upper Limit</td></tr><tr><td>Auto Exposure Time<br/>Upper Limit</td><td class="blank-cell"></td><td class="blank-cell"></td></tr><tr><td>Exposure Update<br/>Feature</td><td>Command</td><td>Updates Exposure Time.</td></tr></tbody></table></div><p>＊However, if 'Exposure Time' is longer than Frame Period (=1/Max.FrameRate), the Frame Rate may decrease. (Exposure</p>
+<p>priority mode)</p>
+<p>＊If the 'Exposure Time' is too short, a flickering image may be obtained due to lighting, etc.</p>
+<p>＊When using 'Exposure Auto' and 'Gain Auto' at the same time, the operation varies depending on the brightness of the Image and Target.</p>
+<p>＊If the brightness of the image needs to be increased, 'Gain Auto' is applied after applying 'Exposure Auto'.</p>
+<p>＊If the brightness of the image needs to be reduced, 'Exposure Auto' is applied after applying 'Gain Auto'.</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 9 – Freerun Mode" src="images/pdf-extracted/page18_xref2642.png"/><figcaption>Figure 9 – Freerun Mode</figcaption></figure></div><h4 id="4-2-3-trigger-mode-control">4.2.3 Trigger Mode Control</h4>
+<p>Controls image acquisition method and timing. The image acquisition method is largely Freerun Mode (Trigger Mode =</p>
+<p>Off) and Trigger Mode, and the acquisition delay can be set.</p>
+<p>When Trigger Mode is Off, the camera operates in Freerun Mode. Freerun Mode operates in the current settings.</p>
+<p>Internal Counter and VD signals are generated based on the maximum frame rate that can be achieved. Exposure set at the same time</p>
+<p>An exposure signal is generated according to the time, operates the sensor, acquires the image, and transmits it to the frame grabber.</p>
+<p>When Trigger Mode is On, the camera operates in Trigger Mode. Trigger Mode exposes with External Trigger.</p>
+<p>You can also start and adjust the exposure time. Once the sensor completes exposure, the rest is the same as Freerun Mode.</p>
+<p>The image is acquired and transmitted to the Frame Grabber.</p>
+</article>
+<article class="pdf-page-block" data-page="19"><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Trigger Mode</td><td>Off</td><td>- Off : Operates in Freerun Mode<br/>- On : Operates in Trigger Mode</td></tr><tr><td class="blank-cell"></td><td>On</td><td class="blank-cell"></td></tr><tr><td>Trigger Software</td><td>Command</td><td>Manually inputs a software trigger.</td></tr><tr><td>Trigger Source</td><td>CXP_Trigger</td><td>- CXP_Trigger : Trigger generated by the Frame Grabber<br/>- Line 4 ~ 7 : External trigger through the 12-pin circular connector (see 3.5 External I/O Connector)<br/>- Software : Trigger generated internally by the Trigger Software command</td></tr><tr><td class="blank-cell"></td><td>Line 4</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Line 5</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Line 6</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Line 7</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Software</td><td class="blank-cell"></td></tr><tr><td>Trigger Activation</td><td>Rising Edge</td><td>Reference edge used by the camera to recognize the trigger.</td></tr><tr><td>Trigger Overlap</td><td>Off</td><td>- Off : Prevents the next exposure from starting during readout<br/>- ReadOut : Allows the next exposure to start during readout</td></tr><tr><td class="blank-cell"></td><td>ReadOut</td><td class="blank-cell"></td></tr></tbody></table></div><p>＊In Freerun Mode, if 'Acquisition Frame Rate Enable' is 'On', it operates as 'Acquisition Frame Rate', and if 'Acquisition Frame Rate Enable' is 'Off', it operates as 'Acquisition Frame Rate'.</p>
+<p>In this case, it operates at the maximum frame rate that can operate in the current settings.</p>
+<p>＊If 'Trigger Mode' is 'On', it is triggered by CXP Trigger, External Trigger, or Software Trigger according to the 'Trigger Source' setting.</p>
+<p>It works.</p>
+<p>＊CXP Trigger must be set separately in the Frame Grabber program.</p>
+<p>＊'Trigger Activation' is fixed to 'Rising Edge', so you must use the 'Line Inverter' function to change the phase of the trigger.</p>
+<p>do. (Refer to 4.3 Digital I/O Control)</p>
+<p>＊If you set 'Counter Event Source' in the 'Counter and Timer Control' category to 'External Trigger Start', the input will be triggered by the camera.</p>
+<p>The total number of valid triggers is displayed as 'Counter Value'. Update the current counter with the ‘Counter Update Feature’ Command.</p>
+<p>You can update. This Counter is initialized to 0 by the 'Counter Reset' Command.</p>
+<p>＊The operation according to the 'Trigger Overlap' setting is as follows.</p>
+<div class="pdf-figure-grid">
+<figure class="pdf-figure-card"><img alt="Figure 10 – Trigger Mode &amp; Timed Shutter" src="images/pdf-extracted/page19_xref2865.png"/><figcaption>Figure 10 – Trigger Mode &amp; Timed Shutter</figcaption></figure>
+<figure class="pdf-figure-card"><img alt="Figure 11 – Trigger Mode &amp; Trigger Width Shutter" src="images/pdf-extracted/page19_xref2867.png"/><figcaption>Figure 11 – Trigger Mode &amp; Trigger Width Shutter</figcaption></figure>
+</div>
+</article>
+<article class="pdf-page-block" data-page="20"><p>Trigger Delay is a function that operates by delaying the sensor's exposure for a certain period of time from the trigger input. camera</p>
+<p>Trigger Delay is used when the timing of the input trigger does not match the timing of the external environment, such as lighting or the location of the subject.</p>
+<p>You can obtain a clearer image using this.</p>
+<p>Line Debounce Time is a function that removes chattering noise of the trigger signal passing through external I/O.</p>
+<p>It's a skill. Since only signals that remain activated for more than a certain period of time are judged as valid inputs, delayed</p>
+<p>Trigger is input.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Trigger Delay</td><td>0 ~ 3,000,000<br/>(Unit : us)</td><td>Sets the delay time from trigger input to sensor exposure.</td></tr><tr><td>Line Debounce Time</td><td>0 ~ 882<br/>(Unit : us)</td><td>Sets Line Debounce Time.</td></tr></tbody></table></div><p>＊New triggers entered while the trigger is delayed are ignored. If ‘Trigger Delay’ is greater than the input trigger period,</p>
+<p>In case of missing trigger, the frame rate may decrease. (Refer to Figure 14)</p>
+<p>＊There is a certain amount of time delay (Hardware Delay+Exposure Start Delay) from the external trigger input to the actual exposure of the sensor.</p>
+<p>(Refer to Appendix B, C)</p>
+<div class="pdf-figure-grid">
+<figure class="pdf-figure-card"><img alt="Figure 12 – Trigger Overlap : Off" src="images/pdf-extracted/page20_xref2999.png"/><figcaption>Figure 12 – Trigger Overlap : Off</figcaption></figure>
+<figure class="pdf-figure-card"><img alt="Figure 13 – Trigger Overlap : Readout" src="images/pdf-extracted/page20_xref3001.png"/><figcaption>Figure 13 – Trigger Overlap : Readout</figcaption></figure>
+<figure class="pdf-figure-card"><img alt="Figure 14 – Trigger Delay &amp; Line Debounce with Trigger Overlap Enable" src="images/pdf-extracted/page20_xref3003.png"/><figcaption>Figure 14 – Trigger Delay &amp; Line Debounce with Trigger Overlap Enable</figcaption></figure>
+</div>
+</article>
+<article class="pdf-page-block" data-page="21"><h3 id="4-3-digital-i-o-control">4.3 Digital I/O Control</h3>
+<p>This function sets external I/O signals.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Line Selector</td><td>Line 1</td><td>Selects the line to configure.<br/>- Line 1 : CXP Trigger<br/>- Line 4, 5 : Direct I/O<br/>- Line 6, 7 : OptoCoupled Input</td></tr><tr><td class="blank-cell"></td><td>Line 4</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Line 5</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Line 6</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Line 7</td><td class="blank-cell"></td></tr><tr><td>Line Mode</td><td>Input</td><td>Sets input/output for the selected line.<br/>Line 1, Line 6, and Line 7 support input only.<br/>Line 4 and Line 5 support input/output.</td></tr><tr><td class="blank-cell"></td><td>Output</td><td class="blank-cell"></td></tr><tr><td>Line Inverter</td><td>True</td><td>Sets the phase of the selected line.<br/>- True : Inverts the line input/output phase by 180 degrees<br/>- False : Keeps the line input/output phase</td></tr><tr><td class="blank-cell"></td><td>False</td><td class="blank-cell"></td></tr><tr><td>Line Status</td><td>(Read Only)</td><td>Outputs the current status of the selected line.</td></tr><tr><td>Line Status All</td><td>(Read Only)</td><td>Outputs the current status of all lines as 4 bits.</td></tr><tr><td>Line Status Update<br/>Feature</td><td>Command</td><td>Updates the current status of all lines.</td></tr></tbody></table></div><p>＊If 'Exposure Mode' is 'Trigger Width', 'Line Inverter' may affect the brightness of the image.</p>
+<p>＊In the case of 'Line Status' and 'Line Status All', 'True' is Logical High and 'False' is Logical Low.</p>
+<p>＊If the I/O Connector is not connected and is in a floating state, 'Line Status' outputs 'True'.</p>
+<p>＊Ex) 'Line Status All' = '0xe'</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 15 – Line Status All Data Description" src="images/pdf-extracted/page21_xref3293.png"/><figcaption>Figure 15 – Line Status All Data Description</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Line Source</td><td>Off</td><td>Selects the waveform to output as the strobe signal.<br/>- Off : Strobe off<br/>- Timer Active : Outputs Timer Strobe signal (see 4.4.2 Timer Control)<br/>- Exposure Active : Outputs a strobe signal active during actual exposure<br/>- User Output 1, 2 : Outputs User Output Value as the strobe signal</td></tr><tr><td class="blank-cell"></td><td>Timer Active</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Exposure Active</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>User Output 1</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>User Output 2</td><td class="blank-cell"></td></tr><tr><td>User Output Selector</td><td>User Output 1</td><td>Selects the User Output to configure.</td></tr><tr><td class="blank-cell"></td><td>User Output 2</td><td class="blank-cell"></td></tr></tbody></table></div>
+</article>
+<article class="pdf-page-block" data-page="22"><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>User Output Value</td><td>True</td><td>- True : Sets the selected User Output to High<br/>- False : Sets the selected User Output to Low</td></tr><tr><td class="blank-cell"></td><td>False</td><td class="blank-cell"></td></tr></tbody></table></div><h3 id="4-4-counter-and-timer-control">4.4 Counter and Timer Control</h3>
+<h4 id="4-4-1-counter-control">4.4.1 Counter Control</h4>
+<p>This function monitors camera movement. The process where a camera receives a trigger, exposes it, and outputs an image.</p>
+<p>You can monitor with a step-by-step counter. In addition, camera specifications such as trigger input at a speed faster than the frame cycle</p>
+<p>It is possible to check for signal input exceeding .</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Counter Event Source</td><td>External Trigger<br/>Start</td><td>Selects the counter.<br/>- External Trigger Start : Number of external/software trigger inputs<br/>- Exposure Start : Number of exposure starts<br/>- Exposure Stop : Number of exposure stops<br/>- Frame End : Number of readout frames<br/>- Exposure Start Missed : Number of trigger inputs during exposure<br/>- Exposure Stop Missed : Number of exposure stops during readout</td></tr><tr><td class="blank-cell"></td><td>Exposure Start</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Exposure Stop</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Frame End</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Exposure Start<br/>Missed</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Exposure Stop<br/>Missed</td><td class="blank-cell"></td></tr><tr><td>Counter Value</td><td>(Read Only)</td><td>Outputs the value of the selected counter.</td></tr><tr><td>Counter Reset</td><td>Command</td><td>Resets all counter values to 0.</td></tr><tr><td>Counter Update<br/>Feature</td><td>Command</td><td>Updates Counter Value.</td></tr></tbody></table></div><p>＊'Exposure Start Missed' can increase when 'Trigger Mode' = 'On' and 'Exposure Mode' is 'Timed'.</p>
+<p>＊'Exposure Stop Missed' can increase when 'Trigger Mode' = 'On' and 'Exposure Mode' is 'Trigger Width'.</p>
+<div class="pdf-figure-grid">
+<figure class="pdf-figure-card"><img alt="Figure 16 – ExposureStartMissed" src="images/pdf-extracted/page22_xref3491.png"/><figcaption>Figure 16 – ExposureStartMissed</figcaption></figure>
+<figure class="pdf-figure-card"><img alt="Figure 17 – ExposureStopMissed" src="images/pdf-extracted/page22_xref3493.png"/><figcaption>Figure 17 – ExposureStopMissed</figcaption></figure>
+</div>
+</article>
+<article class="pdf-page-block" data-page="23"><h4 id="4-4-2-timer-control">4.4.2 Timer Control</h4>
+<p>This is a function to set the strobe signal output outside the camera. In Freerun Mode, Timer Strobe signal is not generated.</p>
+<p>The starting point can be set to the exposure start or Internal VD Start point. The point at which the VD is initialized is Shutter</p>
+<p>Since the timing of operation is different, a Timer Delay may be necessary to synchronize with the lighting.</p>
+<p>In Trigger Mode, the generation time of the Timer Strobe signal is set to the start of exposure or external trigger input.</p>
+<p>You can do it. When creating a Timer Strobe at the time of External Trigger input, Trgger Delay and Hardware</p>
+<p>Timer Delay may be necessary to synchronize with the actual exposure time that is delayed due to the delay.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Timer Selector</td><td>Exposure</td><td>Selects the Timer Strobe start point.<br/>- Exposure : Outputs Timer Strobe based on the actual exposure start<br/>- External Trigger : Outputs Timer Strobe based on trigger input<br/>- Internal VD : Outputs Timer Strobe based on Internal Counter Reset</td></tr><tr><td class="blank-cell"></td><td>External Trigger</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Internal VD</td><td class="blank-cell"></td></tr><tr><td>Timer Duration</td><td>0 ~ 3,000,000<br/>(Unit : us)</td><td>Sets the pulse width of Timer Strobe.</td></tr><tr><td>Timer Delay</td><td>0 ~ 3,000,000<br/>(Unit : us)</td><td>Sets the Timer Strobe output delay from the selected start point.</td></tr></tbody></table></div><p>＊In Trigger Mode, the Internal Counter does not operate, so 'Internal VD' cannot be used.</p>
+<div class="pdf-figure-grid">
+<figure class="pdf-figure-card"><img alt="Figure 18 – Timer Strobe of Freerun Mode" src="images/pdf-extracted/page23_xref3635.png"/><figcaption>Figure 18 – Timer Strobe of Freerun Mode</figcaption></figure>
+<figure class="pdf-figure-card"><img alt="Figure 19 – Timer Strobe of Trigger Mode" src="images/pdf-extracted/page23_xref3637.png"/><figcaption>Figure 19 – Timer Strobe of Trigger Mode</figcaption></figure>
+</div>
+</article>
+<article class="pdf-page-block" data-page="24"><h3 id="4-5-analog-control">4.5 Analog Control</h3>
+<h4 id="4-5-1-gain-control">4.5.1 Gain Control</h4>
+<p>This function adjusts gain. The sensitivity of the image can be improved without reducing the frame rate, but the</p>
+<p>Noise may also increase.</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 20 – Block Diagram of Analog Control" src="images/pdf-extracted/page24_xref3854.png"/><figcaption>Figure 20 – Block Diagram of Analog Control</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Gain Selector</td><td>All</td><td>Selects the gain to configure. The two gains are independent and can be set to different values.<br/>- All : Sensor Analog Gain<br/>- DigitalAll : Digital Gain</td></tr><tr><td class="blank-cell"></td><td>DigitalAll</td><td class="blank-cell"></td></tr><tr><td>Gain Raw</td><td>All : 0 ~ 240<br/>DigitalAll : 0 ~<br/>7168</td><td>Sets the selected gain as a raw value. Sensor Analog Gain raw range varies by product and setting.</td></tr><tr><td>Gain Abs</td><td>All : 1x ~ 16x<br/>DigitalAll : 1x ~<br/>8x</td><td>Sets the selected gain as a multiplier. Sensor Analog Gain absolute range varies by product and setting.</td></tr></tbody></table></div><p>＊'Gain Raw' and 'Gain Abs' supported for each model are as follows.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><caption>Table 3 - Analog Gain Values</caption><thead><tr><th scope="col">Model</th><th scope="col">Analog Gain Raw Support</th><th scope="col">Analog Gain Abs Support</th></tr></thead><tbody><tr><td>HX-A130SW</td><td>0~60(ADC 8), 0 ~ 180(ADC 10, 12)</td><td>1x ~ 2x(ADC 8), 1x ~ 8x(ADC 10, 12)</td></tr><tr><td>HX-A530SW</td><td>0 ~ 240</td><td>1x ~ 16x</td></tr></tbody></table></div><p>Gain Auto is a function where the camera automatically adjusts the analog gain to obtain an image with the desired brightness.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Gain Auto</td><td>Off</td><td>- Off : Set Gain manually<br/>- Once : Turns Gain Auto off when the image reaches target brightness<br/>- Continuous : Continuously adjusts Gain to maintain target brightness</td></tr><tr><td class="blank-cell"></td><td>Once</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Continuous</td><td class="blank-cell"></td></tr><tr><td>Gain Update Feature</td><td>Command</td><td>Updates Gain.</td></tr></tbody></table></div>
+</article>
+<article class="pdf-page-block" data-page="25"><p>＊The target of 'Gain Auto' is 'Auto Exposure Target'.</p>
+<p>＊When using 'Gain Auto' and 'Exposure Auto' at the same time, the operation varies depending on the brightness of the Image and Target.</p>
+<p>＊If the brightness of the image needs to be increased, 'Gain Auto' is applied after applying 'Exposure Auto'.</p>
+<p>＊If the brightness of the image needs to be reduced, 'Exposure Auto' is applied after applying 'Gain Auto'.</p>
+<h4 id="4-5-2-black-level-control">4.5.2 Black Level Control</h4>
+<p>This function adjusts the black level. You can change the Offset of the Image.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Black Level Selector</td><td>All</td><td>Selects the Black Level to configure.<br/>- All : Sensor Analog Black Level<br/>- DigitalAll : Digital Black Level</td></tr><tr><td class="blank-cell"></td><td>DigitalAll</td><td class="blank-cell"></td></tr><tr><td>Black Level</td><td>0 ~ 4095</td><td>Sets the selected Black Level.<br/>- All : 0 ~ 255 (ADC 8bit), 0 ~ 1023 (ADC 10bit), 0 ~ 4095 (ADC 12bit)<br/>- DigitalAll : 0 ~ 4095</td></tr></tbody></table></div><h4 id="4-5-3-gamma-control">4.5.3 Gamma Control</h4>
+<p>This is a function to adjust gamma. You can correct the contrast of the image.</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 21 – ITE 'GrayScale ChartⅡ (y=0.45)'" src="images/pdf-extracted/page25_xref4049.png"/><figcaption>Figure 21 – ITE 'GrayScale ChartⅡ (y=0.45)'</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Gamma Enable</td><td>True</td><td>Enables or disables Gamma.</td></tr><tr><td class="blank-cell"></td><td>False</td><td class="blank-cell"></td></tr><tr><td>Gamma</td><td>0 ~ 3.99</td><td>Sets Gamma.</td></tr></tbody></table></div><p>＊The Gamma function cannot be used simultaneously with the LUT function. When the Gamma function is enabled, the LUT function is disabled.</p>
+<h3 id="4-6-lut-control">4.6 LUT Control</h3>
+<p>The LUT (Look Up Table) function is a function that converts digital pixel values ​​by matching them 1:1 to the output value of the table's input value.</p>
+<p>no see. Each Index (Input Image) in the table is replaced with a pixel of a predefined LUT Value (Output Image).</p>
+</article>
+<article class="pdf-page-block" data-page="26"><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>LUT Enable</td><td>True</td><td>Enables or disables LUT.</td></tr><tr><td class="blank-cell"></td><td>False</td><td class="blank-cell"></td></tr><tr><td>LUT Index</td><td>0 ~ 1023</td><td>Selects the LUT Index.</td></tr><tr><td>LUT Value</td><td>0 ~ 1023</td><td>Sets the output value of the selected LUT Index.</td></tr></tbody></table></div><p>＊The LUT function cannot be used simultaneously with the Gamma function. When the LUT function is enabled, the Gamma function is disabled.</p>
+<p>＊Ex) When using a table in the form of y=2x, low-illuminance pixels can see an improvement in sensitivity, while high-illuminance pixels are saturated.</p>
+<p>Therefore, loss in dynamic range occurs.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table wide-data-table"><table><caption>Table 4 - LUT Data</caption><thead><tr><th scope="col">Index</th><th scope="col">0</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">...</th><th scope="col">256</th><th scope="col">...</th><th scope="col">510</th><th scope="col">511</th><th scope="col">512</th><th scope="col">513</th></tr></thead><tbody><tr><td>Value</td><td>0</td><td>2</td><td>4</td><td>6</td><td>…</td><td>512</td><td>...</td><td>1022</td><td>1023</td><td>1023</td><td>1023</td></tr></tbody></table></div><div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 22 – Look Up Table Graph" src="images/pdf-extracted/page26_xref4352.png"/><figcaption>Figure 22 – Look Up Table Graph</figcaption></figure></div><h3 id="4-7-defect-pixel-control">4.7 Defect Pixel Control</h3>
+<p>This function manages the camera’s defect pixels. Correction is made for defective pixels at the time of shipment. but use</p>
+<p>You can correct pixels that you consider to be bad pixels by additionally defining them. Camera's User Set 1 to 3 area</p>
+<p>Up to 1024 defective pixels can be saved.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>DefectFilter Enable</td><td>Off</td><td>Enables or disables Defect Filter.</td></tr><tr><td class="blank-cell"></td><td>On</td><td class="blank-cell"></td></tr><tr><td>Defectfilter Test Mode Selector</td><td>Off</td><td>Checks the position of pixels where Defect Filter is applied.<br/>- Off : Output sensor image<br/>- Mark Black : Mark defect pixels as dark pixels<br/>- Mark White : Mark defect pixels as white pixels<br/>- Mark White with Black Background : Mark defect pixels as white pixels on a black background</td></tr><tr><td class="blank-cell"></td><td>Mark Black</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Mark White</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Mark White with Black Background</td><td class="blank-cell"></td></tr><tr><td>Defect Pixel Replace Count</td><td>1 ~ 1024</td><td>Number of defect pixels to correct.</td></tr><tr><td>Defect Pixel Index</td><td>0 ~ 1023</td><td>Index of the defect pixel to correct.</td></tr></tbody></table></div>
+</article>
+<article class="pdf-page-block" data-page="27"><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Defect Pixel X Coordinate</td><td>0 ~ WidthMax-1</td><td>X-axis coordinate of the defect pixel to correct. Pixel coordinates start from 0.</td></tr><tr><td>Defect Pixel Y Coordinate</td><td>0 ~ HeightMax-1</td><td>Y-axis coordinate of the defect pixel to correct. Pixel coordinates start from 0.</td></tr><tr><td>Defect Pixel Replacement</td><td>Command</td><td>Applies the entered defect pixel information.</td></tr></tbody></table></div><p>＊Ex) 제품 출하 시 20개의 Defect Pixel이 보정된 상태에서 사용자가 두 개의 Pixel을 추가하는 경우</p><div class="table-container manual-data-table pdf-rebuilt-table"><table><caption>Table 5 - User Define Example</caption><thead><tr><th scope="col">DefectPixel<br/>ReplaceCount</th><th scope="col">DefectPixel<br/>Index</th><th scope="col">DefectPixel<br/>XCoordinate</th><th scope="col">DefectPixel<br/>YCoordinate</th><th scope="col">Remarks</th></tr></thead><tbody><tr><td>19</td><td>18</td><td>...</td><td>...</td><td>Factory Defined</td></tr><tr><td>20</td><td>19</td><td>...</td><td>...</td><td>Factory Defined</td></tr><tr><td>21</td><td>20</td><td>(156, 31)</td><td>(1131, 125)</td><td>User Defined</td></tr><tr><td>22</td><td>21</td><td>(208, 114)</td><td>(321, 611)</td><td>User Defined</td></tr></tbody></table></div><p>＊보정 이후에는 'User Set Save' Command를 이용하여 원하는 User Set 영역에 저장해야 합니다.</p><div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 23 – Defect Pixel Access Area" src="images/pdf-extracted/page27_xref4634.png"/><figcaption>Figure 23 – Defect Pixel Access Area</figcaption></figure></div><h3 id="4-8-flat-field-correction">4.8 Flat Field Correction</h3>
+<p>Flat Field Correction (FFC) is a function that uniformly corrects the brightness value of the captured image. Brightness value is not uniform</p>
+<p>Other causes include the influence of lens shadows, uneven lighting brightness, and differences in sensitivity of each sensor pixel.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>FFC Enable</td><td>Off</td><td>Enables or disables FFC.</td></tr><tr><td class="blank-cell"></td><td>On</td><td class="blank-cell"></td></tr><tr><td>Calibration Image<br/>Count</td><td>1 ~ 4</td><td>Sets the number of images to use for calibration.</td></tr><tr><td>FFC High Gain Enable</td><td>True</td><td>Enables or disables FFC High Gain.<br/>- True : Gain is applied up to 5x during White Calibration<br/>- False : Gain is applied up to 3x during White Calibration</td></tr><tr><td class="blank-cell"></td><td>False</td><td class="blank-cell"></td></tr><tr><td>PRNU Target<br/>Threshold</td><td>1 ~ 50<br/>(Unit : %)</td><td>Sets the target brightness among all pixels during White Calibration.</td></tr></tbody></table></div>
+</article>
+<article class="pdf-page-block" data-page="28"><p>＊The FFC methods supported by model are as follows.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><caption>Table 6 - FFC Mode</caption><thead><tr><th scope="col">Model</th><th scope="col">FFC</th></tr></thead><tbody><tr><td>All models</td><td>Pixel by Pixel</td></tr></tbody></table></div><p>Original Data Black Calibration White Calibration</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 24 – FFC Calibration Graph (1)" src="images/pdf-extracted/page28_xref4667.png"/><figcaption>Figure 24 – FFC Calibration Graph (1)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 24 – FFC Calibration Graph (2)" src="images/pdf-extracted/page28_xref4671.png"/><figcaption>Figure 24 – FFC Calibration Graph (2)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 24 – FFC Calibration Graph (3)" src="images/pdf-extracted/page28_xref4675.png"/><figcaption>Figure 24 – FFC Calibration Graph (3)</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Black Calibration</td><td>Command</td><td>Runs Black Calibration.</td></tr><tr><td>White Calibration</td><td>Command</td><td>Runs White Calibration.</td></tr><tr><td>FFC Save Load Flash<br/>Select</td><td>0 ~ 3</td><td>Selects the area for saving/loading FFC data.</td></tr><tr><td>FFC Save</td><td>Command</td><td>Saves FFC data to the selected flash area.</td></tr><tr><td>FFC Load</td><td>Command</td><td>Loads FFC data from the selected flash area.</td></tr><tr><td>FFC Abort</td><td>Command</td><td>Forcefully aborts the currently running FFC function.</td></tr><tr><td>FFC Function Process<br/>Status</td><td>(Read Only)</td><td>Checks the operating status of the FFC function.<br/>- Complete : FFC function complete<br/>- Get Black Image : Acquiring black image<br/>- Get White Image : Acquiring white image<br/>- Black Calibrating : Black calibration in progress<br/>- White Calibrating : White calibration in progress<br/>- FFC Erasing : Erasing FFC data<br/>- FFC Saving : Saving FFC data<br/>- FFC Loading : Loading FFC data</td></tr><tr><td>FFC Function Process<br/>Status Update Feature</td><td>Command</td><td>Updates FFC Function Process Status.</td></tr></tbody></table></div><p>＊To stabilize power consumption and temperature, when the FFC function is disabled, FFC-related functions do not operate. ‘FFC Enable’</p>
+<p>After changing it to 'On', you must perform Calibration, Save, Load, etc.</p>
+<p>＊Defect correction must be performed before FFC, and calibration must be performed under the condition that the defect filter is enabled for accurate correction.</p>
+<p>Images can be printed.</p>
+<p>＊'Black Calibration' must precede 'White Calibration', and 'Black Calibration' and 'White Calibration' must be performed before product shipment.</p>
+</article>
+<article class="pdf-page-block" data-page="29"><p>Calibration is performed before shipment. Perform ‘White Calibration’ in the actual usage environment (lens fastening, etc.) to</p>
+<p>The brightness difference can be corrected, and if necessary, you can start again from 'Black Calibration'.</p>
+<p>Black Calibration corrects the image in an environment with zero light intensity (shielding).</p>
+<p>Before After</p>
+<p>White Calibration acquires and corrects bright images from actual use environments (lenses, etc.). A subject with uniform brightness</p>
+<p>By capturing an object (or lighting), the image is less than 200 DN on average, shading the edge of the sensor or other external environments.</p>
+<p>Correct the brightness difference as shown in the graph below.</p>
+<p>Before After</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 25 – Black Calibration Image &amp; Histogram (1)" src="images/pdf-extracted/page29_xref4916.png"/><figcaption>Figure 25 – Black Calibration Image &amp; Histogram (1)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 26 – White Calibration Image &amp; Histogram (2)" src="images/pdf-extracted/page29_xref4920.png"/><figcaption>Figure 26 – White Calibration Image &amp; Histogram (2)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 26 – White Calibration Image &amp; Histogram (3)" src="images/pdf-extracted/page29_xref4962.png"/><figcaption>Figure 26 – White Calibration Image &amp; Histogram (3)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 26 – White Calibration Image &amp; Histogram (4)" src="images/pdf-extracted/page29_xref4966.png"/><figcaption>Figure 26 – White Calibration Image &amp; Histogram (4)</figcaption></figure></div><h3 id="4-9-sharpness-enhancement">4.9 Sharpness Enhancement</h3>
+<p>Sharpness Enhancement is a function that emphasizes the outlines in an image and makes them sharper. Sharpness</p>
+<p>Depending on the enhancement setting, you can obtain a clearer image, but noise may also be emphasized.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Sharpness Enable</td><td>Off</td><td>Enables or disables Sharpness.</td></tr><tr><td class="blank-cell"></td><td>On</td><td class="blank-cell"></td></tr><tr><td>Sharpness Strength</td><td>0 ~ 15.996</td><td>Sets the strength of Sharpness Enhancement.</td></tr><tr><td>Sharpness Filter Size</td><td>0.001 ~ 4</td><td>Sets the Sharpness Enhancement filter size.</td></tr></tbody></table></div>
+</article>
+<article class="pdf-page-block" data-page="30">
+<p>＊Ex) Sharpness Filter Size = 1.5</p>
+<p>Sharpness Strength = 0 Sharpness Strength = 4 Sharpness Strength = 8</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 27 – Sharpness Enhancement (1)" src="images/pdf-extracted/page30_xref5060.png"/><figcaption>Figure 27 – Sharpness Enhancement (1)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 28 – Contrast (2)" src="images/pdf-extracted/page30_xref5064.png"/><figcaption>Figure 28 – Contrast (2)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 29 – Brightness (3)" src="images/pdf-extracted/page30_xref5068.png"/><figcaption>Figure 29 – Brightness (3)</figcaption></figure></div><h3 id="4-10-contrast-brightness-control">4.10 Contrast Brightness Control</h3>
+<h4 id="4-10-1-contrast">4.10.1 Contrast</h4>
+<p>Contrast adjusts the contrast of the image.</p>
+<p>Contrast 0 Contrast 40 Contrast 60</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 29 – Brightness (4)" src="images/pdf-extracted/page30_xref5096.png"/><figcaption>Figure 29 – Brightness (4)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 29 – Brightness (5)" src="images/pdf-extracted/page30_xref5100.png"/><figcaption>Figure 29 – Brightness (5)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 29 – Brightness (6)" src="images/pdf-extracted/page30_xref5104.png"/><figcaption>Figure 29 – Brightness (6)</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Contrast</td><td>-99 ~ 99</td><td>Adjusts contrast.</td></tr></tbody></table></div><h4 id="4-10-2-brightness">4.10.2 Brightness</h4>
+<p>Brightness adjusts the brightness of the image. The setting value of 512 (based on 12 bit) increases the brightness by approximately 32 DN in an 8 bit video.</p>
+<p>Let's go.</p>
+<p>Brightness 0 Brightness 512 Brightness 1024</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 29 – Brightness (7)" src="images/pdf-extracted/page30_xref5164.png"/><figcaption>Figure 29 – Brightness (7)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 29 – Brightness (8)" src="images/pdf-extracted/page30_xref5168.png"/><figcaption>Figure 29 – Brightness (8)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 29 – Brightness (9)" src="images/pdf-extracted/page30_xref5172.png"/><figcaption>Figure 29 – Brightness (9)</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Brightness</td><td>-2047 ~ 2047<br/>(Unit : 12bit DN)</td><td>Adjusts brightness.</td></tr></tbody></table></div>
+</article>
+<article class="pdf-page-block" data-page="31"><h4 id="4-10-3-histogram-stretch">4.10.3 Histogram Stretch</h4>
+<p>You can correct the image using Histogram Stretch. If Histogram Stretch Min is set to 800,</p>
+<p>The setting value of 800 (based on 12bit) is about 50DN in an 8bit video, so the video is output by stretching 50DN to 0DN.</p>
+<p>all. When Histogram Stretch Max is set to 2400, the setting value of 2400 (based on 12bit) is about 150DN in 8bit video.</p>
+<p>Therefore, the video is output by stretching 150DN to 255DN.</p>
+<p>Min 0 / Max 0 Min 800 / Max 2400 Min 1120 / Max 2400</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 30 – Histogram Stretch (1)" src="images/pdf-extracted/page31_xref5284.png"/><figcaption>Figure 30 – Histogram Stretch (1)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 30 – Histogram Stretch (2)" src="images/pdf-extracted/page31_xref5288.png"/><figcaption>Figure 30 – Histogram Stretch (2)</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Histogram Stretch Min</td><td>-2,147,483,648 ~<br/>Histogram<br/>Stretch Max-1<br/>(Unit : 12bit DN)</td><td>Sets the Histogram Min value. Brightness corresponding to the setting is stretched to 0.</td></tr><tr><td>Histogram Stretch<br/>Max</td><td>Histogram<br/>Stretch Min+1 ~<br/>2,147,483,647<br/>(Unit : 12bit DN)</td><td>Sets the Histogram Max value. Brightness corresponding to the setting is stretched to 4095.</td></tr></tbody></table></div><p>＊Ex) When Min = 320, Max = 2000 are set, 20DN and 125DN based on 8 bits are stretched to 0DN and 255DN, respectively.</p>
+<h4 id="4-10-4-auto-contrast">4.10.4 Auto Contrast</h4>
+<p>Auto Contrast is a function that automatically corrects the image by setting the factor and target. The factor setting value is set to the target.</p>
+<p>Correct the image by stretching it to the set value. Factor Low and Factor High are the lowest and lowest pixels in the entire image, respectively.</p>
+<p>This is the upper percentage value, and Target Low and Target High are 12bit DN values ​​(0~4095).</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Auto Contrast Mode</td><td>Off</td><td>- Off : Manually set Contrast and Brightness<br/>- Once : Turns Auto Contrast off when each factor reaches the target brightness<br/>- Continuous : Continuously adjusts Contrast and Brightness</td></tr><tr><td class="blank-cell"></td><td>Once</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>Continuous</td><td class="blank-cell"></td></tr><tr><td>Auto Contrast Factor<br/>Low</td><td>0 ~ 50<br/>(Unit : %)</td><td>Sets Auto Contrast Factor Low. This is the lower percentile of all image pixels.</td></tr><tr><td>Auto Contrast Factor<br/>High</td><td>0 ~ 50<br/>(Unit : %)</td><td>Sets Auto Contrast Factor High. This is the upper percentile of all image pixels.</td></tr><tr><td>Auto Contrast Target<br/>Low</td><td>0 ~ Auto<br/>Contrast Target<br/>High-1<br/>(Unit : 12bit DN)</td><td>Sets Auto Contrast Target Low. Brightness (DN) corresponding to Auto Contrast Factor Low is stretched to the target brightness (DN).</td></tr></tbody></table></div>
+</article>
+<article class="pdf-page-block" data-page="32"><div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Auto Contrast Target High</td><td>Auto Contrast Target Low+1 ~ 4095<br/>(Unit : 12bit DN)</td><td>Sets the Auto Contrast Target High value. Brightness (DN) corresponding to Auto Contrast Factor High is stretched to the target brightness (DN).</td></tr><tr><td>Contrast Update Feature</td><td>Command</td><td>Updates Contrast, Brightness, Histogram Stretch Min, and Histogram Stretch Max.</td></tr></tbody></table></div><p>＊If the original video is too dark, noise may increase.</p>
+<h3 id="4-11-sensor-cooling-control">4.11 Sensor Cooling Control</h3>
+<p>This function controls the sensor temperature. The sensor temperature that guarantees the best quality is 15℃. for this</p>
+<p>A thermoelectric cooler is built inside the sensor.</p>
+<p>Sensor temperature can be controlled automatically/manually. In automatic mode, the Sensor Cooling Target set temperature (℃) is</p>
+<p>Applies to Cooling. Voltage is controlled by comparing sensor temperature and case temperature in real time. Manual mode is</p>
+<p>Regardless of the target temperature, the Sensor Cooling Voltage set voltage (V) is applied to cooling. both modes</p>
+<p>The voltage applied to actual cooling can be checked in Sensor Cooling Applied Voltage. The default setting is</p>
+<p>Same mode, target temperature is 15℃.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>Sensor Cooling Auto</td><td>Off</td><td>Enables or disables Sensor Cooling Auto.</td></tr><tr><td class="blank-cell"></td><td>On</td><td class="blank-cell"></td></tr><tr><td>Sensor Cooling Target</td><td>10 ~ 40<br/>(Unit : ℃)</td><td>Sets the sensor target temperature. This setting is valid only when Sensor Cooling Auto is On.</td></tr><tr><td>Sensor Cooling<br/>Voltage</td><td>-6 ~ 6<br/>(Unit : V)</td><td>Sets the voltage applied to sensor cooling. This setting is valid only when Sensor Cooling Auto is Off.</td></tr><tr><td>Sensor Cooling<br/>Applied Voltage</td><td>(Read Only)<br/>(Unit : V)</td><td>Actual voltage applied to cooling.</td></tr><tr><td>Sensor Cooling<br/>Voltage Feature</td><td>Command</td><td>Updates Sensor Cooling Applied Voltage.</td></tr></tbody></table></div><p>＊Sensor temperature and case temperature can be found in ‘Device Temperature Selector’ and ‘Device Temperature’ in the ‘Device Control’ category.</p>
+<p>You can check. You can update the current temperature using the 'Temperature Update Feature'.</p>
+<p>＊The case temperature displayed in 'Device Temperature' and the case temperature applied to the cooling algorithm are those of the camera's internal frame.</p>
+<p>It's temperature.</p>
+<p>＊Power consumption may increase depending on the degree of sensor cooling. Target temperature (automatic) considering power consumption and image quality</p>
+<p>mode) or voltage (manual mode).</p>
+<p>＊The maximum cooling range of the built-in thermoelectric cooler is 40℃. In automatic mode, the sensor temperature and case temperature</p>
+<p>The target temperature is automatically adjusted so that the difference does not exceed 40℃. Therefore, the case temperature is 40℃ higher than the target temperature.</p>
+<p>If it rises, the sensor temperature may also rise, and additional heat dissipation measures must be taken as necessary.</p>
+<p>＊Heat generation may increase depending on the voltage applied to cooling. When setting voltage in manual mode, Sensor temperature and Case</p>
+<p>Both temperature and ambient temperature must be considered.</p>
+</article>
+<article class="pdf-page-block" data-page="33"><h3 id="4-12-user-set-control">4.12 User Set Control</h3>
+<p>This is a function to save or load values ​​set by the user.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>User Set Selector</td><td>Default</td><td>Selects the area to save/load.<br/>- Default : Factory settings area; User Set Load only<br/>- User Set 1, 2, 3 : User-configurable save/load areas</td></tr><tr><td class="blank-cell"></td><td>User Set 1</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>User Set 2</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>User Set 3</td><td class="blank-cell"></td></tr><tr><td>User Set Load</td><td>Command</td><td>Loads camera settings from the selected area.</td></tr><tr><td>User Set Save</td><td>Command</td><td>Saves camera settings to the selected area.</td></tr></tbody></table></div><p>＊Save/Load is not possible for some settings. (Refer to Appendix D)</p>
+<h3 id="4-13-transport-layer-control">4.13 Transport Layer Control</h3>
+<p>This item sets the bit rate and number of lines through link configuration.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Description</th></tr></thead><tbody><tr><td>CXP Link Configuration</td><td>CXP6_X1</td><td>- CXP6_X1 : 6.25Gbps x 1CH<br/>- CXP10_X1 : 10Gbps x 1CH<br/>- CXP12_X1 : 12.5Gbps x 1CH</td></tr><tr><td class="blank-cell"></td><td>CXP10_X1</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>CXP12_X1</td><td class="blank-cell"></td></tr></tbody></table></div><p>＊The 'CXP Link Configuration' supported by model is as follows.</p>
+<div class="table-container manual-data-table pdf-rebuilt-table"><table><caption>Table 7 - CXP Link Configuration</caption><thead><tr><th scope="col">Model</th><th scope="col">CoaXPress Link Configuration Support</th></tr></thead><tbody><tr><td>All models</td><td>CXP6, 10, 12 / 1CH</td></tr></tbody></table></div></article>
+</section>
+<section id="appendix-a">
+<h2># Appendix A. Maximum Frame Rates</h2>
+<article class="pdf-page-block" data-page="34"><p>Max depending on Image Size(Height) and CXP Link Configuration. Frame Rate varies.</p>
+<p>① HX-A130SW</p>
+<div class="table-container manual-data-table pdf-rebuilt-table frame-rate-table"><table><caption>Table 8 - HX-A130SW Max. Frame Rate</caption><thead><tr><th scope="col">ROI Size (H x V)</th><th scope="col">CXP Link<br/>Configuration</th><th scope="col">ADC bit</th><th scope="col">Pixel Format</th><th scope="col">Max. Frame Rate(fps)</th></tr></thead><tbody><tr><td>1296 x 1032</td><td>CXP12<br/>CXP10<br/>CXP6</td><td>8</td><td>Mono 8</td><td>134.73</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>10</td><td>Mono 8</td><td>125.26</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>12</td><td>Mono 8</td><td>71.52</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 12</td><td class="blank-cell"></td></tr><tr><td>1296 x 516</td><td>CXP12<br/>CXP10<br/>CXP6</td><td>8</td><td>Mono 8</td><td>260.68</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>10</td><td>Mono 8</td><td>242.36</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>12</td><td>Mono 8</td><td>138.38</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 12</td><td class="blank-cell"></td></tr></tbody></table></div></article>
+<article class="pdf-page-block" data-page="35"><p>② HX-A530SW</p>
+<div class="table-container manual-data-table pdf-rebuilt-table frame-rate-table"><table><caption>Table 9 - HX-A530SW Max. Frame Rate</caption><thead><tr><th scope="col">ROI Size (H x V)</th><th scope="col">CXP Link<br/>Configuration</th><th scope="col">ADC bit</th><th scope="col">Pixel Format</th><th scope="col">Max. Frame Rate(fps)</th></tr></thead><tbody><tr><td>2592 x 2056</td><td>CXP12<br/>CXP10</td><td>8</td><td>Mono 8</td><td>131.92</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>10</td><td>Mono 8</td><td>119.64</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>12</td><td>Mono 8</td><td>70.95</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 12</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>CXP6</td><td>8</td><td>Mono 8</td><td>107.08</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>10</td><td>Mono 8</td><td>106.75</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td>79.76</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>12</td><td>Mono 8</td><td>70.95</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 12</td><td>53.54</td></tr><tr><td>2592 x 1028</td><td>CXP12<br/>CXP10</td><td>8</td><td>Mono 8</td><td>253.93</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>10</td><td>Mono 8</td><td>230.25</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>12</td><td>Mono 8</td><td>136.55</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 12</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td>CXP6</td><td>8</td><td>Mono 8</td><td>206.10</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>10</td><td>Mono 8</td><td>205.46</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td>153.51</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td>12</td><td>Mono 8</td><td>136.55</td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 10</td><td class="blank-cell"></td></tr><tr><td class="blank-cell"></td><td class="blank-cell"></td><td class="blank-cell"></td><td>Mono 12</td><td>103.05</td></tr></tbody></table></div></article>
+</section>
+<section id="appendix-b">
+<h2># Appendix B. Hardware Propagation Delay</h2>
+<article class="pdf-page-block" data-page="36"><p>Propagation Delays on Input Lines Propagation Delays on Output Lines</p>
+<div class="pdf-figure-grid pdf-figure-grid-rebuilt"><figure class="pdf-figure-card"><img alt="Figure 31 – Propagation Delay (1)" src="images/pdf-extracted/page36_xref6405.png"/><figcaption>Figure 31 – Propagation Delay (1)</figcaption></figure><figure class="pdf-figure-card"><img alt="Figure 31 – Propagation Delay (2)" src="images/pdf-extracted/page36_xref6409.png"/><figcaption>Figure 31 – Propagation Delay (2)</figcaption></figure></div><div class="table-container manual-data-table pdf-rebuilt-table"><table><caption>Table 10 - Propagation Delay</caption><thead><tr><th scope="col">Input Line</th><th scope="col"></th><th scope="col">Output Line</th></tr></thead><tbody><tr><td>0.533 us</td><td>tPHL</td><td>0.126 us</td></tr><tr><td>0.01 us</td><td>tPLH</td><td>1.31 us</td></tr></tbody></table></div>
+<p>＊Due to differences in TTL and devices, some errors may occur</p>
+</article>
+</section>
+<section id="appendix-c">
+<h2># Appendix C. Exposure Start / End Delay</h2>
+<article class="pdf-page-block" data-page="37"><p>There is a certain amount of time delay from the trigger input until the sensor starts actual exposure.</p>
+<p>① HX-A130SW</p>
+<ul class="pdf-bullet-list"><li>Exposure Start Delay = 13.89us (Min)</li></ul>
+<ul class="pdf-bullet-list"><li>Exposure End Delay(Exposure Offset) = 7.372us</li></ul>
+<p>＊Exposure Start Delay is 2Line Period based on Sensor Readout, so it may vary depending on ADC Bit Depth setting.</p>
+<p>hmm</p>
+<p>＊Exposure Start Delay : ADC 8bit – 13.89us, ADC 10bit – 14.94us, ADC 12bit – 26.18us (Image Full Size,</p>
+<p>(based on CXP12)</p>
+<p>＊Exposure End Delay (=Exposure Offset) is a fixed value as a unique characteristic of the sensor.</p>
+<p>＊Hardware Delay – Refer to Appendix B</p>
+<p>＊Trigger Delay can be set in camera feature</p>
+<p>② HX-A530SW</p>
+<ul class="pdf-bullet-list"><li>Exposure Start Delay = 14.16us (Min)</li></ul>
+<ul class="pdf-bullet-list"><li>Exposure End Delay(Exposure Offset) = 14.802us</li></ul>
+<p>＊Exposure Start Delay is 4Line Period based on Sensor Readout, so ADC Bit Depth, CXP Link Configuration</p>
+<p>May vary depending on settings such as</p>
+<p>＊Exposure Start Delay : ADC 8bit – 14.17us, ADC 10bit – 15.46us, ADC 12bit – 26.34us (Image Full Size,</p>
+<p>(based on CXP12)</p>
+<p>＊Exposure End Delay (=Exposure Offset) is a fixed value as a unique characteristic of the sensor.</p>
+<p>＊Hardware Delay – Refer to Appendix B</p>
+<p>＊Trigger Delay can be set in camera feature</p>
+<div class="pdf-figure-grid">
+<figure class="pdf-figure-card"><img alt="Figure 32 – Exposure Start &amp; End Delay" src="images/pdf-extracted/page37_xref6567.png"/><figcaption>Figure 32 – Exposure Start &amp; End Delay</figcaption></figure>
+</div>
+</article>
+</section>
+<section id="appendix-d"><h2># Appendix D. UserSet Savable &amp; Loadable XML Feature List</h2>
+<article class="pdf-page-block" data-page="38"><p>The XML feature list that can be saved and loaded by User Set is shown below.</p>
+<div class="table-container manual-data-table feature-save-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Save / Load</th><th scope="col">Feature</th><th scope="col">Save / Load</th></tr></thead><tbody><tr><td>Width / Height</td><td class="save-load-state">O</td><td>Gain Abs</td><td class="save-load-state">O</td></tr><tr><td>Offset X / Y</td><td class="save-load-state">O</td><td>Gain Auto</td><td class="save-load-state">O</td></tr><tr><td>Binning Horizontal / Vertical Mode</td><td class="save-load-state">O</td><td>Black Level Selector</td><td class="save-load-state">X</td></tr><tr><td>Binning Horizontal / Vertical</td><td class="save-load-state">O</td><td>Black Level</td><td class="save-load-state">O</td></tr><tr><td>Decimation Horizontal / Vertical</td><td class="save-load-state">O</td><td>Gamma Enable</td><td class="save-load-state">O</td></tr><tr><td>Reverse X / Y</td><td class="save-load-state">O</td><td>Gamma</td><td class="save-load-state">O</td></tr><tr><td>ADC Bit Depth</td><td class="save-load-state">O</td><td>LUT Enable</td><td class="save-load-state">O</td></tr><tr><td>Pixel Format</td><td class="save-load-state">O</td><td>LUT Index</td><td class="save-load-state">O</td></tr><tr><td>Test Pattern</td><td class="save-load-state">O</td><td>LUT Value</td><td class="save-load-state">O</td></tr><tr><td>Acquisition Frame Rate</td><td class="save-load-state">O</td><td>CXP Link Configuration</td><td class="save-load-state">O</td></tr><tr><td>Acquisition Frame Rate Enable</td><td class="save-load-state">O</td><td>Defect Filter Enable</td><td class="save-load-state">O</td></tr><tr><td>Exposure Mode</td><td class="save-load-state">O</td><td>Defect Filter Test Mode Selector</td><td class="save-load-state">X</td></tr><tr><td>Exposure Time</td><td class="save-load-state">O</td><td>Defect Pixel Replace Count</td><td class="save-load-state">O</td></tr><tr><td>Exposure Auto</td><td class="save-load-state">O</td><td>Defect Pixel Index</td><td class="save-load-state">O</td></tr><tr><td>Auto Exposure Target</td><td class="save-load-state">O</td><td>Defect Pixel X Coordinate</td><td class="save-load-state">O</td></tr><tr><td>Auto Exposure Time Lower / Upper Limit</td><td class="save-load-state">O</td><td>Defect Pixel Y Coordinate</td><td class="save-load-state">O</td></tr><tr><td>Trigger Mode</td><td class="save-load-state">O</td><td>FFC Enable</td><td class="save-load-state">O</td></tr><tr><td>Trigger Source</td><td class="save-load-state">O</td><td>Calibration Image Count</td><td class="save-load-state">O</td></tr><tr><td>Trigger Overlap</td><td class="save-load-state">O</td><td>FFC High Gain Enable</td><td class="save-load-state">O</td></tr><tr><td>Trigger Delay</td><td class="save-load-state">O</td><td>FFC Save Load Flash Select</td><td class="save-load-state">X</td></tr><tr><td>Line Debounce Time</td><td class="save-load-state">O</td><td>Sharpness Enable</td><td class="save-load-state">O</td></tr><tr><td>Line Selector</td><td class="save-load-state">X</td><td>Sharpness Strength</td><td class="save-load-state">O</td></tr><tr><td>Line Mode</td><td class="save-load-state">O</td><td>Sharpness Filter Size</td><td class="save-load-state">O</td></tr><tr><td>Line Inverter</td><td class="save-load-state">O</td><td>Contrast</td><td class="save-load-state">O</td></tr><tr><td>Line Source</td><td class="save-load-state">O</td><td>Brightness</td><td class="save-load-state">O</td></tr><tr><td>User Output Selector</td><td class="save-load-state">X</td><td>Histogram Stretch Min / Max</td><td class="save-load-state">O</td></tr><tr><td>User Output Value</td><td class="save-load-state">O</td><td>Auto Contrast Mode</td><td class="save-load-state">O</td></tr><tr><td>Counter Event Source</td><td class="save-load-state">X</td><td>Auto Contrast Factor Low / High</td><td class="save-load-state">O</td></tr><tr><td>Timer Selector</td><td class="save-load-state">X</td><td>Auto Contrast Target Low / High</td><td class="save-load-state">O</td></tr><tr><td>Timer Duration</td><td class="save-load-state">O</td><td>Sensor Cooling Auto</td><td class="save-load-state">O</td></tr><tr><td>Timer Delay</td><td class="save-load-state">O</td><td>Sensor Cooling Target</td><td class="save-load-state">O</td></tr><tr><td>Gain Selector</td><td class="save-load-state">X</td><td>Sensor Cooling Voltage</td><td class="save-load-state">O</td></tr><tr><td>Gain</td><td class="save-load-state">O</td><td></td><td class="save-load-state"></td></tr></tbody></table></div>
+<p class="table-note">O: Save / Load supported, X: Not supported</p></article>
+</section>
+<section id="contact">
+<h2>Contact</h2>
+<div class="contact-card">
+<p>Contact</p>
+<p>Product Inquiry(Sales)</p>
+<p>Tel : +82-31-899-4503</p>
+<p>+82-31-899-4507</p>
+<p>Fax : +82-31-899-4509</p>
+<p>sh_lee@crevis.co.kr</p>
+<p>dkahn@crevis.co.kr</p>
+<p>Technical Support</p>
+<p>Tel : +82-31-899-4567</p>
+<p>tjmoon@crevis.co.kr</p>
+<p>29-4, Gigok-ro, Giheung-gu, Yongin-si, Gyeonggi-do, Korea</p>
+<p>www.crevis.co.kr</p>
+</div>
+</section>
+<section id="revision-history"><h2>Revision History</h2>
+<div class="table-container manual-data-table revision-table"><table><thead><tr><th scope="col">Revision</th><th scope="col">Date</th><th scope="col">Changes</th><th scope="col">Page</th></tr></thead><tbody><tr><td class="revision-no">0.1</td><td class="revision-date">2025.04</td><td class="revision-change">First Issued</td><td class="revision-page"></td></tr><tr><td class="revision-no">0.2</td><td class="revision-date">2025.04</td><td class="revision-change">Update: 2.2 Key Specifications</td><td class="revision-page">7</td></tr><tr><td class="revision-no">0.2</td><td class="revision-date">2025.04</td><td class="revision-change">Update: 4.2.2 Exposure Control - Exposure Auto notes</td><td class="revision-page">18</td></tr><tr><td class="revision-no">0.2</td><td class="revision-date">2025.04</td><td class="revision-change">Update: &lt;Figure 20 - Block Diagram of Analog Control&gt;</td><td class="revision-page">24</td></tr><tr><td class="revision-no">0.2</td><td class="revision-date">2025.04</td><td class="revision-change">Update: Factory shipment calibration changed from Black to Black &amp; White Calibration</td><td class="revision-page">28</td></tr></tbody></table></div>
+</section>
+</div>
+<script>
+        function setupInlineCallouts() {
+            const content = document.querySelector('.content');
+            if (!content) return;
+            const titlePattern = /^(note|precautions|warning)\s*:?$/i;
+            const shouldWrap = (element) => {
+                if (element.closest('.inline-note-callout')) return false;
+                if (element.classList.contains('inline-note-title')) return true;
+                return titlePattern.test((element.textContent || '').trim());
+            };
+            const getType = (element) => /precaution|warning/i.test(element.textContent || '') || element.classList.contains('warning') ? 'warning' : 'note';
+            const isAllowedContent = (element) => element.matches('p, ul, ol, .feature-list, .pdf-note-list');
+            Array.from(content.querySelectorAll('p')).filter(shouldWrap).forEach((title) => {
+                if (title.closest('.inline-note-callout')) return;
+                const type = getType(title);
+                title.classList.add('inline-note-title', type);
+                const callout = document.createElement('div');
+                callout.className = `inline-note-callout ${type}`;
+                title.before(callout);
+                callout.appendChild(title);
+                let sibling = callout.nextElementSibling;
+                while (sibling && !sibling.matches('h2, h3, h4, .inline-note-callout, .inline-note-title')) {
+                    if (!isAllowedContent(sibling)) break;
+                    const next = sibling.nextElementSibling;
+                    callout.appendChild(sibling);
+                    sibling = next;
+                }
+            });
+        }
+        setupInlineCallouts();
+
+        function setupManualSearch() {
+            const input = document.querySelector('[data-manual-search]');
+            const content = document.querySelector('.content');
+            if (!input || !content) return;
+            let matches = [];
+            let currentIndex = -1;
+            const clearHighlights = () => {
+                content.querySelectorAll('mark.manual-search-highlight').forEach((mark) => {
+                    mark.replaceWith(document.createTextNode(mark.textContent || ''));
+                });
+                content.normalize();
+                matches = [];
+                currentIndex = -1;
+            };
+            const highlightTextNode = (node, query) => {
+                const text = node.nodeValue || '';
+                const lowerText = text.toLowerCase();
+                const lowerQuery = query.toLowerCase();
+                let start = 0;
+                let index = lowerText.indexOf(lowerQuery, start);
+                if (index === -1) return;
+                const fragment = document.createDocumentFragment();
+                while (index !== -1) {
+                    fragment.append(document.createTextNode(text.slice(start, index)));
+                    const mark = document.createElement('mark');
+                    mark.className = 'manual-search-highlight';
+                    mark.textContent = text.slice(index, index + query.length);
+                    fragment.append(mark);
+                    matches.push(mark);
+                    start = index + query.length;
+                    index = lowerText.indexOf(lowerQuery, start);
+                }
+                fragment.append(document.createTextNode(text.slice(start)));
+                node.replaceWith(fragment);
+            };
+            const goToMatch = (index) => {
+                if (!matches.length) return;
+                currentIndex = (index + matches.length) % matches.length;
+                matches.forEach((match) => match.classList.remove('is-current'));
+                const current = matches[currentIndex];
+                current.classList.add('is-current');
+                current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            };
+            const runSearch = () => {
+                const query = input.value.trim();
+                clearHighlights();
+                if (!query) return;
+                const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+                    acceptNode(node) {
+                        const parent = node.parentElement;
+                        if (!parent || parent.closest('script, style, mark')) return NodeFilter.FILTER_REJECT;
+                        return node.nodeValue?.toLowerCase().includes(query.toLowerCase()) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+                    }
+                });
+                const nodes = [];
+                while (walker.nextNode()) nodes.push(walker.currentNode);
+                nodes.forEach((node) => highlightTextNode(node, query));
+                goToMatch(0);
+            };
+            input.addEventListener('input', runSearch);
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') { input.value = ''; clearHighlights(); return; }
+                if (event.key === 'Enter') { event.preventDefault(); goToMatch(currentIndex + (event.shiftKey ? -1 : 1)); }
+            });
+            window.addEventListener('keydown', (event) => {
+                const target = event.target;
+                const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
+                if (isTyping || event.ctrlKey || event.metaKey || event.altKey || event.key.toLowerCase() !== 'k') return;
+                event.preventDefault(); input.focus();
+            });
+        }
+        setupManualSearch();
+    </script>
+</body>
+</html>
