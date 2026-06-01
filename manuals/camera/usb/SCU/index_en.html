@@ -1,0 +1,3044 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SCU Product Manual | Crevis</title><link rel="stylesheet" href="../../../../css/product_manual/style.css">
+    <style>
+:root {
+            --brand-orange: #ef7d22;
+            --brand-orange-soft: #fff2e8;
+            --brand-teal: #149d97;
+            --brand-teal-soft: #e9f8f6;
+            --brand-ink: #17394a;
+            --brand-line: #d9e8ea;
+            --brand-warn: #d94b45;
+            --brand-warn-soft: #fff1f0;
+            --brand-gold: #d9a441;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            background:
+                radial-gradient(circle at top right, rgba(20, 157, 151, 0.07), transparent 22%),
+                radial-gradient(circle at top left, rgba(239, 125, 34, 0.08), transparent 18%),
+                var(--bg-light);
+        }
+        .manual-topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            height: 66px;
+            padding: 0 34px;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #dce7ec;
+            box-sizing: border-box;
+            box-shadow: 0 8px 22px rgba(22, 57, 74, 0.04);
+        }
+        .manual-topbar::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-teal), rgba(20, 157, 151, 0.55), rgba(239, 125, 34, 0.7), var(--brand-orange));
+        }
+        .topbar-title {
+            color: #172536;
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            min-width: 0;
+        }
+        .sidebar {
+            top: 66px;
+            height: calc(100vh - 66px);
+            background: linear-gradient(180deg, #16384a 0%, #1b4654 100%);
+            border-right: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .sidebar .eyebrow {
+            margin: 0 0 8px;
+            color: #90ddd8;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+        .sidebar .rev {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(239, 125, 34, 0.16);
+            color: #ffd3ad;
+            font-size: 0.84rem;
+        }
+        .sidebar li { margin: 9px 0; }
+        .sidebar .toc li > a::before { content: none; }
+        .sidebar .toc-sub {
+            margin-left: 14px;
+            padding-left: 10px;
+            border-left: 1px solid rgba(144, 221, 216, 0.22);
+        }
+        .sidebar .toc-sub a {
+            padding-left: 18px;
+            font-size: 0.84rem;
+            color: #d0dae2;
+        }
+        .content {
+            max-width: 1320px;
+            background: linear-gradient(180deg, #ffffff 0%, #fcfefe 100%);
+            counter-reset: manual-section;
+            padding-top: 126px;
+        }
+        .content > section {
+            position: relative;
+            margin: 0 0 28px;
+            padding: 26px 30px 30px;
+            background:
+                linear-gradient(180deg, rgba(20, 157, 151, 0.02), rgba(255, 255, 255, 0.98) 28%),
+                #fff;
+            border: 1px solid #e2ecef;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(22, 57, 74, 0.045);
+            counter-increment: manual-section;
+        }
+        .content > section::before {
+            content: none;
+            display: none;
+            position: absolute;
+            left: 30px;
+            right: 30px;
+            top: 0;
+            height: 4px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--brand-teal) 0%, rgba(20, 157, 151, 0.18) 35%, rgba(239, 125, 34, 0.22) 70%, var(--brand-orange) 100%);
+        }
+        .content > section > h2 {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 0 0 22px;
+            padding: 14px 18px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(20, 157, 151, 0.08), rgba(239, 125, 34, 0.08));
+            border: 1px solid #dbe9eb;
+            color: var(--brand-ink);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+        .content > section > h2::before {
+            content: none;
+        }
+        .content > section:nth-of-type(even) > h2::before {
+            content: none;
+        }
+        h3 {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-top: 26px;
+            padding: 10px 14px 10px 16px;
+            border-left: 4px solid var(--brand-orange);
+            border-radius: 14px;
+            background: linear-gradient(90deg, rgba(239, 125, 34, 0.08), rgba(255, 255, 255, 0.98));
+            box-shadow: inset 0 0 0 1px rgba(239, 125, 34, 0.08);
+        }
+        h3::before {
+            content: none;
+            display: none;
+        }
+        .header-box {
+            align-items: center;
+            border-bottom: 0;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 28px;
+            margin-bottom: 42px;
+            padding: 28px 30px 34px 24px;
+            background:
+                linear-gradient(135deg, rgba(20, 157, 151, 0.08), transparent 44%),
+                linear-gradient(225deg, rgba(239, 125, 34, 0.09), transparent 36%),
+                #fff;
+            border: 1px solid var(--brand-line);
+            border-radius: 22px;
+            box-shadow: 0 10px 26px rgba(22, 57, 74, 0.07);
+            position: relative;
+        }
+        .header-topbar {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 18px;
+            position: static;
+            z-index: 3;
+            vertical-align: middle;
+        }
+        .language-switch {
+            display: inline-flex;
+            vertical-align: middle;
+            gap: 6px;
+            padding: 4px;
+            border: 1px solid var(--brand-line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 8px 20px rgba(22, 57, 74, 0.08);
+        }
+        .language-switch a {
+            min-width: 44px;
+            padding: 7px 10px;
+            border-radius: 999px;
+            color: var(--brand-ink);
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-align: center;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+        }
+        .language-switch a.active {
+            background: linear-gradient(135deg, var(--brand-teal), var(--brand-orange));
+            color: #fff;
+            box-shadow: 0 6px 14px rgba(20, 157, 151, 0.22);
+        }
+        .manual-topbar .language-switch {
+            gap: 8px;
+            padding: 5px;
+            border-color: #cfdfea;
+            background: #f7fbfd;
+        }
+        .manual-topbar .language-switch a {
+            min-width: 54px;
+            padding: 9px 12px;
+            color: #102437;
+            font-size: 0.8rem;
+            letter-spacing: 0;
+        }
+        .manual-topbar .language-switch a.active {
+            background: #153a5b;
+            color: #fff;
+            box-shadow: 0 7px 14px rgba(21, 58, 91, 0.24);
+        }
+        .manual-search {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            width: clamp(150px, 16vw, 230px);
+            min-width: 0;
+        }
+        .manual-search::before {
+            content: "";
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            border: 2px solid #607887;
+            border-radius: 50%;
+            transform: translateY(-58%);
+            pointer-events: none;
+        }
+        .manual-search::after {
+            content: "";
+            position: absolute;
+            left: 23px;
+            top: 23px;
+            width: 7px;
+            height: 2px;
+            border-radius: 999px;
+            background: #607887;
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+        .manual-search input {
+            width: 100%;
+            height: 42px;
+            padding: 0 56px 0 38px;
+            border: 1px solid var(--brand-line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.86);
+            color: var(--brand-ink);
+            font: inherit;
+            font-size: 0.88rem;
+            font-weight: 700;
+            outline: 0;
+            box-shadow: 0 8px 20px rgba(22, 57, 74, 0.08);
+        }
+        .manual-search input:focus {
+            border-color: rgba(20, 157, 151, 0.5);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(20, 157, 151, 0.12), 0 8px 20px rgba(22, 57, 74, 0.08);
+        }
+        .manual-search .search-key {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 3px 6px;
+            border: 1px solid #d5e3e6;
+            border-radius: 7px;
+            background: #fff;
+            color: #607887;
+            font-size: 0.68rem;
+            font-weight: 800;
+            line-height: 1;
+            pointer-events: none;
+        }
+        .manual-topbar .manual-search {
+            width: min(260px, 24vw);
+        }
+        .manual-topbar .manual-search input {
+            height: 42px;
+            border-color: #cad9e8;
+            background: #fff;
+            box-shadow: none;
+            font-weight: 500;
+        }
+        .manual-topbar .manual-search .search-key {
+            border-radius: 999px;
+            color: #52708a;
+        }
+        .header-text {
+            position: relative;
+            z-index: 1;
+            text-align: left;
+            padding-right: 0;
+        }
+        .title-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .title-row .model-title {
+            margin-bottom: 0;
+        }
+        .header-visual-group {
+            justify-self: end;
+            margin-left: 0;
+        }
+        .header-box::after {
+            content: none;
+            display: none;
+            position: absolute;
+            left: 30px;
+            right: 30px;
+            bottom: 0;
+            height: 5px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--brand-teal) 0%, var(--brand-orange) 100%);
+        }
+        .hero-note,
+        .summary-card,
+        .image-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 24px;
+            margin: 22px 0;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin: 24px 0 10px;
+        }
+        .summary-card strong {
+            display: block;
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .meta-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .pill {
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            background: #fafcfd;
+            font-size: 0.9rem;
+        }
+        .category-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 10px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(20, 157, 151, 0.1);
+            color: var(--brand-teal);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+        .category-label::before {
+            content: "";
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 50% 50%, #fff 0 18%, transparent 19%),
+                radial-gradient(circle at 50% 50%, var(--brand-teal) 0 56%, transparent 57%),
+                radial-gradient(circle at 50% 50%, rgba(20, 157, 151, 0.18) 0 100%);
+        }
+        .model-title {
+            display: block;
+            margin: 0 0 10px;
+            padding: 0;
+            text-align: left;
+        }
+        .model-title::after {
+            content: none;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: 22px 0;
+            padding-bottom: 10px;
+            scrollbar-gutter: stable both-edges;
+        }
+        .table-container::-webkit-scrollbar {
+            height: 12px;
+        }
+        .table-container::-webkit-scrollbar-track {
+            background: #eef5f6;
+            border-radius: 999px;
+        }
+        .table-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, rgba(20, 157, 151, 0.7), rgba(239, 125, 34, 0.7));
+            border-radius: 999px;
+            border: 2px solid #eef5f6;
+        }
+        .spec-table-stack {
+            margin: 0;
+            border-radius: 0;
+            border-top: 0;
+            box-shadow: none;
+        }
+        .spec-table-stack table {
+            table-layout: auto;
+            width: max-content;
+            min-width: 100%;
+        }
+        .spec-table-stack th,
+        .spec-table-stack td {
+            min-width: 168px;
+            white-space: normal;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+            line-height: 1.45;
+            vertical-align: top;
+            padding: 9px 10px;
+        }
+        .spec-table-stack th:first-child,
+        .spec-table-stack td:first-child {
+            min-width: 132px;
+        }
+        .spec-table-stack th {
+            font-size: 0.88rem;
+            white-space: nowrap;
+            word-break: normal;
+            overflow-wrap: normal;
+            text-align: center;
+        }
+        .spec-table-stack td {
+            font-size: 0.84rem;
+        }
+        .spec-table-stack td:first-child,
+        .spec-table-stack th:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 2;
+            background: #f8fbfc;
+            box-shadow: 8px 0 12px rgba(22, 57, 74, 0.05);
+        }
+        .spec-table-stack th:first-child {
+            z-index: 3;
+            background: #eef7f7;
+        }
+        .spec-table-stack tr:nth-child(even) td:first-child {
+            background: #f4f9fa;
+        }
+        .spec-table-stack + .spec-table-stack {
+            margin-top: -1px;
+        }
+        .spec-table-stack.spec-table-stack-first {
+            margin-top: 22px;
+            border-top: 1px solid #dce9ec;
+            border-top-left-radius: 14px;
+            border-top-right-radius: 14px;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        .spec-table-stack.spec-table-stack-middle {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        .spec-table-stack.spec-table-stack-last {
+            margin-bottom: 22px;
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            box-shadow: 0 4px 14px rgba(22, 57, 74, 0.03);
+        }
+        .spec-table-stack + .spec-table-stack table thead th {
+            border-top: 1px solid #dce9ec;
+        }
+        .spec-table-stack.spec-table-source-hidden,
+        .spec-source-hidden {
+            display: none;
+        }
+        .spec-model-list {
+            display: grid;
+            gap: 18px;
+            margin: 22px 0;
+        }
+        .spec-model-card {
+            background: #fff;
+            border: 1px solid #dce9ec;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(22, 57, 74, 0.05);
+        }
+        .spec-model-card h4 {
+            margin: 0;
+            padding: 16px 20px;
+            color: var(--brand-ink);
+            font-size: 1.08rem;
+            background: linear-gradient(90deg, rgba(239, 125, 34, 0.08), rgba(20, 157, 151, 0.05));
+            border-bottom: 1px solid #dce9ec;
+        }
+        .spec-model-card table {
+            width: 100%;
+            table-layout: fixed;
+        }
+        .spec-model-card th,
+        .spec-model-card td {
+            padding: 12px 16px;
+            border-top: 1px solid #e4ecef;
+            vertical-align: top;
+            white-space: normal;
+            word-break: keep-all;
+            overflow-wrap: anywhere;
+            line-height: 1.55;
+        }
+        .spec-model-card tr:first-child th,
+        .spec-model-card tr:first-child td {
+            border-top: 0;
+        }
+        .spec-model-card th {
+            width: 220px;
+            text-align: left;
+            color: #24445b;
+            background: #f8fbfc;
+            font-size: 0.95rem;
+        }
+        .spec-model-card td {
+            font-size: 0.93rem;
+        }
+        .feature-list {
+            list-style: none;
+            margin: 14px 0 10px;
+            padding: 0;
+        }
+        .feature-list li {
+            position: relative;
+            margin: 10px 0;
+            padding: 11px 14px 11px 44px;
+            border: 1px solid #e4edef;
+            border-radius: 14px;
+            background: linear-gradient(90deg, rgba(20, 157, 151, 0.045), rgba(255, 255, 255, 0.96));
+            box-shadow: 0 3px 10px rgba(22, 57, 74, 0.025);
+        }
+        .feature-list li::before {
+            content: "";
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            width: 13px;
+            height: 13px;
+            margin-top: -6px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 50% 50%, #fff 0 26%, transparent 27%),
+                linear-gradient(135deg, var(--brand-teal) 0%, var(--brand-orange) 100%);
+            box-shadow: 0 0 0 3px rgba(20, 157, 151, 0.08);
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin: 20px 0 28px;
+            justify-items: center;
+        }
+        .image-card {
+            padding: 16px;
+            width: 100%;
+        }
+        .image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .image-card > p:first-child {
+            margin: 0 0 12px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, rgba(239, 125, 34, 0.08), rgba(20, 157, 151, 0.05));
+            border: 1px solid #ebeff2;
+            font-size: 0.96rem;
+            line-height: 1.6;
+        }
+        .image-card > p:first-child strong {
+            display: inline-block;
+            color: var(--brand-ink);
+        }
+        .image-card > p:last-child {
+            margin: 12px 0 0;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: #f8fbfc;
+            color: #36505e;
+            font-size: 0.94rem;
+            line-height: 1.55;
+            border: 1px dashed #d8e7ea;
+        }
+        .image-grid > .image-card:only-child {
+            max-width: 860px;
+        }
+        .image-card img.img-interface {
+            max-width: 360px;
+            margin: 0 auto;
+        }
+        .connector-layout {
+            display: grid;
+            grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+            gap: 18px;
+            margin: 20px 0 28px;
+            align-items: stretch;
+        }
+        .connector-figure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 18px;
+        }
+        .connector-figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .lut-figure {
+            margin: 22px 0 28px;
+            text-align: center;
+        }
+        .lut-figure img {
+            width: min(100%, 520px);
+            height: auto;
+            display: inline-block;
+        }
+        .diagram-stack {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin: 20px 0 28px;
+        }
+        .diagram-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 18px;
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+        .diagram-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .diagram-card .caption {
+            margin-top: 10px;
+            text-align: center;
+            color: var(--text-color);
+            line-height: 1.45;
+        }
+        .inline-ui-line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .inline-ui-line strong {
+            font-weight: 700;
+        }
+        .inline-ui-img {
+            display: inline-block;
+            height: auto;
+            vertical-align: middle;
+        }
+        .inline-ui-img.tabs {
+            max-width: 280px;
+        }
+        .inline-ui-img.icon {
+            max-width: 26px;
+        }
+        .defect-example {
+            display: grid;
+            grid-template-columns: 64px minmax(0, 1fr) 180px;
+            gap: 8px;
+            align-items: start;
+            margin: 18px 0 28px;
+        }
+        .defect-flow-col {
+            display: grid;
+            grid-template-rows: 136px 40px 40px;
+        }
+        .defect-flow-step {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+        }
+        .defect-flow-step span {
+            color: #2f6fb0;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .defect-curve {
+            width: 34px;
+            height: 34px;
+        }
+        .defect-arrow-col {
+            display: grid;
+            grid-template-rows: 96px 20px 20px 40px 40px 40px;
+            gap: 0;
+        }
+        .defect-arrow-spacer,
+        .defect-flow-spacer {
+            height: 100%;
+        }
+        .defect-arrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 40px;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        .defect-arrow::before {
+            content: "";
+            width: 46px;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 0;
+            border-left: 46px solid #5c97d1;
+            transform: scaleX(-1);
+        }
+        .defect-arrow.factory::before {
+            border-left-color: #f0bb97;
+        }
+        .decimation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0;
+            max-width: 1040px;
+            margin: 18px auto 24px;
+            align-items: center;
+        }
+        .decimation-card {
+            margin: 0;
+            padding: 18px 18px 14px;
+            border: 0;
+            border-radius: 0;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .decimation-card + .decimation-card {
+            border-left: 1px solid var(--border-color);
+        }
+        .decimation-card img {
+            width: auto;
+            max-width: 100%;
+            height: 192px;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+        .decimation-card .caption {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 0.92rem;
+            font-weight: 700;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .decimation-card .caption span {
+            display: block;
+        }
+        .pattern-grid,
+        .mode-grid,
+        .format-grid {
+            display: grid;
+            gap: 18px;
+            margin: 20px 0 28px;
+        }
+        .pattern-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .mode-grid {
+            grid-template-columns: 1fr;
+        }
+        .format-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .pattern-card,
+        .mode-card,
+        .format-card,
+        .reverse-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 18px;
+        }
+        .mode-card {
+            max-width: 940px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .pattern-card img,
+        .mode-card img,
+        .format-card img,
+        .reverse-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .pattern-card .caption,
+        .mode-card .caption,
+        .format-card .caption,
+        .reverse-card .caption {
+            margin-top: 10px;
+            text-align: center;
+            color: var(--text-color);
+            line-height: 1.45;
+        }
+        .reverse-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin: 20px 0 28px;
+        }
+        .reverse-grid.reverse-grid-four {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .reverse-card {
+            padding: 14px;
+        }
+        .reverse-card img {
+            margin-bottom: 10px;
+        }
+        .format-card h4,
+        .mode-card h4 {
+            margin: 0 0 10px;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+        .format-card p,
+        .mode-card p {
+            margin: 6px 0;
+        }
+        .format-card.format-wide {
+            grid-column: 1 / -1;
+        }
+        .inline-note-title {
+            margin: 18px 0 10px;
+            font-weight: 800;
+            line-height: 1.45;
+        }
+        .inline-note-title.note,
+        .inline-note-title.warning {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 8px 14px 8px 12px;
+            border: 1px solid rgba(217, 75, 69, 0.22);
+            border-radius: 10px;
+            background: #fff5f4;
+            color: #9f2520;
+            box-shadow: 0 6px 14px rgba(217, 75, 69, 0.07);
+        }
+        .inline-note-title.note::before,
+        .inline-note-title.warning::before {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            flex: 0 0 18px;
+            border-radius: 50%;
+            font-size: 0.74rem;
+            font-weight: 800;
+            background: #ffe1df;
+            color: var(--brand-warn);
+        }
+        .inline-note-title.note::before {
+            content: "i";
+        }
+        .inline-note-title.warning {
+            color: #8f2824;
+        }
+        .inline-note-title.warning::before {
+            content: "!";
+        }
+        #1-5-주의사항 p,
+        #1-5-주의사항 li,
+        #1-5-주의사항 strong,
+        #1-5-주의사항 .caption,
+        #1-5-주의사항 .image-card > p:last-child,
+        #1-5-주의사항 .image-card > p:first-child {
+            color: #8f2824;
+        }
+        #1-5-주의사항 .feature-list li,
+        #1-5-주의사항 .image-card > p:first-child,
+        #1-5-주의사항 .image-card > p:last-child {
+            background: linear-gradient(90deg, rgba(217, 75, 69, 0.1), rgba(255, 241, 240, 0.96));
+            border-color: rgba(217, 75, 69, 0.18);
+        }
+        #1-5-주의사항 .feature-list li::before {
+            background:
+                radial-gradient(circle at 50% 50%, #fff 0 26%, transparent 27%),
+                linear-gradient(135deg, #e0625d 0%, #c83f39 100%);
+            box-shadow: 0 0 0 4px rgba(217, 75, 69, 0.1);
+        }
+        .sidebar::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 160px;
+            background:
+                radial-gradient(circle at top left, rgba(20, 157, 151, 0.2), transparent 45%),
+                radial-gradient(circle at top right, rgba(239, 125, 34, 0.18), transparent 42%);
+            pointer-events: none;
+        }
+        .sidebar::-webkit-scrollbar {
+            width: 10px;
+        }
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.16);
+            border-radius: 999px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        .sidebar .back-link {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .sidebar .back-link:hover {
+            color: #fff;
+            background: rgba(20, 157, 151, 0.16);
+            border-color: rgba(20, 157, 151, 0.3);
+        }
+        .sidebar .toc > li > a {
+            border-left: 3px solid transparent;
+            border-radius: 10px;
+            padding: 8px 10px;
+            transition: all 0.25s ease;
+        }
+        .sidebar .toc > li > a:hover {
+            color: #fff;
+            border-left-color: var(--brand-orange);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(2px);
+        }
+        .sidebar .toc-sub a {
+            border-radius: 8px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            transition: all 0.25s ease;
+        }
+        .sidebar .toc-sub a:hover {
+            color: #aaf0ea;
+            background: rgba(20, 157, 151, 0.08);
+            transform: translateX(2px);
+        }
+        .content {
+            border-left: 1px solid rgba(20, 157, 151, 0.06);
+        }
+        .header-visual-group {
+            position: absolute;
+            right: 30px;
+            top: 10px;
+            z-index: 1;
+        }
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-gadget-icon {
+            display: none !important;
+        }
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0 !important;
+        }
+        .goog-te-gadget .goog-te-combo {
+            height: 34px;
+            padding: 6px 34px 6px 12px;
+            border: 1px solid #d8e8ea;
+            border-radius: 999px;
+            background: #fff;
+            color: var(--brand-ink);
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 4px 14px rgba(22, 57, 74, 0.06);
+            outline: none;
+        }
+        body {
+            top: 0 !important;
+        }
+        .header-visual-group::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            right: 18px;
+            top: 34px;
+            background: radial-gradient(circle, rgba(20, 157, 151, 0.12), rgba(20, 157, 151, 0));
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .header-camera-main {
+            filter: drop-shadow(0 12px 24px rgba(22, 57, 74, 0.08));
+        }
+        .meta-strip {
+            margin-top: 22px;
+        }
+        .pill {
+            position: relative;
+            overflow: hidden;
+        }
+        .pill::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--brand-teal) 0%, var(--brand-orange) 100%);
+        }
+        h3 {
+            position: relative;
+            overflow: hidden;
+        }
+        h3::after {
+            content: "";
+            position: absolute;
+            inset: 0 0 0 auto;
+            width: 84px;
+            background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.45));
+            pointer-events: none;
+        }
+        .table-container {
+            border: 1px solid #dce9ec;
+            border-radius: 14px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            background: #fff;
+            box-shadow: 0 4px 14px rgba(22, 57, 74, 0.03);
+        }
+        table {
+            border-collapse: collapse;
+            background: #fff;
+        }
+        th {
+            position: relative;
+            font-weight: 700;
+        }
+        th::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(20,157,151,0.05), rgba(239,125,34,0.16), rgba(20,157,151,0.05));
+        }
+        .image-card,
+        .connector-figure,
+        .diagram-card,
+        .pattern-card,
+        .mode-card,
+        .format-card,
+        .reverse-card {
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+        .image-card:hover,
+        .connector-figure:hover,
+        .diagram-card:hover,
+        .pattern-card:hover,
+        .mode-card:hover,
+        .format-card:hover,
+        .reverse-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(22, 57, 74, 0.07);
+            border-color: #cfe4e6;
+        }
+        .image-card figcaption,
+        .diagram-card figcaption,
+        .pattern-card .caption,
+        .mode-card .caption,
+        .format-card .caption,
+        .reverse-card .caption {
+            font-size: 0.96rem;
+            margin-top: 12px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, rgba(20, 157, 151, 0.045), rgba(255, 255, 255, 0.96));
+            border: 1px solid #e6eef0;
+            text-align: center;
+        }
+        .image-grid {
+            justify-items: center;
+            align-items: stretch;
+        }
+        .image-grid:has(> .image-card:nth-of-type(2):last-of-type),
+        .noise-filter-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 34px;
+            padding: 0 12px;
+        }
+        .image-grid:has(> .image-card:nth-of-type(2):last-of-type) > .image-card,
+        .noise-filter-grid > .image-card {
+            max-width: 500px;
+        }
+        .led-status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin: 20px 0 28px;
+            align-items: start;
+        }
+        .led-status-card {
+            display: grid;
+            gap: 12px;
+        }
+        .led-status-state,
+        .led-status-note {
+            margin: 0;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #d7e5ea;
+            background: linear-gradient(90deg, rgba(239, 125, 34, 0.06), rgba(20, 157, 151, 0.05));
+            box-shadow: 0 6px 18px rgba(22, 57, 74, 0.04);
+        }
+        .led-status-state strong {
+            display: block;
+            color: var(--brand-ink);
+        }
+        .led-status-state strong + strong {
+            margin-top: 4px;
+        }
+        .led-status-figure {
+            margin: 0;
+            padding: 12px 14px;
+            min-height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            box-shadow: 0 10px 24px rgba(22, 57, 74, 0.06);
+        }
+        .led-status-figure img {
+            width: auto;
+            height: 150px;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .led-status-note {
+            color: #415260;
+            line-height: 1.6;
+            min-height: 110px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .manual-step-list {
+            display: grid;
+            gap: 24px;
+            margin: 20px 0 28px;
+        }
+        .manual-step-card {
+            display: grid;
+            gap: 14px;
+            padding: 22px;
+            border: 1px solid #dce9ec;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(239, 125, 34, 0.05), rgba(20, 157, 151, 0.04) 58%, rgba(255, 255, 255, 0.98));
+            box-shadow: 0 10px 24px rgba(22, 57, 74, 0.05);
+        }
+        .manual-step-title {
+            margin: 0;
+            color: var(--brand-ink);
+            font-size: 1.08rem;
+            font-weight: 800;
+        }
+        .manual-step-path {
+            margin: 0;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid #d7e5ea;
+            background: rgba(255, 255, 255, 0.92);
+            color: #415260;
+            line-height: 1.7;
+        }
+        .manual-step-figure {
+            margin: 0;
+            padding: 16px;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            background: #fff;
+            box-shadow: 0 10px 22px rgba(22, 57, 74, 0.05);
+        }
+        .manual-step-figure img {
+            width: 100%;
+            max-width: 860px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+        .manual-step-caption {
+            margin: 12px 0 0;
+            text-align: center;
+            color: #6d7c87;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .io-circuit-list {
+            max-width: 760px;
+            margin: 20px auto 28px;
+        }
+        .io-circuit-list .manual-step-card {
+            gap: 16px;
+        }
+        .io-circuit-list .manual-step-title {
+            text-align: center;
+        }
+        .io-circuit-list .manual-step-figure img {
+            max-width: 540px;
+        }
+        .image-grid > .image-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 920px;
+        }
+        .image-card img.img-full,
+        .diagram-card img,
+        .connector-figure img,
+        .lut-figure img {
+            width: auto;
+            max-width: 100%;
+            max-height: 420px;
+            margin-left: auto;
+            margin-right: auto;
+            object-fit: contain;
+        }
+        .image-grid > .image-card:not(:only-child) img.img-full {
+            max-height: 260px;
+        }
+        #preparation .image-card img.img-full {
+            height: 128px;
+            width: auto;
+        }
+        .pattern-card img,
+        .reverse-card img,
+        .mode-card img,
+        .format-card img {
+            width: 100%;
+            object-fit: contain;
+        }
+        .pattern-card img {
+            height: 180px;
+        }
+        .reverse-card img {
+            height: 170px;
+        }
+        .reverse-grid-four .reverse-card img {
+            height: 150px;
+        }
+        .mode-card img {
+            height: 150px;
+            margin-top: auto;
+        }
+        .format-card img {
+            height: 46px;
+            margin-top: 12px;
+        }
+        .connector-figure img,
+        .lut-figure img {
+            max-height: 260px;
+        }
+        #appearance .image-card img.img-full {
+            max-height: 620px;
+        }
+        #appendix-a .image-card img.img-full,
+        #appendix-b .image-card img.img-full {
+            max-height: 560px;
+        }
+        #preparation .image-grid:first-of-type {
+            grid-template-columns: repeat(2, minmax(320px, 1fr));
+        }
+        #preparation .image-grid:first-of-type .image-card img.img-full {
+            width: 100%;
+            height: auto;
+            max-width: 520px;
+            max-height: 240px;
+        }
+        #preparation .image-grid:not(:first-of-type) .image-card img.img-full {
+            height: 150px;
+        }
+        .connector-figure img,
+        .lut-figure img {
+            max-height: 300px;
+        }
+        .connector-layout {
+            grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+        }
+        .connector-figure img {
+            width: 240px;
+            max-width: 100%;
+        }
+        .decimation-card img.img-full {
+            width: auto;
+            height: 210px;
+            max-width: 100%;
+            max-height: none;
+            object-fit: contain;
+            object-position: center center;
+            display: block;
+            margin: 0 auto;
+        }
+        .reverse-grid.reverse-grid-four {
+            grid-template-columns: repeat(2, minmax(260px, 320px));
+            justify-content: center;
+        }
+        .reverse-grid.reverse-grid-four .reverse-card {
+            width: 100%;
+            max-width: 320px;
+        }
+        .reverse-grid-four .reverse-card img {
+            width: auto;
+            height: 230px;
+            max-width: 100%;
+        }
+        .format-card img {
+            width: auto;
+            height: 72px;
+            max-width: 100%;
+        }
+        .format-card.format-wide img {
+            height: 86px;
+        }
+        .mode-card img {
+            width: 100%;
+            height: auto;
+            max-height: 230px;
+        }
+        #appearance .image-card img.img-full {
+            max-height: 520px;
+        }
+        #appendix-b .image-card img.img-full {
+            max-height: 500px;
+        }
+        .inline-note-title {
+            width: fit-content;
+        }
+        .decimation-grid,
+        .reverse-grid,
+        .pattern-grid,
+        .format-grid,
+        .mode-grid {
+            position: relative;
+        }
+        .decimation-grid::before,
+        .reverse-grid::before,
+        .pattern-grid::before,
+        .format-grid::before,
+        .mode-grid::before {
+            content: "";
+            position: absolute;
+            inset: -8px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(20, 157, 151, 0.03), rgba(239, 125, 34, 0.025));
+            z-index: 0;
+        }
+        .decimation-grid > *,
+        .reverse-grid > *,
+        .pattern-grid > *,
+        .format-grid > *,
+        .mode-grid > * {
+            position: relative;
+            z-index: 1;
+        }
+        .toc > li > a::before {
+            color: #9fe6e0;
+        }
+        .connector-figure,
+        .diagram-card,
+        .image-card,
+        .pattern-card,
+        .mode-card,
+        .format-card,
+        .reverse-card {
+            position: relative;
+        }
+        .connector-figure::before,
+        .diagram-card::before,
+        .image-card::before,
+        .pattern-card::before,
+        .mode-card::before,
+        .format-card::before,
+        .reverse-card::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-teal) 100%);
+            opacity: 0.75;
+        }
+        @media screen and (max-width: 1024px) {
+            .manual-topbar {
+                padding: 0 18px;
+            }
+            .topbar-title {
+                font-size: 0.9rem;
+            }
+            .topbar-actions {
+                gap: 10px;
+            }
+            .manual-topbar .manual-search {
+                width: min(220px, 42vw);
+            }
+            .header-box {
+                display: block;
+                padding-left: 30px;
+            }
+            .header-topbar {
+                margin-left: 0;
+            }
+            .header-visual-group {
+                position: relative;
+                right: auto;
+                top: auto;
+            }
+            .sidebar .eyebrow,
+            .sidebar .rev,
+            .sidebar .back-link span {
+                display: none;
+            }
+            .content > section {
+                padding: 22px 20px 24px;
+            }
+            .content > section::before {
+                left: 20px;
+                right: 20px;
+            }
+            .content > section > h2 {
+                padding: 12px 14px;
+            }
+            .decimation-grid {
+                grid-template-columns: 1fr;
+            }
+            .decimation-card + .decimation-card {
+                border-left: 0;
+                border-top: 1px solid var(--border-color);
+            }
+            .pattern-grid,
+            .format-grid,
+            .reverse-grid,
+            .reverse-grid.reverse-grid-four,
+            .connector-layout,
+            .defect-example {
+                grid-template-columns: 1fr;
+            }
+            .defect-flow-col,
+            .defect-arrow-col {
+                grid-template-rows: auto;
+            }
+        }
+        /* SCU-specific presentation layer over the preserved manual content. */
+        .spec-model-toggle {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+            margin: 0;
+            padding: 15px 18px;
+            border: 0;
+            border-bottom: 1px solid #dde8eb;
+            background: linear-gradient(180deg, #eff8f7, #e8f4f3);
+            color: #16394a;
+            font: inherit;
+            text-align: left;
+            cursor: pointer;
+        }
+        .spec-model-toggle:hover,
+        .spec-model-toggle:focus-visible {
+            background: linear-gradient(180deg, #e6f5f3, #fff7f0);
+            outline: 0;
+        }
+        .spec-model-name {
+            min-width: 0;
+            font-weight: 800;
+            line-height: 1.35;
+        }
+        .spec-model-state {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            white-space: nowrap;
+            padding: 5px 9px;
+            border: 1px solid rgba(20, 157, 151, 0.24);
+            border-radius: 999px;
+            background: #fff;
+            color: var(--brand-teal);
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+        .spec-model-state::after {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg) translateY(-2px);
+            transition: transform 0.2s ease;
+        }
+        .spec-model-card.is-open .spec-model-state::after {
+            transform: rotate(225deg) translate(-1px, -1px);
+        }
+        .spec-model-panel[hidden] {
+            display: none;
+        }
+        .search-match {
+            background: #fff2a8;
+            color: #111827;
+            border-radius: 3px;
+            padding: 0 2px;
+            box-shadow: 0 0 0 2px rgba(255, 213, 79, 0.35);
+        }
+        .search-hit {
+            outline: 3px solid rgba(239, 125, 34, 0.22);
+            outline-offset: 6px;
+            border-radius: 8px;
+        }
+        .header-camera-main {
+            max-width: 320px;
+            max-height: 220px;
+        }
+        .scu-manual-header {
+            gap: 18px;
+            margin-bottom: 28px;
+            padding: 14px 24px 14px 22px;
+        }
+        .scu-manual-header .category-label {
+            margin-bottom: 8px;
+            padding: 5px 10px;
+            font-size: 1.04rem;
+        }
+        .scu-manual-header .title-row {
+            gap: 12px;
+        }
+        .scu-manual-header .header-topbar {
+            margin-left: 0;
+        }
+        .scu-manual-header .manual-search {
+            width: clamp(140px, 14vw, 210px);
+        }
+        .scu-manual-header .model-title {
+            margin-bottom: 8px;
+            font-size: clamp(2.08rem, 3.32vw, 2.78rem);
+            line-height: 1.05;
+        }
+        .scu-manual-header .model-subtitle {
+            margin: 10px 0 0;
+            font-size: 1.22rem;
+            line-height: 1.45;
+        }
+        .header-visual-group.scu-header-visual-group {
+            position: static;
+            top: auto;
+            right: auto;
+            align-self: center;
+            justify-self: end;
+            display: grid;
+            justify-items: end;
+            gap: 8px;
+            width: min(490px, 38vw);
+        }
+        .header-visual-group.scu-header-visual-group::before {
+            content: none;
+            display: none;
+        }
+        .scu-hero-visual {
+            display: grid;
+            grid-template-columns: minmax(210px, 0.95fr) minmax(180px, 0.82fr);
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .scu-hero-visual img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            mix-blend-mode: normal;
+        }
+        .scu-hero-visual .scu-hero-main {
+            justify-self: end;
+            max-width: 196px;
+            max-height: 138px;
+            filter: drop-shadow(0 16px 24px rgba(17, 24, 39, 0.14));
+        }
+        .scu-hero-visual .scu-hero-views {
+            justify-self: start;
+            max-width: 172px;
+            max-height: 72px;
+            filter: drop-shadow(0 10px 18px rgba(17, 24, 39, 0.1));
+        }
+        @media screen and (max-width: 1024px) {
+            .scu-manual-header {
+                margin-bottom: 28px;
+                padding: 22px 24px;
+            }
+            .header-visual-group.scu-header-visual-group {
+                justify-self: stretch;
+                width: 100%;
+            }
+            .scu-hero-visual {
+                grid-template-columns: minmax(150px, 0.95fr) minmax(130px, 0.82fr);
+                justify-items: center;
+                width: min(100%, 560px);
+                margin: 12px auto 0;
+                gap: 14px;
+            }
+            .scu-hero-visual .scu-hero-main,
+            .scu-hero-visual .scu-hero-views {
+                justify-self: center;
+                max-height: none;
+            }
+            .scu-hero-visual .scu-hero-main {
+                max-width: min(100%, 230px);
+            }
+            .scu-hero-visual .scu-hero-views {
+                max-width: min(100%, 210px);
+            }
+        }
+        @media screen and (max-width: 640px) {
+            .manual-topbar {
+                height: auto;
+                min-height: 66px;
+                flex-wrap: wrap;
+                padding: 10px 14px 12px;
+            }
+            .topbar-actions {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 8px;
+            }
+            .manual-topbar .language-switch a {
+                min-width: 40px;
+                padding: 8px 8px;
+            }
+            .manual-topbar .manual-search {
+                width: 168px;
+            }
+            .sidebar {
+                top: 112px;
+                height: calc(100vh - 112px);
+            }
+            .content {
+                padding-top: 146px;
+            }
+            .scu-manual-header {
+                padding: 18px 18px 20px;
+            }
+            .scu-manual-header .header-topbar {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            .scu-manual-header .manual-search {
+                width: min(100%, 240px);
+            }
+            .header-visual-group.scu-header-visual-group {
+                justify-items: center;
+                overflow: visible;
+            }
+            .header-visual-group.scu-header-visual-group .header-logo {
+                justify-self: center;
+                max-width: 88px;
+            }
+            .scu-hero-visual .scu-hero-main {
+                max-width: min(100%, 168px);
+            }
+            .scu-hero-visual .scu-hero-views {
+                max-width: min(100%, 142px);
+            }
+        }
+        .inline-note-callout {
+            margin: 18px 0 20px;
+            padding: 16px 18px;
+            border: 1px solid rgba(217, 75, 69, 0.2);
+            border-radius: 8px;
+            background: #fff8f7;
+            color: #111827;
+            box-shadow: none;
+        }
+        .inline-note-callout.note {
+            border-color: rgba(217, 75, 69, 0.18);
+            background: #fffaf9;
+        }
+        .inline-note-callout > .inline-note-title.note,
+        .inline-note-callout > .inline-note-title.warning {
+            margin: 0 0 10px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+        .inline-note-callout p,
+        .inline-note-callout li,
+        .inline-note-callout td,
+        .inline-note-callout th {
+            color: #111827;
+        }
+        .inline-note-callout p {
+            margin: 8px 0;
+        }
+        .inline-note-callout > :last-child {
+            margin-bottom: 0;
+        }
+        .inline-note-callout .feature-list {
+            margin: 10px 0;
+        }
+        .inline-note-callout .feature-list li {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+        .inline-note-callout .feature-list li::before {
+            content: none;
+            display: none;
+        }
+    </style></head><body><div class="manual-topbar"><div class="topbar-title">CREVIS Camera Manual</div><div class="topbar-actions"><div class="language-switch topbar-language" aria-label="Manual language selector"><a href="index.html">KOR</a><a class="active" href="index_en.html">ENG</a></div><label class="manual-search" aria-label="Search manual"><input id="manualSearchInput" type="search" placeholder="Search" autocomplete="off"><span class="search-key">K</span></label></div></div><nav class="sidebar"><div class="eyebrow">USB3Vision User Manual</div><h2>SCU</h2><div class="rev">Version 1.1<br>Release Date: 2021. 03. 17</div><a class="back-link" href="../../../../index.html"><span>← Manual Center</span></a><ul class="toc"><li><a href="#1"><span>1. Preparation</span></a></li><li class="toc-sub"><a href="#1-1-pc"><span>1.1 PC Minimum/Recommended Specifications</span></a></li><li class="toc-sub"><a href="#1-2-sdk"><span>1.2 SDK</span></a></li><li class="toc-sub"><a href="#1-3"><span>1.3 Cable</span></a></li><li class="toc-sub"><a href="#1-4"><span>1.4 Precautions</span></a></li><li><a href="#2"><span>2. Product Specifications</span></a></li><li class="toc-sub"><a href="#2-1"><span>2.1 Product Overview</span></a></li><li class="toc-sub"><a href="#2-2"><span>2.2 Key Specifications</span></a></li><li><a href="#3"><span>3. Camera Interface</span></a></li><li class="toc-sub"><a href="#3-1-back-panel"><span>3.1 Back Panel</span></a></li><li class="toc-sub"><a href="#3-2-dc-in-and-external-i-o-pin-map"><span>3.2 Camera DC IN &amp; External I/O Pin Map</span></a></li><li class="toc-sub"><a href="#3-3-usb3-1-gen-1-micro-b-type-connector"><span>3.3 USB3.1 Gen.1 Micro-B Type Connector</span></a></li><li class="toc-sub"><a href="#3-4-led-status"><span>3.4 LED status</span></a></li><li class="toc-sub"><a href="#3-5-external-i-o"><span>3.5 External I/O Internal Circuit</span></a></li><li><a href="#4"><span>4. Camera Features</span></a></li><li class="toc-sub"><a href="#4-1-device-control"><span>4.1 Device Control</span></a></li><li class="toc-sub"><a href="#4-1-1-device-link-througput-limit"><span>4.1.1 Device Link Througput Limit</span></a></li><li class="toc-sub"><a href="#4-1-2-device-temperature"><span>4.1.2 Device Temperature</span></a></li><li class="toc-sub"><a href="#4-1-3-device-temperature-state"><span>4.1.3 Device Temperature State</span></a></li><li class="toc-sub"><a href="#4-1-4-device-reset"><span>4.1.4 Device Reset</span></a></li><li class="toc-sub"><a href="#4-1-5-device-sleep-mode"><span>4.1.5 Device Sleep Mode</span></a></li><li class="toc-sub"><a href="#4-2-image-format-control"><span>4.2 Image Format Control</span></a></li><li class="toc-sub"><a href="#4-2-1-roi-region-of-interest"><span>4.2.1 ROI (Region Of Interest)</span></a></li><li class="toc-sub"><a href="#4-2-2-decimation-horizontal-vertical"><span>4.2.2 Decimation Horizontal / Vertical</span></a></li><li class="toc-sub"><a href="#4-2-3-binning-horizontal-vertical-mu-a160m-226-mu-a320m-118"><span>4.2.3 Binning Horizontal / Vertical (MU-A160M-226 and MU-A320M-118 models only)</span></a></li><li class="toc-sub"><a href="#4-2-4-reverse-x-y"><span>4.2.4 Reverse X, Y</span></a></li><li class="toc-sub"><a href="#4-2-5-pixel-format"><span>4.2.5 Pixel Format</span></a></li><li class="toc-sub"><a href="#4-2-6-test-pattern"><span>4.2.6 Test Pattern</span></a></li><li class="toc-sub"><a href="#4-3-acquisition-control"><span>4.3 Acquisition Control</span></a></li><li class="toc-sub"><a href="#4-4-trigger-mode-control"><span>4.4 Trigger Mode Control</span></a></li><li class="toc-sub"><a href="#4-4-1-trigger-mode"><span>4.4.1 Trigger Mode</span></a></li><li class="toc-sub"><a href="#4-4-2-trigger-source"><span>4.4.2 Trigger Source</span></a></li><li class="toc-sub"><a href="#4-4-3-trigger-delay"><span>4.4.3 Trigger Delay</span></a></li><li class="toc-sub"><a href="#4-4-4-transfer-delay"><span>4.4.4 Transfer Delay</span></a></li><li class="toc-sub"><a href="#4-5-exposure-control"><span>4.5 Exposure Control</span></a></li><li class="toc-sub"><a href="#4-5-1-exposure-mode"><span>4.5.1 Exposure mode</span></a></li><li class="toc-sub"><a href="#4-5-2-exposure-time"><span>4.5.2 Exposure Time</span></a></li><li class="toc-sub"><a href="#4-4-3-sensor-shutter-mode-mu-a121r-l-31-mu-a201r-l-18"><span>4.4.3 Sensor Shutter Mode (MU-A121R/L-31 and MU-A201R/L-18 models only)</span></a></li><li class="toc-sub"><a href="#4-5-4-exposure-auto"><span>4.5.4 Exposure Auto</span></a></li><li class="toc-sub"><a href="#4-6-digital-i-o-control"><span>4.6 Digital I/O Control</span></a></li><li class="toc-sub"><a href="#4-6-1-line-debouncer"><span>4.6.1 Line Debouncer</span></a></li><li class="toc-sub"><a href="#4-7-timer-control"><span>4.7 Timer Control</span></a></li><li class="toc-sub"><a href="#4-5-exposure-control-trigger"><span>As mentioned in ‘Exposure Control’ in Section 4.5, the trigger signal input to the camera and the actual signal to the image sensor</span></a></li><li class="toc-sub"><a href="#4-8-counter-control"><span>4.8 Counter Control</span></a></li><li class="toc-sub"><a href="#4-9-chunk-data-control"><span>4.9 Chunk Data Control</span></a></li><li class="toc-sub"><a href="#4-10-event-control"><span>4.10 Event Control</span></a></li><li class="toc-sub"><a href="#4-11-analog-control"><span>4.11 Analog Control</span></a></li><li class="toc-sub"><a href="#4-11-1-gain-gain-auto"><span>4.11.1 Gain, Gain Auto</span></a></li><li class="toc-sub"><a href="#4-11-2-black-level"><span>4.11.2 Black Level</span></a></li><li class="toc-sub"><a href="#4-11-3-gamma"><span>4.11.3 Gamma</span></a></li><li class="toc-sub"><a href="#4-11-4-pattern-noise-removal-mu-a121r-l-31-mu-a201r-l-18"><span>4.11.4 Pattern Noise Removal (MU-A121R/L-31 and MU-A201R/L-18 models only)</span></a></li><li class="toc-sub"><a href="#4-11-5-noise-reduction-filter"><span>4.11.5 Noise Reduction Filter</span></a></li><li class="toc-sub"><a href="#4-12-balance-ratio-control"><span>4.12 Balance Ratio Control</span></a></li><li class="toc-sub"><a href="#4-13-user-set-control"><span>4.13 User Set Control</span></a></li><li class="toc-sub"><a href="#4-14-lut-control"><span>4.14 LUT Control</span></a></li><li class="toc-sub"><a href="#4-15-defect-pixel-correction"><span>4.15 Defect Pixel Correction</span></a></li><li class="toc-sub"><a href="#4-16-low-latency-mode"><span>4.16 Low-Latency Mode</span></a></li><li class="toc-sub"><a href="#4-17-color-transformation-control"><span>4.17 Color Transformation Control</span></a></li><li class="toc-sub"><a href="#4-18-device-temperature-state"><span>4.18 Device Temperature State</span></a></li><li><a href="#5"><span>5. Camera Appearance</span></a></li><li><a href="#1-sdk"><span>1. SDK Installation</span></a></li><li class="toc-sub"><a href="#2-1-camguide"><span>2.1 Run CamGuide</span></a></li><li class="toc-sub"><a href="#2-2-select-and-connect-camera"><span>2.2 Select and Connect Camera: Double-click the camera you want to set up.</span></a></li><li class="toc-sub"><a href="#2-3"><span>2.3 Camera Settings</span></a></li><li><a href="#revision-history"><span>Revision History</span></a></li></ul></nav><div class="content"><header class="header-box scu-manual-header"><div class="header-text"><p class="category-label">USB3Vision Camera Manual</p><div class="title-row"><h1 class="model-title">SCU Product Manual</h1></div><p class="model-subtitle">Sony CMOS Sensor USB3Vision Camera USER MANUAL</p></div><div class="header-visual-group scu-header-visual-group"><img src="images/crevis_logo.jpg" class="header-logo" alt="Crevis Logo"><div class="scu-hero-visual"><img src="images/scu_camera_hero_cutout.png" class="header-camera-main scu-hero-main" alt="SCU camera product image"><img src="images/scu_camera_views_cutout.png" class="scu-hero-views" alt="SCU camera front, side, and rear views"></div></div></header><section id="1">
+<h2 id="1">1. Preparation</h2>
+<h3 id="1-1-pc">1.1 PC Minimum/Recommended Specifications</h3>
+<p>1) CPU: Intel Core i3 (minimum), i5 or higher (recommended)</p>
+<p>2) RAM: 2GB or more (minimum), 8GB or more (recommended)</p>
+<p>3) O/S: Windows 7 (32bit/64bit) or higher</p>
+<p>4) VGA: FHD support (minimum), UHD support or higher (recommended)</p>
+<h3 id="1-2-sdk">1.2 SDK</h3>
+<p>▶ To use the Crevis USB3Vision camera, you can either receive video using the SDK provided by Crevis, or</p>
+<p>You can acquire images using an image library that supports USB3 Vision. (However, separate</p>
+<p>Driver may be required)</p>
+<p>▶ Crevis SDK download link: http://www.crevis.co.kr/kor/support/download/MCam40_SDK.zip</p>
+<h3 id="1-3">1.3 Cable</h3>
+<p>▶ A USB3.1 Gen1 Micro-B Type cable is required for data communication.</p>
+<p>▶ External power can be applied separately through the 6Pin connector.</p>
+<h3 id="1-4">1.4 Precautions</h3>
+<p>▶ Operating temperature: 0℃ ~ +40℃</p>
+<p>Keep the ambient temperature constant, as data output may change with temperature changes. For more stable operation, it is recommended to attach a heat sink of 40mm x 60mm x 10mm or larger to the product.</p>
+<p>▶ Some models limit image sensor video output when the temperature limit is reached. This condition means immediate heat dissipation measures are required, as the video quality and product durability cannot be guaranteed. For further details, please refer to ‘Device Temperature State’ in Section 4-18.</p>
+<p>▶ If you acquire images simultaneously by connecting two or more cameras through a USB Host Card or HUB, bandwidth problems may arise.</p>
+<p>▶ LED status window</p>
+<p>You can check the current status of the camera through the LED on the back of the camera. If the connection between the host and the camera is limited or image acquisition fails, check the status of the LED.</p>
+<p>▶ Be careful of water leaks and moisture</p>
+<p>Since the product itself does not have a waterproof function, you must be careful not to expose it to excessive moisture.</p>
+<p>▶ Magnetic and electric fields</p>
+<p>If the input/output signal is exposed to a strong magnetic or electric field, it may cause distortion of the signal, so be careful.</p>
+<p>▶ Ventilation</p>
+<p>Power consumption varies depending on the usage environment, but since power consumption is high, seal the area around the product or</p>
+<p>Do not block air flow and maintain ventilation.</p>
+<p>▶ The product may be modified without notice to improve its functions and performance.</p>
+</section><section id="2">
+<h2 id="2">2. Product Specifications</h2>
+<h3 id="2-1">2.1 Product Overview</h3>
+<p>▶ Sony CMOS Sensor Camera</p>
+<p>▶ ROI Scan and X, Y Reverse mode support</p>
+<p>▶ Supports Freerun and Trigger Mode</p>
+<p>▶ Supports defective pixel correction function</p>
+<p>▶ USB 3 Vision Standard 1.1 compatible</p>
+<p>▶ Supports External Trigger Mode (via 6pin circular connector)</p>
+<p>▶Supports status LED</p>
+<p>▶ Power supply: DC (5V ~ 13.2V range supported) and USB3 Gen.1 Bus Power</p>
+<p>▶ System Block Diagram</p>
+<figure class="image-card"><img src="images/pdf-extracted/page07_01.png" alt="SCU PDF page 7 visual" class="img-full"></figure>
+<h3 id="2-2">2.2 Key Specifications</h3>
+<div class="table-container wide-table"><table>
+<thead><tr><th>Spec.</th><th></th><th>MU-A040M/K<br>-523</th><th>MU-A160M/K<br>-226</th><th>MU-A320M/K<br>-118</th><th>MU-A320M/K<br>-55</th><th>MU-A500M/K<br>-35(-75)</th><th>MU-A121M/K<br>-23</th><th>MU-A121R/L<br>-31</th><th></th></tr></thead>
+<tbody>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>MU-A201R/L</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>-18</td></tr>
+<tr><td>Sensor</td><td></td><td>0.4M</td><td>1.58M</td><td>3.2M</td><td>3.2M</td><td>5M</td><td>12M</td><td>12.1M</td><td>20.1M</td></tr>
+<tr><td></td><td></td><td>IMX287LLR(LQR<br>)</td><td>IIMX273LLR(LQR<br>)</td><td>IMX252LLR(LQR<br>)</td><td>IMX265LLR(LQR<br>)</td><td>IMX264 LL(Q)R<br>(IMX250LL(Q)R)</td><td>IMX304LL(Q)R-C</td><td>IMX226CL(Q)J-C</td><td>IMX183CL(Q)J-C</td></tr>
+<tr><td>Sensor Format</td><td></td><td>1/2.9”</td><td>1/2.9”</td><td>1/1.8”</td><td>1/1.8”</td><td>2/3”</td><td>1.1”</td><td>1/1.7”</td><td>1”</td></tr>
+<tr><td>Pixel Size(um)</td><td></td><td>3.45 x 3.45</td><td>6.90 x 6.90</td><td>3.45 x 3.45</td><td>3.45 x 3.45</td><td>3.45 x 3.45</td><td>3.45 x 3.45</td><td>1.85 x 1.85</td><td>2.4 x 2.4</td></tr>
+<tr><td>Active Pixels</td><td></td><td>728 x 544</td><td>1456 x 1088</td><td>2064 x 1544</td><td>2064 x 1544</td><td>2464 x 2056</td><td>4112 x 3008</td><td>4072 x 3046</td><td>5496 x 3672</td></tr>
+<tr><td>Frame Rate<br>(Max)*</td><td></td><td>523fps</td><td>226fps</td><td>118ps</td><td>55fps</td><td>35fps(75fps)</td><td>23fps</td><td>30fps</td><td>18fps</td></tr>
+<tr><td>Exposure Time</td><td></td><td>1us ~ 3sec<br>(* Exposure Offset Excluded)</td><td></td><td></td><td></td><td></td><td></td><td>Min.99us</td><td>Min.141us</td></tr>
+<tr><td>Scanning<br>Method</td><td></td><td>Full / ROI(Horizontal+Vertical) / Reverse(X,Y,All) / Decimation(Horizontal+Vertical)</td><td></td><td></td><td></td><td></td><td></td><td>Full / Reverse(X,Y,All)<br>ROI(Horizontal+Vertical)</td><td></td></tr>
+<tr><td>Binning</td><td></td><td>X</td><td>O<br>(Only Mono<br>Model)</td><td>O<br>(Only Mono<br>Model)</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+<tr><td>ADC Bit Depth</td><td></td><td>8, 12bit</td><td>8, 10, 12bit</td><td>8, 10, 12bit</td><td>12bit</td><td>12bit</td><td>12bit</td><td>10, 12bit</td><td>10, 12bit</td></tr>
+<tr><td>Sync. System</td><td></td><td>Internal(Freerun), External(6-pin Circular port), Software trigger via PC</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Trigger Mode</td><td></td><td>Timed, Trigger Width</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Shutter</td><td></td><td>Global Shutter</td><td></td><td></td><td></td><td></td><td></td><td>Rolling Shutter / Global<br>Reset</td><td></td></tr>
+<tr><td>Gain Abs</td><td></td><td>Analog : 0 ~ 27dB (1x ~ 24x)<br>Digital : 0 ~ 19dB (1x ~ 9x)</td><td></td><td></td><td></td><td></td><td></td><td>Analog : 0~27dB (1x~22.5x)<br>Digital : 0~189B (1x~9x)</td><td></td></tr>
+<tr><td>Black Level</td><td></td><td>Analog : 0 ~ 255 (8bit)<br>Digital : 0 ~ 4095 (12bit)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>LUT &amp; Gamma</td><td></td><td>Adjustable LUT (12bit to 12bit) or Gamma Correction(0 ~ 3.999)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Auto White<br>Balance</td><td></td><td>Off / Once / Continuous (Only Color Models)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Auto<br>Gain/Exposure</td><td></td><td>Off / Once / Continuous<br>Auto Exposure(Gain) Lower Limit / Auto Exposure(Gain) Upper Limit</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>ROI</td><td></td><td>Horizontal / Vertical ROI Support</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Video I/F</td><td></td><td>USB3.1 Gen.1 (USB 3 Vision Standard 1.1)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Video Format</td><td></td><td>Mono Model : Mono8/10/12<br>Color Model : Mono8/10/12, BayerRG8/10/12, RGB8, BGR8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Communication</td><td></td><td>USB 3 Vision Standard 1.1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>SNR</td><td></td><td>35dB</td><td>38dB</td><td>36dB</td><td>39dB</td><td>38dB</td><td>38dB</td><td>36dB</td><td>41dB</td></tr>
+<tr><td>Function<br>Control</td><td></td><td>GainAuto, ExposureAuto, BalanceWhiteAuto<br>Acquisition Frame Rate(Adjustable), Line Debouncer, Defective Pixel Correction,<br>Shading Correction(FFC), Noise Reduction Filter, Pattern Noise Removal, Color Transformation</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Lens mount</td><td></td><td>C mount</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Optical accuracy</td><td></td><td>Optical center ≤ ± 0.1 mm</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Power Supply</td><td></td><td>DC(5V ~ 13.2V) or USB3 BUS</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Consum<br>-<br>ption</td><td>DC</td><td>&lt; 4.0W</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td>USB</td><td>&lt; 4.0W</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Weight</td><td></td><td>&lt; 44g</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Dimension</td><td></td><td>29 x 29 x 29 ㎜ (Without mount, Connector)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Operating /<br>Storage</td><td></td><td>0℃ ~ +40℃ (with &lt; 20~80% RH) /-20℃ ~ +60℃</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Vibration /<br>Shock</td><td></td><td>98 m/s2 (10.0 G) / 490 m/s2(50.0 G)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Standard<br>Compliancy</td><td></td><td>CE (EN61326-1; 2006; Class A)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Environments</td><td></td><td>RoHS / WEEE</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+</section><section id="3">
+<h2 id="3">3. Camera Interface</h2>
+<h3 id="3-1-back-panel">3.1 Back Panel</h3>
+<figure class="image-card"><img src="images/pdf-extracted/page12_02.png" alt="SCU PDF page 12 visual" class="img-full"></figure>
+<div class="table-container"><table>
+<thead><tr><th>NO.</th><th>Name</th><th>Remark</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>USB3.1 Gen.1 connector</td><td>Type Micro-B</td></tr>
+<tr><td>2</td><td>Power &amp; external I/O connector</td><td>6Pin Circular</td></tr>
+<tr><td>3</td><td>LED status display</td><td>LED</td></tr>
+</tbody></table></div>
+<h3 id="3-2-dc-in-and-external-i-o-pin-map">3.2 Camera DC IN &amp; External I/O Pin Map</h3>
+<p>1) 6 pin Circular Connector</p>
+<div class="table-container"><table>
+<thead><tr><th>No.</th><th>Name</th><th>IN/OUT</th><th>Description</th><th>Remark</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>DC VCC</td><td>IN</td><td>5V ~ 13.2V Input Range</td><td></td></tr>
+<tr><td>2</td><td>TRIGGER+</td><td>IN</td><td>Opto-isolated Trigger input +<br>(+2.5V~24V)</td><td></td></tr>
+<tr><td>3</td><td>GPIO 1</td><td>IN / OUT</td><td>General Purpose I/O 1</td><td></td></tr>
+<tr><td>4</td><td>GPIO 2</td><td>IN / OUT</td><td>General Purpose I/O 2</td><td></td></tr>
+<tr><td>5</td><td>TRIGGER-</td><td>IN</td><td>Opto-isolated Trigger input -</td><td></td></tr>
+<tr><td>6</td><td>DC GND</td><td>IN</td><td></td><td></td></tr>
+</tbody></table></div>
+<figure class="image-card"><img src="images/pdf-extracted/page12_01.png" alt="SCU PDF page 12 visual" class="img-full"></figure>
+<h3 id="3-3-usb3-1-gen-1-micro-b-type-connector">3.3 USB3.1 Gen.1 Micro-B Type Connector</h3>
+<p>1) Plug &amp; Play support.</p>
+<p>2) USB 2.0 connection is not supported.</p>
+<h3 id="3-4-led-status">3.4 LED status</h3>
+<div class="table-container"><table>
+<thead><tr><th></th><th>Off</th><th>Red</th><th>Orange</th><th>Green</th></tr></thead>
+<tbody>
+<tr><td>Flashing<br>LED</td><td>Power off or<br>Sleep State<br>(Deep Sleep)</td><td>Command entered to a camera.</td><td>#1. USB disconnected.<br>- Flashing periodically at 1Hz.<br>#2. Command entered<br>while acquisition.<br>#3. Sleep State (Soft Sleep)<br>- Flashing 2 times.</td><td>#1. USB has connected.<br>- USB3 : Flashing periodically at 1Hz.<br>- USB2 : Flashing periodically at 0.5Hz.<br>#2. Image Streaming.</td></tr>
+<tr><td>Solid state</td><td></td><td>1. Camera Initialization failed.<br>2. Image Sensor not found.</td><td>Camera Initialization succeed.</td><td>Waiting for trigger.</td></tr>
+</tbody></table></div>
+<h3 id="3-5-external-i-o">3.5 External I/O Internal Circuit</h3>
+<ul class="feature-list"><li>Input</li></ul>
+<figure class="image-card"><img src="images/pdf-extracted/page13_01.png" alt="SCU PDF page 13 visual" class="img-full"></figure>
+<ul class="feature-list"><li>GPIO</li></ul>
+<figure class="image-card"><img src="images/pdf-extracted/page13_02.png" alt="SCU PDF page 13 visual" class="img-full"></figure>
+</section><section id="4">
+<h2 id="4">4. Camera Features</h2>
+<h3 id="4-1-device-control">4.1 Device Control</h3>
+<p>This function allows you to monitor various conditions of the camera or control the status of the device.</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>Item</th><th></th><th>Setting Value</th><th></th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Device Link Throughput<br>Limit</td><td></td><td>(Integer)</td><td></td><td>Defines the maximum bandwidth of the camera transmitter. This is the camera's<br>Affects maximum frame rate.</td><td></td></tr>
+<tr><td>Device Temperature</td><td></td><td>Command</td><td></td><td>Measures the camera's internal temperature.</td><td></td></tr>
+<tr><td>Devicd Temperature<br>State</td><td></td><td>Enumeration</td><td></td><td>Monitor the temperature status of the camera.</td><td></td></tr>
+<tr><td>Device Reset</td><td></td><td>Command</td><td></td><td>This is a Hard-Reset function that re-applies the power to the camera.</td><td></td></tr>
+<tr><td>Device Sleep Mode</td><td></td><td>Disable,<br>Soft Sleep,<br>Deep Sleep</td><td></td><td>Put the camera into a sleep state to reduce total power consumption.</td><td></td></tr>
+</tbody></table></div>
+<h4 id="4-1-1-device-link-througput-limit">4.1.1 Device Link Througput Limit</h4>
+<p>You can define the maximum bandwidth of images transmitted from the camera to the host. Changed in Byte/Sec units</p><p>It is possible to change, and the initial shipping value varies by product, but is approximately 340MB/s ~ 360MB/s. (However, the initial shipment value is notified</p><p>(subject to change without)</p>
+<h4 id="4-1-2-device-temperature">4.1.2 Device Temperature</h4>
+<p>This function monitors the current temperature of the parts selected in ‘Device Temperature Selector’. ‘Temperature</p><p>As soon as you execute ‘Update Selector’, temperature information is returned as a Celsius (℃) value including decimal points. some</p><p>The model can monitor the temperature of the image sensor and the temperature of the FPGA Core board.</p>
+<h4 id="4-1-3-device-temperature-state">4.1.3 Device Temperature State</h4>
+<p>The internal temperature of the camera is monitored and displayed as ‘Normal’, ‘Warning’, or ‘Critical’. Each state</p><p>What this means is described in more detail in Section 4-18 ‘Device Temperature State’.</p>
+<h4 id="4-1-4-device-reset">4.1.4 Device Reset</h4>
+<p>Hard-Reset allows you to re-power the camera with a command. USB connection is established immediately after entering the command.</p><p>At the same time as it is removed, the camera's power is re-applied and rebooted. Therefore, after Device Reset, in Application</p><p>The camera must be opened again for normal use.</p>
+<h4 id="4-1-5-device-sleep-mode">4.1.5 Device Sleep Mode</h4>
+<p>This function allows you to reduce total power consumption by changing the camera's state to sleep mode. When setting Soft Sleep, this</p><p>The image sensor goes to sleep, and when set to Deep Sleep mode, the image sensor and FPGA also go to sleep. gun</p><p>Power consumption can be reduced by up to 80%. When switching from Deep Sleep to Disable (Normal), approx.</p><p>An initialization time of 1.4Sec to 2Sec is required.</p>
+<div class="table-container"><table>
+<thead><tr><th>Device Sleep Mode</th><th>Disable (Normal)</th><th>Soft Sleep</th><th>Deep Sleep</th></tr></thead>
+<tbody>
+<tr><td>LED</td><td>Green LED blinks periodically.</td><td>Orange LED blinks twice repeatedly.</td><td>LED OFF</td></tr>
+<tr><td>camera status</td><td>steady state</td><td>Image sensor: Sleep.<br>Total power consumption reduced by approximately 40%.</td><td>Image sensor and FPGA: Sleep.<br>Total power consumption reduced by approximately 80%.</td></tr>
+</tbody></table></div>
+<h3 id="4-2-image-format-control">4.2 Image Format Control</h3>
+<p>This is a function that allows you to change the settings for the camera's image output size and format.</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>Item</th><th></th><th>Setting Value</th><th></th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Width, Height,<br>Offset X, Offset Y</td><td></td><td>(Integer)</td><td></td><td>Change the output size and offset (pixel coordinates) of the image.<br>WidthMAX ≥ Offset X + Width<br>HeightMAX ≥ Offset Y + Height</td><td></td></tr>
+<tr><td>Decimation Horizontal,<br>Decimation Vertical</td><td></td><td>1, 2</td><td></td><td>The image resolution decreases and the frame rate increases.</td><td></td></tr>
+<tr><td>Binning Horizontal,<br>Binning Vertical</td><td></td><td>1, 2</td><td></td><td>The resolution of the image decreases, and the sensitivity or frame rate increases.<br>c.</td><td></td></tr>
+<tr><td>ReverseX,<br>ReverseY</td><td></td><td>True / False</td><td></td><td>This is the function to flip the image up/down or left/right.</td><td></td></tr>
+<tr><td>Pixel Format</td><td></td><td>Mono8/Bayer8<br>Mono10/Bayer10<br>Mono12/Bayer12<br>RGB8, BGR8</td><td></td><td>You can change the format when transmitting images to the host.<br>Please refer to Section 4.1.4 for detailed transmission order.</td><td></td></tr>
+<tr><td>Test Pattern</td><td></td><td>Off,<br>Vertical Ramp,<br>Horizontal Ramp</td><td></td><td>You can select a test image.</td><td></td></tr>
+</tbody></table></div>
+<h4 id="4-2-1-roi-region-of-interest">4.2.1 ROI (Region Of Interest)</h4>
+<p>By setting Width, Height, Offset</p><p>As the output image size gets smaller, the frame rate increases. (However, MU-A121R(L)-31 model and MU-</p><p>(Excluding ADC 12bit mode of A201R(L)-18 model)</p>
+<figure class="image-card"><img src="images/pdf-extracted/page16_01.png" alt="SCU PDF page 16 visual" class="img-full"></figure>
+<p>※ Note</p>
+<p>1) Frame Rate changed due to ROI can be checked through the ‘Resulting Frame Rate’ parameter.</p>
+<h4 id="4-2-2-decimation-horizontal-vertical">4.2.2 Decimation Horizontal / Vertical</h4>
+<p>This is a function that reads from the image sensor in vertical or horizontal directions, skipping 1-pixel at a time. resolution of the image</p>
+<p>is reduced by half, while the Frame Rate increases. For color models, all four color channels are displayed.</p>
+<p>In order to do this, it will be skipped in 2-pixel units.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page16_02.png" alt="SCU PDF page 16 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page16_03.png" alt="SCU PDF page 16 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page16_04.png" alt="SCU PDF page 16 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page16_05.png" alt="SCU PDF page 16 visual" class="img-full"></figure>
+<p>Decimation Hor. = 1x</p>
+<p>Decimation Hor. = 1x</p>
+<p>Decimation Hor. = 2x</p>
+<p>Decimation Vert. = 1x</p>
+<p>Decimation Vert. = 2x</p>
+<p>Decimation Vert. = 1x</p>
+<p>※ Note</p>
+<p>The frame rate changed due to decimation can be checked through the ‘Resulting Frame Rate’ parameter.</p>
+<h4 id="4-2-3-binning-horizontal-vertical-mu-a160m-226-mu-a320m-118">4.2.3 Binning Horizontal / Vertical (MU-A160M-226 and MU-A320M-118 models only)</h4>
+<p>This is a function that accumulates and reads pixel values 1-pixel at a time from the image sensor in the vertical or horizontal direction. This</p>
+<p>The resolution of the unknown is halved while the Frame Rate is increased or the brightness is approximately doubled. Color</p>
+<p>In the case of Dell, calculations are performed in 2-pixel units to express all four color channels.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page17_01.png" alt="SCU PDF page 17 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page17_02.png" alt="SCU PDF page 17 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page17_03.png" alt="SCU PDF page 17 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page17_04.png" alt="SCU PDF page 17 visual" class="img-full"></figure>
+<p>Binning Hor. = 1x</p>
+<p>Binning Hor. = 1x</p>
+<p>Binning Hor. = 2x</p>
+<p>Binning Vert. = 1x</p>
+<p>Binning Vert. = 2x</p>
+<p>Binning Vert. = 1x</p>
+<p>※ Note</p>
+<p>The frame rate changed due to binning can be checked through the ‘Resulting Frame Rate’ parameter.</p>
+<h4 id="4-2-4-reverse-x-y">4.2.4 Reverse X, Y</h4>
+<p>This is a function that reverses the left/right or top/bottom of the video and outputs it. For color models, select ‘Reverse Mode’</p>
+<p>Accordingly, the image is output with the ‘Bayer Pixel Order’ also changed.</p>
+<p>1) When Reverse (Bayer RG → Bayer GR)</p>
+<p>2) When Reverse Y mode is set to True, the top/bottom of the video is reversed. (Bayer RG → Bayer GB)</p>
+<div class="table-container"><table>
+<tbody>
+<tr><td>Reverse X = False, Reverse Y = False<br>(Bayer RG)</td><td>Reverse X = True, Reverse Y = False<br>(Bayer GR)</td></tr>
+<tr><td>Reverse X = False, Reverse Y = True<br>(Bayer GB)</td><td>Reverse X = True, Reverse Y = True<br>(Bayer BG)</td></tr>
+</tbody></table></div>
+<figure class="image-card"><img src="images/pdf-extracted/page17_05.png" alt="SCU PDF page 17 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page17_06.png" alt="SCU PDF page 17 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page17_07.png" alt="SCU PDF page 17 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page17_08.png" alt="SCU PDF page 17 visual" class="img-full"></figure>
+<p>※ Precautions</p>
+<p>1) When 'Reverse Y' is selected, defective pixels may appear because the use of Defect Filter is limited. Because of this</p>
+<p>Exposed defective pixels can be removed in the ‘Defect Pixel Correction’ category. (Section ‘Defect Pixel Correction’</p>
+<p>Note)</p>
+<p>2) When ROI and Reverse are used simultaneously, the ROI function is applied from the reversed image. Same as the picture below</p>
+<p>When Reverse is activated, the position of (0,0) Pixel, which is the starting coordinate of the Image, is reversed. Because of this Reverse</p>
+<p>In order to image the same area as before application, an Image Offset equal to Total Size - ROI Size is required.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page18_01.png" alt="SCU PDF page 18 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page18_02.png" alt="SCU PDF page 18 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page18_04.png" alt="SCU PDF page 18 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page18_03.png" alt="SCU PDF page 18 visual" class="img-full"></figure>
+<p>Image Size : 4024 * 3036</p>
+<p>Image Size : 2012 * 1518</p>
+<p>Image Size : 2012 * 1518</p>
+<p>Image Size : 2012 * 1518</p>
+<p>Offset X : 0,</p>
+<p>Offset X : 0,</p>
+<p>Offset X : 2012,</p>
+<p>Offset X : 0,</p>
+<p>Offset Y : 0</p>
+<p>Offset Y : 0</p>
+<p>Offset Y : 0</p>
+<p>Offset Y : 0</p>
+<p>Reverse X : False,</p>
+<p>Reverse X : True,</p>
+<p>Reverse X : True,</p>
+<p>Reverse X : False,</p>
+<p>Reverse Y : False</p>
+<p>Reverse Y : False</p>
+<p>Reverse Y : False</p>
+<p>Reverse Y : False</p>
+<h4 id="4-2-5-pixel-format">4.2.5 Pixel Format</h4>
+<p>This is a function that allows you to change the pixel format of the video. Differences in the amount of image data transmitted for each pixel format</p>
+<p>Because of this, transmission speed and bandwidth may vary.</p>
+<div class="table-container"><table>
+<tbody>
+<tr><td>Mono8</td><td>Mono10</td></tr>
+<tr><td>8-bit image data into 8bits<br>Descrpition : 8-bit monochrome unsigned<br>Pixel Size : 1byte<br>Pixel Value range : 0 to 255</td><td>10-bit image data into 16-bits<br>Description : 10-bit monochrome<br>Pixel Size : 2byte<br>Pixel Value range : 0 to 1023</td></tr>
+<tr><td>Mono12</td><td></td></tr>
+<tr><td>12-bit image data into 16-bits<br>Description : 12-bit monochrome unsigned<br>Pixel Size : 2byte<br>Pixel Value range : 0 to 4095</td><td></td></tr>
+<tr><td>RGB8</td><td></td></tr>
+<tr><td>24-bit image data into 24-bits<br>Description : 8-bit color component in one byte<br>Pixel Size : 3 bytes for 1 pixel<br>Pixel Value range : 0 to 255</td><td></td></tr>
+</tbody></table></div>
+<figure class="image-card"><img src="images/pdf-extracted/page18_05.png" alt="SCU PDF page 18 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page18_06.png" alt="SCU PDF page 18 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page18_07.png" alt="SCU PDF page 18 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page19_01.png" alt="SCU PDF page 19 visual" class="img-full"></figure>
+<p>BGR8</p>
+<p>24-bit image data into 24-bits</p>
+<p>Description : 8-bit color component in one byte</p>
+<p>Pixel Size : 3 bytes for 1 pixel</p>
+<p>Pixel Value range : 0 to 255</p>
+<figure class="image-card"><img src="images/pdf-extracted/page19_02.png" alt="SCU PDF page 19 visual" class="img-full"></figure>
+<h4 id="4-2-6-test-pattern">4.2.6 Test Pattern</h4>
+<p>At the intermediate stage of image processing, the image is replaced with a test pattern and transmitted. Test Pattern function</p>
+<p>Even if activated, functions related to image acquisition such as ROI size, trigger input, and ‘Acquisition Frame Rate’</p>
+<p>They are valid. Test Pattern images are created in 8bit gray level (0~255DN).</p>
+<ul class="feature-list"><li>Off: Sensor image</li></ul>
+<ul class="feature-list"><li>On : Test Pattern</li></ul>
+<figure class="image-card"><img src="images/pdf-extracted/page19_03.png" alt="SCU PDF page 19 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page19_04.png" alt="SCU PDF page 19 visual" class="img-full"></figure>
+<p>Grey Horizontal Ramp</p><p>Grey Vertical Ramp</p>
+<p>* Ramp size may vary depending on pixel format.</p>
+<p>※ When 8bit is set: Ramp Size = 256 Pixel</p>
+<p>※ When setting 10bit: Ramp Size = 1024 Pixel</p>
+<p>※ When 12bit is set: Ramp Size = 4096 Pixel</p>
+<h3 id="4-3-acquisition-control">4.3 Acquisition Control</h3>
+<p>This is a function that allows you to set the method of acquiring images from the camera. Define the number of image frames to acquire.</p>
+<p>You can.</p>
+<div class="table-container"><table>
+<thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead>
+<tbody>
+</tbody></table></div>
+<div class="table-container"><table>
+<tbody>
+<tr><td>Acquisition Mode</td><td>Continuous,<br>Single Frame,<br>Multi Frame</td><td>Acquire images from the Acquisition Start command to the conditions below.<br>Yes.<br>- Continuous: Acquisition continues until Acquisition Stop.<br>- Single Frame: Acquires only one image.<br>- Multi Frame: Acquires only as many images as the set count.</td></tr>
+<tr><td>Acquisition Start</td><td>Excute</td><td>Command to start image acquisition</td></tr>
+<tr><td>Acquisition Stop</td><td>Excute</td><td>End image acquisition Command</td></tr>
+<tr><td>Acquisition Frame Count</td><td>0 to 255</td><td>Number of images to be transmitted in Burst from the point of Acquisition Start.</td></tr>
+</tbody></table></div>
+<p>1) Single Frame</p>
+<p>Each time the ‘Acquisition Start’ command is input, one image is captured and transmitted. Just one image</p>
+<p>Acquisition stops automatically after transmission, so a separate ‘Acquisition Stop’ command is not required.</p>
+<p>If ‘Trigger Mode’ is ‘On’, the light is exposed and transmitted by the trigger. Trigger Mode is ‘Off’</p>
+<p>In this case, it is possible to acquire and transmit a new image with just the ‘Acquisition Start’ command.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page20_01.png" alt="SCU PDF page 20 visual" class="img-full"></figure>
+<p>2) Multi Frame &amp; Acquisition Frame Count</p>
+<p>Each time the ‘Acquisition Start’ command is input, images are captured as defined in ‘Acquisition Frame Count’</p>
+<p>and send it. Acquisition automatically stops after transmitting the specified number of images, so separate</p>
+<p>The ‘Acquisition Stop’ command is not required. However, if the ‘Acquisition Stop’ command is entered during Grab,</p>
+<p>Right, it reads out and transmits the frame being exposed and then stops. If ‘Trigger Mode’ is ‘On’,</p>
+<p>It is exposed and transmitted by a power trigger.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page21_01.png" alt="SCU PDF page 21 visual" class="img-full"></figure>
+<p>3) Continuous</p>
+<p>Images are captured at the cycle defined in ‘Acquisition Frame Rate’ from the time the ‘Acquisition Start’ command is input.</p>
+<p>Capture and transmit. When the ‘Acquisition Stop’ command is entered during Grab, up to the currently exposed image</p>
+<p>After readout and transmission, acquisition will stop. At the end of exposure, the ‘Acquisition Stop’ command is issued.</p>
+<p>Once entered, Acquisition ends after the ongoing Readout is completed. If ‘Trigger Mode’ is ‘On’</p>
+<p>In this case, it is exposed and transmitted by a trigger.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page21_02.png" alt="SCU PDF page 21 visual" class="img-full"></figure>
+<h3 id="4-4-trigger-mode-control">4.4 Trigger Mode Control</h3>
+<p>Controls image acquisition and output timing. The main method of image acquisition is external synchronization (Trigger Mode = On).</p>
+<p>and internal synchronization (Trigger Mode = Off, Freerun Mode) modes, and you can set acquisition delay or transmission delay, etc.</p>
+<p>You can.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page22_01.png" alt="SCU PDF page 22 visual" class="img-full"></figure>
+<p>&lt;Timing Diagram of Trigger Signals&gt;</p>
+<p>* Hardware Delay</p>
+<div class="table-container"><table>
+<thead><tr><th></th><th></th><th>Trigger Rising edge</th><th></th><th>Trigger Falling edge</th></tr></thead>
+<tbody>
+<tr><td>Opto-isolated Input</td><td>10.2 us</td><td></td><td>21.2 us</td><td></td></tr>
+<tr><td>GPI</td><td>1.3 us</td><td></td><td>0.01 us</td><td></td></tr>
+<tr><td>GPO</td><td>0.2 us</td><td></td><td>1.8 us</td><td></td></tr>
+</tbody></table></div>
+<p>※ When using Opto-isolated Input, set ‘Line Inverter’ to ‘False’ (Rising of Trigger signal) for shorter delay.</p><p>It is advantageous to shoot from the edge. If faster performance is required, input via the GPI port is recommended.</p>
+<p>※ The delay time measured above is based on a trigger signal input of 3.3V level, and the delay time at a higher signal level may vary.</p><p>You can.</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>Item</th><th></th><th>Setting Value</th><th></th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Trigger Mode</td><td></td><td>Off, On</td><td></td><td>Off: The camera operates in Freerun mode. Internal trigger signal is generated<br>It works. The internal trigger cycle is determined by ‘Acquisition Frame Rate’<br>It works. If the ‘Acquisition Frame Rate Enable’ parameter is Off,<br>The camera operates at the maximum frame rate that can operate with the current camera settings.<br>It's small.<br>On: The camera operates in Trigger Mode. Trigger is hardware (Line<br>1) Alternatively, it is created through a software trigger command.</td><td></td></tr>
+<tr><td>Resulting Frame<br>Rate</td><td></td><td>(Read Only)</td><td></td><td>Shows the Frame Rate when Trigger Mode is set to Off.<br>Image size and ‘Acquisition Frame Rate’, ‘Exposure Time’ and ‘Pixel’<br>It is determined by ‘Format’, ‘Decimation’, etc.</td><td></td></tr>
+<tr><td>Trigger Sourece</td><td></td><td>Line1, Software</td><td></td><td>Select the source of the trigger you want to use as trigger input. three<br>For additional details, please refer to the Trigger Source section below.</td><td></td></tr>
+</tbody></table></div>
+<div class="table-container"><table>
+<tbody>
+<tr><td>Trigger Delay</td><td>0 to 57,844,677<br>(Unit : us)</td><td>From the trigger received by the camera to the exposure of the image sensor<br>Define the delay time. Setting value 0 means Delay Off.<br>Please refer to the Trigger Delay section below for details.</td></tr>
+<tr><td>Transfer Delay</td><td>0 to 57,844,677<br>(Unit : Clock)</td><td>Defines the time to delay the image read from the sensor at the final stage of transmission.<br>Yes. This is only valid when ‘Low Latency Mode Enable’ is ‘False’. details<br>Please refer to the Transfer Delay section below for details.</td></tr>
+<tr><td>Trigger Activation</td><td>Rising Edge<br>(Read Only)</td><td>Defines the standard for the phase of the trigger signal inside the camera. of input trigger<br>To change the phase, use ‘Line Inverter’.</td></tr>
+<tr><td>Line debouncer<br>Time</td><td>0 to 882.995<br>(Unit : us)</td><td>Adjust Line Debouncer Time.<br>For details, see the Line Debouncer section below.</td></tr>
+</tbody></table></div>
+<h4 id="4-4-1-trigger-mode">4.4.1 Trigger Mode</h4>
+<p>‘Trigger Mode’ is a function that controls the exposure method of the image sensor. When setting ‘Trigger Mode’ to ‘Off’</p>
+<p>Right, the camera operates in Freerun Mode. Freerun mode is the maximum that can operate with the current settings.</p>
+<p>Internal VD is created based on Frame Rate. At the same time, an exposure signal is generated as much as the set ‘Exposure Time’</p>
+<p>and is input to the image sensor. Periodic exposure is performed by the generated Exposure signal, and exposure is performed accordingly.</p>
+<p>After reading the published image, it is transmitted to the host.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page23_01.png" alt="SCU PDF page 23 visual" class="img-full"></figure>
+<p>&lt;Timing Diagram of Freerun Mode&gt;</p>
+<p>On the other hand, if Trigger Mode is set to ‘On’, the camera operates in Trigger Mode. Trigger</p>
+<p>In mode, the exposure start point or exposure time is determined by the trigger input from the outside. Exposure</p>
+<p>After completion, frames are read and transmitted in the same way as in Freerun mode. Detailed timing</p>
+<p>Please refer to the picture on p.21&lt;Timing Diagram of Trigger Signals&gt;.</p>
+<p>※ Precautions</p>
+<p>1) If a trigger signal with a cycle faster than the product’s maximum frame rate is input, the frame rate of the output image is</p>
+<p>It deteriorates. (For determination of abnormal trigger input, refer to ‘Counter Control’) Therefore, signal specifications within camera specifications must be met.</p>
+<p>Please follow the instructions and enter your information.</p>
+<p>2) If noise enters the trigger signal line, there is a possibility that the camera may mistake the noise for a trigger signal.</p>
+<p>c. (Refer to the ‘Line Debouncer Time’ function related to noise filtering)</p>
+<p>3) When switching the trigger mode from On to Off during acquisition, a defective image may occur due to over trigger.</p>
+<p>This may occur in the same form as an increase in Undelivered Frames. Therefore, when the trigger signal is stopped and readout occurs,</p>
+<p>It is advisable to switch modes after a time sleep of approximately 1/Frame Rate second. Same</p>
+<p>Since defective images may occur for the same reason when switching from Off to On,</p>
+<p>Time Sleep is required.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page24_01.png" alt="SCU PDF page 24 visual" class="img-full"></figure>
+<p>&lt;Timing Diagram of Trigger Mode Changing&gt;</p>
+<h4 id="4-4-2-trigger-source">4.4.2 Trigger Source</h4>
+<p>Define the source of the trigger signal. Applies when Trigger Mode is set to On.</p>
+<p>▶Hardware trigger = 6 pin connector input</p>
+<ul class="feature-list"><li>Line1: Trigger input is received through pin 2 (Trigger +) and pin 5 (Trigger -). Voltage of trigger signal</li></ul>
+<p>The level range is from a minimum of 2.5V to a maximum of 24V.</p>
+<ul class="feature-list"><li>Line2, Line3: Trigger input is received through pin 3 (GPIO1) or pin 4 (GPIO2).</li></ul>
+<p>▶ Software trigger = Enter Host Software Trigger Command</p>
+<p>Create a trigger inside the camera through the Software Trigger function. In this setting, ‘Exposure Mode’ is</p>
+<p>Only ‘Timed’ shutter mode is supported.</p>
+<p>※ Note</p>
+<p>If you set ‘Counter Selector’ in the ‘Counter And Timer Control’ category to ‘Line Trigger’, the input from the camera will be triggered.</p>
+<p>The total number of valid triggers is returned as ‘Counter Value’. This counter is initialized to 0 by Streaming Start.</p>
+<p>It works.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page25_01.png" alt="SCU PDF page 25 visual" class="img-full"></figure>
+<h4 id="4-4-3-trigger-delay">4.4.3 Trigger Delay</h4>
+<p>The trigger is delayed inside the camera by the time set in ‘Trigger Delay’ from the time of trigger input.</p>
+<p>This is a function that sets it to work. If ‘Trigger Delay’ is set to a value other than 0, the trigger signal is delayed.</p>
+<p>If a new trigger signal is input during the process, the delay for the existing trigger signal continues and the new trigger is</p>
+<p>It will be ignored. In other words, if the delay time is greater than the trigger period, the frame rate may decrease due to missing trigger.</p>
+<p>You can. For detailed timing diagram, please refer to the diagram on P.21&lt;Timing Diagram of Trigger Signals&gt;.</p>
+<p>c.</p>
+<h4 id="4-4-4-transfer-delay">4.4.4 Transfer Delay</h4>
+<p>At the stage of transmitting the image that has completed image pre-processing inside the camera, the image packet is</p>
+<p>This function delays the start of transmission. When multiple camera videos are input from a single host, input</p>
+<p>You can adjust the timing to distribute input points. Since the input value of the parameter is in Clock units, it is expressed as time.</p>
+<p>Please refer to the formula below for conversion.</p>
+<p>𝑇𝑟𝑎𝑛𝑠𝑓𝑒𝑟 𝐷𝑒𝑙𝑎𝑦(𝑛𝑠) = 𝑇𝑟𝑎𝑛𝑠𝑓𝑒𝑟 𝐷𝑒𝑙𝑎𝑦 𝑉𝑎𝑙𝑢𝑒 × 10𝑛𝑠</p>
+<p>※ Note</p>
+<p>1) This can only be set when the ‘Low-latency Mode Enable’ parameter is set to ‘False’.</p>
+<p>2) For more detailed timing, please refer to the ‘Low-Latency Mode’ section.</p>
+<h3 id="4-5-exposure-control">4.5 Exposure Control</h3>
+<h4 id="4-5-1-exposure-mode">4.5.1 Exposure mode</h4>
+<p>This function allows the camera to select the exposure method. If ‘Trigger Source’ is set to ‘Line1’, ‘Timed’</p>
+<p>and ‘Trigger Width’ can be set respectively. However, if ‘Trigger Source’ is set to ‘Software’</p>
+<p>It only works with ‘Timed’ shutter.</p>
+<p>In the ‘Timed’ shutter method, exposure occurs only for the time set in ‘Exposure Time’. The trigger is just</p>
+<p>It serves to specify the starting point of exposure. On the other hand, the ‘Trigger Width’ shutter method uses the pulse of the trigger signal</p>
+<p>The width becomes the effective exposure time.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page26_01.png" alt="SCU PDF page 26 visual" class="img-full"></figure>
+<p>&lt;Timing Diagram of Pulse Width Trigger&gt;</p>
+<h4 id="4-5-2-exposure-time">4.5.2 Exposure Time</h4>
+<p>Set the camera exposure time. This time only applies when ‘Exposure Mode is set to ‘Timed’.</p>
+<p>Applies. In Freerun Mode, if the Exposure Time is longer than the Frame Period, the Frame Rate</p>
+<p>It will decrease.</p>
+<p>The actual exposure signal inside the camera is generated by the ‘HD’ timer. This ‘HD’ timer has a horizontal</p>
+<p>Because it is related to Readout Size, generally the smaller the Image Width, the longer the period of the HD signal.</p>
+<p>It will be shortened. Also, parameters related to video transmission bandwidth (ex. Pixel Format, Device Link Througput Limit</p>
+<p>etc.), the period of the HD signal also changes.</p>
+<p>※ Note</p>
+<p>Set ‘Counter Selector’ in the ‘Counter And Timer Control’ category to ‘Exposure Start’ or ‘Exposure End’</p>
+<p>Once set, the camera will return the start and end exposure counts as ‘Counter Value’. This counter is Streaming</p>
+<p>It is initialized to 0 by Start.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page26_02.png" alt="SCU PDF page 26 visual" class="img-full"></figure>
+<p>※ Precautions</p>
+<p>1) In MU-AxxxM(K) series cameras, there is an error between Exposure Time and actual exposure time. below</p>
+<p>The time specified in the table is an absolute time, and when exposing each frame, additional exposure time other than Exposure Time is required.</p>
+<p>It's time.</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>MU-A040M/K<br>-523</th><th>MU-A160M/K</th><th>MU-A320M/K</th><th>MU-A320M/K<br>-55</th><th>MU-A500M/K<br>-35</th><th>MU-A121M/K</th></tr></thead>
+<tbody>
+<tr><td>Model</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td>-226</td><td>-118</td><td></td><td></td><td>-23</td></tr>
+<tr><td>Exposure Time</td><td>14.26us</td><td>14.26us</td><td>13.73us</td><td>13.73us</td><td>13.73us</td><td>14.26us</td></tr>
+<tr><td>Offset</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+<p>2) Exposure start (and exposure end) may be delayed from the time the trigger signal reaches the camera.</p><p>There is. (Excluding hardware delay and ‘Line Debouncer Time’)</p>
+<div class="table-container"><table>
+<tbody>
+<tr><td>Delay Type</td><td></td><td>Delay Time</td></tr>
+<tr><td>Exposure Start Delay</td><td>3HD</td><td></td></tr>
+<tr><td>Exposure End Delay</td><td>3HD+Exposure Time Offset</td><td></td></tr>
+</tbody></table></div>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>MU-A040M/K<br>-523</th><th>MU-A160M/K</th><th>MU-A320M/K</th><th>MU-A320M/K<br>-55</th><th>MU-A500M/K<br>-35</th><th>MU-A121M/K</th></tr></thead>
+<tbody>
+<tr><td>Model</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td>-226</td><td>-118</td><td></td><td></td><td>-23</td></tr>
+<tr><td></td><td>3.259us</td><td>3.919us</td><td>5.778us</td><td>11.393us</td><td>13.414us</td><td>14.02us</td></tr>
+<tr><td>1HD</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+<p>※ The above 1HD time is based on the case of outputting the maximum frame rate under the maximum image size condition.</p>
+<h4 id="4-4-3-sensor-shutter-mode-mu-a121r-l-31-mu-a201r-l-18">4.4.3 Sensor Shutter Mode (MU-A121R/L-31 and MU-A201R/L-18 models only)</h4>
+<p>‘Sensor Shutter Mode’ can be changed only for the two product groups that adopt Rolling Shutter-based image sensors.</p>
+<p>There is. Basically, ‘Rolling shutter’ mode is supported, but if the subject moves quickly, the time difference may occur.</p>
+<p>Image distortion may appear. On the other hand, because overlap is possible, the maximum frame rate of the product can be reached.</p>
+<p>You can. It has the advantage of having uniform exposure time for all lines.</p>
+<p>If you use the ‘Global Reset’ mode, which resets each line of the image at the same time, image distortion due to time difference is avoided.</p>
+<p>It disappears. However, since all lines are exposed immediately after reset, the more you read in the vertical direction, the more</p>
+<p>Exposure time becomes longer. And because Overlapping triggers are not supported, the Frame Rate is approximately</p>
+<p>It can be reduced to less than half.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page27_01.png" alt="SCU PDF page 27 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page27_02.png" alt="SCU PDF page 27 visual" class="img-full"></figure>
+<div class="table-container"><table>
+<tbody>
+<tr><td>Sensor Shutter Mode = Rolling</td><td>Sensor Shutter Mode = Global Reset</td></tr>
+</tbody></table></div>
+<p>※ Precautions</p>
+<p>Proper Exposure Flash timing in ‘Rolling’ mode requires that the first and last lines are in common.</p>
+<p>This is the time between exposures. Only then can the entire image line be uniformly illuminated.</p>
+<h4 id="4-5-4-exposure-auto">4.5.4 Exposure Auto</h4>
+<p>This is a function that allows the camera to automatically adjust ‘Exposure Time’ to maintain the desired brightness.</p>
+<p>Can be set when ‘ExposureMode’ is set to ‘Timed’. And ‘Auto Exposure Time Lower’</p>
+<p>‘Exposure Time’ changes only in the time between ‘Limit’ and ‘Auto Exposure Time Upper Limit’.</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>parameters</th><th></th><th>Setting value</th><th></th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Exposure Auto</td><td></td><td>Off<br>Once<br>Continuous</td><td></td><td>Off: Set exposure time manually.<br>Once: Adjust the exposure time just once to change the brightness value to the desired value.<br>Continuous: Continuously adjusts the exposure time to achieve the desired brightness value.<br>Maintain.</td><td></td></tr>
+<tr><td>Auto Exposure Target</td><td></td><td>0 to 255<br>(8-bit DN)</td><td></td><td>Set the brightness value desired by the user</td><td></td></tr>
+<tr><td>Auto Exposure Time<br>Lower Limit</td><td></td><td>Unit : us</td><td></td><td>Minimum value of variable shutter range</td><td></td></tr>
+<tr><td>Auto Exposure Time<br>Upper Limit</td><td></td><td>Unit : us</td><td></td><td>Maximum value of variable shutter range</td><td></td></tr>
+</tbody></table></div>
+<p>※ Precautions</p>
+<p>1) If the Exposure Time is too short, a flickering image may be output due to flickering of lights, etc.</p>
+<p>2) If ‘Exposure Time’ becomes longer than Frame Time to reach maximum brightness, Frame Rate</p>
+<p>It may deteriorate.</p>
+<h3 id="4-6-digital-i-o-control">4.6 Digital I/O Control</h3>
+<p>This function allows you to set camera external I/O signals. The input/output direction of each I/O is fixed, and the I/O</p>
+<p>You can change the logical specifications of signals through a port.</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>Item</th><th></th><th>Setting Value</th><th></th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Line selector</td><td></td><td>Line1, Line2, Line3</td><td></td><td>Select the Line for which you want detailed settings.</td><td></td></tr>
+<tr><td>Line Mode</td><td></td><td>Input, Output</td><td></td><td>Line 1 is assigned to the camera's input line.<br>Lines 2 and 3 can be set according to the purpose of GPIO1 and 2.</td><td></td></tr>
+<tr><td>Line Inverter</td><td></td><td>True / False</td><td></td><td>True: Inverts the input/output phase of the line.<br>False: Do not invert the phase of the line.</td><td></td></tr>
+</tbody></table></div>
+<div class="table-container"><table>
+<tbody>
+<tr><td>Line Status</td><td>True / False</td><td>Returns the current status of the selected Line. True means Logical High<br>And False means Logical Low.</td></tr>
+<tr><td>Line Source</td><td>Exposure Active,<br>Timer Active,<br>User Output1,<br>User Output2</td><td>Available only when ‘Line Mode’ is set to ‘Output’.<br>Exposure Active: Flash signal activated during exposure time is output.<br>c.<br>Timer Active: ‘TimerDuration’ in the ‘Counter And Timer Control’ category<br>Flash signal is output for the time set in .<br>User Output1, User Output2: ‘User Output 1’ or ‘User Output 2’ value<br>This is output.</td></tr>
+<tr><td>User Output Value</td><td>True / False</td><td>Set the output value when ‘Line Source’ is set to User Output1.<br>Yes.</td></tr>
+</tbody></table></div>
+<figure class="image-card"><img src="images/pdf-extracted/page29_01.png" alt="SCU PDF page 29 visual" class="img-full"></figure>
+<p>&lt;Line Block Diagram&gt;</p>
+<h4 id="4-6-1-line-debouncer">4.6.1 Line Debouncer</h4>
+<p>This is a function to remove (debouncing) chattering noise from the camera's external trigger line. ‘Line Debouncer</p>
+<p>Only signals that maintain the state for the time set in ‘Time’ are accepted as valid inputs. Line Debouncer</p>
+<p>Since the Timer checks the state transition of the Trigger Line, the delay is delayed by the time set in ‘Line Debouncer Timer’.</p>
+<p>You will receive a trigger input.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page30_01.png" alt="SCU PDF page 30 visual" class="img-full"></figure>
+<p>&lt;Timing Diagram of Line Debouncer&gt;</p>
+<h3 id="4-7-timer-control">4.7 Timer Control</h3>
+<p>Timer Control allows you to change the settings of the strobe signal output outside the camera. ‘Trigger</p>
+<p>When ‘Mode’ is Off (Freerun Mode), the time of generation of Timer Flash signal is set to exposure start or ‘Internal VD’.</p>
+<p>You can select the ‘Start’ point. (Refer to the diagram &lt;Timing Diagram of Freerun Mode&gt;) When VD is initialized</p>
+<p>Since the viewpoint is ahead of the shutter operation point, ‘Timer Delay’ is required to synchronize with the lighting.</p>
+<p>You can do it.</p>
+<p>On the other hand, when ‘Trigger Mode’ is On, the exposure start point or trigger signal detection point (state transition point) is determined.</p>
+<p>You can select it as the Timer Flash creation location. If a Timer is created by an external trigger, set ‘Timer Delay’</p>
+<p>This allows you to synchronize with the actual exposure section. (Refer to the &lt;Timing Diagram of Trigger Signals&gt; diagram)</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>Item</th><th></th><th>Setting Value</th><th></th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Timer Duration</td><td></td><td>0 to 57,844,677<br>(Unit : us)</td><td></td><td>Defines the pulse width of the Timer Flash signal output to Line2. New year<br>The default value of 0 means Off.</td><td></td></tr>
+<tr><td>Timer Delay</td><td></td><td>0 to 57,844,677<br>(Unit : us)</td><td></td><td>Defines the delay time for the Timer Flash signal output to Line2. New year<br>A default value of 0 means no delay.</td><td></td></tr>
+<tr><td>Timer Trigger Source</td><td></td><td>Exposure Start,<br>Acquisition<br>Trigger,<br>Internal VD Start<br>PWC Trigger Start</td><td></td><td>Select when the Flash Timer starts to occur.<br>Exposure Start: When exposure begins<br>Acquisition Trigger: Input point of external trigger<br>Internal VD Start: Internal VD reset point in Freerun mode<br>PWC Trigger Start: PWC Trigger signal converted inside the camera.</td><td></td></tr>
+</tbody></table></div>
+<h3 id="4-5-exposure-control-trigger">As mentioned in ‘Exposure Control’ in Section 4.5, the trigger signal input to the camera and the actual signal to the image sensor</h3>
+<p>There is a certain time delay until exposure. This delay time (Exposure Start Delay) is ‘Timer Trigger Source’.</p>
+<p>When set to ‘Exposure Start’, a negative value ‘Timer Delay’ can also be used. negative number</p>
+<p>If you enter a signed real number value into ‘Timer Delay’, it will delay up to 3HD hours from the actual exposure time to the sensor.</p>
+<p>The timer signal generation time can be advanced. (Refer to the &lt;Timing Diagram of Timer Control&gt; diagram)</p>
+<figure class="image-card"><img src="images/pdf-extracted/page31_01.png" alt="SCU PDF page 31 visual" class="img-full"></figure>
+<p>&lt;Timing Diagram of Timer Control&gt;</p>
+<h3 id="4-8-counter-control">4.8 Counter Control</h3>
+<p>The series of processes in which the camera receives trigger input, exposes, and transmits images can be monitored with a step-by-step counter.</p>
+<p>This is a feature that can be used. Additionally, signal input that exceeds the camera specifications, such as trigger input with a cycle faster than the frame speed.</p>
+<p>You can also check the power.</p>
+<div class="table-container"><table>
+<thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Counter Selector</td><td>LineTrigger<br>Exposure Start<br>Exposure End<br>FrameEnd<br>ExposureOver-<br>Trigger<br>ReadOutOver-<br>Trigger</td><td>Monitors whether the camera operates in response to a trigger signal input from an external source.<br>is a function.<br>LineTrigger: Total number of external triggers and software triggers entered.<br>Exposure Start: The number of times the actual exposure started.<br>Exposure End: The number of times the actual exposure has ended.<br>FrameEnd: Number of frames read out from the sensor.<br>ExposureOverTrigger: Number of new triggers entered during Exposure.<br>Refer to the &lt;Timing Diagram of ‘Exposure Over Trigger’&gt; diagram.<br>ReadOutOverTrigger: Number of times exposure of a new trigger has ended during readout.<br>Refer to the &lt;Timing Diagram of ‘Readout Over Trigger’&gt; diagram.<br>However, Readout Overtrigger is counted only when Trigger Mask Enable = On. (Seconds<br>The status is set to On)</td></tr>
+<tr><td>Counter Value</td><td>(Read Only)</td><td>All counters at the time of ‘Counter Value Reset’ command input or Acquisition Start<br>Values are initialized to 0.</td></tr>
+<tr><td>&lt;Timing Diagram of ‘Exposure Over Trigger’&gt;<br>1) This type can occur when Exposure Mode = Timed.<br>2) #3 Trigger signal is ignored because it was input during Timed Shutter exposure of #2 Trigger signal.</td><td></td><td></td></tr>
+<tr><td>&lt;Timing Diagram of ‘Readout Over Trigger’&gt;<br>1) This type can appear when Exposure Mode = Timed and Trigger Width.<br>2) #3 Trigger signal was input with a cycle faster than the minimum cycle of the camera. So the camera is #3<br>It treats the trigger as noise or a bad trigger and transmits the image of #2 without stopping.</td><td></td><td></td></tr>
+</tbody></table></div>
+<figure class="image-card"><img src="images/pdf-extracted/page32_01.png" alt="SCU PDF page 32 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page32_02.png" alt="SCU PDF page 32 visual" class="img-full"></figure>
+<h3 id="4-9-chunk-data-control">4.9 Chunk Data Control</h3>
+<p>Chunk data is tagged data that can be grouped within blocks of data to transmit metadata.</p>
+<p>This is a data block. Each chunk consists of chunk data and a trailing tag, and the tag contains a ‘unique chunk identifier.</p>
+<p>(Unique Chunk Identifier, CID)’ and ‘Chunk data length’. This Chunk Data is USB3Vision</p>
+<p>Transmitted in accordance with Standard 1.1.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page33_01.png" alt="SCU PDF page 33 visual" class="img-full"></figure>
+<div class="table-container"><table>
+<thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Chunk Mode<br>Active</td><td>True / False</td><td>Decide whether to transmit chunk data. When ‘True’ is set<br>Right, the parameters specified in the Chunk Selector are used every frame.<br>Everything is sent as chunk.</td></tr>
+<tr><td>Chunk Selector</td><td>Frame Counter,<br>Time Stamp,<br>Gain,<br>Exposure Time,<br>Counter Value,<br>Device Temperature,<br>Line Status All</td><td>Frame Counter: Unique number of the current image being transmitted.<br>c. The counter for the first image is 0, and after each frame is transmitted,<br>Increases by 1.<br>Time Stamp: Timer specified by the USB3Vision standard.<br>It increases in units of 1 tick (10ns).<br>Gain: Various gain values of the current image being transmitted at once.<br>Sending.<br>Exposure Time: Exposure Time of the current image being transmitted<br>Send .<br>Counter Value: Various counter values at the time of image transmission<br>returns.<br>Device Temperature: Device temperature at the time of image transmission<br>Returns a value.<br>Line Status All: Shows all line status at the time of image transmission.<br>Burn it.</td></tr>
+<tr><td>Chunk Enable</td><td>True / False</td><td>Chunk data for the chunk specified in the Chunk Selector<br>This is a function that determines participation. Chunk Mode<br>If Active is set to ‘True’, Chunk Enable<br>Only chunks designated as ‘True’ are transmitted.</td></tr>
+</tbody></table></div>
+<p>Chunk data is sent along with the last payload packet of the image. Unique chunk identifier for each chunk</p><p>Please refer to the table below for (Unique Chunk Identifier, CID) and data size information.</p>
+<div class="table-container"><table>
+<thead><tr><th>Chunk Selector</th><th>Chunk Length</th><th>Chunk Data</th><th>CID</th></tr></thead>
+<tbody>
+<tr><td>Image</td><td>Payload Size</td><td>Image Data</td><td>0x617D18DB</td></tr>
+</tbody></table></div>
+<div class="table-container"><table>
+<thead><tr><th>Frame Counter</th><th>8Byte</th><th>Frame Counter : Offset 0, length 4Byte<br>Reserved : Offset 4Byte, length 4Byte</th><th>0x4652414D</th></tr></thead>
+<tbody>
+<tr><td>Time Stamp</td><td>8Byte</td><td>Time Stamp : Offset 0, length 4Byte<br>Reserved : Offset 4Byte, length 4Byte</td><td>0x54494D45</td></tr>
+<tr><td>Gain</td><td>16Byte</td><td>Digital Gain : Offset 0, length 2Byte<br>Analog Gain : Offset 2Byte, length 2Byte<br>Gain Red : Offset 4Byte, length 2Byte<br>Gain Green : Offset 6Byte, length 2Byte<br>Gain Blue : Offset 8Byte, length 2Byte<br>Reserved : Offset 10Byte, length 6Byte</td><td>0x4741494E</td></tr>
+<tr><td>Exposure Time</td><td>8Byte</td><td>Exposure Time : Offset 0, length 4Byte<br>Reserved : Offset 4Byte, length 4Byte</td><td>0x4558504F</td></tr>
+<tr><td>Counter Value</td><td>24Byte</td><td>External Trigger Start : Offset 0, length 4Byte<br>Exposure Start : Offset 4Byte, length 4Byte<br>Exposure End : Offset 8Byte, length 4Byte<br>Frame End : Offset 12Byte, length 4Byte<br>Exposure Start Missed : Offset 16Byte, length 4Byte<br>Exposure End Missed : Offset 20Byte, length 4Byte</td><td>0x4F544845</td></tr>
+<tr><td>Device Temperature</td><td>8Byte</td><td>Device1 Temperature : Offset 0, length 4Byte<br>Reserved : Offset 4Byte, length 4Byte</td><td>0x54454D50</td></tr>
+<tr><td>Line Status All</td><td>8Byte</td><td>Line 1 : Offset 0, bit[0]<br>Line 2 : Offset 0, bit[1]<br>Line 3 : Offset 0, bit[2]<br>Line 4 : Offset 0, bit[3]<br>Line 5 : Offset 0, bit[4]<br>Line 6 : Offset 0, bit[5]<br>Line 7 : Offset 0, bit[6]<br>Line 8 : Offset 0, bit[7]<br>Reserved : Offset 1Byte, length 7Byte</td><td>0x4C494E45</td></tr>
+</tbody></table></div>
+<h3 id="4-10-event-control">4.10 Event Control</h3>
+<p>Event notification is a function that sends an event packet from the camera to the host in each specific event situation. image</p>
+<p>Event Packet is transmitted through a channel different from the transmission channel.</p>
+<p>Events occur in cameras in real time, but if packet transmission delays occur due to host circumstances, Event</p>
+<p>There is also a possibility that the actual receipt of the packet may be delayed or missed. Up to 128 inside the camera</p>
+<p>Events can be loaded, but if transmission is delayed any longer, newly generated events will be missed.</p>
+<div class="table-container"><table>
+<thead><tr><th>Item</th><th>Setting Value</th><th>Event ID</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Event Selector</td><td>Exposure End,<br>Over Trigger Start Missed<br>Over Trigger End Missed<br>Trigger Start</td><td>0x0004<br>0x5005<br>0x5006<br>0x5007</td><td>Exposure End: An event occurs when exposure ends.<br>Over Trigger Start Missed: New start due to over trigger during exposure.<br>An event occurs when a luck trigger is input.<br>Over Trigger End Missed: Image Readout by Over Trigger<br>If exposure ends due to a new trigger, an event occurs.<br>Yes.</td></tr>
+</tbody></table></div>
+<div class="table-container"><table>
+<thead><tr><th></th><th>Device Temperature Warning<br>Device Temperature Critical</th><th>0x501E<br>0x501F</th><th>Trigger Start: An external trigger signal or software trigger starts the camera.<br>An event occurs when it is recognized.<br>Device Temperature Warning: The temperature of the camera exceeds 𝑇.<br>𝑡ℎ𝑟1<br>In this case, an event occurs only once.<br>Device Temperature Critical: When the camera’s temperature exceeds 𝑇<br>𝑡ℎ𝑟2<br>An event occurs only once.</th></tr></thead>
+<tbody>
+<tr><td>Event<br>Notification</td><td>Off, On</td><td></td><td>Enable or disable notification for Event of each Selector.<br>c.</td></tr>
+</tbody></table></div>
+<h3 id="4-11-analog-control">4.11 Analog Control</h3>
+<p>You can change the analog and digital characteristics of the video signal. Mainly changing properties for image pixels</p>
+<p>The functions you can do are listed.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page35_01.png" alt="SCU PDF page 35 visual" class="img-full"></figure>
+<p>&lt;Block Diagram of Analog Control&gt;</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>Item</th><th></th><th>Setting Value</th><th></th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Gain Selector</td><td></td><td>All, DigitalAll</td><td></td><td>Select the Gain to be set. Each of the two gains is independent of each other<br>With Gain, you can set different values at the same time.<br>- All : Analog Gain<br>- Digital All : Digital Gain</td><td></td></tr>
+<tr><td>Gain Raw</td><td></td><td>All : Analog Gain<br>- Global Shutter : 0 to 276<br>- Rolling Model : 0 to 270<br>DigitalAll : Digital Gain<br>(Common) 0 to 8191</td><td></td><td>You can apply the desired gain as a raw value.</td><td></td></tr>
+<tr><td>Gain Abs</td><td></td><td>All : Analog Gain<br>- Global Shutter : 1 to 24x<br>- Rolling Model : 1 to 22.39x<br>DigitalAll : Digital Gain<br>(Common) 1 to 8.99x</td><td></td><td>You can apply the desired gain value as a multiplier. Brightness of original image<br>You can enter a relative magnification by specifying 1x.<br>※ Reference: dB conversion formula<br>Gain dB = 20 * log(GainAbs)<br>_</td><td></td></tr>
+</tbody></table></div>
+<div class="table-container"><table>
+<tbody>
+<tr><td>Gain Auto</td><td>Off, Once, Continuous</td><td>You can set the AGC (Automatic gain control) function. At this time<br>Target brightness value is defined in ‘Auto Exposure Target’.<br>Off: Set Gain manually.<br>Once: Adjust the gain value just once to change it to the desired brightness value.<br>c.<br>Continuous: Continuously adjust the gain value to maintain the desired brightness value.<br>City maintains.</td></tr>
+<tr><td>Auto Gain<br>Lower Limit</td><td>Unit : dB</td><td>Minimum value of variable gain range</td></tr>
+<tr><td>Auto Gain<br>Upper Limit</td><td>Unit : dB</td><td>Maximum value of variable gain range</td></tr>
+<tr><td>Black Level<br>Selector</td><td>All, DigitalAll</td><td>Select the Black Level to set. Each of the two BlackLevels is<br>As an independent Offset, different values can be set at the same time.<br>- All : Analog Offset<br>- Digital All : Digital Offset</td></tr>
+<tr><td>Black Level<br>Raw</td><td>All : Analog Offset<br>-Global Shutter : 0 to 255<br>-Rolling Model : 0 to 255<br>DigitalAll : Digital Offset<br>(Common) 0 to 1023</td><td>Change the Analog / Digital Black Level value.<br>You can adjust the DC Offset of the image signal.</td></tr>
+<tr><td>Pattern Noise<br>Removal</td><td>Execute</td><td>Removes pattern-shaped noise.<br>(Only for MU-A121R/L-31 and MU-A201R/L-18 models)</td></tr>
+<tr><td>Noise<br>Reduction Filter</td><td>False, True</td><td>Activate the Noise Reduction function. Sharpness may decrease somewhat<br>You can.</td></tr>
+</tbody></table></div>
+<h4 id="4-11-1-gain-gain-auto">4.11.1 Gain, Gain Auto</h4>
+<p>While Gain can change the sensitivity of the image without deteriorating the frame rate, it also reduces image noise.</p>
+<p>may increase. The gain of the camera is composed of Analog Gain and Digital Gain respectively, and ‘Gain</p>
+<p>You can select through ‘Selector’.</p>
+<p>Gain Auto is a function that automatically adjusts the gain value to the target brightness by the Auto Gain Control algorithm.</p>
+<p>The range of gain values that change while Gain Auto is running is ‘Auto Gain Lower Limit’ and ‘Auto Gain Upper’.</p>
+<p>Limited by ‘Limit’.</p>
+<p>※ Precautions</p>
+<p>Priority for brightness changes when ‘Gain Auto’ is used simultaneously with the ‘Exposure Auto’ function</p>
+<p>▶ When the brightness becomes brighter: Exposure Time increases first, and Gain increases when the limit is reached.</p>
+<p>▶ When brightness becomes dark: Gain decreases first, and Exposure Time decreases when the limit is reached.</p>
+<h4 id="4-11-2-black-level">4.11.2 Black Level</h4>
+<p>‘Black Level’ is a function that allows you to set the offset of the camera’s sensitivity. ‘Black Level’ is about Gain and Ma.</p>
+<p>Likewise, it is composed of Analog Black Level and Digital Black Level, and can be adjusted through ‘Black Level Selector’.</p>
+<p>You can choose.</p>
+<h4 id="4-11-3-gamma">4.11.3 Gamma</h4>
+<p>This function is used to adjust Gamma Correction. You can correct the contrast of camera images.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page37_01.png" alt="SCU PDF page 37 visual" class="img-full"></figure>
+<p>&lt;ITE ‘GrayScale ChartⅡ (y=0.45)’&gt;</p>
+<p>※ Precautions</p>
+<ul class="feature-list"><li>The Gamma Correction function cannot be used simultaneously with LUT. When activating LUT and Gamma simultaneously</li></ul>
+<p>Right, the function activated first is automatically disabled.</p>
+<h4 id="4-11-4-pattern-noise-removal-mu-a121r-l-31-mu-a201r-l-18">4.11.4 Pattern Noise Removal (MU-A121R/L-31 and MU-A201R/L-18 models only)</h4>
+<p>This feature can be improved when noise similar to a mosaic pattern appears in the image. user's</p>
+<p>Sensitivity imbalance between mosaic patterns or specific color channels after setup for the environment (lighting, lenses, etc.) is completed.</p>
+<p>If this phenomenon occurs, you can self-correct it. Immediate correction through ‘Pattern Noise Removal’ command</p>
+<p>It is possible.</p>
+<p>※ Precautions</p>
+<p>1) To perform ‘Pattern Noise Removal’, you must grab the image.</p>
+<p>2) After correcting the video by entering a command, you must save the correction value to the camera using the ‘Userset Save’ command.</p>
+<p>I do.</p>
+<h4 id="4-11-5-noise-reduction-filter">4.11.5 Noise Reduction Filter</h4>
+<p>This function allows you to reduce video noise through a noise filter. When activated, it is reflected from the next frame.</p>
+<p>The sharpness of the video may deteriorate somewhat.</p>
+<div class="table-container"><table>
+<tbody>
+<tr><td>Noise Reduction Filter = False</td><td>Noise Reduction Filter = True</td></tr>
+</tbody></table></div>
+<figure class="image-card"><img src="images/pdf-extracted/page38_01.png" alt="SCU PDF page 38 visual" class="img-full"></figure>
+<figure class="image-card"><img src="images/pdf-extracted/page38_02.png" alt="SCU PDF page 38 visual" class="img-full"></figure>
+<h3 id="4-12-balance-ratio-control">4.12 Balance Ratio Control</h3>
+<p>This function is used to correct the color balance of color cameras. To achieve a balance of sensitivity between color channels to the light source,</p>
+<p>Correct it. If the color temperature of the light source changes, new calibration is required.</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>Item</th><th></th><th>Setting Value</th><th></th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Balance Ratio<br>Selector</td><td></td><td>Red, Green, Blue</td><td></td><td>Select a color to adjust Color Gain.</td><td></td></tr>
+<tr><td>Balance Ratio</td><td></td><td>0 to 7.9</td><td></td><td>Adjust the gain value of the selected color. The unit is magnification.<br>(Default: 1x)</td><td></td></tr>
+<tr><td>Balance White<br>Auto</td><td></td><td>Off, once,<br>Continuous</td><td></td><td>Once: Adjusts the color gain only once to adjust the white balance.<br>Continuous: Maintains white balance by continuously adjusting color gain.<br>I will give it to you.</td><td></td></tr>
+</tbody></table></div>
+<p>※ Precautions</p>
+<p>1) Pixels outside of a certain brightness range are judged as noise. Also, even if there is a strong bias toward a specific color,</p>
+<p>Excluded from Auto White Balance calculation. Please refer to the criteria below for detailed conditions.</p>
+<p>1. |R-Y| &lt; 160DN</p>
+<p>2. |B-Y| &lt; 160DN</p>
+<p>3. -160DN &lt; (B-Y) + (R-Y) &lt; 160DN</p>
+<p>2) After color correction, the correction value must be saved in the camera’s PROM using the ‘Userset Save’ Command.</p>
+<h3 id="4-13-user-set-control">4.13 User Set Control</h3>
+<p>This function is used to save or load the values of parameters set by the user. Always change during Grab.</p>
+<p>Since there are parameters that should not be changed, Userset Load is performed in Acquisition Stop state.</p>
+<p>I recommend doing so.</p>
+<div class="table-container"><table>
+<thead><tr><th>Item</th><th>Setting value</th><th></th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>User Set Selector</td><td>Default<br>Userset1<br>Userset2<br>Userset3</td><td>Default: Settings saved in the camera as default. user<br>Cannot save.<br>Userset1/2/3: Users can save/load at will. power<br>Even when turned off/on, the saved settings are maintained.</td><td></td></tr>
+<tr><td>User Set Load</td><td>Execute</td><td>Loads the settings of the selected Userset Selector item.</td><td></td></tr>
+<tr><td>User Set Save</td><td>Execute</td><td>Saves the settings in the selected Userset Selector item.</td><td></td></tr>
+</tbody></table></div>
+<h3 id="4-14-lut-control">4.14 LUT Control</h3>
+<p>The LUT (Look Up Table) function matches the digitally converted pixel value to the table 1:1 with the input value and output value.</p>
+<p>This is a conversion function. Pixel value is determined by the LUT Value (Output Image) defined for each Index (Input Image) in the table.</p>
+<p>It will be replaced. For color models, the luminance component is loaded into the LUT memory.</p>
+<div class="table-container"><table>
+<thead><tr><th>Item</th><th>Setting value</th><th></th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>LUT Enable</td><td>Disable, Enable</td><td>Determines whether to activate the LUT function.</td><td></td></tr>
+<tr><td>LUT Index</td><td>0 to 4095</td><td>Adjust the Index value of the LUT. This is the input pixel value of the table.</td><td></td></tr>
+<tr><td>LUT Value</td><td>0 to 4095</td><td>Adjust the value of the corresponding LUT Index. Table's output pixel value<br>It is.</td><td></td></tr>
+</tbody></table></div>
+<p>Ex) If you use a table with values in the form y=2x, low-light pixels can see an improvement in sensitivity, while high-light pixels can see an improvement in sensitivity.</p>
+<p>Pixels become saturated, resulting in loss of dynamic range.</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th>Index</th><th></th><th>0</th><th>1</th><th></th><th>2</th><th>3</th><th></th><th>4</th><th></th><th>5</th><th></th><th>…</th><th></th><th>1024</th><th></th><th>…</th><th></th><th>2047</th><th></th><th>2048</th><th></th><th>…</th></tr></thead>
+<tbody>
+<tr><td>Value</td><td>0</td><td></td><td>2</td><td>4</td><td></td><td>6</td><td>8</td><td></td><td>0xA</td><td></td><td>…</td><td></td><td>0X800</td><td></td><td>…</td><td></td><td>0xFFE</td><td></td><td>0xFFF</td><td></td><td>0xFFF</td><td></td></tr>
+</tbody></table></div>
+<figure class="image-card"><img src="images/pdf-extracted/page40_01.png" alt="SCU PDF page 40 visual" class="img-full"></figure>
+<p>※ Precautions</p>
+<ul class="feature-list"><li>The LUT function cannot be used simultaneously with Gamma Control. When activating LUT and Gamma simultaneously,</li></ul>
+<p>The function activated first is automatically disabled.</p>
+<h3 id="4-15-defect-pixel-correction">4.15 Defect Pixel Correction</h3>
+<p>This function allows you to manage the camera’s defect pixels. Compensation for defective pixels when the product is shipped from the factory</p>
+<p>This is done. However, the user can additionally define and correct pixels that he or she considers to be bad pixels.</p>
+<p>Yes. Up to 128 dead pixels for each camera can be stored in Flash PROM.</p>
+<div class="table-container"><table>
+<thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Defect Filter Enable</td><td>False, True</td><td>Select whether to correct Defect Pixel.</td></tr>
+<tr><td>Defect Filter Test Mode<br>Select</td><td>Off, Mark White, Mark<br>Black, Mark White with<br>Black Background</td><td>This is an option to display corrected defect pixels in the video.</td></tr>
+<tr><td>Defect Pixel<br>Replacement Count</td><td>1 to 256</td><td>This is the number of defective pixels to be corrected per camera.</td></tr>
+<tr><td>Defect Pixel Index</td><td>0 to 255</td><td>This is the Index of the Defect Pixel to be corrected.</td></tr>
+<tr><td>Defect Pixel X Coordinate</td><td>0 to WidthMax - 1</td><td>Enter the X-axis coordinate value of the pixel to be corrected. Image Pixel<br>Coordinates start from 0.</td></tr>
+<tr><td>Defect Pixel Y Coordinate</td><td>0 to HeightMax - 1</td><td>Enter the Y-axis coordinate value of the pixel to be corrected. image pixel<br>Coordinates start from 0.</td></tr>
+<tr><td>Defect Pixel X<br>Replacement</td><td>Excute</td><td>The entered correction values are immediately applied to the camera.</td></tr>
+</tbody></table></div>
+<p>※ Precautions</p>
+<ul class="feature-list"><li>After correction, you must enter the ‘Userset Save’ command to save it to the camera.</li></ul>
+<p>Ex) When 20 defect pixels are corrected at factory shipment, the user defines two additional pixels.</p>
+<div class="table-container wide-table"><table>
+<thead><tr><th>+1<br>+1</th><th>Defect Pixel<br>Replacement Count</th><th></th><th>Defect Pixel Index</th><th></th><th>X Coordinate</th><th></th><th>Y Coordinate</th></tr></thead>
+<tbody>
+<tr><td></td><td>…</td><td>…</td><td></td><td>…</td><td></td><td>…</td><td></td></tr>
+<tr><td></td><td>19th</td><td>18</td><td></td><td>…</td><td></td><td>…</td><td></td></tr>
+<tr><td></td><td>20th</td><td>19</td><td></td><td>…</td><td></td><td>…</td><td></td></tr>
+<tr><td></td><td>21th</td><td></td><td>20</td><td></td><td>156</td><td></td><td>1131</td></tr>
+<tr><td></td><td>22th</td><td></td><td>21</td><td></td><td>208</td><td></td><td>611</td></tr>
+</tbody></table></div>
+<p>Factory Defined</p>
+<div class="table-container"><table>
+<tbody>
+<tr><td>User Defined 1</td></tr>
+<tr><td>User Defined 2</td></tr>
+</tbody></table></div>
+<h3 id="4-16-low-latency-mode">4.16 Low-Latency Mode</h3>
+<p>Image data pre-processed in FPGA is applied to an Image Buffer (Frame Buffer) of approximately 512MB.</p>
+<p>You can select the loading method. The initial value is ‘Low-latency Mode Enable’ is ‘True’.</p>
+<p>This is a method of transmitting images as soon as the Packet Size is entered into the Buffer. On the other hand, ‘Low-latency</p>
+<p>If ‘Mode Enable’ is set to ‘False’, it becomes ‘Full-Block Mode’ and all image frames are</p>
+<p>Transmission must be buffered.</p>
+<p>The time and timing for imaging, readout, and preprocessing are the same for both modes, but transmission to the host is the same.</p>
+<p>The starting timing is different. In other words, there is a difference in the total time from trigger input to host reception.</p>
+<p>Yes.</p>
+<div class="table-container"><table>
+<tbody>
+<tr><td></td><td>Low-Latency Mode</td><td>Full-Block Mode</td></tr>
+<tr><td>Low-Latency Mode Enable<br>_ _<br>Parameter</td><td>True</td><td>False</td></tr>
+<tr><td>When to start transmission</td><td>When loaded as per Packet Size</td><td>When loading all frames</td></tr>
+<tr><td>Transfer Delay availability</td><td>Not available</td><td>available</td></tr>
+</tbody></table></div>
+<figure class="image-card"><img src="images/pdf-extracted/page42_01.png" alt="SCU PDF page 42 visual" class="img-full"></figure>
+<p>&lt;Timing Diagram of ‘Low-Latency Mode’&gt;</p>
+<figure class="image-card"><img src="images/pdf-extracted/page42_02.png" alt="SCU PDF page 42 visual" class="img-full"></figure>
+<p>&lt;Timing Diagram of ‘Full-Block Mode’&gt;</p>
+<p>If the host needs to receive video from multiple cameras, the best way is to set up a dedicated port for each port.</p>
+<p>It uses a multi-port host card with chipset attached. If not, each camera</p>
+<p>Packet transmission must be distributed so as not to exceed the maximum bandwidth of the host (receiver). For example</p>
+<p>In contrast, by applying different ‘Transfer Delay’ in ‘Full-Block Mode’, the image transmission time can be distributed.</p>
+<p>Yes. In this case, the host receives images sequentially.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page43_01.png" alt="SCU PDF page 43 visual" class="img-full"></figure>
+<p>※ Precautions</p>
+<p>1) The ‘Low-latency Mode Enable’ parameter is applied immediately when changed. However, it must be changed when Acquisition Stops.</p>
+<p>Yes.</p>
+<p>2) The ‘Transfer Delay’ function can only be set when ‘Low-latency Mode Enable’ is ‘False’.</p>
+<p>3) If the host PC consumes a lot of CPU resources due to image processing, etc., camera transmission may also be affected.</p>
+<p>Yes.</p>
+<h3 id="4-17-color-transformation-control">4.17 Color Transformation Control</h3>
+<p>Color Transformation is a matrix that can apply gain and offset to each R, G, and B channel.</p>
+<div class="table-container"><table>
+<thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Color Transformation Enable</td><td>True / False</td><td>Activate the Color Transfermation function. .</td></tr>
+<tr><td>Color Trasformation Value<br>Selector</td><td>Gain 00,<br>Gain 01,<br>Gain 02,<br>Gain 10,<br>Gain 11,<br>Gain 12,<br>Gain 20,<br>Gain 21,<br>Gain 22,</td><td>Gain 00: This refers to the value of (0,0) on the Color Matrix.<br>Gain 01: This refers to the value of (0,1) on the Color Matrix.<br>Gain 02: This refers to the value of (0,2) on the Color Matrix.<br>Gain 10: This refers to the value of (1,0) on the Color Matrix.<br>Gain 11: This refers to the value of (1,1) on the Color Matrix.<br>Gain 12: This refers to the value of (1,2) on the Color Matrix.<br>Gain 20: This refers to the value of (2,0) on the Color Matrix.<br>Gain 21: This refers to the value of (2,1) on the Color Matrix.<br>Gain 22: This refers to the value of (2,2) on the Color Matrix.</td></tr>
+</tbody></table></div>
+<div class="table-container"><table>
+<tbody>
+<tr><td></td><td>Offset0, 1, 2</td><td>Offset0,1,2: Refers to the offset value at the end of the color matrix.</td></tr>
+<tr><td>Color Transformation Value</td><td></td><td>This is the Gain or Offset value selected within the color conversion matrix.</td></tr>
+</tbody></table></div>
+<figure class="image-card"><img src="images/pdf-extracted/page44_01.png" alt="SCU PDF page 44 visual" class="img-full"></figure>
+<p>This function is used for color correction when the pixel value output from the image sensor differs from the actual product.</p>
+<p>c. For each R, G, and B channel, the parts with insufficient sensitivity are multiplied or added, and the parts with excess sensitivity are divided or added.</p>
+<p>You can take it out. Additionally, it can be reproduced by applying pre-defined matrix values that meet some color standards.</p>
+<p>There is also.</p>
+<h3 id="4-18-device-temperature-state">4.18 Device Temperature State</h3>
+<p>The temperature status of MU-AxxxM(K) series products is divided into three stages in the ‘Device Temperature State’ parameter.</p>
+<p>Uh, we provide. When you press the ‘Temperature Update Feature’ command, the ‘Device Temperature State’ value is immediately changed.</p>
+<p>It returns.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page44_02.png" alt="SCU PDF page 44 visual" class="img-full"></figure>
+<p>‘Normal’ means a stable temperature. All elements of the camera are operating smoothly.</p>
+<p>c. ‘Warning’ indicates that the product’s heat generation is somewhat high. The moment it exceeds the reference temperature of 𝑇𝑡ℎ𝑟1</p>
+<p>Generates a ‘Device Temperature Warning’ Event to notify the host of changes in ‘Device Temperature State’</p>
+<p>(If Event is set. Refer to Section 4.10 Event Control.) Image acquisition is possible, but through heat dissipation.</p>
+<p>This situation requires lowering the temperature of the camera.</p>
+<p>If the product temperature continues to increase, the moment it reaches the second threshold temperature, 𝑇𝑡ℎ𝑟2, ‘Device</p>
+<p>A ‘Temperature Critical’ Event occurs. (If the Event is set. Refer to Section 4.10 Event Control.)</p>
+<p>At this time, heat dissipation occurs on its own to protect the product itself. Camera Acquisition</p>
+<p>If in the Enable state, the readout of the image sensor is arbitrarily stopped and the test moves to the left at the same time.</p>
+<p>Outputs the pattern image in trigger asynchronous mode.</p>
+<figure class="image-card"><img src="images/pdf-extracted/page45_01.png" alt="SCU PDF page 45 visual" class="img-full"></figure>
+<p>Image Data of Device Temperature Critical State</p>
+<p>If the temperature of the product decreases due to the camera's own heat dissipation operation or external heat dissipation measures,</p>
+<p>‘Device Temperature State’ is also updated. It becomes more than 4℃ lower than the standard temperature of ‘Critical’ state, 𝑇𝑡ℎ𝑟2.</p>
+<p>If so, the status changes to ‘Warning’. In this case, the image data that was replaced with the Test Pattern has already been</p>
+<p>The sensor image is automatically restored. Also, at this time, it is judged to be in a cooling state, so the ‘Device</p>
+<p>It does not generate a ‘Temperature Warning’ Event. Likewise, the standard temperature in the ‘Warning’ state is</p>
+<p>When it becomes more than 4℃ lower than 𝑇𝑡ℎ𝑟1, it returns to the ‘Normal’ state.</p>
+<div class="table-container"><table>
+<thead><tr><th>Available Model</th><th>Device Temperature State</th><th>Threshold Temperature</th></tr></thead>
+<tbody>
+<tr><td>MU-A040M(K)-523<br>MU-A160M(K)-226<br>MU-A320M(K)-118<br>MU-A320M(K)-55<br>MU-A500M(K)-35<br>MU-A121M(K)-23</td><td>Warning State<br>(𝑇 )<br>𝑡ℎ𝑟1</td><td>60℃</td></tr>
+<tr><td></td><td>Critical State<br>(𝑇 )<br>𝑡ℎ𝑟2</td><td>75℃</td></tr>
+</tbody></table></div>
+</section><section id="5">
+<h2 id="5">5. Camera Appearance</h2>
+<p>Mono Camera</p>
+<figure class="image-card"><img src="images/pdf-extracted/page46_01.png" alt="SCU PDF page 46 visual" class="img-full"></figure>
+<p>Color Camera</p>
+<figure class="image-card"><img src="images/pdf-extracted/page46_02.png" alt="SCU PDF page 46 visual" class="img-full"></figure>
+<p># APPENDIX.A</p>
+<p>Camera Parameter List</p>
+<div class="table-container"><table>
+<thead><tr><th>Category</th><th>Feature Name</th><th>Type</th><th>Acces<br>s<br>Mode</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Device<br>Control</td><td>DeviceScanType</td><td>Enumerati<br>on</td><td>RO</td><td>Scan type of the sensor.</td></tr>
+<tr><td></td><td>DeviceVendorName</td><td>StringReg</td><td>RO</td><td>Name of the manufacturer of the device.</td></tr>
+<tr><td></td><td>DeviceModelName</td><td>StringReg</td><td>RO</td><td>Model of the device.</td></tr>
+<tr><td></td><td>DeviceManufacturerInfo</td><td>StringReg</td><td>RO</td><td>Manufacturer information about the device.</td></tr>
+<tr><td></td><td>DeviceVersion</td><td>StringReg</td><td>RO</td><td>Version of the device.</td></tr>
+<tr><td></td><td>DeviceID</td><td>StringReg</td><td>RO</td><td>User-programmable device identifier.</td></tr>
+<tr><td></td><td>DeviceUserID</td><td>StringReg</td><td>RW</td><td>User-programmable device identifier.</td></tr>
+<tr><td></td><td>DeviceLinkThroughputLimit</td><td>Integer</td><td>RW</td><td>Limits the maximum bandwidth of the data that will be streamed out<br>By the device on the selected Link.(Unit : Byte per second)</td></tr>
+<tr><td></td><td>DeviceFirmwareVersion</td><td>StringReg</td><td>RO</td><td>Device Firmware Version</td></tr>
+<tr><td></td><td>DeviceTemperatureSelector</td><td>Enumerati<br>on</td><td>RW</td><td>Selects the location within the device, where the temperature<br>Will be measured.</td></tr>
+<tr><td></td><td>DeviceTemperature</td><td>Float</td><td>RO</td><td>Device temperature in degrees Celsius (C).</td></tr>
+<tr><td></td><td>TemperatureUpdateFeature</td><td>Command</td><td>WO</td><td>Device Temperature Update Feature.</td></tr>
+<tr><td></td><td>Device Temperature State</td><td>Enumerati<br>on</td><td>RO</td><td>Represents Device Temperature State.</td></tr>
+<tr><td></td><td>U3VDeviceCapability</td><td>Integer</td><td>RO</td><td>Describes Device Capability.</td></tr>
+<tr><td></td><td>UserNameAvailable</td><td>Boolean</td><td>RO</td><td>Set if User Defined Name available.</td></tr>
+<tr><td></td><td>AccessPrivilegeAvailable</td><td>Boolean</td><td>RO</td><td>Set if Heartbeat/Access Privilege is available.</td></tr>
+<tr><td></td><td>MessageChannelSupported</td><td>Boolean</td><td>RO</td><td>Set if the device supports a Message Channel.</td></tr>
+<tr><td></td><td>TimestampSupported</td><td>Boolean</td><td>RO</td><td>Set if the device supports a timestamp register.</td></tr>
+<tr><td></td><td>StringEncoding</td><td>Integer</td><td>RO</td><td>String Encoding of the BRM.</td></tr>
+<tr><td></td><td>FamilyRegisterAvailable</td><td>Boolean</td><td>RO</td><td>Set if the device supports the Family Name register.</td></tr>
+<tr><td></td><td>SBRMSupported</td><td>Boolean</td><td>RO</td><td>Set if the device supports a SBRM.</td></tr>
+<tr><td></td><td>EndianessRegistersSupporte<br>d</td><td>Boolean</td><td>RO</td><td>Set if the device supports the Protocol Endianess and Implementation<br>Endianess registers.</td></tr>
+<tr><td></td><td>WrittenLengthFieldSupporte<br>d</td><td>Boolean</td><td>RO</td><td>Set to 1 if the device sends the length written field in the SCD section of<br>_<br>the WriteMemAck command.</td></tr>
+<tr><td></td><td>DeviceStatusInfo</td><td>Integer</td><td>RO</td><td>Describes Device Status Infomation.</td></tr>
+<tr><td></td><td>DeviceReset</td><td>Command</td><td>WO</td><td>Resets the device to its power up state.</td></tr>
+<tr><td></td><td>DeviceSleepMode</td><td>Enumerati<br>on</td><td>RW</td><td>Controls Sleep Activation. When 'Soft Sleep' activated, the sensors are<br>reset. 'Deep sleep' resets both sensors and the FPGA. When returning to<br>Normal Mode('Disable'), It take several seconds.</td></tr>
+<tr><td>ImageFormat<br>Control</td><td>SensorWidth</td><td>IntReg</td><td>RO</td><td>Effective width of the sensor in pixels.</td></tr>
+<tr><td></td><td>SensorHeight</td><td>IntReg</td><td>RO</td><td>Effective height of the sensor in pixels.</td></tr>
+<tr><td></td><td>WidthMax</td><td>IntReg</td><td>RO</td><td>Maximum width (in pixels) of the image. The dimension is calculated<br>after horizontal binning, decimation or any other function changing The<br>horizontal dimension of the image.</td></tr>
+<tr><td></td><td>HeightMax</td><td>IntReg</td><td>RO</td><td>Maximum height (in pixels) of the image. This dimension is calculated<br>after vertical binning, decimation or any other function changing The<br>vertical dimension of the image.</td></tr>
+<tr><td></td><td>Width</td><td>Integer</td><td>RW</td><td>Width of the Image provided by the device (in pixels).</td></tr>
+<tr><td></td><td>Height</td><td>Integer</td><td>RW</td><td>Height of the image provided by the device(in pixels).</td></tr>
+<tr><td></td><td>OffsetX</td><td>Integer</td><td>RW</td><td>This value sets the X offset (left offset) for the area of interest in pixels.</td></tr>
+<tr><td></td><td>OffsetY</td><td>Integer</td><td>RW</td><td>This value sets the Y offset (top offset) for the area of interest in pixels.</td></tr>
+<tr><td></td><td>SensorShutterMode</td><td>Enumerati<br>on</td><td>RW</td><td>Sets the shutter mode of the device.</td></tr>
+</tbody></table></div>
+<div class="table-container"><table>
+<thead><tr><th></th><th>AdcBitDepth</th><th>Enumerati<br>on</th><th>RW</th><th>Selects which Analog to Digital Converter(ADC) output bits from the<br>image sensor.</th></tr></thead>
+<tbody>
+<tr><td></td><td>PixelFormat</td><td>Enumerati<br>on</td><td>RW</td><td>Format of the pixel provided by the device. It represents all the<br>information provided by PixelCoding, PixelSize, PixelColorFilter Combined<br>in a single feature.</td></tr>
+<tr><td></td><td>TestPattern</td><td>Enumerati<br>on</td><td>RW</td><td>Selects the type of test pattern that is generated by the device as Image<br>source.</td></tr>
+<tr><td>Acquisition<br>Control</td><td>AcquisitionMode</td><td>Enumerati<br>on</td><td>RW</td><td>Sets the acquisition mode of the device. It defines mainly the number of<br>Frames to capture<br>during an acquisition and the way the acquisition stops.</td></tr>
+<tr><td></td><td>AcquisitionStart</td><td>Command</td><td>RW</td><td>Starts the Acquisition of the device. The number of frames captured is<br>specified<br>by AcquisitionMode.</td></tr>
+<tr><td></td><td>AcquisitionStop</td><td>Command</td><td>RW</td><td>Stops the Acquisition of the device at the end of the current Frame. It is<br>mainly used<br>when AcquisitionMode is Continuous but can be used in any acquisition<br>mode.</td></tr>
+<tr><td></td><td>AcquisitionFrameCount</td><td>Integer</td><td>RW</td><td>Number of frames to acquire in MultiFrame Acquisition mode.</td></tr>
+<tr><td></td><td>TriggerSelector</td><td>Enumerati<br>on</td><td>RW</td><td>Selects the type of trigger to configure.</td></tr>
+<tr><td></td><td>TriggerMode</td><td>Enumerati<br>on</td><td>RW</td><td>Controls if the selected trigger is active.</td></tr>
+<tr><td></td><td>TriggerSoftware</td><td>Command</td><td>RW</td><td>Generates an internal trigger. TriggerSource must be set to Software.</td></tr>
+<tr><td></td><td>TriggerSource</td><td>Enumerati<br>on</td><td>RW</td><td>Specifies the internal signal or physical input Line to use as the trigger<br>Source. The selected trigger must have its TriggerMode set to On.</td></tr>
+<tr><td></td><td>TriggerActivation</td><td>Enumerati<br>on</td><td>RO</td><td>Specifies the activation mode of the trigger.</td></tr>
+<tr><td></td><td>TriggerOverlap</td><td>Enumerati<br>on</td><td>RW</td><td>Specifies the type trigger overlap permitted with the previous frame.<br>This defines when a valid trigger will be accepted (or latched) for a<br>new frame.</td></tr>
+<tr><td></td><td>TriggerDelay</td><td>Float</td><td>RW</td><td>Specifies the delay in microseconds (us) to apply after the trigger<br>reception before activating it.</td></tr>
+<tr><td></td><td>TransferDelay</td><td>Integer</td><td>RW</td><td>Specifies the delay to apply after the image readout from sensor before<br>transfer. This can be used as a crude flow-control mechanism if the<br>application or the network infrastructure cannot keep up with the<br>packets coming from the device.</td></tr>
+<tr><td></td><td>ExposureMode</td><td>Enumerati<br>on</td><td>RW</td><td>Sets the operation mode of the Exposure (or shutter).</td></tr>
+<tr><td></td><td>ExposureTime</td><td>Float</td><td>RW</td><td>Sets the Exposure time (in microseconds) when ExposureMode is Timed<br>and ExposureAuto is Off. This controls the duration where the<br>Photosensitive cells are exposed to light.</td></tr>
+<tr><td></td><td>ExposureAuto</td><td>Enumerati<br>on</td><td>RW</td><td>Sets the automatic exposure mode when ExposureMode is Timed. The<br>exact algorithm used to implement this control is device-specific.</td></tr>
+<tr><td></td><td>AutoExposureTarget</td><td>Integer</td><td>RW</td><td>When the auto exposure is "once" or "continuous", the the exposure<br>Time will be changed, depending on the target value.</td></tr>
+<tr><td></td><td>AutoExposureTimeLowerLim<br>it</td><td>Float</td><td>RW</td><td>The minimum exposure time abs of Auto Exposure. Not available in<br>Digital gain mode. (Unit : us)</td></tr>
+<tr><td></td><td>AutoExposureTimeUpperLim<br>it</td><td>Float</td><td>RW</td><td>The maximum exposure time abs of Auto Exposure. Not available in<br>Digital gain mode.(Unit : us)</td></tr>
+<tr><td></td><td>AutoGainLowerLimit</td><td>Float</td><td>RW</td><td>The minimum gain of Auto Gain Ratio.</td></tr>
+<tr><td></td><td>AutoGainUpperLimit</td><td>Float</td><td>RW</td><td>The maximum gain of Auto Gain Ratio.</td></tr>
+<tr><td></td><td>AcquisitionFrameRateEnable</td><td>Enumerati<br>on</td><td>RW</td><td>Controls the acquisition rate (in Hertz) at which the frames are<br>captured.</td></tr>
+<tr><td></td><td>AcquisitionFrameRate</td><td>Float</td><td>RW</td><td>Controls the acquisition rate (in Hertz) at which the frames are<br>captured.</td></tr>
+<tr><td></td><td>ResultingFrameRate</td><td>Float</td><td>RO</td><td>Resulting frame rate (in Hertz) that maximum allowed frame acquisition.</td></tr>
+<tr><td>DigitalIO<br>Control</td><td>LineSelector</td><td>Enumerati<br>on</td><td>RW</td><td>Selects the physical line (or pin) of the external device connector to<br>Configure.</td></tr>
+<tr><td></td><td>LineDebouncerTime</td><td>Float</td><td>RW</td><td>Line Debouncer Time. Unit : us</td></tr>
+<tr><td></td><td>LineMode</td><td>Enumerati<br>on</td><td>RO</td><td>Controls if the physical Line is used to Input or Output a signal.</td></tr>
+<tr><td></td><td>LineInverter</td><td>Boolean</td><td>RW</td><td>Controls the invertion of the signal of the selected input or output Line.</td></tr>
+<tr><td></td><td>LineStatus</td><td>Boolean</td><td>RO</td><td>Returns the current status of the selected input or output Line.</td></tr>
+<tr><td></td><td>LineStatusUpdateFeature</td><td>Command</td><td>WO</td><td>Line Status Update Feature.</td></tr>
+<tr><td></td><td>LineSource</td><td>Enumerati<br>on</td><td>RW</td><td>Selects which internal acquisition or I/O source signal to output on the<br>Selected Line. LineMode must be Output.</td></tr>
+<tr><td></td><td>UserOutputSelector</td><td>Enumerati<br>on</td><td>RW</td><td>Selects which bit of the User Output register will be set by<br>serOutputValue.</td></tr>
+<tr><td></td><td>UserOutputValue</td><td>Boolean</td><td>RW</td><td>Sets the value of the bit selected by UserOutputSelector.</td></tr>
+<tr><td></td><td>CounterValueReset</td><td>Command</td><td>RW</td><td>Counters are reset immediately.</td></tr>
+</tbody></table></div>
+<div class="table-container"><table>
+<thead><tr><th>CounterandTimer<br>Control</th><th>CounterEventSource</th><th>Enumerati<br>on</th><th>RW</th><th>Select the events that will be the source to increment the Counter.</th></tr></thead>
+<tbody>
+<tr><td></td><td>CounterValue</td><td>Integer</td><td>RO</td><td>Reads the current value of the selected Counter. All Counters are reset<br>when forced Counter Value Reset Command.</td></tr>
+<tr><td></td><td>CounterUpdateFeature</td><td>Command</td><td>WO</td><td>Counter Update Feature.</td></tr>
+<tr><td></td><td>TimerSelector</td><td>Enumerati<br>on</td><td>RW</td><td>mer to configure.</td></tr>
+<tr><td></td><td>TimerDuration</td><td>Float</td><td>RW</td><td>Sets the duration (in microseconds) of the Timer pulse.</td></tr>
+<tr><td></td><td>TimerDelay</td><td>Float</td><td>RW</td><td>Sets the duration of the delay to apply at the reception of a trigger<br>before to start the Timer.</td></tr>
+<tr><td></td><td>TimerTriggerSource</td><td>Enumerati<br>on</td><td>RW</td><td>Selects the he trigger to start the Timer.</td></tr>
+<tr><td>Event<br>Control</td><td>EventSelector</td><td>Enumerati<br>on</td><td>RW</td><td>Selects which Event to signal to the host application.</td></tr>
+<tr><td></td><td>EventNotification</td><td>Enumerati<br>on</td><td>RW</td><td>Activate or deactivate the notification to the host application of the<br>occurrence<br>of the selected Event.</td></tr>
+<tr><td>Analog<br>Control</td><td>GainSelector</td><td>Enumerati<br>on</td><td>RW</td><td>Selects which Gain is controlled by the various Gain features. Do not use<br>both gain<br>at the same time.</td></tr>
+<tr><td></td><td>GainRaw</td><td>Integer</td><td>RW</td><td>Controls the selected gain as an absolute physical value of Sensor. This<br>is an amplification<br>factor applied to the video signal.</td></tr>
+<tr><td></td><td>GainAbs</td><td>Float</td><td>RW</td><td>Controls ratio of the selected gain of Sensor.</td></tr>
+<tr><td></td><td>GainAuto</td><td>Enumerati<br>on</td><td>RW</td><td>Sets the automatic gain control (AGC) mode. The exact algorithm used<br>to implement<br>AGC is device-specific.</td></tr>
+<tr><td></td><td>BlackLevelSelector</td><td>Enumerati<br>on</td><td>RW</td><td>Selects which Black Level is controlled by the various Black Level<br>features.</td></tr>
+<tr><td></td><td>BlackLevelRaw</td><td>Integer</td><td>RW</td><td>Controls the analog black level as an absolute physical value of Sensor.<br>This represents a DC offset applied to the video signal.</td></tr>
+<tr><td></td><td>BalanceRatioSelector</td><td>Enumerati<br>on</td><td>RW</td><td>Selects which Balance ratio to control.</td></tr>
+<tr><td></td><td>BalanceRatio</td><td>Float</td><td>RW</td><td>Controls ratio of the selected color component to a reference color<br>Component. It is used for white balancing.</td></tr>
+<tr><td></td><td>BalanceWhiteAuto</td><td>Enumerati<br>on</td><td>RW</td><td>Controls the mode for automatic white balancing between the color<br>Channels. The white balancing ratios are automatically adjusted.</td></tr>
+<tr><td></td><td>BalanceUpdateFeature</td><td>Command</td><td>-</td><td>BalanceRatio and BalanceWhiteAuto Update Feature.</td></tr>
+<tr><td></td><td>GammaEnable</td><td>Boolean</td><td>RW</td><td>Activates the Gamma Correction. Gamma correction cannot be used<br>simultaneously with the LUT.</td></tr>
+<tr><td></td><td>Gamma</td><td>Float</td><td>RW</td><td>Controls the gamma correction of pixel intensity.</td></tr>
+<tr><td></td><td>PatternNoiseRemoval</td><td>Command</td><td>RW</td><td>Pattern Noise Removal Auto. Limited to some products only.</td></tr>
+<tr><td></td><td>NoiseReductionEnable</td><td>Boolean</td><td>RW</td><td>Noise Reduction Filter.</td></tr>
+<tr><td>LUT<br>Control</td><td>LUTEnable</td><td>Boolean</td><td>RW</td><td>Activates the selected LUT. LUT can not be used simultaneously with the<br>Gamma correction.</td></tr>
+<tr><td></td><td>LUTIndex</td><td>Integer</td><td>RW</td><td>Control the index (offset) of the coefficient to access in the selected<br>LUT.</td></tr>
+<tr><td></td><td>LUTValue</td><td>IntReg</td><td>RW</td><td>Returns the Value at entry LUTIndex of the LUT selected by LUTSelector</td></tr>
+<tr><td></td><td>LUTValueAll</td><td>Register</td><td>RW</td><td>Accesses the entire content of the selected LUT in one chunk access</td></tr>
+<tr><td>DefectPixel<br>Correction</td><td>DefectFilterEnable</td><td>Boolean</td><td>RW</td><td>Enables or Disables the Defect Pixel Filter.</td></tr>
+<tr><td></td><td>DefectFilterTestMode</td><td>Enumerati<br>on</td><td>RW</td><td>Defect Filter Test Mode Select.</td></tr>
+<tr><td></td><td>DefectPixelReplaceCount</td><td>Integer</td><td>RW</td><td>Defect Pixel Replace Count.</td></tr>
+<tr><td></td><td>DefectPixelIndex</td><td>Integer</td><td>RW</td><td>Defect Pixel Index.</td></tr>
+<tr><td></td><td>DefectXCoordinate</td><td>Integer</td><td>RW</td><td>Defect Pixel X Coordinate.</td></tr>
+<tr><td></td><td>DefectYCoordinate</td><td>Integer</td><td>RW</td><td>Defect Pixel Y Coordinate.</td></tr>
+<tr><td></td><td>DefectPixelReplaceExecute</td><td>Command</td><td>RW</td><td>Defect Pixel Replace Execute.</td></tr>
+<tr><td>FlatField<br>Correction</td><td>FFCEnable</td><td>Enumerati<br>on</td><td>RW</td><td>Activate or Deactivate Flat Field Correction Function.</td></tr>
+<tr><td></td><td>BlackCalibration</td><td>Command</td><td>WO</td><td>Black Calibration.</td></tr>
+<tr><td></td><td>WhiteCalibration</td><td>Command</td><td>WO</td><td>White Calibration.</td></tr>
+<tr><td></td><td>FFCSaveLoadFlashSelect</td><td>Integer</td><td>RW</td><td>FFC Save Load Flash Select.</td></tr>
+<tr><td></td><td>FFCSave</td><td>Command</td><td>RW</td><td>FFC Save.</td></tr>
+<tr><td></td><td>FFCLoad</td><td>Command</td><td>RW</td><td>FFC Load.</td></tr>
+</tbody></table></div>
+<div class="table-container"><table>
+<thead><tr><th>TransportLayer<br>Control</th><th>FIDonPixelMode</th><th>Enumerati<br>on</th><th>RW</th><th>Some Pixels are replaced with Frame ID(FID). The FID value starts from<br>the coordinates of Pixel(0,0) and the counter begins from 0. Limited to<br>some products only.</th></tr></thead>
+<tbody>
+<tr><td></td><td>LowLatencyEnable</td><td>Boolean</td><td>RW</td><td>Minimize image transfer latency for fastest mode.</td></tr>
+<tr><td></td><td>SITransferSize</td><td>Integer</td><td>RW</td><td>This Parameter contains the size of regular payload bulk<br>transfers.("equally sized transfers")</td></tr>
+<tr><td></td><td>PayloadSize</td><td>Integer</td><td>RO</td><td>Provides the number of bytes transferred for each image or chunk on<br>the stream channel. This<br>includes any end-of-line, end-of-frame statistics or other stamp data.<br>This is the total size of data payload for a data block.</td></tr>
+<tr><td></td><td>PayloadTransferSize</td><td>Integer</td><td>RO</td><td>This Parameter contains the size of regular payload bulk transfers.</td></tr>
+<tr><td></td><td>PayloadTransferCount</td><td>Integer</td><td>RO</td><td>This Parameter constains the number of regular payload data bulk<br>transfers.</td></tr>
+<tr><td></td><td>PayloadFinalTransfer1Size</td><td>Integer</td><td>RO</td><td>This Parameter constains the size of the Final Transfer 1 payload bulk<br>transfer.</td></tr>
+<tr><td></td><td>PayloadFinalTransfer2Size</td><td>Integer</td><td>RO</td><td>This Parameter constains the size of the Final Transfer 2 payload bulk<br>transfer.</td></tr>
+<tr><td></td><td>GenCPVersionMajor</td><td>Integer</td><td>RO</td><td>Major version of the specification.</td></tr>
+<tr><td></td><td>GenCPVersionMinor</td><td>Integer</td><td>RO</td><td>Minor version of the specification.</td></tr>
+<tr><td></td><td>U3VMaxDeviceResponseTim<br>e</td><td>Integer</td><td>RO</td><td>Max Resonse Time in ms.</td></tr>
+<tr><td></td><td>U3VMessageChannelID</td><td>Integer</td><td>RW</td><td>Channel ID Used For The Message Channel.</td></tr>
+<tr><td></td><td>U3VVersionMajor</td><td>Integer</td><td>RO</td><td>U3V Version.</td></tr>
+<tr><td></td><td>U3VVersionMinor</td><td>Integer</td><td>RO</td><td>U3V Version.</td></tr>
+<tr><td></td><td>U3VCPCapability</td><td>Integer</td><td>RO</td><td>Indicates additional features on the control channel.</td></tr>
+<tr><td></td><td>U3VCPSIRMAvailable</td><td>Boolean</td><td>RO</td><td>Set if the device supports at least one device streaming interface.</td></tr>
+<tr><td></td><td>U3VCPEIRMAvailable</td><td>Boolean</td><td>RO</td><td>Set if the device supports at least one device event interface.</td></tr>
+<tr><td></td><td>U3VCPIIDC2Available</td><td>Boolean</td><td>RO</td><td>Set if the device supports IIDC2 register map.</td></tr>
+<tr><td></td><td>U3VMaxCommandTransferL<br>ength</td><td>Integer</td><td>RW</td><td>Specifies the max suuported command transfer length of the device.</td></tr>
+<tr><td></td><td>U3VMaxAcknowledgeTransf<br>erLength</td><td>Integer</td><td>RO</td><td>Specifies the max suuported ack transfer length of the device.</td></tr>
+<tr><td></td><td>U3VNumberOfStreamChann<br>els</td><td>Integer</td><td>RO</td><td>Number of Stream Channels and its Corresponding Streaming Interface<br>Register Maps.</td></tr>
+<tr><td></td><td>U3VCurrentSpeed</td><td>Enumerati<br>on</td><td>RO</td><td>Specifies the current speed of the USB link.</td></tr>
+<tr><td>UserSet<br>Control</td><td>UserSetSelector</td><td>Enumerati<br>on</td><td>RW</td><td>Selects the feature User Set to load, save or configure.</td></tr>
+<tr><td></td><td>UserSetLoad</td><td>Command</td><td>RW</td><td>Loads the User Set specified by UserSetSelector to the device and<br>makes it active.</td></tr>
+<tr><td></td><td>UserSetSave</td><td>Command</td><td>RW</td><td>Save the User Set specified by UserSetSelector to the non-volatile<br>memory of the device.</td></tr>
+</tbody></table></div>
+<p>UserSetSave</p><p>Command</p><p>RW</p><p>Save the User Set specified by UserSetSelector to the non-volatile</p><p>memory of the device.</p>
+<p># APPENDIX.B</p>
+</section><section id="1-sdk">
+<h2 id="1-sdk">1. SDK Installation</h2>
+<ul class="feature-list"><li>Download link: http://www.crevis.co.kr/kor/support/download/MCam40_SDK.zip</li></ul>
+<ul class="feature-list"><li>Install the installer that matches your operating system.</li></ul>
+<p>MCam40_SDK_V4.5.0(x64).exe: Installer for Windows 64-bit</p>
+<p>MCam40_SDK_V4.5.0(x86).exe: Installer for Windows 32-bit</p>
+<p>*The version may be updated in the future.</p>
+</section><section id="2">
+<h2 id="2">2. Camera Communication Connection Method</h2>
+<h3 id="2-1-camguide">2.1 Run CamGuide</h3>
+<figure class="image-card"><img src="images/pdf-extracted/page51_01.png" alt="SCU PDF page 51 visual" class="img-full"></figure>
+<ul class="feature-list"><li>Select Device View Tab.</li></ul>
+<ul class="feature-list"><li>If there is no camera in the U3V-Interface_U3Vision list, click to recheck.</li></ul>
+<figure class="image-card"><img src="images/pdf-extracted/page51_03.png" alt="SCU PDF page 51 visual" class="img-full"></figure>
+<h3 id="2-2-select-and-connect-camera">2.2 Select and Connect Camera: Double-click the camera you want to set up.</h3>
+<figure class="image-card"><img src="images/pdf-extracted/page51_02.png" alt="SCU PDF page 51 visual" class="img-full"></figure>
+<h3 id="2-3">2.3 Camera Settings</h3>
+<figure class="image-card"><img src="images/pdf-extracted/page52_01.png" alt="SCU PDF page 52 visual" class="img-full"></figure>
+<ul class="feature-list"><li>Select Feature Properties Tab.</li></ul>
+<figure class="image-card"><img src="images/pdf-extracted/page52_02.png" alt="SCU PDF page 52 visual" class="img-full"></figure>
+<p>* For detailed explanation, refer to CamGuide manual.</p>
+</section><section id="revision-history">
+<h2 id="revision-history">Revision History</h2>
+<div class="table-container wide-table"><table>
+<thead><tr><th></th><th>Revision</th><th></th><th>Date</th><th></th><th>Changes</th><th>Remark</th></tr></thead>
+<tbody>
+<tr><td>0.1</td><td></td><td>2020.5</td><td></td><td>Draft Version Issued</td><td></td><td></td></tr>
+<tr><td>0.3</td><td></td><td>2020.06</td><td></td><td>Exposure Start Delay (2HD → 3HD)<br>Chunk Data Control</td><td></td><td></td></tr>
+<tr><td>0.6</td><td></td><td>2020. 08</td><td></td><td>Gain Abs / Gain Raw Range<br>Hardware Delay (p.23)<br>Line Block Diagram (p.30)<br>Mechanical Drawing (p.45)</td><td></td><td></td></tr>
+<tr><td>0.8</td><td></td><td>2020. 12</td><td></td><td>Device Temperature State (p.44)</td><td></td><td></td></tr>
+<tr><td>1.0</td><td></td><td>2021. 02</td><td></td><td>Released</td><td></td><td></td></tr>
+<tr><td>1.1</td><td></td><td>2021. 03</td><td></td><td>Specification (Digital Gain Range)</td><td></td><td></td></tr>
+</tbody></table></div>
+</section></div><script>
+(function(){
+  const sections = Array.from(document.querySelectorAll('.content > section[id]'));
+  const outline = document.getElementById('pageOutlineLinks');
+  const sidebarLinks = Array.from(document.querySelectorAll('.sidebar a[href^="#"]'));
+  const searchInput = document.getElementById('manualSearchInput');
+  const normalize = text => text.replace(/\s+/g, ' ').trim();
+
+  function setupScuInlineCallouts() {
+    const content = document.querySelector('.content');
+    if (!content) return;
+
+    const titlePattern = /^(※\s*)?(참고사항|유의사항|주의사항|note|precautions|warning)\s*:?\s*$/i;
+    const inlinePattern = /^(※\s*)?(참고사항|유의사항|주의사항|note|precautions|warning)\s*[:：]\s+.+/i;
+    const noteText = element => normalize(element.textContent || '');
+    const shouldWrap = element => {
+      if (element.closest('.inline-note-callout, table, figure')) return false;
+      if (element.classList.contains('inline-note-title')) return true;
+      const text = noteText(element);
+      return titlePattern.test(text) || inlinePattern.test(text);
+    };
+    const getType = element => /유의|주의|precaution|warning/i.test(noteText(element)) || element.classList.contains('warning')
+      ? 'warning'
+      : 'note';
+    const isAllowedContent = element => element.matches('p, ul, ol, .feature-list');
+    const splitInlineNoteBody = title => {
+      const text = noteText(title).replace(/^※\s*/, '');
+      const colonIndex = Math.max(text.indexOf(':'), text.indexOf('：'));
+      if (colonIndex < 0) return;
+
+      const label = text.slice(0, colonIndex).trim();
+      const body = text.slice(colonIndex + 1).trim();
+      if (!label || !body) return;
+
+      title.textContent = label;
+      const bodyParagraph = document.createElement('p');
+      bodyParagraph.textContent = body;
+      title.after(bodyParagraph);
+    };
+
+    Array.from(content.querySelectorAll('p')).filter(shouldWrap).forEach(title => {
+      if (title.closest('.inline-note-callout')) return;
+
+      const type = getType(title);
+      splitInlineNoteBody(title);
+      title.classList.add('inline-note-title', type);
+
+      const callout = document.createElement('div');
+      callout.className = `inline-note-callout ${type}`;
+      title.before(callout);
+      callout.appendChild(title);
+
+      let sibling = callout.nextElementSibling;
+      while (sibling && !sibling.matches('h2, h3, h4, h5, .inline-note-callout, .inline-note-title')) {
+        if (!isAllowedContent(sibling)) break;
+        const next = sibling.nextElementSibling;
+        callout.appendChild(sibling);
+        sibling = next;
+      }
+    });
+  }
+
+  function buildSpecModelList() {
+    const specHeading = document.getElementById('2-2');
+    const source = specHeading?.nextElementSibling;
+    const table = source?.matches('.wide-table') ? source.querySelector('table') : null;
+    if (!specHeading || !source || !table || source.dataset.modelCardsBuilt === 'true') return;
+
+    const cellText = cell => {
+      const clone = cell.cloneNode(true);
+      clone.querySelectorAll('br').forEach(br => br.replaceWith(' '));
+      clone.querySelectorAll('p,div,li').forEach(el => el.insertAdjacentText('afterend', ' '));
+      return normalize(clone.textContent || '');
+    };
+    const rows = Array.from(table.rows).map(row => Array.from(row.cells).map(cellText));
+    if (rows.length < 4) return;
+
+    const modelStart = 2;
+    const modelEnd = Math.max(...rows.map(row => row.length)) - 1;
+    const headerRows = rows.slice(0, 3);
+    const models = [];
+    for (let col = modelStart; col <= modelEnd; col += 1) {
+      const name = headerRows.map(row => row[col] || '').filter(Boolean).join(' ');
+      if (name) models.push({ col, name, specs: [] });
+    }
+    if (!models.length) return;
+
+    let currentLabel = '';
+    for (const row of rows.slice(3)) {
+      const label = row.slice(0, modelStart).filter(Boolean).join(' / ') || currentLabel;
+      if (!label) continue;
+      currentLabel = label;
+
+      let carriedValue = '';
+      models.forEach(model => {
+        const raw = row[model.col] || '';
+        if (raw) carriedValue = raw;
+        if (!carriedValue) return;
+        const previous = model.specs[model.specs.length - 1];
+        if (previous && previous.label === label) {
+          previous.value = [previous.value, carriedValue].filter(Boolean).join('<br>');
+        } else {
+          model.specs.push({ label, value: carriedValue });
+        }
+      });
+    }
+
+    const isKorean = document.documentElement.lang.toLowerCase().startsWith('ko');
+    const openLabel = isKorean ? '접기' : 'Hide';
+    const closedLabel = isKorean ? '펼치기' : 'View';
+    const setSpecCardOpen = (card, open) => {
+      const toggle = card.querySelector('.spec-model-toggle');
+      const panel = card.querySelector('.spec-model-panel');
+      const state = card.querySelector('.spec-model-state');
+      if (!toggle || !panel || !state) return;
+      card.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      panel.hidden = !open;
+      state.textContent = open ? openLabel : closedLabel;
+    };
+
+    const list = document.createElement('div');
+    list.className = 'spec-model-list';
+    models.forEach((model, index) => {
+      const card = document.createElement('article');
+      card.className = 'spec-model-card';
+      const panelId = `spec-model-panel-${index + 1}`;
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'spec-model-toggle';
+      toggle.setAttribute('aria-controls', panelId);
+      const name = document.createElement('span');
+      name.className = 'spec-model-name';
+      name.textContent = model.name;
+      const state = document.createElement('span');
+      state.className = 'spec-model-state';
+      toggle.append(name, state);
+      const panel = document.createElement('div');
+      panel.className = 'spec-model-panel';
+      panel.id = panelId;
+      const cardTable = document.createElement('table');
+      const tbody = document.createElement('tbody');
+      model.specs.forEach(spec => {
+        const tr = document.createElement('tr');
+        const th = document.createElement('th');
+        const td = document.createElement('td');
+        th.scope = 'row';
+        th.textContent = spec.label;
+        td.innerHTML = spec.value;
+        tr.append(th, td);
+        tbody.appendChild(tr);
+      });
+      cardTable.appendChild(tbody);
+      panel.appendChild(cardTable);
+      card.append(toggle, panel);
+      setSpecCardOpen(card, false);
+      toggle.addEventListener('click', () => {
+        const shouldOpen = !card.classList.contains('is-open');
+        list.querySelectorAll('.spec-model-card.is-open').forEach(openCard => {
+          if (openCard !== card) setSpecCardOpen(openCard, false);
+        });
+        setSpecCardOpen(card, shouldOpen);
+      });
+      list.appendChild(card);
+    });
+
+    source.classList.add('spec-source-hidden');
+    source.dataset.modelCardsBuilt = 'true';
+    source.insertAdjacentElement('afterend', list);
+  }
+
+  function buildOutline() {
+    const linkMap = new Map();
+    if (outline) {
+      const frag = document.createDocumentFragment();
+      sections.forEach(section => {
+        const heading = section.querySelector('h2');
+        if (!heading) return;
+        const a = document.createElement('a');
+        a.href = '#' + section.id;
+        a.textContent = normalize(heading.textContent);
+        frag.appendChild(a);
+        linkMap.set(section.id, [a]);
+      });
+      outline.replaceChildren(frag);
+    }
+    sidebarLinks.forEach(link => {
+      const id = decodeURIComponent(link.getAttribute('href').slice(1));
+      if (!linkMap.has(id)) linkMap.set(id, []);
+      linkMap.get(id).push(link);
+    });
+    const setActive = id => {
+      document.querySelectorAll('.page-outline a, .sidebar a').forEach(link => link.classList.remove('is-active'));
+      (linkMap.get(id) || []).forEach(link => link.classList.add('is-active'));
+    };
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries.filter(entry => entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+        if (visible?.target?.id) setActive(visible.target.id);
+      }, { rootMargin: '-18% 0px -68% 0px', threshold: [0.01,0.15,0.3] });
+      sections.forEach(section => observer.observe(section));
+    }
+  }
+
+  function clearSearchMarks() {
+    document.querySelectorAll('mark.search-match').forEach(mark => mark.replaceWith(document.createTextNode(mark.textContent)));
+    document.querySelector('.content')?.normalize();
+  }
+
+  function runSearch() {
+    const query = normalize(searchInput ? searchInput.value : '');
+    clearSearchMarks();
+    document.querySelectorAll('.search-hit').forEach(item => item.classList.remove('search-hit'));
+    if (!query) return;
+
+    const root = document.querySelector('.content');
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || ['SCRIPT','STYLE','MARK'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        if (!normalize(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+        return node.nodeValue.toLowerCase().includes(query.toLowerCase()) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      }
+    });
+    const node = walker.nextNode();
+    if (!node) return;
+
+    const text = node.nodeValue;
+    const index = text.toLowerCase().indexOf(query.toLowerCase());
+    const before = document.createTextNode(text.slice(0, index));
+    const match = document.createElement('mark');
+    match.className = 'search-match';
+    match.textContent = text.slice(index, index + query.length);
+    const after = document.createTextNode(text.slice(index + query.length));
+    node.replaceWith(before, match, after);
+    const specCard = match.closest('.spec-model-card');
+    if (specCard) {
+      document.querySelectorAll('.spec-model-card.is-open').forEach(openCard => {
+        if (openCard !== specCard) {
+          openCard.classList.remove('is-open');
+          openCard.querySelector('.spec-model-toggle')?.setAttribute('aria-expanded', 'false');
+          const panel = openCard.querySelector('.spec-model-panel');
+          const state = openCard.querySelector('.spec-model-state');
+          if (panel) panel.hidden = true;
+          if (state) state.textContent = document.documentElement.lang.toLowerCase().startsWith('ko') ? '펼치기' : 'View';
+        }
+      });
+      specCard.classList.add('is-open');
+      specCard.querySelector('.spec-model-toggle')?.setAttribute('aria-expanded', 'true');
+      const panel = specCard.querySelector('.spec-model-panel');
+      const state = specCard.querySelector('.spec-model-state');
+      if (panel) panel.hidden = false;
+      if (state) state.textContent = document.documentElement.lang.toLowerCase().startsWith('ko') ? '접기' : 'Hide';
+    }
+    match.closest('section, article, tr, p, li, h2, h3, h4')?.classList.add('search-hit');
+    match.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  setupScuInlineCallouts();
+  buildSpecModelList();
+  buildOutline();
+  if (searchInput) searchInput.addEventListener('keydown', event => { if (event.key === 'Enter') runSearch(); });
+  let searchTimer;
+  if (searchInput) searchInput.addEventListener('input', () => {
+    window.clearTimeout(searchTimer);
+    if (!searchInput.value.trim()) { clearSearchMarks(); return; }
+    searchTimer = window.setTimeout(runSearch, 220);
+  });
+  document.addEventListener('keydown', event => {
+    const modifier = navigator.platform.toUpperCase().includes('MAC') ? event.metaKey : event.ctrlKey;
+    if (modifier && event.key.toLowerCase() === 'k') { event.preventDefault(); if (searchInput) { searchInput.focus(); searchInput.select(); } }
+  });
+})();
+</script></body></html>
