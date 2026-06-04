@@ -1,0 +1,2426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigE Polarization Camera User Manual | Crevis</title>
+    <link rel="stylesheet" href="../../../../css/product_manual/style.css">
+    <link rel="stylesheet" href="style-local.css">
+</head>
+<body>
+    <div class="manual-top-banner">
+        <a class="manual-banner-title" href="../../../../index.html">CREVIS Camera Manual</a>
+        <div class="manual-banner-tools">
+            <div class="language-switch" aria-label="Manual language selector">
+                <a href="index.html?lang=ko">KOR</a><a href="index_en.html" class="active">ENG</a></div>
+            <div class="manual-search" role="search">
+                <input type="search" data-manual-search placeholder="Search" aria-label="Search manual">
+                <kbd>K</kbd>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar">
+        <div class="eyebrow">GigE Vision User Manual</div>
+        <h2>GigE Polarization</h2>
+        <a class="back-link" href="../../../../index.html"><span>← Manual Center</span></a>
+        <div class="rev">Version Draft 0.1<br>Release Date: 2020. 05. 20</div>
+        <ul class="toc">
+            <li><a href="#preparation"><span>1. Preparation</span></a></li>
+<li class="toc-sub"><a href="#11-pc-%EC%B5%9C%EC%86%8C-%EA%B6%8C%EC%9E%A5-%EC%82%AC%EC%96%91-tbd"><span>1.1 PC Minimum/Recommended Specifications (TBD)</span></a></li>
+<li class="toc-sub"><a href="#12-sdk"><span>1.2 SDK</span></a></li>
+<li class="toc-sub"><a href="#13-%EC%BC%80%EC%9D%B4%EB%B8%94"><span>1.3 Cable</span></a></li>
+<li class="toc-sub"><a href="#14-%EB%B0%A9%ED%99%94%EB%B2%BD-%EB%B0%8F-%EB%B0%B1%EC%8B%A0"><span>1.4 Firewall and Antivirus</span></a></li>
+<li class="toc-sub"><a href="#15-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD"><span>1.5 Precautions</span></a></li>
+<li><a href="#specifications"><span>2. Product Specifications</span></a></li>
+<li class="toc-sub"><a href="#21-%EC%A0%9C%ED%92%88-%EA%B0%9C%EC%9A%94"><span>2.1 Product Overview</span></a></li>
+<li class="toc-sub"><a href="#22-%EC%A3%BC%EC%9A%94-%EC%82%AC%EC%96%91"><span>2.2 Main Specifications</span></a></li>
+<li><a href="#interface"><span>3. Camera Interface</span></a></li>
+<li class="toc-sub"><a href="#31-back-panel"><span>3.1 Back Panel</span></a></li>
+<li class="toc-sub"><a href="#32-%EC%B9%B4%EB%A9%94%EB%9D%BC-dc-in--external-i-o-pin-map"><span>3.2 Camera DC IN &amp; External I/O Pin Map</span></a></li>
+<li class="toc-sub"><a href="#33-led-status"><span>3.3 LED Status</span></a></li>
+<li class="toc-sub"><a href="#33-external-i-o-%EB%82%B4%EB%B6%80-%ED%9A%8C%EB%A1%9C"><span>3.3 External I/O internal circuit</span></a></li>
+<li><a href="#functions"><span>4. Camera Functions</span></a></li>
+<li class="toc-sub"><a href="#41-device-control"><span>4.1 Device Control</span></a></li>
+<li class="toc-sub"><a href="#411-device-link-througput-limit"><span>4.1.1 Device Link Throughput Limit</span></a></li>
+<li class="toc-sub"><a href="#412-device-temperature"><span>4.1.2 Device Temperature</span></a></li>
+<li class="toc-sub"><a href="#42-image-format-control"><span>4.2 Image Format Control</span></a></li>
+<li class="toc-sub"><a href="#421-roi-region-of-interest"><span>4.2.1 ROI (Region Of Interest)</span></a></li>
+<li class="toc-sub"><a href="#422-reverse-x-y"><span>4.2.2 Reverse X, Y</span></a></li>
+<li class="toc-sub"><a href="#423-pixel-format"><span>4.2.3 Pixel Format</span></a></li>
+<li class="toc-sub"><a href="#425-test-pattern"><span>4.2.5 Test Pattern</span></a></li>
+<li class="toc-sub"><a href="#43-acquisition-control"><span>4.3 Acquisition Control</span></a></li>
+<li class="toc-sub"><a href="#44-trigger-mode-control"><span>4.4 Trigger Mode Control</span></a></li>
+<li class="toc-sub"><a href="#441-trigger-mode"><span>4.4.1 Trigger Mode</span></a></li>
+<li class="toc-sub"><a href="#442-trigger-source"><span>4.4.2 Trigger Source</span></a></li>
+<li class="toc-sub"><a href="#443-trigger-delay"><span>4.4.3 Trigger Delay</span></a></li>
+<li class="toc-sub"><a href="#444-transfer-delay"><span>4.4.4 Transfer Delay</span></a></li>
+<li class="toc-sub"><a href="#45-exposure-control"><span>4.5 Exposure Control</span></a></li>
+<li class="toc-sub"><a href="#451-exposure-mode"><span>4.5.1 Exposure Mode</span></a></li>
+<li class="toc-sub"><a href="#452-exposure-time"><span>4.5.2 Exposure Time</span></a></li>
+<li class="toc-sub"><a href="#454-exposure-auto"><span>4.5.4 Exposure Auto</span></a></li>
+<li class="toc-sub"><a href="#45-digital-i-o-control"><span>4.5 Digital I/O Control</span></a></li>
+<li class="toc-sub"><a href="#451-line-debouncer-time"><span>4.5.1 Line Debouncer Time</span></a></li>
+<li class="toc-sub"><a href="#46-timer-control"><span>4.6 Timer Control</span></a></li>
+<li class="toc-sub"><a href="#47-counter-control"><span>4.7 Counter Control</span></a></li>
+<li class="toc-sub"><a href="#48-event-control"><span>4.8 Event Control</span></a></li>
+<li class="toc-sub"><a href="#49-analog-control"><span>4.9 Analog Control</span></a></li>
+<li class="toc-sub"><a href="#491-gain"><span>4.9.1 Gain</span></a></li>
+<li class="toc-sub"><a href="#492-black-level"><span>4.9.2 Black Level</span></a></li>
+<li class="toc-sub"><a href="#493-gamma"><span>4.9.3 Gamma</span></a></li>
+<li class="toc-sub"><a href="#494-noise-reduction-filter"><span>4.9.4 Noise Reduction Filter</span></a></li>
+<li class="toc-sub"><a href="#410-lut-control"><span>4.10 LUT Control</span></a></li>
+<li class="toc-sub"><a href="#411-defect-pixel-correction"><span>4.11 Defect Pixel Correction</span></a></li>
+<li class="toc-sub"><a href="#412-user-set-control"><span>4.12 User Set Control</span></a></li>
+<li class="toc-sub"><a href="#413-low-latency-mode"><span>4.13 Low-Latency Mode</span></a></li>
+<li class="toc-sub"><a href="#414-polarization"><span>4.14 Polarization</span></a></li>
+<li><a href="#appearance"><span>5. Camera Appearance</span></a></li>
+<li><a href="#appendix-a"><span># APPENDIX.A (Parameter List)</span></a></li>
+<li class="toc-sub"><a href="#camera-parameter-list"><span>Camera Parameter List</span></a></li>
+<li><a href="#appendix-b"><span># APPENDIX.B (SDK Installation)</span></a></li>
+<li class="toc-sub"><a href="#1-sdk-%EC%84%A4%EC%B9%98"><span>1. Install SDK</span></a></li>
+<li class="toc-sub"><a href="#2-%EC%B9%B4%EB%A9%94%EB%9D%BC-%ED%86%B5%EC%8B%A0-%EC%97%B0%EA%B2%B0-%EB%B0%A9%EB%B2%95"><span>2. How to connect camera communication</span></a></li>
+<li class="toc-sub"><a href="#21-camguide-%EC%8B%A4%ED%96%89"><span>2.1 Run CamGuide</span></a></li>
+<li class="toc-sub"><a href="#22-select-and-connect-camera-%EC%84%A4%EC%A0%95%ED%95%98%EA%B3%A0%EC%9E%90-%ED%95%98%EB%8A%94-%EC%B9%B4%EB%A9%94%EB%9D%BC%EB%A5%BC-%EB%8D%94%EB%B8%94-%ED%81%B4%EB%A6%AD%ED%95%A9%EB%8B%88%EB%8B%A4"><span>2.2 Select and Connect Camera: Double-click the camera you want to set up.</span></a></li>
+<li class="toc-sub"><a href="#23-%EC%B9%B4%EB%A9%94%EB%9D%BC-%EC%84%A4%EC%A0%95"><span>2.3 Camera Settings</span></a></li>
+<li><a href="#contact"><span>Contact</span></a></li>
+<li><a href="#revision-history"><span>Revision History</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <header class="header-box">
+            <div class="header-text">
+                <p class="category-label">GigE Vision Camera Manual</p>
+                <div class="title-row">
+                    <h1 class="model-title">GigE Polarization Camera</h1>
+                </div>
+                <p class="model-subtitle">Sony Polarized CMOS Sensor USER MANUAL</p>
+                <p class="hero-model-name">MG-A500P-22 / MG-A121P-9</p>
+            </div>
+            <div class="header-visual-group">
+                <img src="images/pdf-extracted/page01_01_xref13.png" class="header-logo" alt="Crevis Logo">
+                <img src="images/gige_polarization_camera_cutout.png" class="header-camera-main" alt="GigE polarization camera product image">
+            </div>
+        </header>
+
+        <section id="preparation">
+<h2>1. Preparation</h2>
+<h3 id="11-pc-최소-권장-사양-tbd">1.1 PC Minimum/Recommended Specifications (TBD)</h3>
+<p>1) CPU: Intel Core i3 (minimum), i5 or higher (recommended)</p>
+<p>2) RAM: 2GB or more (minimum), 8GB or more (recommended)</p>
+<p>3) O/S: Windows 7 (32bit/64bit) or higher</p>
+<p>4) LAN Card: Intel PRO/1000xT or higher</p>
+<p>5) VGA: FHD support (minimum), UHD support or higher (recommended)</p>
+<h3 id="12-sdk">1.2 SDK</h3>
+<ul class="feature-list"><li>To use a Crevis GigE camera, you can acquire images and control the camera using the SDK (MCam40) provided by Crevis or an image library that supports GigE Vision (Cognex, HALCON, Matrox, Euresys, etc.).</li></ul>
+<ul class="feature-list"><li>Crevis SDK download link: http://www.crevis.co.kr/kor/support/download/MCam40_SDK.zip</li></ul>
+<h3 id="13-케이블">1.3 Cable</h3>
+<ul class="feature-list"><li>A CAT 5E or higher network cable is required for data communication.</li></ul>
+<ul class="feature-list"><li>External power (DC 12V ±10%) can be applied separately through the 6Pin connector.</li></ul>
+<ul class="feature-list"><li>When using PoE (Power over Ethernet), do not apply external power to the 6Pin connector.</li></ul>
+<h3 id="14-방화벽-및-백신">1.4 Firewall and Antivirus</h3>
+<ul class="feature-list"><li>To ensure stable packet transmission, firewalls and anti-virus programs must be turned off or exceptions made.</li></ul>
+<ul class="feature-list"><li>How to set up a firewall ① Windows 7: Start → Control Panel → Windows Firewall → Turn Windows Firewall on or off</li></ul>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page06_01_xref50.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<p>② Windows 8 or later: Start → Control Panel → Windows Defender Firewall → Turn Windows Defender Firewall on or off</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page06_02_xref51.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<h3 id="15-주의사항">1.5 Precautions</h3>
+<ul class="feature-list"><li>Operating temperature: 0℃ ~ +40℃ Data output may change depending on ambient temperature changes, so keep the temperature constant. For more stable operation, we recommend using a heat sink larger than 40mm x 60mm x 10mm.</li></ul>
+<ul class="feature-list"><li>Connecting two or more cameras via an Ethernet hub may cause bandwidth issues.</li></ul>
+<ul class="feature-list"><li>UDP communication does not guarantee data transmission. [Note] To reduce packet loss, etc., be sure to set up the camera and network environment by referring to the Installation Guide provided when installing the SDK.</li></ul>
+<ul class="feature-list"><li>To use the filter driver, run it with administrator privileges. [Note] CamGuide automatically runs with administrator privileges.</li></ul>
+<ul class="feature-list"><li>Large packet size minimizes packet loss. However, the camera's packet size must be lower than the network card's jumbo frame or jumbo packet size. [Reference] Recommended packet size: 8192Kbyte based on 9KByte of jumbo frame (jumbo packet)</li></ul>
+<ul class="feature-list"><li>LED status window ① You can check the current status of the camera through the LED on the back of the camera. ② If the camera does not operate or images cannot be acquired, check the LED status.</li></ul>
+<div class="table-container"><table>
+<thead><tr>
+<th>Connecting power</th>
+<th>Incorrect IP settings or<br>Setting camera IP</th>
+<th>normal connection<br>(Wait for image acquisition)</th>
+<th>Acquiring image<br>(Top LED blinking)</th>
+</tr></thead>
+<tbody><tr class="image-row">
+<td><img src="images/pdf-extracted/page07_01_xref59.png" alt="LED status during power connection" loading="lazy"></td>
+<td><img src="images/pdf-extracted/page07_02_xref60.png" alt="LED status during incorrect IP setting or camera IP setting" loading="lazy"></td>
+<td><img src="images/pdf-extracted/page07_03_xref61.png" alt="Normal connection LED status" loading="lazy"></td>
+<td><img src="images/pdf-extracted/page07_04_xref62.png" alt="LED status during image acquisition" loading="lazy"></td>
+</tr></tbody>
+</table></div>
+</section><section id="specifications">
+<h2>2. Product Specifications</h2>
+<h3 id="21-제품-개요">2.1 Product Overview</h3>
+<ul class="feature-list"><li>Sony CMOS Polarized Sensor Camera</li></ul>
+<ul class="feature-list"><li>Supports ROI Scan and X, Y Reverse mode</li></ul>
+<ul class="feature-list"><li>Supports Free-run and Trigger Mode</li></ul>
+<ul class="feature-list"><li>Supports defective pixel correction function</li></ul>
+<ul class="feature-list"><li>GigE Vision Protocol compatible</li></ul>
+<ul class="feature-list"><li>Supports External Trigger Mode (via 6pin circular connector)</li></ul>
+<ul class="feature-list"><li>Status LED support</li></ul>
+<ul class="feature-list"><li>Power supply : DC 12V ± 10% or PoE (Power over Ethernet</li></ul>
+<ul class="feature-list"><li>System Block</li></ul>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page08_01_xref65.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<h3 id="22-주요-사양">2.2 Main Specifications</h3>
+<div class="table-container"><table>
+<thead><tr>
+<th>Spec.</th>
+<th>Detail</th>
+<th>MG-A500P-22</th>
+<th>MG-A121P-9</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Sensor</td>
+<td></td>
+<td>5M<br>IMX250MZR</td>
+<td>12M<br>IMX253MZR</td>
+</tr>
+<tr>
+<td>Sensor Format</td>
+<td></td>
+<td>2/3”</td>
+<td>1.1”</td>
+</tr>
+<tr>
+<td>Pixel Size(um)</td>
+<td></td>
+<td>3.45 x 3.45</td>
+<td>3.45 x 3.45</td>
+</tr>
+<tr>
+<td>Active Pixels (10Tap)</td>
+<td></td>
+<td>2464 x 2056</td>
+<td>4112 x 3008</td>
+</tr>
+<tr>
+<td>Pixel Clock</td>
+<td></td>
+<td>74.219MHz</td>
+<td>74.219MHz</td>
+</tr>
+<tr>
+<td>Frame Rate (Max)*</td>
+<td></td>
+<td>22fps (actual 21.79fps)</td>
+<td>9fps (actual 9.1fps)</td>
+</tr>
+<tr>
+<td>Exposure Time</td>
+<td></td>
+<td>21.9us ~ 3sec<br>(Expousre offset : 13.73us)</td>
+<td>35.85us ~ 3sec<br>(Exposure offset : 14.28us)</td>
+</tr>
+<tr>
+<td>Scanning Method</td>
+<td></td>
+<td>Full / ROI(Horizontal+Vertical) / Reverse(X,Y,All)</td>
+<td>Full / ROI(Horizontal+Vertical) / Reverse(X,Y,All)</td>
+</tr>
+<tr>
+<td>Sync. System</td>
+<td></td>
+<td>Internal(Freerun), External, Software trigger via PC</td>
+<td>Internal(Freerun), External, Software trigger via PC</td>
+</tr>
+<tr>
+<td>Trigger Mode</td>
+<td></td>
+<td>Timed, Trigger Width</td>
+<td>Timed, Trigger Width</td>
+</tr>
+<tr>
+<td>Shutter</td>
+<td></td>
+<td>Global Shutter</td>
+<td>Global Shutter</td>
+</tr>
+<tr>
+<td>Gain Abs</td>
+<td></td>
+<td>Analog : 0dB ~ 32dB (1x ~ 39.8x)<br>Digital : 0dB ~ 24dB (1x ~ 16x)</td>
+<td>Analog : 0dB ~ 32dB (1x ~ 39.8x)<br>Digital : 0dB ~ 24dB (1x ~ 16x)</td>
+</tr>
+<tr>
+<td>Black Level</td>
+<td></td>
+<td>Analog : 0 ~ 4095(14bit)<br>Digital : 0 ~ 4095(14bit)</td>
+<td>Analog : 0 ~ 4095(14bit)<br>Digital : 0 ~ 4095(14bit)</td>
+</tr>
+<tr>
+<td>Gamma</td>
+<td></td>
+<td>Gamma Correction (0~3.999),<br>Adjustable LUT (12bit to 12bit)</td>
+<td>Gamma Correction (0~3.999),<br>Adjustable LUT (12bit to 12bit)</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td></td>
+<td>Ethernet 1000 Base-T (GigE Vision Standard)</td>
+<td>Ethernet 1000 Base-T (GigE Vision Standard)</td>
+</tr>
+<tr>
+<td>Pixel Format</td>
+<td></td>
+<td>Mono8/10/12, Mono10/12 Packed</td>
+<td>Mono8/10/12, Mono10/12 Packed</td>
+</tr>
+<tr>
+<td>Minimum Illumination</td>
+<td></td>
+<td>1.0 lx, F1.4, Gain MAX, without IR cut filter</td>
+<td>1.0 lx, F1.4, Gain MAX, without IR cut filter</td>
+</tr>
+<tr>
+<td>SNR</td>
+<td></td>
+<td>36dB</td>
+<td>37dB</td>
+</tr>
+<tr>
+<td>Function Control</td>
+<td></td>
+<td>GainAuto, ExposureAuto, Acquisition Frame Rate(Adjustable),<br>Line Debouncer, Noise Reduction Filter</td>
+<td>GainAuto, ExposureAuto, Acquisition Frame Rate(Adjustable),<br>Line Debouncer, Noise Reduction Filter</td>
+</tr>
+<tr>
+<td>Lens mount</td>
+<td></td>
+<td>C mount</td>
+<td>C mount</td>
+</tr>
+<tr>
+<td>Optical accuracy</td>
+<td></td>
+<td>Optical center ≤ ± 0.1 mm</td>
+<td>Optical center ≤ ± 0.1 mm</td>
+</tr>
+<tr>
+<td>Power Supply</td>
+<td></td>
+<td>DC 12V± 10% or PoE</td>
+<td>DC 12V± 10% or PoE</td>
+</tr>
+<tr>
+<td>Consumption</td>
+<td>DC 12V</td>
+<td>&lt; 3.4W</td>
+<td>&lt; 3.6W</td>
+</tr>
+<tr>
+<td></td>
+<td>PoE</td>
+<td>&lt; 3.85W</td>
+<td>&lt; 4.1W</td>
+</tr>
+<tr>
+<td>Weight</td>
+<td></td>
+<td>60g</td>
+<td>60g</td>
+</tr>
+<tr>
+<td>Dimension</td>
+<td></td>
+<td>29 x 29 x 40 ㎜ (Without mount, Connector)</td>
+<td>29 x 29 x 40 ㎜ (Without mount, Connector)</td>
+</tr>
+<tr>
+<td>Operating / Storage</td>
+<td></td>
+<td>0℃ ~ +40℃ (with &lt; 20~80% RH) / -10℃ ~ +50℃</td>
+<td>0℃ ~ +40℃ (with &lt; 20~80% RH) / -10℃ ~ +50℃</td>
+</tr>
+<tr>
+<td>Vibration / Shock</td>
+<td></td>
+<td>98 m/s² (10G) / 196m/s² (20G)</td>
+<td>98 m/s² (10G) / 196m/s² (20G)</td>
+</tr>
+<tr>
+<td>Standard Compliancy</td>
+<td></td>
+<td>CE (EN61326-1; 2006; Class A)</td>
+<td>CE (EN61326-1; 2006; Class A)</td>
+</tr>
+<tr>
+<td>Environments</td>
+<td></td>
+<td>RoHS / WEEE</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</section><section id="interface">
+<h2>3. Camera Interface</h2>
+<h3 id="31-back-panel">3.1 Back Panel</h3>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page11_01_xref74.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<div class="table-container"><table>
+<thead><tr>
+<th>NO.</th>
+<th>Name</th>
+<th>Remark</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ethernet Connector</td>
+<td>RJ45</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Power &amp; I/O Connector</td>
+<td>6Pin Circular</td>
+</tr>
+<tr>
+<td>3,4</td>
+<td>LED Indicator</td>
+<td>LED</td>
+</tr>
+</tbody>
+</table></div>
+<p>* RJ45 Connector</p>
+<ul class="feature-list"><li>Direct &amp; Cross Cable support</li></ul>
+<ul class="feature-list"><li>poE support (IEEE 802.3af)</li></ul>
+<ul class="feature-list"><li>Supports CAT 5 UTP (to improve stability, use of CAT 5E or higher STP cable is recommended)</li></ul>
+<h3 id="32-카메라-dc-in--external-i-o-pin-map">3.2 Camera DC IN &amp; External I/O Pin Map</h3>
+<div class="table-container"><table>
+<thead><tr>
+<th>No.<br>Name</th>
+<th>IN/OUT<br>Description<br>Remark</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1<br>DC 12V</td>
+<td>IN<br>10.8V ~ 13.2V Input Range</td>
+</tr>
+<tr>
+<td>2<br>TRIG_IN</td>
+<td>IN<br>Opto-isolated Trigger Input+<br>(2.5V ~ 24V)</td>
+</tr>
+<tr>
+<td>3<br>STROBE_GND</td>
+<td>OUT<br>Opto-isolated Strobe Output-</td>
+</tr>
+<tr>
+<td>4<br>STROBE_OUT</td>
+<td>OUT<br>Opto-isolated Strobe Output+</td>
+</tr>
+<tr>
+<td>5<br>TRIG_GND</td>
+<td>IN<br>Opto-isolated Trigger Input-</td>
+</tr>
+<tr>
+<td>6<br>POEWR GND</td>
+<td>IN<br>Power Ground</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page11_02_xref75.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<h3 id="33-led-status">3.3 LED Status</h3>
+<div class="table-container"><table>
+<thead><tr>
+<th>LED (Link)</th>
+<th>explanation</th>
+<th>LED (Active)</th>
+<th>explanation</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Off</td>
+<td>Power off</td>
+<td>Off</td>
+<td>standby state</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>10MB/100MB link</td>
+<td>Red</td>
+<td>IP allocation, IP setting error</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>Gigabit link</td>
+<td>Green<br>Green</td>
+<td>When lit (waiting for trigger input)<br>When blinking (image transmission)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="33-external-i-o-내부-회로">3.3 External I/O internal circuit</h3>
+<ul class="feature-list"><li>Input</li></ul>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page12_01_xref78.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<ul class="feature-list"><li>Output</li></ul>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page12_02_xref79.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+</section><section id="functions">
+<h2>4. Camera Functions</h2>
+<h3 id="41-device-control">4.1 Device Control</h3>
+<p>This function allows you to monitor various conditions of the camera or control the status of the device.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Device Max Throughpu</td>
+<td>(Integer)</td>
+<td>Defines the maximum bandwidth of the camera transmitter. This is the camera's<br>Affects maximum Frame Rate.</td>
+</tr>
+<tr>
+<td>Device Temperature</td>
+<td>Command</td>
+<td>Measures the camera's internal temperature.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="411-device-link-througput-limit">4.1.1 Device Link Throughput Limit</h3>
+<p>You can define the maximum bandwidth of images transmitted from the camera to the host. It can be changed in Byte/Sec units.</p>
+<h3 id="412-device-temperature">4.1.2 Device Temperature</h3>
+<p>This function monitors the current temperature of the parts selected in ‘Device Temperature Selector’. The moment you execute ‘Temperature Update Selector’, temperature information is immediately returned as a Celsius (℃) value including decimal points.</p>
+<h3 id="42-image-format-control">4.2 Image Format Control</h3>
+<p>This is a function that allows you to change the settings for the camera's image output size and format.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Width, Height,<br>Offset X, Offset Y</td>
+<td>(Integer)</td>
+<td>Change the output size and offset (pixel coordinates) of the image.<br>WidthMAX ≥ Offset X + Width<br>HeightMAX ≥ Offset Y + Height</td>
+</tr>
+<tr>
+<td>ReverseX,<br>ReverseY</td>
+<td>True / False</td>
+<td>This is the function to flip the image up/down or left/right.</td>
+</tr>
+<tr>
+<td>Pixel Format</td>
+<td>Mono8/10/12<br>Mono8/10 Packed</td>
+<td>You can change the format when transmitting images to the host.<br>Please refer to Section 4.2.3 for detailed transmission order.</td>
+</tr>
+<tr>
+<td>Test Pattern</td>
+<td>Off,<br>Vertical Ramp,<br>Horizontal Ramp</td>
+<td>You can select a test image.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="421-roi-region-of-interest">4.2.1 ROI (Region Of Interest)</h3>
+<p>By setting Width, Height, Offset X, and Offset Y, only the desired image area can be output.</p>
+<p>As the output image size gets smaller, the frame rate increases.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page14_01_xref84.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<div class="inline-note-callout note">
+<p class="inline-note-title note">Note</p>
+<p>1) Frame Rate changed due to ROI can be checked through the ‘Resulting Frame Rate’ parameter.</p>
+</div>
+<h3 id="422-reverse-x-y">4.2.2 Reverse X, Y</h3>
+<p>This is a function that reverses the left/right or top/bottom of the video and outputs it. In the case of the color model, the image is output with the ‘Bayer Pixel Order’ changed according to the ‘Reverse Mode’.</p>
+<p>1) When Reverse (Bayer RG → Bayer GR)</p>
+<p>2) When Reverse Y mode is set to True, the top/bottom of the video is reversed. (Bayer RG → Bayer GB)</p>
+<div class="figure-pair pdf-figure-grid">
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page14_02_xref85.png" alt="Reverse X False, Reverse Y False" loading="lazy"><figcaption>Reverse X = False, Reverse Y = False<br>(Bayer RG)</figcaption></figure>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page14_03_xref86.png" alt="Reverse X True, Reverse Y False" loading="lazy"><figcaption>Reverse X = True, Reverse Y = False<br>(Bayer GR)</figcaption></figure>
+</div>
+<div class="figure-pair pdf-figure-grid">
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page15_01_xref89.png" alt="Reverse X False, Reverse Y True" loading="lazy"><figcaption>Reverse X = False, Reverse Y = True<br>(Bayer GB)</figcaption></figure>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page15_02_xref90.png" alt="Reverse X True, Reverse Y True" loading="lazy"><figcaption>Reverse X = True, Reverse Y = True<br>(Bayer BG)</figcaption></figure>
+</div>
+<div class="inline-note-callout warning">
+<p class="inline-note-title warning">Note</p>
+<p>1) When 'Reverse Y' is selected, defective pixels may appear because the use of Defect Filter is limited. Because of this</p>
+<p>Exposed defective pixels can be removed in the ‘Defect Pixel Correction’ category. (Refer to the ‘Defect Pixel Correction’ section) 2) If ROI and Reverse are used simultaneously, the ROI function is applied from the reversed image. As shown in the picture below, when Reverse is activated, the position of (0,0) Pixel, which is the starting coordinate of the Image, is reversed. For this reason, in order to capture the same area as before applying Reverse, an Image Offset equal to Total Size - ROI Size is required.</p>
+</div>
+<div class="figure-quad pdf-figure-grid">
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page15_03_xref91.png" alt="ROI before reverse" loading="lazy"><figcaption>Image Size : 4024 * 3036<br>Offset X : 0, Offset Y : 0<br>Reverse X : False, Reverse Y : False</figcaption></figure>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page15_04_xref92.png" alt="ROI reverse X offset 0" loading="lazy"><figcaption>Image Size : 2012 * 1518<br>Offset X : 0, Offset Y : 0<br>Reverse X : True, Reverse Y : False</figcaption></figure>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page15_05_xref93.png" alt="ROI reverse X offset 2012" loading="lazy"><figcaption>Image Size : 2012 * 1518<br>Offset X : 2012, Offset Y : 0<br>Reverse X : True, Reverse Y : False</figcaption></figure>
+<figure class="figure-card pdf-figure"><img class="mirror-x" src="images/pdf-extracted/page15_04_xref92.png" alt="ROI after reverse adjustment" loading="lazy"><figcaption>Image Size : 2012 * 1518<br>Offset X : 0, Offset Y : 0<br>Reverse X : False, Reverse Y : False</figcaption></figure>
+</div>
+<h3 id="423-pixel-format">4.2.3 Pixel Format</h3>
+<p>This is a function that allows you to change the pixel format of the video. Because there is a difference in the amount of image data transmitted for each pixel format, the transmission speed and bandwidth may vary.</p>
+<div class="table-container"><table class="pixel-format-table">
+<thead><tr>
+<th>Mono8</th>
+<th>Mono10</th>
+</tr></thead>
+<tbody><tr>
+<td>8-bit image data into 8bits<br>Descrpition : 8-bit monochrome unsigned<br>Pixel Size : 1byte<br>Pixel Value range : 0 to 255<br><img src="images/pdf-extracted/page15_06_xref95.png" alt="Mono8 data order" loading="lazy"></td>
+<td>10-bit image data into 16-bits<br>Description : 10-bit monochrome unsigned<br>Pixel Size : 2byte<br>Pixel Value range : 0 to 1023<br><img src="images/pdf-extracted/page15_07_xref96.png" alt="Mono10 data order" loading="lazy"></td>
+</tr></tbody>
+</table></div>
+<div class="table-container"><table class="pixel-format-table">
+<tbody>
+<tr>
+<th>Mono12</th>
+<td>12-bit image data into 16-bits<br>Description : 12-bit monochrome unsigned<br>Pixel Size : 2byte<br>Pixel Value range : 0 to 4095<br><img src="images/pdf-extracted/page16_01_xref99.png" alt="Mono12 data order" loading="lazy"></td>
+</tr>
+<tr>
+<th>Mono10 Packed</th>
+<td>2 X 10-bit data packed into 24bits (Y1, Y2)<br>Description : 10-bit packed monochrome unsigned<br>Pixel Size : 3 bytes for two pixels<br>Value range : 0 to 1023<br><img src="images/pdf-extracted/page16_02_xref100.png" alt="Mono10 Packed data order" loading="lazy"></td>
+</tr>
+<tr>
+<th>Mono12 Packed</th>
+<td>2 X 12-bit data packed into 24bits (Y1, Y2)<br>Description : 12-bit packed monochrome unsigned<br>Pixel Size : 3 bytes for two pixels<br>Value range : 0 to 1023<br><img src="images/pdf-extracted/page16_03_xref101.png" alt="Mono12 Packed data order" loading="lazy"></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="425-test-pattern">4.2.5 Test Pattern</h3>
+<p>At the intermediate stage of image processing, the image is replaced with a test pattern and transmitted. Even if the Test Pattern function is activated, functions related to image acquisition such as ROI size, trigger input, and ‘Acquisition Frame Rate’ are valid. Test Pattern images are created in 8bit gray level (0~255DN).</p>
+<ul class="feature-list"><li>Off: Sensor image</li></ul>
+<ul class="feature-list"><li>On : Test Pattern</li></ul>
+<div class="figure-pair pdf-figure-grid">
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page16_04_xref102.png" alt="Grey Horizontal Ramp" loading="lazy"><figcaption>Grey Horizontal Ramp</figcaption></figure>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page16_05_xref103.png" alt="Grey Vertical Ramp" loading="lazy"><figcaption>Grey Vertical Ramp</figcaption></figure>
+</div>
+<p>* Ramp size may vary depending on pixel format.</p>
+<div class="inline-note-callout note">
+<p class="inline-note-title note">Note</p>
+<p>※ When 8bit is set: Ramp Size = 256 Pixel</p>
+</div>
+<div class="inline-note-callout note">
+<p class="inline-note-title note">Note</p>
+<p>※ When setting 10bit: Ramp Size = 1024 Pixel</p>
+</div>
+<div class="inline-note-callout note">
+<p class="inline-note-title note">Note</p>
+<p>※ When 12bit is set: Ramp Size = 4096 Pixel</p>
+</div>
+<h3 id="43-acquisition-control">4.3 Acquisition Control</h3>
+<p>This is a function that allows you to set the method of acquiring images from the camera. You can define the number of image frames to acquire.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Acquisition Mode</td>
+<td>Continuous,<br>Single Frame,<br>Multi Frame</td>
+<td>Acquires images from the Acquisition Start command until the conditions below are met.<br>- Continuous: Acquisition continues until Acquisition Stop.<br>- Single Frame: Acquires only one image.<br>- Multi Frame: Acquires only as many images as the set count.</td>
+</tr>
+<tr>
+<td>Acquisition Start</td>
+<td>Excute</td>
+<td>Command to start image acquisition</td>
+</tr>
+<tr>
+<td>Acquisition Stop</td>
+<td>Excute</td>
+<td>End image acquisition Command</td>
+</tr>
+<tr>
+<td>Acquisition Frame Count</td>
+<td>0 to 255</td>
+<td>Number of images to be transmitted in Burst from the point of Acquisition Start.</td>
+</tr>
+</tbody>
+</table></div>
+<p>1) Single Frame</p>
+<p>Each time the ‘Acquisition Start’ command is input, one image is captured and transmitted. Since acquisition stops automatically after transmitting only one image, a separate ‘Acquisition Stop’ command is not required.</p>
+<p>If ‘Trigger Mode’ is ‘On’, the light is exposed and transmitted by the trigger. When Trigger Mode is ‘Off’, new images can be acquired and transmitted with only the ‘Acquisition Start’ command.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page17_01_xref118.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<p>2) Multi Frame &amp; Acquisition Frame Count</p>
+<p>Each time the ‘Acquisition Start’ command is input, images are captured and transmitted as many as defined in ‘Acquisition Frame Count’. A separate ‘Acquisition Stop’ command is not required because acquisition stops automatically after transmitting the specified number of images. However, if the ‘Acquisition Stop’ command is input during grab, it stops after reading and transmitting the frame being exposed. If ‘Trigger Mode’ is ‘On’, it is exposed and transmitted by the input trigger.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page18_01_xref121.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<p>3) Continuous</p>
+<p>From the time the ‘Acquisition Start’ command is input, images are captured and transmitted at the cycle defined in ‘Acquisition Frame Rate’. If the ‘Acquisition Stop’ command is entered during grab, the currently exposed image will be read out and transmitted, and then acquisition will be stopped. If the ‘Acquisition Stop’ command is entered at the end of exposure, acquisition will end after the ongoing readout is completed. If ‘Trigger Mode’ is ‘On’, the light is exposed and transmitted by the trigger.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page18_02_xref122.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<h3 id="44-trigger-mode-control">4.4 Trigger Mode Control</h3>
+<p>Controls image acquisition and output timing. Image acquisition methods largely include external synchronization (Trigger Mode = On) and internal synchronization (Trigger Mode = Off, Free-run Mode) modes, and acquisition delay or transmission delay can be set.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page19_01_xref125.png" alt="&lt;Timing Diagram of Trigger Signals&gt;" loading="lazy"><figcaption>&lt;Timing Diagram of Trigger Signals&gt;</figcaption></figure>
+<p>* Hardware Delay</p>
+<div class="table-container"><table>
+<thead><tr>
+<th></th>
+<th>Rising edge</th>
+<th>Falling edge</th>
+</tr></thead>
+<tbody><tr>
+<td>Opto-isolated Input</td>
+<td>4.5 us</td>
+<td>35 us</td>
+</tr></tbody>
+</table></div>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Trigger Mode</td>
+<td>Off, On</td>
+<td>Off: The camera operates in Free-run mode and generates an internal trigger signal.<br>The internal trigger period is determined by ‘Acquisition Frame Rate’.<br>If ‘Acquisition Frame Rate Enable’ is Off, the camera operates at the maximum frame rate available under the current camera settings.<br>On: The camera operates in Trigger Mode. The trigger is generated by hardware (Line1) or a software trigger command.</td>
+</tr>
+<tr>
+<td>Resulting Frame<br>Rate</td>
+<td>(Read Only)</td>
+<td>Shows the Frame Rate when Trigger Mode is set to Off.<br>Image size and ‘Acquisition Frame Rate’, ‘Exposure Time’ and ‘Pixel’<br>It is determined by ‘Format’, ‘Decimation’, etc.</td>
+</tr>
+<tr>
+<td>Trigger Source</td>
+<td>Line1, Software</td>
+<td>Selects the trigger source to use as the trigger input.<br>For details, refer to the Trigger Source section below.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-container"><table>
+<thead><tr>
+<th>Trigger Delay</th>
+<th>0 to 57,844,677<br>(Unit : us)</th>
+<th>From the trigger received by the camera to the exposure of the image sensor<br>Define the delay time. Setting value 0 means Delay Off.<br>Please refer to the Trigger Delay section below for details.</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Transfer Delay</td>
+<td>0 to 57,844,677<br>(Unit : Clock)</td>
+<td>Defines the delay time applied at the final transmission stage for the image read from the sensor. This is valid only when ‘Low Latency Mode Enable’ is ‘False’.<br>For details, refer to the Transfer Delay section below.</td>
+</tr>
+<tr>
+<td>Trigger Activation</td>
+<td>Rising Edge<br>(Read Only)</td>
+<td>Defines the standard for the phase of the trigger signal inside the camera. of input trigger<br>To change the phase, use ‘Line Inverter’.</td>
+</tr>
+<tr>
+<td>Line debouncer<br>Time</td>
+<td>0 to 882.995<br>(Unit : us)</td>
+<td>Adjust Line Debouncer Time.<br>For details, see the Line Debouncer section below.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="441-trigger-mode">4.4.1 Trigger Mode</h3>
+<p>‘Trigger Mode’ is a function that controls the exposure of the image sensor.</p>
+<p>If ‘Trigger Mode’ is set to ‘Off’, the camera operates in Free-run Mode. In Free-run mode, an Internal VD is created at the maximum frame rate that can operate with the current settings. At the same time, an exposure signal is generated for the set ‘Exposure Time’ and input to the image sensor. Periodic exposure is performed by the generated exposure signal, and the exposed image is read and transmitted to the host.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page20_01_xref128.png" alt="&lt;Timing Diagram of Freerun Mode&gt;" loading="lazy"><figcaption>&lt;Timing Diagram of Freerun Mode&gt;</figcaption></figure>
+<p>On the other hand, if Trigger Mode is set to 'On', the camera operates in Trigger Mode. In trigger mode, the exposure start point or exposure time is determined by the external trigger input. After exposure is completed, frames are read and transmitted in the same way as in Free-run mode. For detailed timing, refer to p.22 &lt;Timing Diagram of Trigger Signals&gt;.</p>
+<div class="inline-note-callout warning">
+<p class="inline-note-title warning">Note</p>
+<p>1) If a trigger signal with a cycle faster than the product's maximum frame rate is input, the sync of the output image may be damaged. (For abnormal trigger input detection, refer to ‘Counter Control’.) Therefore, input signals that comply with the camera specifications.</p>
+<p>2) If noise enters the trigger signal line, the camera may mistake the noise for a trigger signal. (Refer to the ‘Line Debouncer Time’ function for noise filtering.)</p>
+</div>
+<h3 id="442-trigger-source">4.4.2 Trigger Source</h3>
+<p>Define the source of the trigger signal. Applies when Trigger Mode is set to On.</p>
+<ul class="feature-list"><li>Hardware trigger = 6 pin connector input &gt; Line1: Trigger input is received through pin 2 (Trigger +) and pin 5 (Trigger -). The trigger voltage level range is from a minimum of 2.5V to a maximum of 24V. &gt; Line2: Outputs a strobe signal through pin 3 (Strobe -) and pin 4 (Strobe +).</li></ul>
+<ul class="feature-list"><li>Software trigger = Host Software Trigger Command Creates a trigger inside the camera through the input Software function. In this setting, ‘Exposure Mode’ is only supported as ‘Timed’ shutter mode.</li></ul>
+<div class="inline-note-callout note">
+<p class="inline-note-title note">Note</p>
+<p>If you set ‘Counter Selector’ in the ‘Counter And Timer Control’ category to ‘Line Trigger’, the total number of valid triggers entered by the camera will be returned as ‘Counter Value’. This counter is initialized to 0 by the ‘Acquisition Start’ command.</p>
+</div>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page21_01_xref131.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<h3 id="443-trigger-delay">4.4.3 Trigger Delay</h3>
+<p>This function delays trigger operation inside the camera by the value set in 'Trigger Delay' from the trigger input point. If 'Trigger Delay' is set to a value other than 0 and a new trigger signal is input while the existing trigger is delayed, the existing trigger delay continues and the new trigger is ignored. In other words, if the delay time is longer than the trigger period, the frame rate may decrease because triggers are missed. For the detailed timing diagram, refer to P.23 &lt;Timing Diagram of Trigger Signals&gt;.</p>
+<h3 id="444-transfer-delay">4.4.4 Transfer Delay</h3>
+<p>This is a function that delays the start of image packet transmission during the stage of transmitting images that have completed image pre-processing inside the camera. When multiple camera videos are input from a single host, the input timing can be adjusted to distribute the input points.</p>
+<p>Since the input value of the parameter is in Clock units, refer to the formula below to convert to time.</p>
+<p>𝑇𝑟𝑎𝑛𝑠𝑓𝑒𝑟 𝐷𝑒𝑙𝑎𝑦(𝑛𝑠) = 𝑇𝑟𝑎𝑛𝑠𝑓𝑒𝑟 𝐷𝑒𝑙𝑎𝑦 𝑉𝑎𝑙𝑢𝑒 × 10𝑛𝑠</p>
+<div class="inline-note-callout warning">
+<p class="inline-note-title warning">Note</p>
+<p>1) This can only be set when the ‘Low-latency Mode Enable’ parameter is set to ‘False’.</p>
+<p>2) For more detailed timing, please refer to the ‘Low-Latency Mode’ section.</p>
+</div>
+<h3 id="45-exposure-control">4.5 Exposure Control</h3>
+<h3 id="451-exposure-mode">4.5.1 Exposure Mode</h3>
+<p>This function allows the camera to select the exposure method. If ‘Trigger Source’ is set to ‘Line1’, ‘Timed’ and ‘Trigger Width’ can be set respectively. However, if ‘Trigger Source’ is set to ‘Software’, it only operates as a ‘Timed’ shutter.</p>
+<p>In the ‘Timed’ shutter method, exposure occurs only for the time set in ‘Exposure Time’. The trigger simply specifies when to start the exposure. On the other hand, in the ‘Trigger Width’ shutter method, the pulse width of the trigger signal becomes the effective exposure time.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page23_01_xref141.png" alt="&lt;Timing Diagram of Trigger Signals&gt;" loading="lazy"><figcaption>&lt;Timing Diagram of Trigger Signals&gt;</figcaption></figure>
+<h3 id="452-exposure-time">4.5.2 Exposure Time</h3>
+<p>Set the camera exposure time. This time only applies when ‘Exposure Mode’ is set to ‘Timed’. In Free-run Mode, if the Exposure Time becomes longer than the Frame Period, the Frame Rate decreases.</p>
+<p>The actual exposure signal inside the camera is generated by the ‘HD’ timer. Since this ‘HD’ timer is related to the readout size in the horizontal direction, generally, the smaller the Image Width, the shorter the period of the HD signal. Additionally, when changing parameters related to video transmission bandwidth (ex. Pixel Format, Device Link Throughput Limit, etc.), the period of the HD signal changes.</p>
+<div class="inline-note-callout note">
+<p class="inline-note-title note">Note</p>
+<p>If you set ‘Counter Selector’ in the ‘Counter And Timer Control’ category to ‘Exposure Start’ or ‘Exposure End’, the camera will return the start and end counts of exposure as ‘Counter Value’. This counter is initialized to 0 by the ‘Acquisition Start’ command.</p>
+</div>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page23_02_xref142.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<div class="inline-note-callout warning">
+<p class="inline-note-title warning">Note</p>
+<p>1) In GigE polarization cameras, there is an error between Exposure Time and actual exposure time. Specified in the table below</p>
+<p>Time is absolute time and is the additional exposure time when exposing each frame.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Model</th>
+<th>MG-A500P-22</th>
+<th>MG-A121P-9</th>
+</tr></thead>
+<tbody><tr>
+<td>Exposure Time Offset</td>
+<td>13.73us</td>
+<td>14.26us</td>
+</tr></tbody>
+</table></div>
+<p>2) Exposure start (and exposure end) may be delayed by up to 3HD from the time the trigger signal reaches the camera. (Excluding hardware delay and ‘Line Debouncer Time’)</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Delay Type</th>
+<th></th>
+<th>Delay Time</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Exposure Start Delay</td>
+<td>2HD</td>
+<td></td>
+</tr>
+<tr>
+<td>Exposure End Delay</td>
+<td>2HD</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<h3 id="454-exposure-auto">4.5.4 Exposure Auto</h3>
+<p>This is a function that allows the camera to automatically adjust ‘Exposure Time’ to maintain the desired brightness.</p>
+<p>Can be set when ‘ExposureMode’ is set to ‘Timed’. And ‘Exposure Time’ changes only in the time between ‘Auto Exposure Time Lower Limit’ and ‘Auto Exposure Time Upper Limit’.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>parameters</th>
+<th></th>
+<th>Setting value</th>
+<th></th>
+<th>explanation</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Exposure Auto</td>
+<td>Off<br>Once<br>Continuous</td>
+<td></td>
+<td>Off: Set exposure time manually.<br>Once: Adjust the exposure time just once to change the brightness value to the desired value.<br>Continuous: Continuously adjusts the exposure time to achieve the desired brightness value.<br>Maintain.</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto Exposure Target</td>
+<td>0 to 255<br>(8-bit DN)</td>
+<td></td>
+<td>Set the brightness value desired by the user</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto Exposure Time<br>Lower Limit</td>
+<td>Unit : us</td>
+<td></td>
+<td>Minimum value of variable shutter range</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto Exposure Time<br>Upper Limit</td>
+<td>Unit : us</td>
+<td></td>
+<td>Maximum value of variable shutter range</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="inline-note-callout warning">
+<p class="inline-note-title warning">Note</p>
+<p>1) If the Exposure Time is too short, a flickering image may be output due to the flickering of the lighting.</p>
+<p>2) If ‘Exposure Time’ becomes longer than Frame Time to reach maximum brightness, Frame Rate may decrease.</p>
+</div>
+<h3 id="45-digital-i-o-control">4.5 Digital I/O Control</h3>
+<p>This function allows you to set camera external I/O signals. The input/output direction of each I/O is fixed, and the logical specifications of signals through the I/O port can be changed.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Line selector</td>
+<td>Line1, Line2</td>
+<td>Select the Line for which you want detailed settings.</td>
+</tr>
+<tr>
+<td>Line debouncer<br>Time</td>
+<td>0 to 882.995<br>(Unit : us)</td>
+<td>Adjust Line Debouncer Time.<br>For details, see the Line Debouncer section below.</td>
+</tr>
+<tr>
+<td>Line Mode</td>
+<td>Input, Output</td>
+<td>Line 1 is assigned to the camera's input line.<br>Line 2 is assigned to the camera's Output Line.</td>
+</tr>
+<tr>
+<td>Line Inverter</td>
+<td>True / False</td>
+<td>True: Inverts the input/output phase of the line.<br>False: Do not invert the phase of the line.</td>
+</tr>
+<tr>
+<td>Line Status</td>
+<td>True / False</td>
+<td>Returns the current status of the selected Line. True means Logical High<br>And False means Logical Low.</td>
+</tr>
+<tr>
+<td>Line Source</td>
+<td>Exposure Active,<br>Timer Active,<br>User Output1</td>
+<td>Available only when ‘Line Selector’ is set to ‘Line2’ (Output Direction).<br>Exposure Active: Outputs a flash signal active during the exposure time.<br>Timer Active: Outputs a flash signal for the time set in ‘TimerDuration’ in the ‘Counter And Timer Control’ category.<br>User Output1: Outputs the ‘User Output Value’ value.</td>
+</tr>
+<tr>
+<td>User Output Value</td>
+<td>True / False</td>
+<td>Sets the output value when ‘Line Source’ is set to User Output1.</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page26_01_xref149.png" alt="&lt;Block Diagram of Digital I/O Control&gt;" loading="lazy"><figcaption>&lt;Block Diagram of Digital I/O Control&gt;</figcaption></figure>
+<h3 id="451-line-debouncer-time">4.5.1 Line Debouncer Time</h3>
+<p>This is a function to remove (debouncing) chattering noise from the camera's external trigger line. Only signals that maintain the state for the time set in ‘Line Debouncer Time’ are accepted as valid inputs. Since the Line Debouncer Timer checks the state transition of the Trigger Line, it receives a trigger delayed by the time set in ‘Line Debouncer Timer’.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page26_02_xref150.png" alt="&lt;Timing Diagram of Line Debouncer&gt;" loading="lazy"><figcaption>&lt;Timing Diagram of Line Debouncer&gt;</figcaption></figure>
+<h3 id="46-timer-control">4.6 Timer Control</h3>
+<p>Timer Control allows you to change the settings of the strobe signal output from the camera. When 'Trigger Mode' is Off (Free-run Mode), the Timer Flash signal generation point can be selected as Exposure Start or 'Internal VD Start'. (Refer to &lt;Timing Diagram of Free-run Mode&gt;.) Since this point is earlier than the shutter operation point, a Timer Delay may be required to synchronize with the lighting.</p>
+<p>On the other hand, when 'Trigger Mode' is On, the Timer Flash generation position can be selected as the exposure start point or trigger signal detection point (state transition point). If the Timer is generated by an external trigger, 'Timer Delay' can be used to synchronize with the actual exposure section. (Refer to &lt;Timing Diagram of Trigger Signals&gt;.)</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Timer Duration</td>
+<td>0 to 57,844,677<br>(Unit : us)</td>
+<td>Defines the pulse width of the Timer Flash signal output to Line2. new year<br>The default value of 0 means Off.</td>
+</tr>
+<tr>
+<td>Timer Delay</td>
+<td>0 to 57,844,677<br>(Unit : us)</td>
+<td>Defines the delay time for the Timer Flash signal output to Line 2. new year<br>A default value of 0 means no delay.</td>
+</tr>
+<tr>
+<td>Timer Trigger Source</td>
+<td>Exposure Start,<br>Acquisition<br>Trigger,<br>Internal VD Start</td>
+<td>Choose when the Flash Timer begins to fire.<br>Exposure Start: When exposure begins<br>Acquisition Trigger: Input point of external trigger<br>Internal VD Start: Internal VD reset point in Free-run mode</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="47-counter-control">4.7 Counter Control</h3>
+<p>This is a function that allows you to monitor the series of processes in which the camera receives trigger input, exposes, and transmits images with a step-by-step counter. It is also possible to check for signal input that exceeds camera specifications, such as trigger input with a cycle faster than the frame speed.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Counter Selector</td>
+<td>LineTrigger<br>Exposure Start<br>Exposure End<br>FrameEnd<br>ExposureOver-<br>Trigger<br>ReadOutOver-<br>Trigger</td>
+<td>Monitors whether the camera operates in response to a trigger signal input from an external source.<br>is a function.<br>LineTrigger: Total number of input Line1 Triggers and Software Triggers.<br>Exposure Start: The number of times the actual exposure started.<br>Exposure End: The number of times the actual exposure has ended.<br>FrameEnd: Number of frames read out from the sensor.<br>ExposureOverTrigger: Number of new triggers entered during Exposure.<br>ReadOutOverTrigger: Number of times a new Exposure is completed during Readout.<br>However, Readout Overtrigger is counted only when Trigger Mask Enable = On.</td>
+</tr>
+<tr>
+<td>Counter Value</td>
+<td>(Read Only)</td>
+<td>All counters at the time of ‘Counter Value Reset’ command input or Acquisition Start<br>Values ​​are initialized to 0.</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page28_01_xref155.png" alt="&lt;Timing Diagram of ‘Exposure Over Trigger’&gt;" loading="lazy"><figcaption>&lt;Timing Diagram of ‘Exposure Over Trigger’&gt;</figcaption></figure>
+<p>1) When Exposure Mode = Timed</p>
+<p>2) #3 Trigger signal is ignored because it was input during exposure of #2 Trigger signal.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page28_02_xref156.png" alt="&lt;Timing Diagram of ‘Readout Over Trigger’&gt;" loading="lazy"><figcaption>&lt;Timing Diagram of ‘Readout Over Trigger’&gt;</figcaption></figure>
+<p>1) When Exposure Mode = Trigger Width</p>
+<p>2) #3 Trigger signal was input with a cycle faster than the minimum cycle of the camera. So the camera is #3</p>
+<p>The trigger is treated as a bad trigger and the image of #2 is transmitted without stopping.</p>
+<h3 id="48-event-control">4.8 Event Control</h3>
+<p>Event notification is a function that sends an event packet from the camera to the host in each specific event situation. Since the Event Packet is transmitted through a different channel from the image transmission channel, simultaneous transmission with the image packet is possible.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Event Selector</td>
+<td>Exposure End,<br>Over Trigger Start Missed<br>Over Trigger End Missed</td>
+<td>Exposure End: When an event occurs at the end of exposure<br>Turn it on.<br>Over Trigger Start Missed: A new error occurs during exposure due to a trigger.<br>An event occurs when a new trigger is input.<br>Over Trigger End Missed: Image by Trigger<br>If exposure ends due to a new trigger during readout,<br>An event occurs.</td>
+</tr>
+<tr>
+<td>Event<br>Notification</td>
+<td>Off, On</td>
+<td>Activate or deactivate notifications for events of each selector<br>It sanctifies.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="49-analog-control">4.9 Analog Control</h3>
+<p>You can change the analog and digital characteristics of the video signal. It mainly lists functions that can change the properties of image pixels.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page29_01_xref159.png" alt="&lt;Block Diagram of Analog Control&gt;" loading="lazy"><figcaption>&lt;Block Diagram of Analog Control&gt;</figcaption></figure>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Gain Selector</td>
+<td>All, DigitalAll</td>
+<td>Select the Gain to be set. Each of the two gains is independent of each other<br>With Gain, you can set different values ​​at the same time.<br>- All : Analog Gain<br>- Digital All : Digital Gain</td>
+</tr>
+<tr>
+<td>Gain Raw</td>
+<td>All : Analog Gain<br>- Global Shutter : 0 to 480<br>- Rolling Model : 0 to 270<br>DigitalAll : Digital Gain<br>(Common) 0 to 8191</td>
+<td>You can apply the desired gain as a raw value.</td>
+</tr>
+<tr>
+<td>Gain Abs</td>
+<td>All : Analog Gain<br>- Global Shutter : 1 to 251x<br>- Rolling Model : 1 to 22.39x<br>DigitalAll : Digital Gain<br>(Common) 1 to 8.99x</td>
+<td>You can apply the desired gain value as a multiplier. Brightness of original image<br>You can enter a relative magnification by specifying 1x.<br>※ Reference: dB conversion formula<br>Gain_dB = 20 * log(GainAbs)</td>
+</tr>
+<tr>
+<td>Gain Auto</td>
+<td>Off, Once, Continuous</td>
+<td>You can set the AGC (Automatic gain control) function. At this time<br>Target brightness value is defined in ‘Auto Exposure Target’.<br>Off: Set Gain manually.<br>Once: Adjust the gain value just once to the desired brightness value.<br>Change.<br>Continuous: Continuously adjust the gain value to achieve the desired brightness value.<br>Maintain.</td>
+</tr>
+<tr>
+<td>Auto Gain<br>Lower Limit</td>
+<td>Unit : dB</td>
+<td>Minimum value of variable gain range</td>
+</tr>
+<tr>
+<td>Auto Gain<br>Upper Limit</td>
+<td>Unit : dB</td>
+<td>Maximum value of variable gain range</td>
+</tr>
+<tr>
+<td>Black Level<br>Selector</td>
+<td>All, DigitalAll</td>
+<td>Select the Black Level to set. Each of the two BlackLevels is<br>As an independent Offset, different values ​​can be set at the same time.<br>- All : Analog Offset<br>- Digital All : Digital Offset</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-container"><table>
+<thead><tr>
+<th>Black Level<br>Raw</th>
+<th>All : Analog Offset<br>-Global Shutter : 0 to 255<br>-Rolling Model : 0 to 255<br>DigitalAll : Digital Offset<br>(Common) 0 to 1023</th>
+<th>Change the Analog / Digital Black Level value.<br>You can adjust the DC Offset of the image signal.</th>
+</tr></thead>
+<tbody><tr>
+<td>Noise<br>Reduction Filter</td>
+<td>False, True</td>
+<td>Activate the Noise Reduction function. Sharpness may decrease slightly<br>You can.</td>
+</tr></tbody>
+</table></div>
+<h3 id="491-gain">4.9.1 Gain</h3>
+<p>While Gain can change the sensitivity of the image without deteriorating the frame rate, image noise can also increase. The camera’s gain consists of Analog Gain and Digital Gain, respectively, and can be selected through ‘Gain Selector’.</p>
+<div class="inline-note-callout warning">
+<p class="inline-note-title warning">Note</p>
+<p>Priority for brightness changes when ‘Gain Auto’ is used simultaneously with the ‘Exposure Auto’ function</p>
+<ul class="feature-list"><li>When the brightness becomes brighter: Exposure Time increases first, and Gain increases when the limit is reached.</li></ul>
+<ul class="feature-list"><li>When brightness becomes dark: Gain decreases first, and Exposure Time decreases when the limit is reached.</li></ul>
+</div>
+<h3 id="492-black-level">4.9.2 Black Level</h3>
+<p>‘Black Level’ is a function that allows you to set the offset of the camera’s sensitivity. ‘Black Level’, like Gain, consists of Analog Black Level and Digital Black Level and can be selected through ‘Black Level Selector’.</p>
+<h3 id="493-gamma">4.9.3 Gamma</h3>
+<p>This function is used to adjust Gamma Correction. You can correct the contrast of camera images.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page30_01_xref162.png" alt="&lt;ITE ‘GrayScale ChartⅡ (y=0.45)’&gt;" loading="lazy"><figcaption>&lt;ITE ‘GrayScale ChartⅡ (y=0.45)’&gt;</figcaption></figure>
+<div class="inline-note-callout warning">
+<p class="inline-note-title warning">Note</p>
+<ul class="feature-list"><li>The Gamma Correction function cannot be used simultaneously with LUT. If you activate LUT and Gamma at the same time, the function activated first is automatically disabled.</li></ul>
+</div>
+<h3 id="494-noise-reduction-filter">4.9.4 Noise Reduction Filter</h3>
+<p>This function allows you to reduce video noise through a noise filter. When activated, it is reflected from the next frame and the sharpness of the image may be slightly reduced.</p>
+<div class="figure-pair pdf-figure-grid">
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page31_01_xref165.png" alt="Noise Reduction Filter False" loading="lazy"><figcaption>Noise Reduction Filter = False</figcaption></figure>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page31_02_xref166.png" alt="Noise Reduction Filter True" loading="lazy"><figcaption>Noise Reduction Filter = True</figcaption></figure>
+</div>
+<h3 id="410-lut-control">4.10 LUT Control</h3>
+<p>The LUT (Look Up Table) function is a function that converts digitally converted pixel values ​​into a table by matching them 1:1 with the input value and output value. Pixel values ​​are replaced with the LUT Value (Output Image) defined for each Index (Input Image) in the Table. For color models, the luminance component is loaded into the LUT memory.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>LUT Enable</td>
+<td>Disable, Enable</td>
+<td>Determines whether to activate the LUT function.</td>
+</tr>
+<tr>
+<td>LUT Index</td>
+<td>0 to 4095</td>
+<td>Adjust the Index value of the LUT. This is the input pixel value of the table.</td>
+</tr>
+<tr>
+<td>LUT Value</td>
+<td>0 to 4095</td>
+<td>Adjust the value of the corresponding LUT Index. Table's output pixel value<br>no see.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ex) When using a table with values ​​in the form of y=2x, low-light pixels can see an improvement in sensitivity, while high-light pixels become saturated, resulting in loss of dynamic range.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Index</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>…</th>
+<th>1024</th>
+<th>…</th>
+<th>2047</th>
+<th>2048</th>
+<th>…</th>
+</tr></thead>
+<tbody><tr>
+<td>Value</td>
+<td>0</td>
+<td>2</td>
+<td>4</td>
+<td>6</td>
+<td>8</td>
+<td>0xA</td>
+<td>…</td>
+<td>0X800</td>
+<td>…</td>
+<td>0xFFE</td>
+<td>0xFFF</td>
+<td>0xFFF</td>
+</tr></tbody>
+</table></div>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page32_01_xref169.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<div class="inline-note-callout warning">
+<p class="inline-note-title warning">Note</p>
+<ul class="feature-list"><li>The LUT function cannot be used simultaneously with Gamma Control. If you activate LUT and Gamma at the same time, the function activated first is automatically disabled.</li></ul>
+</div>
+<h3 id="411-defect-pixel-correction">4.11 Defect Pixel Correction</h3>
+<p>This function allows you to manage the camera’s defect pixels. At the time of shipment, corrections are made for defective pixels. However, the user can compensate by additionally defining pixels that he or she considers to be bad pixels. Up to 128 bad pixels for each camera can be stored in Flash PROM.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Defect Filter Enable</td>
+<td>False, True</td>
+<td>Select whether to correct Defect Pixel.</td>
+</tr>
+<tr>
+<td>Defect Filter Test Mode<br>Select</td>
+<td>Off, Mark White, Mark<br>Black, Mark White with<br>Black Background</td>
+<td>This is an option to display corrected defect pixels in the video.</td>
+</tr>
+<tr>
+<td>Defect Pixel<br>Replacement Count</td>
+<td>1 to 256</td>
+<td>This is the number of defective pixels to be corrected per camera.</td>
+</tr>
+<tr>
+<td>Defect Pixel Index</td>
+<td>0 to 255</td>
+<td>Index of the defect pixel to be corrected.</td>
+</tr>
+<tr>
+<td>Defect Pixel X Coordinate</td>
+<td>0 to WidthMax - 1</td>
+<td>Enter the X-axis coordinate value of the pixel to be corrected. Image Pixel<br>Coordinates start from 0.</td>
+</tr>
+<tr>
+<td>Defect Pixel Y Coordinate</td>
+<td>0 to HeightMax - 1</td>
+<td>Enter the Y-axis coordinate value of the pixel to be corrected. Image Pixel<br>Coordinates start from 0.</td>
+</tr>
+<tr>
+<td>Defect Pixel X<br>Replacement</td>
+<td>Excute</td>
+<td>The entered correction values ​​are immediately applied to the camera.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="inline-note-callout warning">
+<p class="inline-note-title warning">Note</p>
+<ul class="feature-list"><li>After correction, you must enter the ‘User Set Save’ command to save it to the camera. Ex) When 20 defect pixels are corrected at factory shipment, the user defines two additional pixels.</li></ul>
+<div class="table-container"><table>
+<thead><tr>
+<th>Defect Pixel<br>Replacement Count</th>
+<th>Defect Pixel Index</th>
+<th>X Coordinate</th>
+<th>Y Coordinate</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>…<br>…</td>
+<td>…</td>
+<td>…</td>
+<td></td>
+</tr>
+<tr>
+<td>19th<br>18</td>
+<td>…</td>
+<td>…</td>
+<td></td>
+</tr>
+<tr>
+<td>20th<br>19</td>
+<td>…</td>
+<td>…</td>
+<td></td>
+</tr>
+<tr>
+<td>21th</td>
+<td>20</td>
+<td>156</td>
+<td>1131</td>
+</tr>
+<tr>
+<td>22th</td>
+<td>21</td>
+<td>208</td>
+<td>611</td>
+</tr>
+</tbody>
+</table></div>
+<p>Factory Defined +1 User Defined 1 +1 User Defined 2</p>
+</div>
+<h3 id="412-user-set-control">4.12 User Set Control</h3>
+<p>This function is used to save or load the values ​​of parameters set by the user.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th></th>
+<th>Setting value</th>
+<th></th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>User Set Selector</td>
+<td>Default<br>Userset1<br>Userset2<br>Userset3</td>
+<td></td>
+<td>Default: Settings saved in the camera as default. user<br>Cannot save.<br>User Set1/2/3: Users can save/load arbitrarily. Power Off/On<br>The saved settings will also be maintained.</td>
+<td></td>
+</tr>
+<tr>
+<td>User Set Load</td>
+<td>Execute</td>
+<td></td>
+<td>Retrieves the settings of the selected User Setselector item.</td>
+<td></td>
+</tr>
+<tr>
+<td>User Set Save</td>
+<td>Execute</td>
+<td></td>
+<td>Saves the settings in the selected User Setselector item.</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="413-low-latency-mode">4.13 Low-Latency Mode</h3>
+<p>You can select a method to load and read image data pre-processed in the FPGA into an Image Buffer (Frame Buffer) of approximately 512MB. The initial value is ‘Low-latency Mode Enable’ is ‘True’. This is a method of transmitting images as soon as the Packet Size is entered into the Buffer. On the other hand, if ‘Low-latency Mode Enable’ is set to ‘False’, it becomes ‘Full-Block Mode’ and all image frames must be buffered before transmission.</p>
+<p>The time and timing for imaging, readout, and preprocessing are the same for both modes, but the timing for starting transmission to the host is different. In other words, there is a difference in the total time required from trigger input to host reception.</p>
+<div class="table-container"><table>
+<thead><tr>
+<th></th>
+<th>Low-Latency Mode</th>
+<th>Full-Block Mode</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Low-Latency_Mode_Enable<br>Parameter</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr>
+<td>When to start transmission</td>
+<td>When loaded as per packet size</td>
+<td>When loading all frames</td>
+</tr>
+<tr>
+<td>Transfer Delay availability</td>
+<td>Not available</td>
+<td>available</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page34_01_xref174.png" alt="&lt;Timing Diagram of ‘Low-Latency Mode’&gt;" loading="lazy"><figcaption>&lt;Timing Diagram of ‘Low-Latency Mode’&gt;</figcaption></figure>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page34_02_xref175.png" alt="&lt;Timing Diagram of ‘Full-Block Mode’&gt;" loading="lazy"><figcaption>&lt;Timing Diagram of ‘Full-Block Mode’&gt;</figcaption></figure>
+<p>If the host needs to receive video input from multiple cameras, the best way is to use a multi-port host card with a dedicated chipset attached to each port. If not, the packet transmission of each camera must be distributed so as not to exceed the maximum bandwidth of the host (receiver). For example, by applying different ‘Transfer Delays’ in ‘Full-Block Mode’, the image transmission time can be distributed. In this case, the host receives images sequentially.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page35_01_xref178.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<div class="inline-note-callout warning">
+<p class="inline-note-title warning">Note</p>
+<p>1) The ‘Low-latency Mode Enable’ parameter is applied immediately when changed. However, it must be changed while Acquisition is stopped.</p>
+<p>2) The ‘Transfer Delay’ function can only be set when ‘Low-latency Mode Enable’ is ‘False’.</p>
+<p>3) If the host PC consumes a lot of CPU resources due to image processing, etc., camera transmission may also be affected.</p>
+</div>
+<h3 id="414-polarization">4.14 Polarization</h3>
+<p>Crevis GigE polarization camera provides polarization function through Crevis SDK (MCam40).</p>
+<p>You can select Output Format in the Polarization tab within the CamGuide program.</p>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page36_01_xref181.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<div class="table-container"><table>
+<thead><tr>
+<th>Item</th>
+<th>Setting Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Output Format Selector</td>
+<td>Intensity(S0)<br>AoP<br>DoLP<br>Degree</td>
+<td>AoP: Outputs the average value of the angle of light incident on the pixel.<br>&gt; Brighter image from 0˚ to 180˚<br>&gt; Image becomes darker as it goes from 180˚ to 360˚<br>DolP: How well the polarized light incident on the pixel is polarized without diffuse reflection.<br>The degree of polarization is output as a brightness value.<br>&gt; The better the polarization, the higher the brightness value.<br>Insensity: Outputs the brightness value of incident light<br>Degree: Simultaneous output of images at each angle of 0˚, 45˚, 90˚, 135˚</td>
+</tr></tbody>
+</table></div>
+<p>1) AoP: Outputs the average value of the angle of light incident on the sensor, and the DN value changes depending on the angle of the imaged object.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page36_02_xref182.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page36_03_xref183.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<p>2) DolP: Outputs the degree of polarization of the light incident on the sensor as a brightness value. The more polarized the light, the more saturated the output image.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page37_02_xref187.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page37_01_xref186.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<p>* Before using polarizing film * After using polarizing film</p>
+<p>3) Intensity (S0): Outputs the intensity of light incident on the sensor, which is the same expression method used by existing black and white cameras.</p>
+<p>4) Degree: Images for each angle of 0˚, 45˚, 90˚, 135˚ are output simultaneously.</p>
+<p>When outputting video using the Degree method, you can acquire and stop the image with Degree Start/Stop.</p>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page37_03_xref188.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+</section><section id="appearance">
+<h2>5. Camera Appearance</h2>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page38_01_xref191.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+</section><section id="appendix-a">
+<h2># APPENDIX.A (Parameter List)</h2>
+<h3 id="camera-parameter-list">Camera Parameter List</h3>
+<div class="table-container"><table class="parameter-table">
+<thead><tr>
+<th>Category</th>
+<th>Feature Name</th>
+<th>Type</th>
+<th>Access Mode</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Device<br>Control</td>
+<td>DeviceScanType</td>
+<td>Enumeration</td>
+<td>RO</td>
+<td>Scan type of the sensor.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceVendorName</td>
+<td>StringReg</td>
+<td>RO</td>
+<td>Name of the manufacturer of the device.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceModelName</td>
+<td>StringReg</td>
+<td>RO</td>
+<td>Model of the device.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceManufacturerInfo</td>
+<td>StringReg</td>
+<td>RO</td>
+<td>Manufacturer information about the device.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceVersion</td>
+<td>StringReg</td>
+<td>RO</td>
+<td>Version of the device.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceID</td>
+<td>StringReg</td>
+<td>RO</td>
+<td>User-programmable device identifier.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceUserID</td>
+<td>StringReg</td>
+<td>RW</td>
+<td>User-programmable device identifier.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceLinkThroughputLimit</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Limits the maximum bandwidth of the data that will be streamed out<br>By the device on the selected Link.(Unit : Byte per second)</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceFirmwareVersion</td>
+<td>StringReg</td>
+<td>RO</td>
+<td>Device Firmware Version</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceTemperatureSelector</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects the location within the device, where the temperature<br>Will be measured.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceTemperature</td>
+<td>Float</td>
+<td>RO</td>
+<td>Device temperature in degrees Celsius (C).</td>
+</tr>
+<tr>
+<td></td>
+<td>TemperatureUpdateFeature</td>
+<td>Command</td>
+<td>WO</td>
+<td>Device Temperature Update Feature.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VDeviceCapability</td>
+<td>Integer</td>
+<td>RO</td>
+<td>Describes Device Capability.</td>
+</tr>
+<tr>
+<td></td>
+<td>UserNameAvailable</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set if User Defined Name available.</td>
+</tr>
+<tr>
+<td></td>
+<td>AccessPrivilegeAvailable</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set if Heartbeat/Access Privilege is available.</td>
+</tr>
+<tr>
+<td></td>
+<td>MessageChannelSupported</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set if the device supports a Message Channel.</td>
+</tr>
+<tr>
+<td></td>
+<td>TimestampSupported</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set if the device supports a timestamp register.</td>
+</tr>
+<tr>
+<td></td>
+<td>StringEncoding</td>
+<td>Integer</td>
+<td>RO</td>
+<td>String Encoding of the BRM.</td>
+</tr>
+<tr>
+<td></td>
+<td>FamilyRegisterAvailable</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set if the device supports the Family Name register.</td>
+</tr>
+<tr>
+<td></td>
+<td>SBRMSupported</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set if the device supports a SBRM.</td>
+</tr>
+<tr>
+<td></td>
+<td>EndianessRegistersSupporte<br>d</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set if the device supports the Protocol Endianess and Implementation<br>Endianess registers.</td>
+</tr>
+<tr>
+<td></td>
+<td>WrittenLengthFieldSupporte<br>d</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set to 1 if the device sends the length_written field in the SCD section of<br>the WriteMemAck command.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceStatusInfo</td>
+<td>Integer</td>
+<td>RO</td>
+<td>Describes Device Status Information.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceReset</td>
+<td>Command</td>
+<td>WO</td>
+<td>Resets the device to its power up state.</td>
+</tr>
+<tr>
+<td></td>
+<td>DeviceSleepMode</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Controls Sleep Activation. When 'Soft Sleep' activated, the sensors are<br>reset. 'Deep sleep' resets both sensors and the FPGA. When returning to<br>Normal Mode('Disable'), It take several seconds.</td>
+</tr>
+<tr>
+<td>ImageFormat<br>Control</td>
+<td>SensorWidth</td>
+<td>IntReg</td>
+<td>RO</td>
+<td>Effective width of the sensor in pixels.</td>
+</tr>
+<tr>
+<td></td>
+<td>SensorHeight</td>
+<td>IntReg</td>
+<td>RO</td>
+<td>Effective height of the sensor in pixels.</td>
+</tr>
+<tr>
+<td></td>
+<td>WidthMax</td>
+<td>IntReg</td>
+<td>RO</td>
+<td>Maximum width (in pixels) of the image. The dimension is calculated<br>after horizontal binning, decimation or any other function changing The<br>horizontal dimension of the image.</td>
+</tr>
+<tr>
+<td></td>
+<td>HeightMax</td>
+<td>IntReg</td>
+<td>RO</td>
+<td>Maximum height (in pixels) of the image. This dimension is calculated<br>after vertical binning, decimation or any other function changing The<br>vertical dimension of the image.</td>
+</tr>
+<tr>
+<td></td>
+<td>Width</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Width of the Image provided by the device (in pixels).</td>
+</tr>
+<tr>
+<td></td>
+<td>Height</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Height of the image provided by the device(in pixels).</td>
+</tr>
+<tr>
+<td></td>
+<td>OffsetX</td>
+<td>Integer</td>
+<td>RW</td>
+<td>This value sets the X offset (left offset) for the area of interest in pixels.</td>
+</tr>
+<tr>
+<td></td>
+<td>OffsetY</td>
+<td>Integer</td>
+<td>RW</td>
+<td>This value sets the Y offset (top offset) for the area of interest in pixels.</td>
+</tr>
+<tr>
+<td></td>
+<td>SensorShutterMode</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Sets the shutter mode of the device.</td>
+</tr>
+<tr>
+<td></td>
+<td>AdcBitDepth</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects which Analog to Digital Converter(ADC) output bits from the<br>image sensor.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-container"><table class="parameter-table">
+<thead><tr>
+<th>Category</th>
+<th>Feature Name</th>
+<th>Type</th>
+<th>Access Mode</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td></td>
+<td>PixelFormat</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Format of the pixel provided by the device. It represents all the<br>information provided by PixelCoding, PixelSize, PixelColorFilter Combined<br>in a single feature.</td>
+</tr>
+<tr>
+<td></td>
+<td>TestPattern</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects the type of test pattern that is generated by the device as Image<br>source.</td>
+</tr>
+<tr>
+<td>Acquisition<br>Control</td>
+<td>AcquisitionMode</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Sets the acquisition mode of the device. It defines mainly the number of<br>Frames to capture<br>during an acquisition and the way the acquisition stops.</td>
+</tr>
+<tr>
+<td></td>
+<td>AcquisitionStart</td>
+<td>Command</td>
+<td>RW</td>
+<td>Starts the Acquisition of the device. The number of frames captured is<br>specified<br>by AcquisitionMode.</td>
+</tr>
+<tr>
+<td></td>
+<td>AcquisitionStop</td>
+<td>Command</td>
+<td>RW</td>
+<td>Stops the Acquisition of the device at the end of the current Frame. It is<br>mainly used<br>when AcquisitionMode is Continuous but can be used in any acquisition<br>mode.</td>
+</tr>
+<tr>
+<td></td>
+<td>AcquisitionFrameCount</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Number of frames to acquire in MultiFrame Acquisition mode.</td>
+</tr>
+<tr>
+<td></td>
+<td>TriggerSelector</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects the type of trigger to configure.</td>
+</tr>
+<tr>
+<td></td>
+<td>TriggerMode</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Controls if the selected trigger is active.</td>
+</tr>
+<tr>
+<td></td>
+<td>TriggerSoftware</td>
+<td>Command</td>
+<td>RW</td>
+<td>Generates an internal trigger. TriggerSource must be set to Software.</td>
+</tr>
+<tr>
+<td></td>
+<td>TriggerSource</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Specifies the internal signal or physical input Line to use as the trigger<br>Source. The selected trigger must have its TriggerMode set to On.</td>
+</tr>
+<tr>
+<td></td>
+<td>TriggerActivation</td>
+<td>Enumeration</td>
+<td>RO</td>
+<td>Specifies the activation mode of the trigger.</td>
+</tr>
+<tr>
+<td></td>
+<td>TriggerOverlap</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Specifies the type trigger overlap permitted with the previous frame.<br>This defines when a valid trigger will be accepted (or latched) for a<br>new frame.</td>
+</tr>
+<tr>
+<td></td>
+<td>TriggerDelay</td>
+<td>Float</td>
+<td>RW</td>
+<td>Specifies the delay in microseconds (us) to apply after the trigger<br>reception before activating it.</td>
+</tr>
+<tr>
+<td></td>
+<td>TransferDelay</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Specifies the delay to apply after the image readout from sensor before<br>transfer. This can be used as a crude flow-control mechanism if the<br>application or the network infrastructure cannot keep up with the<br>packets coming from the device.</td>
+</tr>
+<tr>
+<td></td>
+<td>ExposureMode</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Sets the operation mode of the Exposure (or shutter).</td>
+</tr>
+<tr>
+<td></td>
+<td>ExposureTime</td>
+<td>Float</td>
+<td>RW</td>
+<td>Sets the Exposure time (in microseconds) when ExposureMode is Timed<br>and ExposureAuto is Off. This controls the duration where the<br>Photosensitive cells are exposed to light.</td>
+</tr>
+<tr>
+<td></td>
+<td>ExposureAuto</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Sets the automatic exposure mode when ExposureMode is Timed. The<br>exact algorithm used to implement this control is device-specific.</td>
+</tr>
+<tr>
+<td></td>
+<td>AutoExposureTarget</td>
+<td>Integer</td>
+<td>RW</td>
+<td>When the auto exposure is "once" or "continuous", the the exposure<br>Time will be changed, depending on the target value.</td>
+</tr>
+<tr>
+<td></td>
+<td>AutoExposureTimeLowerLim<br>it</td>
+<td>Float</td>
+<td>RW</td>
+<td>The minimum exposure time abs of Auto Exposure. Not available in<br>Digital gain mode. (Unit : us)</td>
+</tr>
+<tr>
+<td></td>
+<td>AutoExposureTimeUpperLim<br>it</td>
+<td>Float</td>
+<td>RW</td>
+<td>The maximum exposure time abs of Auto Exposure. Not available in<br>Digital gain mode.(Unit : us)</td>
+</tr>
+<tr>
+<td></td>
+<td>AutoGainLowerLimit</td>
+<td>Float</td>
+<td>RW</td>
+<td>The minimum gain of Auto Gain Ratio.</td>
+</tr>
+<tr>
+<td></td>
+<td>AutoGainUpperLimit</td>
+<td>Float</td>
+<td>RW</td>
+<td>The maximum gain of Auto Gain Ratio.</td>
+</tr>
+<tr>
+<td></td>
+<td>AcquisitionFrameRateEnable</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Controls the acquisition rate (in Hertz) at which the frames are<br>captured.</td>
+</tr>
+<tr>
+<td></td>
+<td>AcquisitionFrameRate</td>
+<td>Float</td>
+<td>RW</td>
+<td>Controls the acquisition rate (in Hertz) at which the frames are<br>captured.</td>
+</tr>
+<tr>
+<td></td>
+<td>ResultingFrameRate</td>
+<td>Float</td>
+<td>RO</td>
+<td>Resulting frame rate (in Hertz) that maximum allowed frame acquisition.</td>
+</tr>
+<tr>
+<td>DigitalIO<br>Control</td>
+<td>LineSelector</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects the physical line (or pin) of the external device connector to<br>Configure.</td>
+</tr>
+<tr>
+<td></td>
+<td>LineDebouncerTime</td>
+<td>Float</td>
+<td>RW</td>
+<td>Line Debouncer Time. Unit : us</td>
+</tr>
+<tr>
+<td></td>
+<td>LineMode</td>
+<td>Enumeration</td>
+<td>RO</td>
+<td>Controls if the physical Line is used to Input or Output a signal.</td>
+</tr>
+<tr>
+<td></td>
+<td>LineInverter</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Controls the invertion of the signal of the selected input or output Line.</td>
+</tr>
+<tr>
+<td></td>
+<td>LineStatus</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Returns the current status of the selected input or output Line.</td>
+</tr>
+<tr>
+<td></td>
+<td>LineStatusUpdateFeature</td>
+<td>Command</td>
+<td>WO</td>
+<td>Line Status Update Feature.</td>
+</tr>
+<tr>
+<td></td>
+<td>LineSource</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects which internal acquisition or I/O source signal to output on the<br>Selected Line. LineMode must be Output.</td>
+</tr>
+<tr>
+<td></td>
+<td>UserOutputSelector</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects which bit of the User Output register will be set by<br>serOutputValue.</td>
+</tr>
+<tr>
+<td></td>
+<td>UserOutputValue</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Sets the value of the bit selected by UserOutputSelector.</td>
+</tr>
+<tr>
+<td>CounterandTimer<br>Control</td>
+<td>CounterValueReset</td>
+<td>Command</td>
+<td>RW</td>
+<td>Counters are reset immediately.</td>
+</tr>
+<tr>
+<td></td>
+<td>CounterEventSource</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Select the events that will be the source to increment the Counter.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-container"><table class="parameter-table">
+<thead><tr>
+<th>Category</th>
+<th>Feature Name</th>
+<th>Type</th>
+<th>Access Mode</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td></td>
+<td>CounterValue</td>
+<td>Integer</td>
+<td>RO</td>
+<td>Reads the current value of the selected Counter. All Counters are reset<br>when forced Counter Value Reset Command.</td>
+</tr>
+<tr>
+<td></td>
+<td>CounterUpdateFeature</td>
+<td>Command</td>
+<td>WO</td>
+<td>Counter Update Feature.</td>
+</tr>
+<tr>
+<td></td>
+<td>TimerSelector</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>mer to configure.</td>
+</tr>
+<tr>
+<td></td>
+<td>TimerDuration</td>
+<td>Float</td>
+<td>RW</td>
+<td>Sets the duration (in microseconds) of the Timer pulse.</td>
+</tr>
+<tr>
+<td></td>
+<td>TimerDelay</td>
+<td>Float</td>
+<td>RW</td>
+<td>Sets the duration of the delay to apply at the reception of a trigger<br>before to start the Timer.</td>
+</tr>
+<tr>
+<td></td>
+<td>TimerTriggerSource</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects the he trigger to start the Timer.</td>
+</tr>
+<tr>
+<td>Event<br>Control</td>
+<td>EventSelector</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects which Event to signal to the host application.</td>
+</tr>
+<tr>
+<td></td>
+<td>EventNotification</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Activate or deactivate the notification to the host application of the<br>occurrence<br>of the selected Event.</td>
+</tr>
+<tr>
+<td>Analog<br>Control</td>
+<td>GainSelector</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects which Gain is controlled by the various Gain features. Do not use<br>both gain<br>at the same time.</td>
+</tr>
+<tr>
+<td></td>
+<td>GainRaw</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Controls the selected gain as an absolute physical value of Sensor. This<br>is an amplification<br>factor applied to the video signal.</td>
+</tr>
+<tr>
+<td></td>
+<td>GainAbs</td>
+<td>Float</td>
+<td>RW</td>
+<td>Controls ratio of the selected gain of Sensor.</td>
+</tr>
+<tr>
+<td></td>
+<td>GainAuto</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Sets the automatic gain control (AGC) mode. The exact algorithm used<br>to implement<br>AGC is device-specific.</td>
+</tr>
+<tr>
+<td></td>
+<td>BlackLevelSelector</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects which Black Level is controlled by the various Black Level<br>features.</td>
+</tr>
+<tr>
+<td></td>
+<td>BlackLevelRaw</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Controls the analog black level as an absolute physical value of Sensor.<br>This represents a DC offset applied to the video signal.</td>
+</tr>
+<tr>
+<td></td>
+<td>BalanceRatioSelector</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects which Balance ratio to control.</td>
+</tr>
+<tr>
+<td></td>
+<td>BalanceRatio</td>
+<td>Float</td>
+<td>RW</td>
+<td>Controls ratio of the selected color component to a reference color<br>Component. It is used for white balancing.</td>
+</tr>
+<tr>
+<td></td>
+<td>BalanceWhiteAuto</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Controls the mode for automatic white balancing between the color<br>Channels. The white balancing ratios are automatically adjusted.</td>
+</tr>
+<tr>
+<td></td>
+<td>BalanceUpdateFeature</td>
+<td>Command</td>
+<td>-</td>
+<td>BalanceRatio and BalanceWhiteAuto Update Feature.</td>
+</tr>
+<tr>
+<td></td>
+<td>GammaEnable</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Activates the Gamma Correction. Gamma correction cannot be used<br>simultaneously with the LUT.</td>
+</tr>
+<tr>
+<td></td>
+<td>Gamma</td>
+<td>Float</td>
+<td>RW</td>
+<td>Controls the gamma correction of pixel intensity.</td>
+</tr>
+<tr>
+<td></td>
+<td>PatternNoiseRemoval</td>
+<td>Command</td>
+<td>RW</td>
+<td>Pattern Noise Removal Auto. Limited to some products only.</td>
+</tr>
+<tr>
+<td></td>
+<td>NoiseReductionEnable</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Noise Reduction Filter.</td>
+</tr>
+<tr>
+<td>LUT<br>Control</td>
+<td>LUTEnable</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Activates the selected LUT. LUT can not be used simultaneously with the<br>Gamma correction.</td>
+</tr>
+<tr>
+<td></td>
+<td>LUTIndex</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Control the index (offset) of the coefficient to access in the selected<br>LUT.</td>
+</tr>
+<tr>
+<td></td>
+<td>LUTValue</td>
+<td>IntReg</td>
+<td>RW</td>
+<td>Returns the Value at entry LUTIndex of the LUT selected by LUTSelector</td>
+</tr>
+<tr>
+<td></td>
+<td>LUTValueAll</td>
+<td>Register</td>
+<td>RW</td>
+<td>Accesses the entire content of the selected LUT in one chunk access</td>
+</tr>
+<tr>
+<td>DefectPixel<br>Correction</td>
+<td>DefectFilterEnable</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Enables or Disables the Defect Pixel Filter.</td>
+</tr>
+<tr>
+<td></td>
+<td>DefectFilterTestMode</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Defect Filter Test Mode Select.</td>
+</tr>
+<tr>
+<td></td>
+<td>DefectPixelReplaceCount</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defect Pixel Replace Count.</td>
+</tr>
+<tr>
+<td></td>
+<td>DefectPixelIndex</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defect Pixel Index.</td>
+</tr>
+<tr>
+<td></td>
+<td>DefectXCoordinate</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defect Pixel X Coordinate.</td>
+</tr>
+<tr>
+<td></td>
+<td>DefectYCoordinate</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defect Pixel Y Coordinate.</td>
+</tr>
+<tr>
+<td></td>
+<td>DefectPixelReplaceExecute</td>
+<td>Command</td>
+<td>RW</td>
+<td>Defect Pixel Replace Execute.</td>
+</tr>
+<tr>
+<td>FlatField<br>Correction</td>
+<td>FFCEnable</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Activate or Deactivate Flat Field Correction Function.</td>
+</tr>
+<tr>
+<td></td>
+<td>BlackCalibration</td>
+<td>Command</td>
+<td>WO</td>
+<td>Black Calibration.</td>
+</tr>
+<tr>
+<td></td>
+<td>WhiteCalibration</td>
+<td>Command</td>
+<td>WO</td>
+<td>White Calibration.</td>
+</tr>
+<tr>
+<td></td>
+<td>FFCSaveLoadFlashSelect</td>
+<td>Integer</td>
+<td>RW</td>
+<td>FFC Save Load Flash Select.</td>
+</tr>
+<tr>
+<td></td>
+<td>FFCSave</td>
+<td>Command</td>
+<td>RW</td>
+<td>FFC Save.</td>
+</tr>
+<tr>
+<td></td>
+<td>FFCLoad</td>
+<td>Command</td>
+<td>RW</td>
+<td>FFC Load.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-container"><table class="parameter-table">
+<thead><tr>
+<th>Category</th>
+<th>Feature Name</th>
+<th>Type</th>
+<th>Access Mode</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>TransportLayer<br>Control</td>
+<td>FIDonPixelMode</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Some Pixels are replaced with Frame ID(FID). The FID value starts from<br>the coordinates of Pixel(0,0) and the counter begins from 0. Limited to<br>some products only.</td>
+</tr>
+<tr>
+<td></td>
+<td>LowLatencyEnable</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Minimize image transfer latency for fastest mode.</td>
+</tr>
+<tr>
+<td></td>
+<td>SITransferSize</td>
+<td>Integer</td>
+<td>RW</td>
+<td>This Parameter contains the size of regular payload bulk<br>transfers.("equally sized transfers")</td>
+</tr>
+<tr>
+<td></td>
+<td>PayloadSize</td>
+<td>Integer</td>
+<td>RO</td>
+<td>Provides the number of bytes transferred for each image or chunk on<br>the stream channel. This<br>includes any end-of-line, end-of-frame statistics or other stamp data.<br>This is the total size of data payload for a data block.</td>
+</tr>
+<tr>
+<td></td>
+<td>PayloadTransferSize</td>
+<td>Integer</td>
+<td>RO</td>
+<td>This Parameter contains the size of regular payload bulk transfers.</td>
+</tr>
+<tr>
+<td></td>
+<td>PayloadTransferCount</td>
+<td>Integer</td>
+<td>RO</td>
+<td>This Parameter constains the number of regular payload data bulk<br>transfers.</td>
+</tr>
+<tr>
+<td></td>
+<td>PayloadFinalTransfer1Size</td>
+<td>Integer</td>
+<td>RO</td>
+<td>This Parameter constains the size of the Final Transfer 1 payload bulk<br>transfer.</td>
+</tr>
+<tr>
+<td></td>
+<td>PayloadFinalTransfer2Size</td>
+<td>Integer</td>
+<td>RO</td>
+<td>This Parameter constains the size of the Final Transfer 2 payload bulk<br>transfer.</td>
+</tr>
+<tr>
+<td></td>
+<td>GenCPVersionMajor</td>
+<td>Integer</td>
+<td>RO</td>
+<td>Major version of the specification.</td>
+</tr>
+<tr>
+<td></td>
+<td>GenCPVersionMinor</td>
+<td>Integer</td>
+<td>RO</td>
+<td>Minor version of the specification.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VMaxDeviceResponseTim<br>e</td>
+<td>Integer</td>
+<td>RO</td>
+<td>Max Resonse Time in ms.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VMessageChannelID</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Channel ID Used For The Message Channel.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VVersionMajor</td>
+<td>Integer</td>
+<td>RO</td>
+<td>U3V Version.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VVersionMinor</td>
+<td>Integer</td>
+<td>RO</td>
+<td>U3V Version.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VCPCapability</td>
+<td>Integer</td>
+<td>RO</td>
+<td>Indicates additional features on the control channel.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VCPSIRMAvailable</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set if the device supports at least one device streaming interface.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VCPEIRMAvailable</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set if the device supports at least one device event interface.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VCPIIDC2Available</td>
+<td>Boolean</td>
+<td>RO</td>
+<td>Set if the device supports IIDC2 register map.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VMaxCommandTransferL<br>ength</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Specifies the max suuported command transfer length of the device.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VMaxAcknowledgeTransf<br>erLength</td>
+<td>Integer</td>
+<td>RO</td>
+<td>Specifies the max suuported ack transfer length of the device.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VNumberOfStreamChann<br>els</td>
+<td>Integer</td>
+<td>RO</td>
+<td>Number of Stream Channels and its Corresponding Streaming Interface<br>Register Maps.</td>
+</tr>
+<tr>
+<td></td>
+<td>U3VCurrentSpeed</td>
+<td>Enumeration</td>
+<td>RO</td>
+<td>Specifies the current speed of the USB link.</td>
+</tr>
+<tr>
+<td>UserSet<br>Control</td>
+<td>UserSetSelector</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Selects the feature User Set to load, save or configure.</td>
+</tr>
+<tr>
+<td></td>
+<td>UserSetLoad</td>
+<td>Command</td>
+<td>RW</td>
+<td>Loads the User Set specified by UserSetSelector to the device and<br>makes it active.</td>
+</tr>
+<tr>
+<td></td>
+<td>UserSetSave</td>
+<td>Command</td>
+<td>RW</td>
+<td>Save the User Set specified by UserSetSelector to the non-volatile<br>memory of the device.</td>
+</tr>
+</tbody>
+</table></div>
+<p>UserSetSave Command RW Save the User Set specified by UserSetSelector to the non-volatile memory of the device.</p>
+</section><section id="appendix-b">
+<h2># APPENDIX.B (SDK Installation)</h2>
+<h3 id="1-sdk-설치">1. Install SDK</h3>
+<ul class="feature-list"><li>Download link: http://www.crevis.co.kr/kor/support/download/MCam40_SDK.zip</li></ul>
+<ul class="feature-list"><li>Install the installer program appropriate for your operating system MCam40_SDK_V4.6.0(x64).exe: Installer for Windows 64-bit MCam40_SDK_V4.6.0(x86).exe: Installer for Windows 32-bit * The version may be updated in the future.</li></ul>
+<h3 id="2-카메라-통신-연결-방법">2. How to connect camera communication</h3>
+<h3 id="21-camguide-실행">2.1 Run CamGuide</h3>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page43_01_xref206.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<ul class="feature-list"><li>Select Device View Tab. If there is no camera in the GIGE:Interface_GigEVision list, click to recheck.</li></ul>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page43_03_xref211.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<h3 id="22-select-and-connect-camera-설정하고자-하는-카메라를-더블-클릭합니다">2.2 Select and Connect Camera: Double-click the camera you want to set up.</h3>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page43_02_xref210.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<h3 id="23-카메라-설정">2.3 Camera Settings</h3>
+<figure class="figure-card pdf-figure"><img src="images/pdf-extracted/page44_01_xref214.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<ul class="feature-list"><li>Select Feature Properties Tab.</li></ul>
+<figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/page44_02_xref215.png" alt="GigE Polarization manual figure" loading="lazy"></figure>
+<p>* For detailed explanation, refer to CamGuide manual.</p>
+</section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <article class="contact-card">
+                    <h3>Product Inquiry (Sales)</h3>
+                    <p>Tel : +82-31-899-4503<br>+82-31-899-4504<br>+82-31-899-4507</p>
+                    <p>Fax : +82-31-899-4509</p>
+                    <p>sh_lee@crevis.co.kr<br>dkahn@crevis.co.kr<br>mysung@crevis.co.kr</p>
+                </article>
+                <article class="contact-card">
+                    <h3>Technical Support</h3>
+                    <p>Tel : +82-31-899-4567</p>
+                    <p>tjmoon@crevis.co.kr</p>
+                    <p>29-4, Gigok-ro, Giheung-gu, Yongin-si, Gyeonggi-do, Korea<br>
+                    <a href="https://www.crevis.co.kr" target="_blank" rel="noopener">www.crevis.co.kr</a></p>
+                </article>
+            </div>
+        </section>
+    <section id="revision-history">
+<h2>Revision History</h2>
+<div class="table-container"><table>
+<thead><tr>
+<th>Revision</th>
+<th>Date</th>
+<th>Changes</th>
+<th>Remark</th>
+</tr></thead>
+<tbody><tr>
+<td>0.1</td>
+<td>2020.5</td>
+<td>Draft Version Issued</td>
+<td></td>
+</tr></tbody>
+</table></div>
+</section>
+
+        <footer>
+            © 2026 Crevis Technology Co., Ltd. All rights reserved.<br>
+            This HTML manual follows the existing SCG/SCU manual layout and uses text, tables, and figures extracted from the provided PDF.
+        </footer>
+    </div>
+    
+    <script>
+        function setupManualSearch() {
+            const input = document.querySelector('[data-manual-search]');
+            const content = document.querySelector('.content');
+            if (!input || !content) return;
+            let matches = [];
+            let currentIndex = -1;
+            const clearHighlights = () => {
+                content.querySelectorAll('mark.manual-search-highlight').forEach((mark) => {
+                    mark.replaceWith(document.createTextNode(mark.textContent || ''));
+                });
+                content.normalize();
+                matches = [];
+                currentIndex = -1;
+            };
+            const highlightTextNode = (node, query) => {
+                const text = node.nodeValue || '';
+                const lowerText = text.toLowerCase();
+                const lowerQuery = query.toLowerCase();
+                let start = 0;
+                let index = lowerText.indexOf(lowerQuery, start);
+                if (index === -1) return;
+                const fragment = document.createDocumentFragment();
+                while (index !== -1) {
+                    fragment.append(document.createTextNode(text.slice(start, index)));
+                    const mark = document.createElement('mark');
+                    mark.className = 'manual-search-highlight';
+                    mark.textContent = text.slice(index, index + query.length);
+                    fragment.append(mark);
+                    matches.push(mark);
+                    start = index + query.length;
+                    index = lowerText.indexOf(lowerQuery, start);
+                }
+                fragment.append(document.createTextNode(text.slice(start)));
+                node.replaceWith(fragment);
+            };
+            const goToMatch = (index) => {
+                if (!matches.length) return;
+                currentIndex = (index + matches.length) % matches.length;
+                matches.forEach((match) => match.classList.remove('is-current'));
+                const current = matches[currentIndex];
+                current.classList.add('is-current');
+                current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            };
+            const runSearch = () => {
+                const query = input.value.trim();
+                clearHighlights();
+                if (!query) return;
+                const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+                    acceptNode(node) {
+                        const parent = node.parentElement;
+                        if (!parent || parent.closest('script, style, mark')) return NodeFilter.FILTER_REJECT;
+                        return node.nodeValue?.toLowerCase().includes(query.toLowerCase())
+                            ? NodeFilter.FILTER_ACCEPT
+                            : NodeFilter.FILTER_REJECT;
+                    }
+                });
+                const nodes = [];
+                while (walker.nextNode()) nodes.push(walker.currentNode);
+                nodes.forEach((node) => highlightTextNode(node, query));
+                goToMatch(0);
+            };
+            input.addEventListener('input', runSearch);
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    input.value = '';
+                    clearHighlights();
+                    return;
+                }
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    goToMatch(currentIndex + (event.shiftKey ? -1 : 1));
+                }
+            });
+            window.addEventListener('keydown', (event) => {
+                const target = event.target;
+                const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
+                if (isTyping || event.ctrlKey || event.metaKey || event.altKey || event.key.toLowerCase() !== 'k') return;
+                event.preventDefault();
+                input.focus();
+            });
+        }
+        setupManualSearch();
+    </script>
+    
+</body>
+</html>
