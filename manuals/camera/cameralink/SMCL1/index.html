@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMCL1 Sony CMOS CameraLink Manual | Crevis</title>
+<link rel="stylesheet" href="../../../../css/product_manual/style.css">
+<link rel="stylesheet" href="style-local.css">
+</head>
+<body>
+<div class="manual-top-banner">
+  <a class="manual-banner-title" href="../../../../index.html">CREVIS Camera Manual</a>
+  <div class="manual-banner-tools">
+    <div class="language-switch" aria-label="Manual language selector"><a class="active" href="index.html">KOR</a></div>
+    <div class="manual-search" role="search"><input type="search" data-manual-search placeholder="Search" aria-label="Search manual"><kbd>K</kbd></div>
+  </div>
+</div>
+
+<nav class="sidebar">
+  <div class="eyebrow">CameraLink User Manual</div>
+  <h2>SMCL1 Series</h2>
+  <a class="back-link" href="../../../../index.html"><span>← Manual Center</span></a>
+  <div class="rev">Version 1.3<br>Release Date: 2020. 09. 22</div>
+  <ul class="toc">
+    <li><a href="#preparation"><span>1. 준비하기</span></a></li>
+    <li class="toc-sub"><a href="#required-items"><span>1.1 필수 준비 요소</span></a></li>
+    <li class="toc-sub"><a href="#sdk"><span>1.2 SDK</span></a></li>
+    <li class="toc-sub"><a href="#precautions"><span>1.3 주의사항</span></a></li>
+    <li><a href="#specifications"><span>2. 제품 사양</span></a></li>
+    <li class="toc-sub"><a href="#overview"><span>2.1 제품 개요</span></a></li>
+    <li class="toc-sub"><a href="#main-spec"><span>2.2 주요 사양</span></a></li>
+    <li><a href="#interface"><span>3. 카메라 인터페이스</span></a></li>
+    <li class="toc-sub"><a href="#back-panel"><span>3.1 Back Panel</span></a></li>
+    <li class="toc-sub"><a href="#external-io-pin"><span>3.2 DC IN / External I/O</span></a></li>
+    <li class="toc-sub"><a href="#cl-connector"><span>3.3 CameraLink Connector</span></a></li>
+    <li class="toc-sub"><a href="#led-status"><span>3.4 LED Status</span></a></li>
+    <li class="toc-sub"><a href="#io-circuit"><span>3.5 External I/O 내부 회로</span></a></li>
+    <li class="toc-sub"><a href="#cl-timing"><span>3.6 CameraLink Timing</span></a></li>
+    <li><a href="#functions"><span>4. 카메라 기능</span></a></li>
+    <li class="toc-sub"><a href="#image-format-control"><span>4.1 Image Format Control</span></a></li>
+    <li class="toc-sub"><a href="#acquisition-control"><span>4.2 Acquisition Control</span></a></li>
+    <li class="toc-sub"><a href="#digital-io-control"><span>4.3 Digital I/O Control</span></a></li>
+    <li class="toc-sub"><a href="#counter-timer-control"><span>4.4 Counter and Timer</span></a></li>
+    <li class="toc-sub"><a href="#analog-control"><span>4.5 Analog Control</span></a></li>
+    <li class="toc-sub"><a href="#lut-control"><span>4.6 LUT Control</span></a></li>
+    <li class="toc-sub"><a href="#defect-pixel"><span>4.7 Defect Pixel Correction</span></a></li>
+    <li class="toc-sub"><a href="#ffc"><span>4.8 Flat Field Correction</span></a></li>
+    <li class="toc-sub"><a href="#user-set"><span>4.9 User Set Control</span></a></li>
+    <li><a href="#appearance"><span>5. 카메라 외관</span></a></li>
+    <li><a href="#uart"><span>6. UART 통신</span></a></li>
+    <li class="toc-sub"><a href="#communication-setting"><span>6.1 Communication Setting</span></a></li>
+    <li class="toc-sub"><a href="#communication-format"><span>6.2 Communication Format</span></a></li>
+    <li class="toc-sub"><a href="#register-area"><span>6.3 Register Area</span></a></li>
+    <li class="toc-sub"><a href="#register-list"><span>6.4 Register List</span></a></li>
+    <li><a href="#appendix-a"><span>Appendix A. UART Command List</span></a></li>
+    <li><a href="#appendix-b"><span>Appendix B. Camera Operation</span></a></li>
+    <li><a href="#revision-history"><span>Revision History</span></a></li>
+    <li><a href="#contact"><span>Contact</span></a></li>
+  </ul>
+</nav>
+
+<div class="content">
+<header class="header-box">
+  <div class="header-text">
+    <p class="category-label">Sony CMOS Sensor Camera Manual</p>
+    <div class="title-row"><h1 class="model-title">CameraLink Camera User Manual</h1></div>
+    <p class="model-subtitle">SMCL1 Series · Mini CameraLink / PoCL</p>
+    <div class="series-models" aria-label="Supported models">
+      <span>MC-A040M(K)-523</span><span>MC-A160M(K)-154</span><span>MC-A320M(K)-55</span>
+      <span>MC-A500M(K)-35</span><span>MC-A500M-LF</span><span>MC-A121M(K)-20</span><span>MC-A121R(L)-20</span>
+    </div>
+  </div>
+  <div class="header-visual-group">
+    <img src="images/pdf-extracted/crevis_logo.jpg" class="header-logo" alt="Crevis Logo">
+    <img src="images/pdf-extracted/camera_product_cutout.png" class="header-camera-main smcl1-product" alt="SMCL1 Sony CMOS CameraLink camera">
+  </div>
+</header>
+
+<article class="pdf-page-block" data-page="5">
+  <h2 id="preparation">1. 준비하기</h2>
+  <h3 id="required-items">1.1 필수 준비 요소</h3>
+  <ul class="feature-list pdf-bullet-list">
+    <li>CameraLink 프로토콜을 지원하는 Frame Grabber가 필요합니다.</li>
+    <li>Frame Grabber가 하기 사양을 충족하지 못하는 경우 연결이 안될 수 있습니다.</li>
+  </ul>
+  <ul class="pdf-bullet-list"><li>GenICam(GenApi) : Ver_2.3.1</li><li>SFNC : Ver_2.0.0</li><li>GenICam_CLProtocol_Standard : Ver_1.1</li></ul>
+  <h3 id="sdk">1.2 SDK</h3>
+  <ul class="feature-list pdf-bullet-list">
+    <li>크래비스 CameraLink 카메라는 크래비스에서 제공하는 SDK를 이용하여 카메라 연결 및 카메라 환경 설정이 가능합니다.</li>
+    <li>크래비스 SDK 다운로드 링크 : <a href="http://www.crevis.co.kr/kor/support/download/CamGuideCL.zip">CamGuideCL.zip</a></li>
+  </ul>
+  <div class="inline-note-callout warning" id="precautions">
+    <p class="inline-note-title warning">1.3 주의사항</p>
+    <ul class="feature-list pdf-bullet-list">
+      <li><strong>동작 온도 : 0℃ ~ +45℃</strong><br>주변 온도 변화에 따라 데이터 출력이 변할 수 있으므로 일정하게 온도를 유지하십시오.</li>
+      <li><strong>누수 및 습기 주의</strong><br>제품 자체에 방수 기능이 없으므로 지나친 습기에 노출되지 않도록 주의하셔야 합니다.</li>
+      <li><strong>자기장 및 전기장</strong><br>입출력 신호가 “LVDS”로 300mV대의 미소 전압 및 전류이므로 강한 자기장 및 전기장에 노출되면 신호 왜곡이 발생할 수 있습니다.</li>
+      <li><strong>환기</strong><br>제품 주변을 밀폐하거나 공기 흐름을 차단하지 말고 통풍성을 유지하여야 합니다.</li>
+      <li><strong>초기 동작 상태</strong><br>Camera와 Frame Grabber에 Cable이 연결된 상태에서 제품 전원을 인가해야 합니다.</li>
+      <li>제품 성능은 Cable 특성에 따라 달라질 수 있습니다.</li>
+      <li>CE 규격 준수를 위해 표준 Camera Link™ Cable 또는 동급 이상의 Shield 특성이 좋은 케이블을 사용해야 합니다. (추천 Cable : 3M 14B26-SZLB-xxx-SKC)</li>
+      <li>제품의 기능 및 성능 개선을 위해 예고 없이 수정될 수 있습니다.</li>
+    </ul>
+  </div>
+</article>
+
+
+
+<article class="pdf-page-block" data-page="6-7">
+  <h2 id="specifications">2. 제품 사양</h2>
+  <h3 id="overview">2.1 제품 개요</h3>
+  <ul class="feature-list pdf-bullet-list">
+    <li>Sony CMOS Sensor Camera</li><li>ROI Scan 지원</li><li>Freerun 및 Trigger Mode 지원</li>
+    <li>CameraLink Interface</li><li>External General Purpose I/O(TTL) 2ch 지원</li>
+    <li>Power supply : DC 24V (10.8 ~ 26.4V range supported)</li>
+  </ul>
+  <h3 id="main-spec">2.2 주요 사양</h3>
+  <div class="table-container manual-data-table pdf-rebuilt-table series-spec-table">
+    <table>
+      <thead><tr><th>Spec.</th><th>MC-A040M/K-523</th><th>MC-A160M/K-154</th><th>MC-A320M/K-55</th><th>MC-A500M/K-35<br>(MC-A500M-LF)</th><th>MC-A121M/K-20</th><th>MC-A121R/L-20</th></tr></thead>
+      <tbody>
+        <tr><td>Sensor</td><td>0.4M<br>IMX287LL(Q)R-C</td><td>1.6M<br>IMX273LL(Q)R-C</td><td>3.2M<br>IMX265LL(Q)R-C</td><td>5M<br>IMX264LL(Q)R-C</td><td>12.2M<br>IMX304LL(Q)R-C</td><td>12.1M<br>IMX226CL(Q)J-C</td></tr>
+        <tr><td>Sensor Size</td><td>1/2.9″</td><td>1/2.9″</td><td>1/1.8″</td><td>2/3″</td><td>1.1″</td><td>1/1.7″</td></tr>
+        <tr><td>Pixel Size (µm)</td><td>6.90 × 6.90</td><td>3.45 × 3.45</td><td>3.45 × 3.45</td><td>3.45 × 3.45</td><td>3.45 × 3.45</td><td>1.85 × 1.85</td></tr>
+        <tr><td>Resolution (3Tap)</td><td>720 × 540</td><td>1440 × 1080</td><td>2048 × 1536<br>(2040 × 1536)</td><td>2448 × 2048</td><td>4096 × 3000<br>(4080 × 3000)</td><td>4016 × 3036<br>(4008 × 3036)</td></tr>
+        <tr><td>C/L Pixel Freq.</td><td>85MHz</td><td>85MHz</td><td>85MHz</td><td>85MHz (60MHz)</td><td>85MHz</td><td>85MHz</td></tr>
+        <tr><td>C/L Tap</td><td colspan="6">3Tap / 2Tap / 1Tap</td></tr>
+        <tr><td>Frame Rate (Max)*</td><td>523.5fps</td><td>154.6fps</td><td>55.7fps</td><td>35.7fps (35.0fps)</td><td>20.3fps</td><td>20.0fps</td></tr>
+        <tr><td>Scanning Method</td><td>Full / ROI / Reverse (X,Y,ALL)</td><td>Full / ROI / Reverse<br>Decimation (H+V)<br>Binning (H+V, Mono only)</td><td>Full / ROI / Reverse<br>Decimation (H+V)</td><td>Full / ROI / Reverse<br>Decimation (H+V)</td><td>Full / ROI / Reverse<br>Decimation (H+V)</td><td>Full / ROI / Reverse (X,Y,ALL)</td></tr>
+        <tr><td>Synchronization</td><td colspan="6">Internal(Freerun), External(CC1~4 or Circular), Software trigger via PC</td></tr>
+        <tr><td>Trigger Mode</td><td colspan="6">Timed, Trigger Width</td></tr>
+        <tr><td>GPIO</td><td colspan="6">Transistor-Transistor-Logic(TTL) Input/Output 2ch</td></tr>
+        <tr><td>Shutter</td><td colspan="5">Global Shutter</td><td>Rolling Shutter / Global Reset</td></tr>
+        <tr><td>Shutter Speed<br>(Exposure Offset)</td><td>1µs ~ 3sec<br>(14.26µs)</td><td>1µs ~ 3sec<br>(13.73µs)</td><td>1µs ~ 3sec<br>(13.73µs)</td><td>1µs ~ 3sec<br>(13.73µs)</td><td>1µs ~ 3sec<br>(14.26µs)</td><td>213.13µs ~ 3sec</td></tr>
+        <tr><td>Gain Abs</td><td colspan="5">Analog : 0dB ~ 24dB (1× ~ 15.8×)<br>Digital : 0dB ~ 18dB (1× ~ 8×)</td><td>Analog : 0dB ~ 28dB<br>Digital : 0dB ~ 18dB</td></tr>
+        <tr><td>ADC Bit Depth</td><td>8/10/12bit</td><td>8/10/12bit</td><td>12bit</td><td>12bit</td><td>12bit</td><td>10bit</td></tr>
+        <tr><td>Black Level (Analog)</td><td>0~255(8bit)<br>0~1023(10bit)<br>0~4095(12bit)</td><td>0~255(8bit)<br>0~1023(10bit)<br>0~4095(12bit)</td><td>0~4095</td><td>0~4095</td><td>0~4095</td><td>0~255</td></tr>
+        <tr><td>Black Level (Digital)</td><td colspan="6">0 ~ 1023 (10bit)</td></tr>
+        <tr><td>Gamma</td><td colspan="6">Gamma Correction (0 ~ 3.999) / Adjustable LUT (10bit to 10bit)</td></tr>
+        <tr><td>Interface</td><td colspan="6">Mini CameraLink / PoCL Mini CameraLink (SDR)</td></tr>
+        <tr><td>Communication</td><td colspan="6">RS232 via CameraLink connector</td></tr>
+        <tr><td>Pixel Data Format</td><td colspan="6">Mono Model : Mono8/10<br>Color Model : Mono8/10, BayerRG8/10, BayerGB8/10, BayerGR8/10, BayerBG8/10, RGB8</td></tr>
+        <tr><td>SNR</td><td>B/W 37dB<br>Color 40dB</td><td>B/W 31dB<br>Color 35dB</td><td>B/W 36dB<br>Color 40dB</td><td>B/W 37dB<br>Color 41dB</td><td>B/W 39dB<br>Color 40dB</td><td>B/W 38dB<br>Color 41dB</td></tr>
+        <tr><td>Function Control</td><td colspan="6">BalanceWhiteAuto &lt; Off / Once / Continuous (Only Color Models) &gt;<br>GainAuto, ExposureAuto &lt; Off / Once / Continuous &gt;<br>Acquisition Frame Rate(Adjustable), Shading Correction(FFC), Color Transformation Control, Noise Reduction</td></tr>
+        <tr><td>Lens Mount</td><td colspan="6">C mount</td></tr>
+        <tr><td>Optical Accuracy</td><td colspan="6">Optical center ≤ ± 0.2 mm</td></tr>
+        <tr><td>Power Requirements</td><td colspan="6">DC(12V ~ 24V ± 10%) or PoCL</td></tr>
+        <tr><td>Consumption</td><td>&lt; 1.9W</td><td>&lt; 2.0W</td><td>&lt; 1.9W</td><td>&lt; 1.9W</td><td>&lt; 2.2W</td><td>&lt; 1.7W</td></tr>
+        <tr><td>Weight</td><td colspan="6">44g</td></tr>
+        <tr><td>Dimensions</td><td colspan="6">29 × 29 × 29㎜ (Without mount, Connector)</td></tr>
+        <tr><td>Temperature</td><td colspan="6">Operating : 0℃ ~ +45℃ (with &lt; 20~80% RH) / Storage : -20℃ ~ +60℃</td></tr>
+        <tr><td>Vibration / Shock</td><td colspan="6">98m/s² (10.0G) / 196m/s² (20.0G)</td></tr>
+        <tr><td>Standard Compliancy</td><td colspan="6">CE (EN61326-1; 2006년; Class A)</td></tr>
+        <tr><td>Conformity</td><td colspan="6">RoHS / WEEE</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+
+<article class="pdf-page-block" data-page="10-13">
+  <h2 id="interface">3. 카메라 인터페이스</h2>
+  <h3 id="back-panel">3.1 Back Panel</h3>
+  <div class="connector-layout pdf-connector-layout">
+    <figure class="connector-figure pdf-figure"><img src="images/pdf-extracted/back_panel.png" alt="SMCL1 back panel"></figure>
+    <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>No.</th><th>Name</th><th>Remark</th></tr></thead><tbody><tr><td>1</td><td>CameraLink Connector</td><td>SDR26</td></tr><tr><td>2</td><td>Power &amp; External I/O Connector</td><td>6Pin Circular</td></tr><tr><td>3</td><td>LED Indicator</td><td>LED</td></tr></tbody></table></div>
+  </div>
+  <h3 id="external-io-pin">3.2 카메라 DC IN / External I/O Pin Map</h3>
+  <h4>1) 6 pin Circular Connector</h4>
+  <div class="connector-layout pdf-connector-layout">
+    <figure class="connector-figure pdf-figure"><img src="images/pdf-extracted/circular_connector.png" alt="6-pin circular connector"></figure>
+    <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>No.</th><th>Name</th><th>IN/OUT</th><th>Description</th><th>Remark</th></tr></thead><tbody><tr><td>1</td><td>DC VCC</td><td>IN</td><td>10.8 ~ 26.4V Input Range</td><td></td></tr><tr><td>2</td><td>GPIO1</td><td>IN/OUT</td><td>TTL / Input : 3.3V ~ 24V / Out : 3.3V</td><td>Line 5</td></tr><tr><td>3</td><td>GPIO2</td><td>IN/OUT</td><td>TTL / Input : 3.3V ~ 24V / Out : 3.3V</td><td>Line 6</td></tr><tr><td>4</td><td>GPIO GND</td><td>IN</td><td></td><td></td></tr><tr><td>5</td><td>NC</td><td>-</td><td></td><td></td></tr><tr><td>6</td><td>DC GND</td><td>IN</td><td></td><td></td></tr></tbody></table></div>
+  </div>
+  <h3 id="cl-connector">3.3 CameraLink Connector Pin Map</h3>
+  <h4>1) Mini CameraLink™ Connector (SDR)</h4>
+  <div class="connector-layout pdf-connector-layout">
+    <figure class="connector-figure pdf-figure"><img src="images/pdf-extracted/cameralink_connector.png" alt="Mini CameraLink SDR connector"></figure>
+    <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Pin No.</th><th>Signal Name</th><th>Pin No.</th><th>Signal Name</th></tr></thead><tbody><tr><td>1</td><td>GND</td><td>14</td><td>GND</td></tr><tr><td>2</td><td>X0-</td><td>15</td><td>X0+</td></tr><tr><td>3</td><td>X1-</td><td>16</td><td>X1+</td></tr><tr><td>4</td><td>X2-</td><td>17</td><td>X2+</td></tr><tr><td>5</td><td>Xclk-</td><td>18</td><td>Xclk+</td></tr><tr><td>6</td><td>X3-</td><td>19</td><td>X3+</td></tr><tr><td>7</td><td>SerTC+</td><td>20</td><td>SerTC-</td></tr><tr><td>8</td><td>SerTFG-</td><td>21</td><td>SerTFG+</td></tr><tr><td>9</td><td>CC1-</td><td>22</td><td>CC1+</td></tr><tr><td>10</td><td>CC2+</td><td>23</td><td>CC2-</td></tr><tr><td>11</td><td>CC3-</td><td>24</td><td>CC3+</td></tr><tr><td>12</td><td>CC4+</td><td>25</td><td>CC4-</td></tr><tr><td>13</td><td>GND</td><td>26</td><td>GND</td></tr></tbody></table></div>
+  </div>
+  <h3 id="led-status">3.4 LED Status</h3>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Light</th><th>Status</th></tr></thead><tbody><tr><td>Orange</td><td>카메라 초기화</td></tr><tr><td>Green</td><td>정상 동작</td></tr></tbody></table></div>
+  <h3 id="io-circuit">3.5 External I/O 내부 회로</h3>
+  <h4>GPIO (TTL)</h4>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/gpio_circuit.png" alt="GPIO TTL internal circuit"></figure>
+  <h3 id="cl-timing">3.6 CameraLink Interface Timing</h3>
+  <h4>3.6.1 Data Order of the CameraLink</h4>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/cameralink_data_order.png" alt="CameraLink data order"></figure>
+  <h4>3.6.2 Mono or Color Bayer Order</h4>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/mono_bayer_order.png" alt="Mono and color Bayer order"></figure>
+  <h4>3.6.3 Color RGB Order (8bit)</h4>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/rgb_order.png" alt="Color RGB order 8bit"></figure>
+</article>
+
+<article class="pdf-page-block" data-page="14-16">
+  <h2 id="functions">4. 카메라 기능</h2>
+  <h3 id="image-format-control">4.1 Image Format Control</h3>
+  <h4>4.1.1 Device Tap Geometry</h4>
+  <p>Device Tap Geometry를 설정하는 기능입니다. 해당 Tap에 맞게 Frame Grabber camfile을 변경해야 합니다.</p>
+  <h4>4.1.2 ROI (Region Of Interest)</h4>
+  <p>WidthMAX ≥ Offset X + Width<br>HeightMAX ≥ Offset Y + Height</p>
+  <p>Width, Height, Offset X, Offset Y를 설정함으로써 사용자가 원하는 영역만 받는 것이 가능합니다. 또한, 사이즈가 작아질수록 fps가 증가합니다.</p>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/roi.png" alt="Region of Interest setting"><figcaption>ROI Setting</figcaption></figure>
+  <h4>4.1.3 Binning Vertical</h4>
+  <p>수직의 2-Pixel을 합하여 Frame Rate 속도가 2배가 되도록 설정하는 기능입니다.</p>
+  <h4>4.1.4 Binning Horizontal Vertical</h4>
+  <p>수평의 2-Pixel을 합하여 Frame Rate 속도가 증가하도록 설정하는 기능입니다. 단독으로 값을 조절할 수 없으며, Binning Vertical이 활성화되면 추가로 조절 가능합니다.</p>
+  <h4>4.1.5 Decimation Vertical</h4>
+  <p>수직으로 1-Pixel씩 건너뛰어 Frame Rate 속도가 2배가 되도록 설정하는 기능입니다.</p>
+  <h4>4.1.6 Decimation Horizontal</h4>
+  <p>수평으로 1-Pixel씩 건너뛰어 출력하여 Frame Rate 속도가 증가하도록 설정하는 기능입니다.</p>
+  <p>※ 모델별 Binning(Bin) 및 Decimation(Sub) 지원 현황</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table support-matrix"><table><thead><tr><th>Image Mode</th><th>MC-A040x-523</th><th>MC-A160x-154</th><th>MC-A320x-55</th><th>MC-A500x-35<br>MC-A500M-LF</th><th>MC-A121x-20</th><th>MC-A121R/L-20</th></tr></thead><tbody><tr><td>Binning Vertical</td><td>X</td><td>O (Only Mono)</td><td>X</td><td>X</td><td>X</td><td>X</td></tr><tr><td>Binning Horizontal Vertical</td><td>X</td><td>O (Only Mono)</td><td>X</td><td>X</td><td>X</td><td>X</td></tr><tr><td>Decimation Vertical</td><td>X</td><td>O</td><td>O</td><td>O</td><td>O</td><td>X</td></tr><tr><td>Decimation Horizontal</td><td>X</td><td>O</td><td>O</td><td>O</td><td>O</td><td>X</td></tr></tbody></table></div>
+  <p>※ MC-A160M-154만 Binning Vertical 및 Binning Horizontal Vertical을 지원합니다.</p>
+  <h4>4.1.7 Reverse X, Y</h4>
+  <p>영상의 좌/우, 상/하를 변경하여 보는 기능입니다. Reverse X 모드 동작 시 영상의 좌/우가 바뀌며, Reverse Y 모드 동작 시 영상의 상/하가 바뀝니다.</p>
+  <p>‘Reverse Y’ 선택 시 Defect Filter 사용이 제한되며, 불량 화소가 나타날 수 있습니다.</p>
+  <div class="image-grid"><figure class="pdf-figure"><img src="images/pdf-extracted/reverse_original.png" alt="Original image"><figcaption>Original</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/reverse_x.png" alt="Reverse X image"><figcaption>Reverse X</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/reverse_y.png" alt="Reverse Y image"><figcaption>Reverse Y</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/reverse_xy.png" alt="Reverse X and Y image"><figcaption>Reverse X and Y</figcaption></figure></div>
+  <h4>4.1.8 ADC Bit Depth</h4>
+  <p>Sensor에서 출력되는 영상의 Bit Depth를 변경하는 기능입니다. 8bit, 10bit, 12bit로 설정 가능합니다. (MC-A320x-55, MC-A500x-35, MC-A500M-LF, MC-A121x-20, MC-A121R/L-20 제외)</p>
+  <p>8bit 모드일 때 10bit 또는 12bit 설정 시보다 영상이 약 4배 밝아집니다.</p>
+  <h4>4.1.9 Pixel Format</h4>
+  <p>카메라에서 출력되는 영상의 Format을 변경할 수 있는 기능입니다. 모델별로 지원하는 Format이 다르므로 주요 사양을 확인한 후 설정하십시오.</p>
+  <h4>4.1.10 Test Pattern</h4>
+  <p>테스트 패턴 이미지를 보여줍니다. ‘Off’는 일반 이미지이며, ‘On’은 Test Pattern입니다.</p>
+  <div class="image-grid cols-3"><figure class="pdf-figure"><img src="images/pdf-extracted/test_horizontal.jpg" alt="Grey Horizontal Ramp"><figcaption>Grey Horizontal Ramp</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/test_vertical.jpg" alt="Grey Vertical Ramp"><figcaption>Grey Vertical Ramp</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/test_horizontal_vertical.jpg" alt="Grey Horizontal Vertical Ramp"><figcaption>Grey Horizontal Vertical Ramp</figcaption></figure></div>
+</article>
+
+<article class="pdf-page-block" data-page="16-20">
+  <h3 id="acquisition-control">4.2 Acquisition Control</h3>
+  <h4>4.2.1 Trigger Mode</h4>
+  <p><strong>Off</strong> : 카메라가 Freerun 모드로 동작합니다. Internal Trigger 신호가 생성되며 그 주기는 Acquisition Frame Rate에 의해 결정됩니다. Acquisition Frame Rate Enable이 Off이면 현재 설정에서 가능한 최대 Frame Rate로 동작합니다.</p>
+  <p><strong>On</strong> : 카메라가 Trigger 모드로 동작합니다. Frame Grabber의 CC1~CC4(Line1~4), GPIO(Line5~6) 또는 Software Trigger를 통해 Trigger를 입력받을 수 있습니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Trigger Source</td><td>Line1, Line2, Line3, Line4, Line5, Line6, Software</td><td>Trigger 입력으로 사용하고자 하는 Source를 선택합니다.</td></tr><tr><td>Trigger Delay</td><td>0x1 ~ 0xFFFFFFFF<br>0 ~ 57,844,677µs</td><td>Trigger Delay를 조정합니다. (TRGDLY)</td></tr><tr><td>Line Debounce Time</td><td>0x1 ~ 0xFFFF<br>0 ~ 882µs</td><td>Line Debounce Time을 조정합니다. (TRGFLTNUM)</td></tr></tbody></table></div>
+  <h4>4.2.2 Trigger Software</h4>
+  <p>Trigger Mode를 ‘On’, Trigger Source를 ‘Software’로 설정하면 적용됩니다. Execute 시 Trigger Pulse를 하나 입력받아 영상 Frame을 한 장 취득할 수 있습니다.</p>
+  <h4>4.2.3 Trigger Source</h4>
+  <ol><li><strong>Camera Link Connector</strong> — Line1~4 : CC1~CC4 핀을 통해 Frame Grabber에서 Trigger를 입력받습니다.</li><li><strong>6pin Connector</strong> — Line5 : 2번 핀(GPIO1), Line6 : 3번 핀(GPIO2)을 통해 Trigger를 입력받습니다.</li><li><strong>Software Trigger</strong> — Software 함수를 통해 Trigger를 생성합니다.</li></ol>
+  <h4>4.2.4 Trigger Delay</h4>
+  <p>Trigger 입력 후 사용자가 설정한 Delay 시간만큼 지연한 뒤 동작하도록 설정하는 기능입니다. TRGDLY 명령으로 µs 단위 조정이 가능합니다.</p>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/trigger_delay.png" alt="Trigger delay timing"><figcaption>Trigger Delay Timing</figcaption></figure>
+  <div class="manual-note"><p>※ 1H = 74.25MHz(Global Model) 또는 72MHz(Rolling Model) × HMAX (RHMAX 명령어 또는 CamGuideCL에서 확인)</p><p>※ Hardware Delay : &lt; 2µs (4.3.1 참고)</p></div>
+  <h4>4.2.5 Line Debounce Time</h4>
+  <p>외부 I/O로 전송된 Trigger 신호의 채터링 노이즈를 필터링하는 기능입니다. Line Debounce Time보다 폭이 짧은 Trigger Signal을 노이즈로 간주하여 필터링합니다. TRGFLTNUM 명령으로 µs 단위 조정이 가능합니다.</p>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/line_debounce.png" alt="Line debounce timing"><figcaption>Line Debounce Timing</figcaption></figure>
+  <h4>4.2.6 Fine Shutter Enable (Unit Control)</h4>
+  <p>Pixel Clock 기준으로 노광 시간을 1µs 단위로 조절하도록 지원하는 기능입니다. ‘On’일 때는 µs 단위, ‘Off’일 때는 HD 단위로 조절합니다.</p>
+  <h4>4.2.7 Exposure Mode</h4>
+  <p>카메라 노광 방식을 결정하는 기능입니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Mode</th><th>Description</th></tr></thead><tbody><tr><td>Timed</td><td>설정되어 있는 시간 값만큼 노광합니다.</td></tr><tr><td>Trigger Width</td><td>입력된 Trigger 신호의 Pulse 폭만큼 노광합니다. Trigger Active가 Rising Edge이면 High인 시간, Falling Edge이면 Low인 시간만큼 노광합니다.</td></tr></tbody></table></div>
+  <p>※ Exposure Mode별 Timing</p>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/timing_freerun.png" alt="Freerun mode timing"><figcaption>1) Freerun Mode Timing</figcaption></figure>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/timing_trigger_timed.png" alt="Trigger timed mode timing"><figcaption>2) Trigger Timed Mode Timing</figcaption></figure>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/timing_trigger_width.png" alt="Trigger width mode timing"><figcaption>3) Trigger Width Mode Timing</figcaption></figure>
+  <h4>4.2.8 Exposure Time</h4>
+  <p>노광 시간을 설정합니다. Timed 모드로 설정되어 있을 때만 적용됩니다. SHTSET 명령으로 µs 단위 조정이 가능합니다. (Range : 0x1 ~ 0xFFFFFFFF)</p>
+  <p>※ 실제 노광 시간 : 설정 시간 + 14.26µs 또는 13.73µs (2.2 주요 사양 참고)</p>
+  <h4>4.2.9 Exposure Auto</h4>
+  <p>Exposure Time을 자동 조정하여 사용자가 원하는 밝기를 일정하게 유지하는 기능입니다. Exposure Mode가 Timed로 설정되어 있을 때 사용할 수 있습니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td rowspan="3">Exposure Auto</td><td>Off</td><td>Exposure Time을 수동으로 설정합니다.</td></tr><tr><td>Once</td><td>한 번만 노광 시간을 조절하여 원하는 밝기 값으로 변경합니다.</td></tr><tr><td>Continuous</td><td>지속적으로 노광 시간을 조절하여 원하는 밝기 값을 유지합니다.</td></tr><tr><td>Auto Exposure Target</td><td>0 ~ 255</td><td>사용자가 원하는 밝기 값 설정 (DN, 8bit 기준)</td></tr><tr><td>Auto Exposure Time Lower Limit</td><td>100µs ~ 3sec</td><td>자동 설정 가능한 Exposure Time 최소값 (AEMIN). Upper Limit보다 클 수 없습니다.</td></tr><tr><td>Auto Exposure Time Upper Limit</td><td>100µs ~ 3sec</td><td>자동 설정 가능한 Exposure Time 최대값 (AEMAX). Lower Limit보다 작을 수 없습니다.</td></tr></tbody></table></div>
+  <p>※ Exposure Time 설정 값은 Width/ADC Bit 설정에 따라 달라질 수 있습니다.</p>
+  <h4>4.2.10 Acquisition Frame Rate Enable</h4>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td rowspan="2">Acquisition Frame Rate Enable</td><td>Off</td><td>현재 카메라 설정에서 최대 Frame Rate로 동작합니다.</td></tr><tr><td>On</td><td>설정된 Frame Rate로 동작합니다.</td></tr><tr><td>Acquisition Frame Rate</td><td>1 ~ Max Value</td><td>Max 값은 모델과 해상도에 따라 달라집니다.</td></tr></tbody></table></div>
+</article>
+
+<article class="pdf-page-block" data-page="20-21">
+  <h3 id="digital-io-control">4.3 Digital I/O Control</h3>
+  <p>외부 I/O 신호를 설정할 수 있는 기능입니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Line Selector</td><td>Line1, Line2, Line3, Line4, Line5, Line6, Software</td><td>설정을 원하는 Line을 선택합니다.</td></tr><tr><td>Line Mode</td><td>Input, Output</td><td>Line 5, Line 6만 Output으로 설정할 수 있으며 이후 Line Source가 적용됩니다.</td></tr><tr><td>Line Inverter</td><td>0, 1</td><td>Enable 시 입력된 신호를 반전시킵니다.</td></tr><tr><td>Line Status</td><td>0, 1</td><td>선택된 Line의 현재 상태를 반환합니다.</td></tr><tr><td rowspan="5">Line Source</td><td>Off</td><td>사용 안 함</td></tr><tr><td>Timer1 Active</td><td>카메라 내 생성된 파형을 출력합니다.</td></tr><tr><td>Exposure Active</td><td>카메라 노광 시간 동안 활성화됩니다.</td></tr><tr><td>UserOutput1 / 2 / 3</td><td>Input과 별개로 사용자가 설정한 출력값을 유지합니다.</td></tr><tr><td>User Output Selector</td><td>사용할 저장값을 선택합니다.</td></tr><tr><td>User Output Value</td><td>0, 1</td><td>User Output Selector에 의해 선택된 값을 설정합니다.</td></tr></tbody></table></div>
+  <h4>4.3.1 Hardware Propagation Delay (GPI/O)</h4>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th></th><th>Rising (tPLH) (&lt;20%)</th><th>Falling (tPHL) (&gt;80%)</th></tr></thead><tbody><tr><td>Input Line</td><td>0.52µs</td><td>0.03µs</td></tr><tr><td>Output Line</td><td>1.34µs</td><td>0.17µs</td></tr></tbody></table></div>
+  <div class="image-grid"><figure class="pdf-figure"><img src="images/pdf-extracted/propagation_input.png" alt="Propagation delays on input lines"><figcaption>Propagation Delays on Input Lines</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/propagation_output.png" alt="Propagation delays on output lines"><figcaption>Propagation Delays on Output Lines</figcaption></figure></div>
+</article>
+
+<article class="pdf-page-block" data-page="21-22">
+  <h3 id="counter-timer-control">4.4 Counter and Timer Control</h3>
+  <p>Strobe 신호 설정 및 영상 출력을 확인하는 기능입니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Timer Selector</td><td>Exposure<br>External Trigger<br>Internal VD</td><td>Exposure : 노광 시작 시점부터 파형 생성<br>External Trigger : 외부 Trigger 입력 시점부터 파형 생성<br>Internal VD : 내부 VD 시작 시점부터 파형 생성</td></tr><tr><td>Timer Duration</td><td>0 ~ 57,844,677</td><td>Strobe 신호의 High 시간을 설정합니다. (FLASHTIME)</td></tr><tr><td>Timer Delay</td><td>0 ~ 57,844,677</td><td>Strobe 신호의 Delay 시간을 설정합니다. (FLASHDELAY)</td></tr><tr><td>Counter Event Source</td><td>ExternalTriggerStart<br>ExposureStart<br>ExposureEnd<br>FrameEnd<br>ExposureStartMissed<br>ExposureStopMissed</td><td>외부 Trigger 입력 개수, 노광 시작/종료 횟수, Sensor FVAL 개수 및 비정상 노광 시작/종료 횟수를 선택해 Count합니다.</td></tr><tr><td>Counter Value</td><td>0 ~ 4,294,967,295</td><td>Event Source의 Count 값을 표시합니다. Acquisition Start 시 초기화됩니다.</td></tr></tbody></table></div>
+  <ol><li><strong>Timer Duration</strong> — FLASHTIME 명령으로 µs 단위 조정</li><li><strong>Timer Delay</strong> — FLASHDELAY 명령으로 µs 단위 조정</li></ol>
+</article>
+
+<article class="pdf-page-block" data-page="22-23">
+  <h3 id="analog-control">4.5 Analog Control</h3>
+  <h4>4.5.1 Gain Control</h4>
+  <p>Gain을 조정할 수 있는 기능입니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Gain Selector</td><td>All, DigitalAll</td><td>설정할 Gain을 선택합니다.</td></tr><tr><td>Gain Raw</td><td>All : 0 ~ 240<br>Rolling Model : 65535 ~ 1474537<br>DigitalAll : 0 ~ 7168</td><td>Gain 값을 수치로 적용합니다. 이미지 신호와 Noise가 함께 증가할 수 있습니다.</td></tr><tr><td>Gain Abs</td><td>All : 1 ~ 15.8<br>Rolling Model : 1 ~ 22.49<br>DigitalAll : 1 ~ 8.0</td><td>Gain 값을 배율로 적용합니다.</td></tr><tr><td rowspan="3">Gain Auto</td><td>Off</td><td>Gain을 수동으로 설정합니다.</td></tr><tr><td>Once</td><td>한 번만 Gain을 조절하여 원하는 밝기로 변경합니다.</td></tr><tr><td>Continuous</td><td>지속적으로 Gain을 조절하여 원하는 밝기를 유지합니다.</td></tr></tbody></table></div>
+  <p>Gain Auto와 Auto Exposure를 함께 사용할 경우, 밝아지는 경우 Exposure Control 후 Gain이 적용되고, 어두워지는 경우 Gain Control 후 Exposure가 적용됩니다.</p>
+  <h4>4.5.2 Black Level Control</h4>
+  <p>영상 신호의 DC Offset을 조정하는 기능입니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Black Level Selector</td><td>All, DigitalAll</td><td>설정할 Black Level을 선택합니다.</td></tr><tr><td>Black Level Raw</td><td>All(ADC 8bit) : 0 ~ 255<br>All(ADC 10bit) : 0 ~ 1023<br>All(ADC 12bit) : 0 ~ 4095<br>Rolling Model : 0 ~ 255<br>DigitalAll : 0 ~ 1023</td><td>아날로그 Black Level을 제어하고 이미지 신호의 DC Offset을 조정합니다.</td></tr></tbody></table></div>
+  <h4>4.5.3 Gamma Control</h4>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Gamma Enable</td><td>Disable, Enable</td><td>Gamma 기능 활성화 여부를 결정합니다.</td></tr><tr><td>Gamma</td><td>0 ~ 4.0</td><td>Gamma 수치를 조정합니다.</td></tr></tbody></table></div>
+  <h4>4.5.4 Balance Ratio Control</h4>
+  <p>색 Gain을 맞추기 위한 기능입니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Balance Ratio Selector</td><td>Red, Green, Blue</td><td>색 Gain을 조정할 색을 선택합니다.</td></tr><tr><td>Balance Ratio</td><td>0 ~ 4095</td><td>선택된 색상에 대해 Gain 수치를 조정합니다.</td></tr><tr><td>Balance White Auto</td><td>Off, Once, Continuous</td><td>Once : 한 번만 White Balance 조정<br>Continuous : 지속적으로 White Balance 유지</td></tr></tbody></table></div>
+  <p>※ Balance White Auto 사용 시 흰 종이처럼 일정한 밝기의 피사체 조건에서 동작시키면 더 나은 결과를 얻을 수 있습니다.</p>
+  <h4>4.5.5 Noise Reduction</h4>
+  <p>Noise Filter로 영상 Noise를 줄이는 기능입니다. 사용 시 영상의 Edge가 손상될 수 있습니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Noise Reduction Enable</td><td>Disable, Enable</td><td>Noise Reduction 기능을 활성화합니다.</td></tr></tbody></table></div>
+</article>
+
+<article class="pdf-page-block" data-page="24-25">
+  <h3 id="lut-control">4.6 LUT Control</h3>
+  <p>LUT 기능은 영상 신호를 비선형으로 조정하기 위한 기능입니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>LUT Enable</td><td>Disable, Enable</td><td>LUT 기능 활성화 여부를 결정합니다.</td></tr><tr><td>LUT Index</td><td>0 ~ 1023</td><td>LUT의 Index 값을 조정합니다.</td></tr><tr><td>LUT Value</td><td>0 ~ 1023</td><td>해당 LUT Index의 값을 조정합니다.</td></tr></tbody></table></div>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/lut_graph.png" alt="LUT input output graph"><figcaption>LUT Example (V=I)</figcaption></figure>
+  <h3 id="defect-pixel">4.7 Defect Pixel Correction</h3>
+  <p>Defect Pixel을 조정해 주는 기능입니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Defect Filter Enable</td><td>Off, On</td><td>보정 값의 활성화 여부를 선택합니다.</td></tr><tr><td>Defect Filter Test Mode Selector</td><td>Off, Mark Black, Mark White, Mark White with Black Background</td><td>보정 위치를 검게, 밝게, 또는 검은 배경 위 밝게 표시합니다.</td></tr><tr><td>Defect Pixel Replacement Count</td><td>1 ~ 512</td><td>최대 보정할 Defect Pixel 개수를 지정합니다.</td></tr><tr><td>Defect Pixel Index</td><td>0 ~ 511</td><td>보정할 Defect Pixel Index를 선택합니다.</td></tr><tr><td>Defect Pixel X Coordinate</td><td>0 ~ WidthMax-1</td><td>보정할 Pixel의 X축 좌표를 입력합니다.</td></tr><tr><td>Defect Pixel Y Coordinate</td><td>0 ~ HeightMax-1</td><td>보정할 Pixel의 Y축 좌표를 입력합니다.</td></tr><tr><td>Defect Pixel Replace Execute</td><td>Execute</td><td>입력된 보정값을 정렬 후 적용합니다.</td></tr></tbody></table></div>
+  <h3 id="ffc">4.8 Flat Field Correction</h3>
+  <p>촬상한 이미지의 밝기 값을 균일하게 보정하는 기능입니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>FFC Enable</td><td>Off, On</td><td>보정 값의 활성화 여부를 선택합니다.</td></tr><tr><td>Black Calibration</td><td>Execute</td><td>어두운 이미지를 통해 FPN을 보정합니다.</td></tr><tr><td>White Calibration</td><td>Execute</td><td>밝은 이미지를 통해 PRNU를 보정합니다.</td></tr><tr><td>FFC Save Load Flash Select</td><td>0 ~ 3</td><td>FFC 데이터를 읽고 저장할 영역을 선택합니다.</td></tr><tr><td>FFC Save</td><td>Execute</td><td>선택된 영역에 FFC 데이터를 저장합니다.</td></tr><tr><td>FFC Load</td><td>Execute</td><td>선택된 영역의 FFC 데이터를 읽어옵니다.</td></tr></tbody></table></div>
+  <h3 id="user-set">4.9 User Set Control</h3>
+  <p>사용자가 설정한 값을 저장하거나 불러오기 위한 기능입니다.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>User Set Selector</td><td>Default, UserSet1, UserSet2, UserSet3</td><td>Default는 출하 설정으로 Load만 가능합니다. UserSet1/2/3은 사용자가 Save/Load할 수 있으며 전원 Off/On 시에도 유지됩니다.</td></tr><tr><td>User Set Load</td><td>Execute</td><td>선택된 User Set 설정을 불러옵니다.</td></tr><tr><td>User Set Save</td><td>Execute</td><td>선택된 User Set 영역에 설정을 저장합니다.</td></tr></tbody></table></div>
+</article>
+
+<article class="pdf-page-block" data-page="26">
+  <h2 id="appearance">5. 카메라 외관</h2>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/camera_dimensions.png" alt="SMCL1 camera dimensions drawing"><figcaption>SMCL1 Series Camera Dimensions</figcaption></figure>
+</article>
+
+<article class="pdf-page-block" data-page="27">
+  <h2 id="uart">6. UART 통신</h2>
+  <h3 id="communication-setting">6.1 Communication Setting</h3>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th></tr></thead><tbody><tr><td>Baud Rate</td><td>Default 9,600bps</td></tr><tr><td>Data Bit</td><td>8bit</td></tr><tr><td>Parity</td><td>None</td></tr><tr><td>Stop Bit</td><td>1bit</td></tr><tr><td>Flow Control</td><td>None</td></tr></tbody></table></div>
+  <h3 id="communication-format">6.2 Communication Format</h3>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><tbody><tr><td>W or R<sup>note1</sup></td><td>Command</td><td>Space</td><td>Value<sup>note2</sup></td><td>Enter</td></tr></tbody></table></div>
+  <p>※ note1 : W — Write, R — Read<br>※ note2 : Write 및 Return Read Value — Hex Base</p>
+  <h3 id="register-area">6.3 Register Area</h3>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Area</th><th>Read</th><th>Write</th></tr></thead><tbody><tr><td>Factory Area</td><td>O</td><td>X (Only factory write)</td></tr><tr><td>User 1 Area</td><td>O</td><td>O</td></tr><tr><td>User 2 Area</td><td>O</td><td>O</td></tr><tr><td>User 3 Area</td><td>O</td><td>O</td></tr></tbody></table></div>
+  <h4>6.3.1 Register SAVE</h4>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Command</th><th>Index</th><th>Description</th></tr></thead><tbody><tr><td>SAVE</td><td>1 ~ 3</td><td>User Area Register Save</td></tr></tbody></table></div>
+  <h4>6.3.2 Register LOAD</h4>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Command</th><th>Index</th><th>Description</th></tr></thead><tbody><tr><td>LOAD</td><td>0</td><td>Factory Area Register Load</td></tr><tr><td>LOAD</td><td>1 ~ 3</td><td>User Area Register Load</td></tr></tbody></table></div>
+  <h3 id="register-list">6.4 Register List</h3>
+  <p>CamGuide_CL software 및 Appendix A를 참조하십시오.</p>
+</article>
+
+<article class="pdf-page-block" data-page="28-31">
+  <h2 id="appendix-a">Appendix A. UART Command List</h2>
+  <div class="table-container manual-data-table pdf-rebuilt-table command-table">
+    <table>
+      <thead><tr><th>Group</th><th>R/W</th><th>Command</th><th>Parameter</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="10">System Control</td><td>-</td><td>SAVE</td><td>0:Factory, 1~3:User</td><td>Save to EEPROM</td></tr>
+        <tr><td>-</td><td>LOAD</td><td>0:Factory, 1~3:User</td><td>Load from EEPROM</td></tr>
+        <tr><td>R/W</td><td>UID</td><td>0:Factory, 1~3:User</td><td>User ID</td></tr>
+        <tr><td>R</td><td>SN</td><td>String</td><td>Read Serial Number</td></tr>
+        <tr><td>W</td><td>BAUDRATE</td><td>0x2580:9600 / 0x4B00:19200 / 0x9600:38400 / 0xE100:57600 / 0x1C200:115200 / 0x38400:230400</td><td>Baud Rate Write</td></tr>
+        <tr><td>R</td><td>EEPIDX</td><td>0:Factory, 1~3:User</td><td>Read Selected EEPROM Index</td></tr>
+        <tr><td>R</td><td>MODEL</td><td>String</td><td>Read Camera Model Name</td></tr>
+        <tr><td>R</td><td>VER</td><td>String</td><td>Firmware Version</td></tr>
+        <tr><td>R</td><td>XMLFILE</td><td>String</td><td>Read XML File Version</td></tr>
+        <tr><td>R</td><td>TEMP</td><td>[15:0] Data</td><td>Read Temperature Value</td></tr>
+
+        <tr><td rowspan="18">Acquisition Control</td><td>R/W</td><td>FREERUN</td><td>[31:0] Data</td><td>Run-Free Time (µs)</td></tr>
+        <tr><td>R/W</td><td>SHTSET</td><td>[31:0] Data</td><td>Shutter (µs)</td></tr>
+        <tr><td>R/W</td><td>FREERUNEN</td><td>0:Disable, 1:Enable</td><td>Freerun Time User Control Enable</td></tr>
+        <tr><td>R</td><td>MINFREERUN</td><td>[31:0] Data</td><td>Read Min Freerun Time (µs)</td></tr>
+        <tr><td>R</td><td>MINSHTSET</td><td>[31:0] Data</td><td>Read Min Exposure Time (µs)</td></tr>
+        <tr><td>R</td><td>REALFREERUN</td><td>[31:0] Data</td><td>Real Freerun Time (µs)</td></tr>
+        <tr><td>R/W</td><td>AEMAX</td><td>[31:0] Data</td><td>Auto Exposure Max Time (µs)</td></tr>
+        <tr><td>R/W</td><td>AEMIN</td><td>[31:0] Data</td><td>Auto Exposure Min Time (µs)</td></tr>
+        <tr><td>R/W</td><td>AECMODE</td><td>0:Off, 1:Once, 2:Continuous</td><td>Auto Exposure Control Mode</td></tr>
+        <tr><td>R/W</td><td>AETARGET</td><td>0 ~ 255</td><td>Auto Exposure Target Value</td></tr>
+        <tr><td>R/W</td><td>TRGMODE</td><td>0:Disable, 1:Enable</td><td>Trigger Mode Enable</td></tr>
+        <tr><td>R/W</td><td>EXPMODE</td><td>0:Timed, 1:Pulse Width Control</td><td>Exposure Mode</td></tr>
+        <tr><td>R/W</td><td>TRGSRC</td><td>0:CC1, 1:CC2, 2:CC3, 3:CC4, 4:GPIO1, 5:GPIO2, 7:Software</td><td>Select Trigger Source Pin</td></tr>
+        <tr><td>R/W</td><td>TRGDLY</td><td>[31:0] Data</td><td>Trigger Delay (µs)</td></tr>
+        <tr><td>R/W</td><td>TRGFLTNUM</td><td>[31:0] Data</td><td>Trigger Filter Number (µs)</td></tr>
+        <tr><td>W</td><td>SWTRIG</td><td>-</td><td>Software Trigger Event Assert</td></tr>
+        <tr><td>R/W</td><td>HSTMODEEN</td><td>0:Disable(HD), 1:Enable(µs)</td><td>Unit Control Enable</td></tr>
+        <tr><td>R/W</td><td>TAPCFG</td><td>1:1Tap, 2:2Tap, 3:3Tap</td><td>Number of CameraLink Output Taps</td></tr>
+
+        <tr><td rowspan="18">Image Format Control</td><td>R/W</td><td>PIXFMT</td><td>Mono: 0x01080001 Mono8, 0x01100003 Mono10<br>Color: BAYGR/RG/GB/BG 8/10, RGB8(0x02180014)</td><td>Pixel Format Select</td></tr>
+        <tr><td>R/W</td><td>ADCBIT</td><td>8, 10, 12bit</td><td>Sensor AD Conversion Bits Setting</td></tr>
+        <tr><td>R</td><td>PIXCLK</td><td>[31:0] Data</td><td>Read Pixel Clock (Hz)</td></tr>
+        <tr><td>R</td><td>STMCLK</td><td>[31:0] Data</td><td>Read Stream Clock (Hz)</td></tr>
+        <tr><td>R</td><td>HMAX</td><td>[31:0] Data</td><td>Read 1HD Size</td></tr>
+        <tr><td>R/W</td><td>ISCOLOR</td><td>0:Disable, 1:Enable</td><td>Color Mode Enable</td></tr>
+        <tr><td>R</td><td>BAYERORD</td><td>0:RG, 1:GR, 2:GB, 3:BG</td><td>Read Bayer Order</td></tr>
+        <tr><td>R/W</td><td>OUTSEL</td><td>0:Off, 1:Horizontal, 2:Vertical, 3:Horizontal+Vertical</td><td>Select Test Pattern</td></tr>
+        <tr><td>R/W</td><td>FLIPMODE</td><td>0:Normal, 1:Y, 2:X, 3:X&amp;Y</td><td>Flip Mode Select</td></tr>
+        <tr><td>R/W</td><td>BEN</td><td>[1:0] Data (11, 12, 21, 22)</td><td>Image Mode Binning</td></tr>
+        <tr><td>R/W</td><td>SKIP</td><td>[1:0] Data (11, 12, 21, 22)</td><td>Image Mode Decimation</td></tr>
+        <tr><td>R/W</td><td>WIDTH</td><td>8bit: 520~WidthMax / 10·12bit: 264~WidthMax</td><td>Image Width Size Control</td></tr>
+        <tr><td>R/W</td><td>HEIGHT</td><td>4 ~ HeightMax</td><td>Image Height Size Control</td></tr>
+        <tr><td>R/W</td><td>OFFSETX</td><td>8bit: 0~WidthMax-520 / 10·12bit: 0~WidthMax-264</td><td>Image Offset X Control</td></tr>
+        <tr><td>R/W</td><td>OFFSETY</td><td>0 ~ HeightMax-4</td><td>Image Offset Y Control</td></tr>
+        <tr><td>R</td><td>WIDTHMAX</td><td>[31:0] Data</td><td>Read Image WidthMax Size</td></tr>
+        <tr><td>R</td><td>HEIGHTMAX</td><td>[31:0] Data</td><td>Read Image HeightMax Size</td></tr>
+        <tr><td>R/W</td><td>SHTMODE</td><td>0:Rolling, 1:Global Reset</td><td>Shutter Mode Select</td></tr>
+
+        <tr><td rowspan="5">FFC Control</td><td>R/W</td><td>FFCEN</td><td>0:Disable, 1:Enable</td><td>Flat Field Correction Enable</td></tr>
+        <tr><td>W</td><td>FFCSAVE</td><td>-</td><td>Flat Field Correction Data Save</td></tr>
+        <tr><td>W</td><td>FFCLOAD</td><td>-</td><td>Flat Field Correction Data Load</td></tr>
+        <tr><td>W</td><td>BLACKCAL</td><td>-</td><td>FPN Correction</td></tr>
+        <tr><td>W</td><td>WHITECAL</td><td>-</td><td>PRNU Correction</td></tr>
+
+        <tr><td rowspan="4">LUT Control</td><td>R/W</td><td>LUTEN</td><td>0:Disable, 1:Enable</td><td>Look Up Table Enable</td></tr>
+        <tr><td>R/W</td><td>LUTDATA</td><td>X:0~1023, Y:0~1023</td><td>Look Up Table Data (10bit to 10bit)</td></tr>
+        <tr><td>R/W</td><td>GAMMAEN</td><td>0:Disable, 1:Enable</td><td>Gamma Enable</td></tr>
+        <tr><td>R/W</td><td>GAMMA</td><td>Gamma Data × 65536</td><td>Gamma Data</td></tr>
+
+        <tr><td rowspan="5">Defect Pixel Correction</td><td>R/W</td><td>DEFCOREN</td><td>0:Disable, 1:Enable</td><td>Pixel Defect Correction Enable</td></tr>
+        <tr><td>R/W</td><td>DEFHIGHLIGHT</td><td>0:Normal, 1:Mark Black, 2:Mark White, 3:Mark White with Black Background</td><td>Defect Correction Test Mode Select</td></tr>
+        <tr><td>R/W</td><td>DEFCNT</td><td>1 ~ 512</td><td>Defect Correction Write Count</td></tr>
+        <tr><td>W</td><td>IMMDEFCOR</td><td>-</td><td>Immediate Defect Correction Execution</td></tr>
+        <tr><td>W</td><td>DEFEXEC</td><td>-</td><td>Defect Correction Execution</td></tr>
+
+        <tr><td rowspan="9">Trigger / Counter Control</td><td>R/W</td><td>FLASHSRC</td><td>0:Exposure Start, 1:Trigger Start, 2:Internal VD</td><td>Flash Time Reset Signal Select</td></tr>
+        <tr><td>R/W</td><td>FLASHDELAY</td><td>[31:0] Data</td><td>Flash Delay (µs)</td></tr>
+        <tr><td>R/W</td><td>FLASHTIME</td><td>[31:0] Data</td><td>Trigger Time (µs)</td></tr>
+        <tr><td>R</td><td>TRGSTARTCNT</td><td>[31:0] Data</td><td>Read External Trigger Count</td></tr>
+        <tr><td>R</td><td>EXPSTARTCNT</td><td>[31:0] Data</td><td>Read Exposure Start Count</td></tr>
+        <tr><td>R</td><td>EXPENDCNT</td><td>[31:0] Data</td><td>Read Exposure End Count</td></tr>
+        <tr><td>R</td><td>FRAMEENDCNT</td><td>[31:0] Data</td><td>Read Sensor FVAL Receive Count</td></tr>
+        <tr><td>R</td><td>EXPSTARTMISSCNT</td><td>[31:0] Data</td><td>Read Exposure Start Error Count</td></tr>
+        <tr><td>R</td><td>EXPENDMISSCNT</td><td>[31:0] Data</td><td>Read Exposure End Error Count</td></tr>
+
+        <tr><td rowspan="5">Digital I/O Control</td><td>R/W</td><td>LINEMODE</td><td>4:GPIO1, 5:GPIO2 / 0:Input, 1:Output</td><td>Line Mode Select</td></tr>
+        <tr><td>R/W</td><td>LINEINVEN</td><td>0:CC1, 1:CC2, 2:CC3, 3:CC4, 4:GPIO1, 5:GPIO2 / 0:Disable, 1:Enable</td><td>Line Inverter Enable</td></tr>
+        <tr><td>R/W</td><td>LINESRC</td><td>GPIO1/2 : Timer, Exposure, UserOutput1~3, Off</td><td>Line Source Select</td></tr>
+        <tr><td>R</td><td>LINESTATUS</td><td>bit[x]:Line Number</td><td>Read GPIO Status</td></tr>
+        <tr><td>R/W</td><td>USEROUTPUT</td><td>0:User1, 1:User2, 2:User3 / 0:Disable, 1:Enable</td><td>GPO User Output Value</td></tr>
+
+        <tr><td rowspan="10">Analog Control</td><td>R/W</td><td>GAIN</td><td>Range: Model dependent</td><td>Master Sensor Gain</td></tr>
+        <tr><td>R/W</td><td>DGAIN</td><td>[12:10] Decimal, [9:0] Fractional</td><td>Digital Gain</td></tr>
+        <tr><td>R/W</td><td>CLAMP</td><td>8bit:0~255 / 10bit:0~1023 / 12bit:0~4095</td><td>Master Sensor Clamp</td></tr>
+        <tr><td>R/W</td><td>DCLAMP</td><td>0 ~ 1023</td><td>Digital Clamp</td></tr>
+        <tr><td>R/W</td><td>AGCMODE</td><td>0:Off, 1:Once, 2:Continuous</td><td>Auto Gain Control Mode</td></tr>
+        <tr><td>R/W</td><td>AWBMODE</td><td>0:Off, 1:Once, 2:Continuous</td><td>Auto White Balance Mode</td></tr>
+        <tr><td>R/W</td><td>RGAIN</td><td>[12:10] Decimal, [9:0] Fractional</td><td>Red Gain</td></tr>
+        <tr><td>R/W</td><td>GGAIN</td><td>[12:10] Decimal, [9:0] Fractional</td><td>Green Gain</td></tr>
+        <tr><td>R/W</td><td>BGAIN</td><td>[12:10] Decimal, [9:0] Fractional</td><td>Blue Gain</td></tr>
+        <tr><td>R/W</td><td>NREN</td><td>0:Disable, 1:Enable</td><td>Hybrid Filter Enable</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Appendix A Notes</h3>
+  <h4>Note 1 — Model별 ADC / Binning / Decimation 지원</h4>
+  <div class="table-container manual-data-table pdf-rebuilt-table support-matrix"><table><thead><tr><th rowspan="2">Model</th><th rowspan="2">ADC Bit</th><th colspan="3">Binning</th><th colspan="3">Decimation</th></tr><tr><th>H</th><th>V</th><th>H+V</th><th>H</th><th>V</th><th>H+V</th></tr></thead><tbody><tr><td>MC-A160M</td><td>8,10,12</td><td>X</td><td>O</td><td>O</td><td>O</td><td>O</td><td>O</td></tr><tr><td>MC-A160K</td><td>8,10,12</td><td>X</td><td>X</td><td>X</td><td>O</td><td>O</td><td>O</td></tr><tr><td>MC-A040M/K</td><td>8,10,12</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr><tr><td>MC-A500M/K</td><td>12</td><td>X</td><td>X</td><td>X</td><td>O</td><td>O</td><td>O</td></tr><tr><td>MC-A320M/K</td><td>12</td><td>X</td><td>X</td><td>X</td><td>O</td><td>O</td><td>O</td></tr><tr><td>MC-A121M/K</td><td>12</td><td>X</td><td>X</td><td>X</td><td>O</td><td>O</td><td>O</td></tr><tr><td>MC-A121R/L</td><td>10</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr></tbody></table></div>
+  <p>※ H : Horizontal, V : Vertical, H+V : Horizontal Vertical<br>※ MC-A121R(L) Gain[dB] Calculation : -20log(65535 / Input Value)<br>※ MC-A121R(L) Gain[Ratio] Calculation : Input Value / 65535</p>
+  <h4>Note 2 — MC-A121R(L) Clamp Range</h4><p>0 ~ 255</p>
+  <h4>Note 3 — 카메라별 최소 HMAX 값</h4>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Model</th><th>Pixel Clock</th><th>HMAX(min)</th><th>1H(min)</th></tr></thead><tbody><tr><td>MC-A040x-523</td><td>74.25MHz</td><td>238 Clock</td><td>3.20µs</td></tr><tr><td>MC-A160x-154</td><td>74.25MHz</td><td>242 Clock</td><td>3.25µs</td></tr><tr><td>MC-A320x-55</td><td>74.25MHz</td><td>846 Clock</td><td>11.39µs</td></tr><tr><td>MC-A500x-35</td><td>74.25MHz</td><td>996 Clock</td><td>13.41µs</td></tr><tr><td>MC-A500M-LF</td><td>74.25MHz</td><td>996 Clock</td><td>13.41µs</td></tr><tr><td>MC-A121x-20</td><td>74.25MHz</td><td>1041 Clock</td><td>14.02µs</td></tr><tr><td>MC-A121R(L)-20</td><td>72.00MHz</td><td>865 Clock</td><td>12.01µs</td></tr></tbody></table></div>
+  <p>※ 1H = 74.25MHz(Global Model) 또는 72MHz(Rolling Model) × HMAX (RHMAX 명령어 또는 CamGuideCL에서 확인)</p>
+</article>
+
+<article class="pdf-page-block" data-page="32-33">
+  <h2 id="appendix-b">Appendix B. 카메라 동작 준비</h2>
+  <h3>1. SDK 설치</h3>
+  <ul class="pdf-bullet-list"><li>다운로드 링크 : <a href="http://www.crevis.co.kr/kor/support/download/CamGuideCL.zip">CamGuideCL.zip</a></li><li>운영체제에 맞는 설치 프로그램을 설치합니다.</li></ul>
+  <p>CamGuideCL_V2.3.4_x64.exe : Windows 64bit용 설치 프로그램<br>CamGuideCL_V2.3.4_x86.exe : Windows 32bit용 설치 프로그램</p>
+  <p>※ 버전은 향후 업데이트될 수 있습니다.</p>
+  <h3>2. 카메라 통신 연결 방법</h3>
+  <h4>2.1 CamGuideCL 실행</h4>
+  <h4>2.2 Select Port : 카메라가 연결된 포트 선택</h4>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/camguide_select_port.png" alt="CamGuideCL Select Port"><figcaption>Select Port</figcaption></figure>
+  <h4>2.3 Connect 클릭</h4>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/camguide_connect.png" alt="CamGuideCL Connect"><figcaption>Connect</figcaption></figure>
+  <h4>2.4 연결 완료</h4>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/camguide_connected.png" alt="CamGuideCL connected"><figcaption>연결 완료</figcaption></figure>
+  <p>※ 상세 설명은 CamGuideCL 매뉴얼을 참조하십시오.</p>
+</article>
+
+<article class="pdf-page-block" data-page="34">
+  <h2 id="revision-history">Revision History</h2>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Revision</th><th>Date</th><th>Changes</th><th>Remark</th></tr></thead><tbody><tr><td>1.0</td><td>2019.04</td><td>Issued</td><td></td></tr><tr><td>1.1</td><td>2020.02</td><td>목차 수정 및 Fine Shutter 설명 추가<br>MC-A500M/K-LF (MC-A500M-35 파생 모델) 추가</td><td></td></tr><tr><td>1.2</td><td>2020.08</td><td>Appendix A 수정</td><td></td></tr><tr><td>1.3</td><td>2020.09</td><td>Trigger Delay, Line Debounce 항목 개선</td><td></td></tr></tbody></table></div>
+</article>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-card"><h3>Product Inquiry (Sales)</h3><p>Tel : +82-31-899-4503<br>+82-31-899-4504<br>+82-31-899-4507</p><p>Fax : +82-31-899-4509</p><p><a href="mailto:sh_lee@crevis.co.kr">sh_lee@crevis.co.kr</a><br><a href="mailto:dkahn@crevis.co.kr">dkahn@crevis.co.kr</a></p></div>
+    <div class="contact-card"><h3>Technical Support</h3><p>Tel : +82-31-899-4567</p><p><a href="mailto:tjmoon@crevis.co.kr">tjmoon@crevis.co.kr</a></p></div>
+    <div class="contact-card"><h3>Head Office</h3><p>29-4, Gigok-ro, Giheung-gu, Yongin-si, Gyeonggi-do, Korea</p><p><a href="http://www.crevis.co.kr">www.crevis.co.kr</a></p></div>
+  </div>
+</section>
+</div>
+
+<script>
+(() => {
+  const input = document.querySelector('[data-manual-search]');
+  const content = document.querySelector('.content');
+  if (!input || !content) return;
+  let marks = [];
+  const clear = () => {
+    marks.forEach(mark => mark.replaceWith(document.createTextNode(mark.textContent)));
+    marks = [];
+    content.normalize();
+  };
+  const search = () => {
+    clear();
+    const q = input.value.trim();
+    if (q.length < 2) return;
+    const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || ['SCRIPT', 'STYLE', 'MARK'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        return node.nodeValue.toLowerCase().includes(q.toLowerCase()) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.slice(0, 100).forEach(node => {
+      const re = new RegExp(escaped, 'ig');
+      const fragment = document.createDocumentFragment();
+      let last = 0;
+      let match;
+      while ((match = re.exec(node.nodeValue))) {
+        fragment.append(document.createTextNode(node.nodeValue.slice(last, match.index)));
+        const mark = document.createElement('mark');
+        mark.className = 'manual-search-highlight';
+        mark.textContent = match[0];
+        marks.push(mark);
+        fragment.append(mark);
+        last = match.index + match[0].length;
+      }
+      fragment.append(document.createTextNode(node.nodeValue.slice(last)));
+      node.replaceWith(fragment);
+    });
+    if (marks[0]) marks[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  input.addEventListener('input', search);
+  input.addEventListener('keydown', event => { if (event.key === 'Escape') { input.value = ''; clear(); input.blur(); } });
+  document.addEventListener('keydown', event => { if (event.key.toLowerCase() === 'k' && !/input|textarea/i.test(document.activeElement.tagName)) { event.preventDefault(); input.focus(); } });
+})();
+</script>
+</body>
+</html>
