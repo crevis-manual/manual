@@ -1,0 +1,78 @@
+@import url("../HC-A130SW/style-local.css");
+
+.header-camera-main.smcl2-product {
+    width: min(320px, 31vw);
+    max-height: 245px;
+    object-fit: contain;
+}
+
+.series-models {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0 0;
+}
+
+.series-models span {
+    padding: 7px 11px;
+    border: 1px solid #cfe2e5;
+    border-radius: 999px;
+    color: #245060;
+    background: #f5fbfb;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.series-spec-table,
+.command-table { overflow-x: auto; }
+
+.series-spec-table table {
+    min-width: 900px;
+    table-layout: fixed;
+}
+
+.series-spec-table th:first-child,
+.series-spec-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    width: 180px;
+    background: #f4f8fa;
+    color: #17394a;
+    font-weight: 800;
+}
+
+.series-spec-table thead th:first-child {
+    z-index: 3;
+    background: #17394a;
+    color: #fff;
+}
+
+.spectral-grid,
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.image-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.spectral-grid .pdf-figure, .image-grid .pdf-figure { margin: 0; }
+.spectral-grid img, .image-grid img { width: 100%; max-height: 360px; object-fit: contain; }
+.support-matrix th, .support-matrix td, .command-table th, .command-table td { font-size: 0.82rem; }
+.command-table table { min-width: 980px; }
+.command-table td:nth-child(2), .command-table td:nth-child(3) { white-space: nowrap; }
+
+.manual-note {
+    margin: 16px 0;
+    padding: 14px 16px;
+    border-left: 4px solid var(--brand-teal);
+    border-radius: 10px;
+    background: var(--brand-teal-soft);
+}
+
+.contact-card a { color: #0d7f7a; }
+
+@media (max-width: 900px) {
+    .spectral-grid, .image-grid, .image-grid.cols-3 { grid-template-columns: 1fr; }
+    .header-camera-main.smcl2-product { width: min(280px, 72vw); }
+}
