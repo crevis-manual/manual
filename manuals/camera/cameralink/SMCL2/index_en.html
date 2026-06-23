@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="../../../../css/product_manual/style.css">
 <link rel="stylesheet" href="style-local.css">
 </head>
-<body>
+<body class="manual-en">
 <div class="manual-top-banner">
   <a class="manual-banner-title" href="../../../../index.html">CREVIS Camera Manual</a>
   <div class="manual-banner-tools">
-    <div class="language-switch" aria-label="Manual language selector"><a class="active" href="index.html">KOR</a><a href="index_en.html">ENG</a></div>
+    <div class="language-switch" aria-label="Manual language selector"><a href="index.html">KOR</a><a class="active" href="index_en.html">ENG</a></div>
     <div class="manual-search" role="search"><input type="search" data-manual-search placeholder="Search" aria-label="Search manual"><kbd>K</kbd></div>
   </div>
 </div>
@@ -22,21 +22,21 @@
   <a class="back-link" href="../../../../index.html"><span>← Manual Center</span></a>
   <div class="rev">Version 1.3<br>Release Date: 2026. 01. 26</div>
   <ul class="toc">
-    <li><a href="#preparation"><span>1. 준비하기</span></a></li>
-    <li class="toc-sub"><a href="#required-items"><span>1.1 필수 준비 요소</span></a></li>
+    <li><a href="#preparation"><span>1. Preparation</span></a></li>
+    <li class="toc-sub"><a href="#required-items"><span>1.1 Required Preparation Items</span></a></li>
     <li class="toc-sub"><a href="#sdk"><span>1.2 SDK</span></a></li>
-    <li class="toc-sub"><a href="#precautions"><span>1.3 주의사항</span></a></li>
-    <li><a href="#specifications"><span>2. 제품 사양</span></a></li>
-    <li class="toc-sub"><a href="#overview"><span>2.1 제품 개요</span></a></li>
-    <li class="toc-sub"><a href="#main-spec"><span>2.2 주요 사양</span></a></li>
-    <li><a href="#interface"><span>3. 카메라 인터페이스</span></a></li>
+    <li class="toc-sub"><a href="#precautions"><span>1.3 Precautions</span></a></li>
+    <li><a href="#specifications"><span>2. Product Specifications</span></a></li>
+    <li class="toc-sub"><a href="#overview"><span>2.1 Product Overview</span></a></li>
+    <li class="toc-sub"><a href="#main-spec"><span>2.2 Main Specifications</span></a></li>
+    <li><a href="#interface"><span>3. Camera Interface</span></a></li>
     <li class="toc-sub"><a href="#back-panel"><span>3.1 Back Panel</span></a></li>
-    <li class="toc-sub"><a href="#external-io-pin"><span>3.2 카메라 DC Connector</span></a></li>
+    <li class="toc-sub"><a href="#external-io-pin"><span>3.2 Camera DC Connector</span></a></li>
     <li class="toc-sub"><a href="#led-status"><span>3.3 LED Status</span></a></li>
     <li class="toc-sub"><a href="#cl-connector"><span>3.4 CameraLink Connector</span></a></li>
-    <li class="toc-sub"><a href="#io-circuit"><span>3.5 External I/O 내부 회로</span></a></li>
+    <li class="toc-sub"><a href="#io-circuit"><span>3.5 External I/O Internal Circuit</span></a></li>
     <li class="toc-sub"><a href="#cl-timing"><span>3.6 CameraLink Timing</span></a></li>
-    <li><a href="#functions"><span>4. 카메라 기능</span></a></li>
+    <li><a href="#functions"><span>4. Camera Functions</span></a></li>
     <li class="toc-sub"><a href="#image-format-control"><span>4.1 Image Format Control</span></a></li>
     <li class="toc-sub"><a href="#acquisition-control"><span>4.2 Acquisition Control</span></a></li>
     <li class="toc-sub"><a href="#digital-io-control"><span>4.3 Digital I/O Control</span></a></li>
@@ -46,8 +46,8 @@
     <li class="toc-sub"><a href="#defect-pixel"><span>4.7 Defect Pixel Correction</span></a></li>
     <li class="toc-sub"><a href="#ffc"><span>4.8 Flat Field Correction</span></a></li>
     <li class="toc-sub"><a href="#user-set"><span>4.9 User Set Control</span></a></li>
-    <li><a href="#appearance"><span>5. 카메라 외관</span></a></li>
-    <li><a href="#uart"><span>6. UART 통신</span></a></li>
+    <li><a href="#appearance"><span>5. Camera Appearance</span></a></li>
+    <li><a href="#uart"><span>6. UART Communication</span></a></li>
     <li class="toc-sub"><a href="#communication-setting"><span>6.1 Communication Setting</span></a></li>
     <li class="toc-sub"><a href="#communication-format"><span>6.2 Communication Format</span></a></li>
     <li class="toc-sub"><a href="#register-area"><span>6.3 Register Area</span></a></li>
@@ -76,29 +76,29 @@
 </header>
 
 <article class="pdf-page-block" data-page="5">
-  <h2 id="preparation">1. 준비하기</h2>
-  <h3 id="required-items">1.1 필수 준비 요소</h3>
+  <h2 id="preparation">1. Preparation</h2>
+  <h3 id="required-items">1.1 Required Preparation Items</h3>
   <ul class="feature-list pdf-bullet-list">
-    <li>CameraLink 프로토콜을 지원하는 Frame Grabber가 필요합니다.</li>
-    <li>Frame Grabber가 하기 사양을 충족하지 못하는 경우 연결이 안될 수 있습니다.</li>
+    <li>A Frame Grabber that supports the CameraLink protocol is required.</li>
+    <li>Connection may fail if the Frame Grabber does not meet the specifications below.</li>
   </ul>
   <ul class="pdf-bullet-list"><li>GenICam(GenApi) : Ver_2.3.1</li><li>SFNC : Ver_2.0.0</li><li>GenICam_CLProtocol_Standard : Ver_1.1</li></ul>
   <h3 id="sdk">1.2 SDK</h3>
   <ul class="feature-list pdf-bullet-list">
-    <li>크래비스 CameraLink 카메라는 크래비스에서 제공하는 SDK를 이용하여 카메라 연결 및 카메라 환경 설정이 가능합니다.</li>
-    <li>크래비스 SDK 다운로드 링크 : <a href="http://www.crevis.co.kr/kor/support/download/CamGuideCL.zip">CamGuideCL.zip</a></li>
+    <li>CREVIS CameraLink cameras can be connected and configured using the SDK provided by CREVIS.</li>
+    <li>CREVIS SDK download link: <a href="http://www.crevis.co.kr/kor/support/download/CamGuideCL.zip">CamGuideCL.zip</a></li>
   </ul>
   <div class="inline-note-callout warning" id="precautions">
-    <p class="inline-note-title warning">1.3 주의사항</p>
+    <p class="inline-note-title warning">1.3 Precautions</p>
     <ul class="feature-list pdf-bullet-list">
-      <li><strong>동작 온도 : 0℃ ~ +45℃</strong><br>주변 온도 변화에 따라 데이터 출력이 변할 수 있으므로 일정하게 온도를 유지하십시오.</li>
-      <li><strong>누수 및 습기 주의</strong><br>제품 자체에 방수 기능이 없으므로 지나친 습기에 노출되지 않도록 주의하셔야 합니다.</li>
-      <li><strong>자기장 및 전기장</strong><br>입출력 신호가 “LVDS”로 300mV대의 미소 전압 및 전류이므로 강한 자기장 및 전기장에 노출되면 신호 왜곡이 발생할 수 있습니다.</li>
-      <li><strong>환기</strong><br>제품 주변을 밀폐하거나 공기 흐름을 차단하지 말고 통풍성을 유지하여야 합니다.</li>
-      <li><strong>초기 동작 상태</strong><br>Camera와 Frame Grabber에 Cable이 연결된 상태에서 제품 전원을 인가해야 합니다.</li>
-      <li>제품 성능은 Cable 특성에 따라 달라질 수 있습니다.</li>
-      <li>CE 규격 준수를 위해 표준 Camera Link™ Cable 또는 동급 이상의 Shield 특성이 좋은 케이블을 사용해야 합니다. (추천 Cable : 3M 14B26-SZLB-xxx-SKC)</li>
-      <li>제품의 기능 및 성능 개선을 위해 예고 없이 수정될 수 있습니다.</li>
+      <li><strong>Operating temperature: 0 deg C to +45 deg C</strong><br>Keep the ambient temperature stable because data output may vary according to temperature changes.</li>
+      <li><strong>Leakage and humidity caution</strong><br>The product itself is not waterproof, so avoid exposing it to excessive humidity.</li>
+      <li><strong>Magnetic and electric fields</strong><br>Because the I/O signals use low-voltage, low-current LVDS around 300 mV, strong magnetic or electric fields may distort the signals.</li>
+      <li><strong>Ventilation</strong><br>Do not seal the area around the product or block airflow; maintain proper ventilation.</li>
+      <li><strong>Initial operating condition</strong><br>Apply power only after the cable is connected between the camera and the Frame Grabber.</li>
+      <li>Product performance may vary depending on cable characteristics.</li>
+      <li>To comply with CE standards, use a standard Camera Link cable or an equivalent high-shield cable. Recommended cable: 3M 14B26-SZLB-xxx-SKC.</li>
+      <li>Specifications and performance may be changed without notice for product improvement.</li>
     </ul>
   </div>
 </article>
@@ -106,14 +106,14 @@
 
 
 <article class="pdf-page-block" data-page="6-7">
-  <h2 id="specifications">2. 제품 사양</h2>
-  <h3 id="overview">2.1 제품 개요</h3>
+  <h2 id="specifications">2. Product Specifications</h2>
+  <h3 id="overview">2.1 Product Overview</h3>
   <ul class="feature-list pdf-bullet-list">
-    <li>Sony CMOS Sensor</li><li>ROI Scan 지원</li><li>Freerun 및 Trigger Mode 지원</li>
-    <li>CameraLink Interface</li><li>External General Purpose I/O(TTL) 2ch 지원</li>
+    <li>Sony CMOS Sensor</li><li>ROI Scan support</li><li>Freerun and Trigger Mode support</li>
+    <li>CameraLink Interface</li><li>External General Purpose I/O (TTL) 2ch support</li>
     <li>Power supply : DC 24V (10.8 ~ 26.4V range support)</li>
   </ul>
-  <h3 id="main-spec">2.2 주요 사양</h3>
+  <h3 id="main-spec">2.2 Main Specifications</h3>
   <div class="table-container manual-data-table pdf-rebuilt-table series-spec-table"><table>
     <thead><tr><th>Spec.</th><th>MC-A500M/K-163</th><th>MC-A121M/K-67</th></tr></thead>
     <tbody>
@@ -147,27 +147,27 @@
       <tr><td>Dimensions</td><td colspan="2">29 × 29 × 29㎜ (Without mount, Connector)</td></tr>
       <tr><td>Temperature<br>(Operating / Storage)</td><td colspan="2">0℃ ~ +45℃ (with &lt; 20~80% RH) / -20℃ ~ +60℃</td></tr>
       <tr><td>Vibration / Shock</td><td colspan="2">98m/s² (10.0G) / 196m/s² (20.0G)</td></tr>
-      <tr><td>Standard Compliancy</td><td colspan="2">CE (EN61326-1; 2006년; Class A)</td></tr>
+      <tr><td>Standard Compliancy</td><td colspan="2">CE (EN61326-1; 2006; Class A)</td></tr>
       <tr><td>Environments</td><td colspan="2">RoHS / WEEE</td></tr>
     </tbody>
   </table></div>
 </article>
 
 <article class="pdf-page-block" data-page="9-12">
-  <h2 id="interface">3. 카메라 인터페이스</h2>
+  <h2 id="interface">3. Camera Interface</h2>
   <h3 id="back-panel">3.1 Back Panel</h3>
   <div class="connector-layout pdf-connector-layout">
     <figure class="connector-figure pdf-figure"><img src="images/pdf-extracted/back_panel.jpg" alt="SMCL2 back panel"></figure>
     <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>No.</th><th>Name</th><th>Remark</th></tr></thead><tbody><tr><td>1</td><td>CameraLink Connector</td><td>SDR26</td></tr><tr><td>2</td><td>Power Connector</td><td>4 Pin Circular Connector</td></tr><tr><td>3</td><td>LED Indicator</td><td>LED</td></tr></tbody></table></div>
   </div>
-  <h3 id="external-io-pin">3.2 카메라 DC Connector</h3>
+  <h3 id="external-io-pin">3.2 Camera DC Connector</h3>
   <h4>1) 4 pin Circular Connector</h4>
   <div class="connector-layout pdf-connector-layout">
     <figure class="connector-figure pdf-figure"><img src="images/pdf-extracted/circular_connector.jpg" alt="4-pin circular connector"></figure>
     <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>No.</th><th>Name</th><th>IN/OUT</th><th>Description</th><th>Remark</th></tr></thead><tbody><tr><td>1</td><td>Power IN</td><td>IN</td><td>10.8V ~ 26.4V Input Range</td><td></td></tr><tr><td>2</td><td>GPIO1</td><td>IN/OUT</td><td>TTL / Input : 3.3V ~ 24V / Out : 3.3V</td><td>Line 5</td></tr><tr><td>3</td><td>GPIO2</td><td>IN/OUT</td><td>TTL / Input : 3.3V ~ 24V / Out : 3.3V</td><td>Line 6</td></tr><tr><td>4</td><td>GND+</td><td>IN</td><td>Power GND</td><td></td></tr></tbody></table></div>
   </div>
   <h3 id="led-status">3.3 LED Status</h3>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Light</th><th>Status</th></tr></thead><tbody><tr><td>Orange</td><td>카메라 초기화</td></tr><tr><td>Green</td><td>정상 동작</td></tr></tbody></table></div>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Light</th><th>Status</th></tr></thead><tbody><tr><td>Orange</td><td>Camera initialization</td></tr><tr><td>Green</td><td>Normal operation</td></tr></tbody></table></div>
   <h3 id="cl-connector">3.4 CameraLink Connector Pin Map</h3>
   <h4>1) Mini CameraLink™ Connector1 (SDR)</h4>
   <div class="connector-layout pdf-connector-layout"><figure class="connector-figure pdf-figure"><img src="images/pdf-extracted/cameralink_connector.jpg" alt="Mini CameraLink connector 1"></figure>
@@ -177,7 +177,7 @@
   <div class="connector-layout pdf-connector-layout"><figure class="connector-figure pdf-figure"><img src="images/pdf-extracted/cameralink_connector.jpg" alt="Mini CameraLink connector 2"></figure>
     <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Pin No.</th><th>Signal Name</th><th>Pin No.</th><th>Signal Name</th></tr></thead><tbody><tr><td>1</td><td>GND</td><td>14</td><td>GND</td></tr><tr><td>2</td><td>Y0-</td><td>15</td><td>Y0+</td></tr><tr><td>3</td><td>Y1-</td><td>16</td><td>Y1+</td></tr><tr><td>4</td><td>Y2-</td><td>17</td><td>Y2+</td></tr><tr><td>5</td><td>Yclk-</td><td>18</td><td>Yclk+</td></tr><tr><td>6</td><td>Y3-</td><td>19</td><td>Y3+</td></tr><tr><td>7</td><td>100Ω terminated</td><td>20</td><td>100Ω terminated</td></tr><tr><td>8</td><td>Z0-</td><td>21</td><td>Z0+</td></tr><tr><td>9</td><td>Z1-</td><td>22</td><td>Z1+</td></tr><tr><td>10</td><td>Z2-</td><td>23</td><td>Z2+</td></tr><tr><td>11</td><td>Zclk-</td><td>24</td><td>Zclk+</td></tr><tr><td>12</td><td>Z3-</td><td>25</td><td>Z3+</td></tr><tr><td>13</td><td>GND</td><td>26</td><td>GND</td></tr></tbody></table></div>
   </div>
-  <h3 id="io-circuit">3.5 External I/O 내부 회로</h3><h4>GPIO (TTL)</h4>
+  <h3 id="io-circuit">3.5 External I/O Internal Circuit</h3><h4>GPIO (TTL)</h4>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/gpio_circuit.jpg" alt="GPIO TTL internal circuit"></figure>
   <h3 id="cl-timing">3.6 CameraLink Interface Timing</h3>
   <h4>3.6.1 Data Order of the CameraLink</h4><figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/cameralink_data_order.png" alt="CameraLink data order"></figure>
@@ -185,79 +185,79 @@
 </article>
 
 <article class="pdf-page-block" data-page="14-16">
-  <h2 id="functions">4. 카메라 기능</h2>
+  <h2 id="functions">4. Camera Functions</h2>
   <h3 id="image-format-control">4.1 Image Format Control</h3>
   <h4>4.1.1 Device Tap Geometry</h4>
-  <p>Device Tap Geometry를 설정하는 기능입니다. 해당 Tap에 맞게 Frame Grabber camfile을 변경해야 합니다.</p>
+  <p>This function sets Device Tap Geometry. The Frame Grabber camfile must be changed to match the selected tap.</p>
   <h4>4.1.2 ROI (Region Of Interest)</h4>
   <p>WidthMAX ≥ Offset X + Width<br>HeightMAX ≥ Offset Y + Height</p>
-  <p>Width, Height, Offset X, Offset Y를 설정함으로써 사용자가 원하는 영역만 받는 것이 가능합니다. 또한, 사이즈가 작아질수록 fps가 증가합니다.</p>
+  <p>By setting Width, Height, Offset X, and Offset Y, the user can receive only the desired area. The frame rate increases as the image size becomes smaller.</p>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/roi.jpg" alt="Region of Interest setting"><figcaption>ROI Setting</figcaption></figure>
   <h4>4.1.3 Binning Vertical</h4>
-  <p>수직의 2-Pixel을 합하여 Frame Rate 속도가 2배가 되도록 설정하는 기능입니다.</p>
+  <p>This function combines two vertical pixels so the frame rate becomes twice as fast.</p>
   <h4>4.1.4 Binning Horizontal Vertical (Only MC-A121M-67)</h4>
-  <p>수평의 2-Pixel을 합하여 Frame Rate 속도가 증가하도록 설정하는 기능입니다. 단독으로 값을 조절할 수 없으며, Binning Vertical이 활성화되면 추가로 조절 가능합니다.</p>
+  <p>This function combines two horizontal pixels to increase the frame rate. It cannot be adjusted independently and can be additionally adjusted when Binning Vertical is enabled.</p>
   <h4>4.1.5 Decimation Vertical</h4>
-  <p>수직으로 1-Pixel씩 건너뛰어 Frame Rate 속도가 2배가 되도록 설정하는 기능입니다.</p>
+  <p>This function skips every other vertical pixel so the frame rate becomes twice as fast.</p>
   <h4>4.1.6 Decimation Horizontal</h4>
-  <p>수평으로 1-Pixel씩 건너뛰어 출력하여 Frame Rate 속도가 증가하도록 설정하는 기능입니다.</p>
-  <p>※ 모델별 Binning(Bin) 및 Decimation(Sub) 지원 현황</p>
+  <p>This function skips every other horizontal pixel in the output to increase the frame rate.</p>
+  <p>Note: Model-specific Binning (Bin) and Decimation (Sub) support status</p>
   <div class="table-container manual-data-table pdf-rebuilt-table support-matrix"><table><thead><tr><th>Image Mode</th><th>MC-A500x-163</th><th>MC-A121x-67</th></tr></thead><tbody><tr><td>Binning Vertical</td><td>O (Only Mono)</td><td>O (Only Mono)</td></tr><tr><td>Binning Horizontal Vertical</td><td>X</td><td>O (Only Mono)</td></tr><tr><td>Decimation Vertical</td><td>O</td><td>O</td></tr><tr><td>Decimation Horizontal</td><td>O</td><td>O</td></tr></tbody></table></div>
   <h4>4.1.7 Reverse X, Y</h4>
-  <p>영상의 좌/우, 상/하를 변경하여 보는 기능입니다. Reverse X 모드 동작 시 영상의 좌/우가 바뀌며, Reverse Y 모드 동작 시 영상의 상/하가 바뀝니다.</p>
-  <p>‘Reverse Y’ 선택 시 Defect Filter 사용이 제한되며, 불량 화소가 나타날 수 있습니다.</p>
+  <p>This function changes the left/right and top/bottom orientation of the image. In Reverse X mode, the image is flipped left/right; in Reverse Y mode, it is flipped top/bottom.</p>
+  <p>When Reverse Y is selected, use of the Defect Filter is limited and defective pixels may appear.</p>
   <div class="image-grid"><figure class="pdf-figure"><img src="images/pdf-extracted/reverse_original.jpg" alt="Original image"><figcaption>Original</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/reverse_x.jpg" alt="Reverse X image"><figcaption>Reverse X</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/reverse_y.jpg" alt="Reverse Y image"><figcaption>Reverse Y</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/reverse_xy.jpg" alt="Reverse X and Y image"><figcaption>Reverse X and Y</figcaption></figure></div>
   <h4>4.1.8 ADC Bit Depth</h4>
-  <p>Sensor에서 출력되는 영상의 Bit Depth를 변경하는 기능입니다. 8bit, 10bit, 12bit로 설정 가능합니다.</p>
-  <p>8bit 모드일 때 10bit 또는 12bit 설정 시보다 영상이 약 4배 밝아집니다.</p>
+  <p>This function changes the bit depth of the image output from the sensor. It can be set to 8-bit, 10-bit, or 12-bit.</p>
+  <p>In 8-bit mode, the image is approximately four times brighter than in 10-bit or 12-bit mode.</p>
   <h4>4.1.9 Pixel Format</h4>
-  <p>카메라에서 출력되는 영상의 Format을 변경할 수 있는 기능입니다. 모델별로 지원하는 Format이 다르므로 주요 사양을 확인한 후 설정하십시오.</p>
+  <p>This function changes the format of the image output from the camera. Supported formats differ by model, so check the main specifications before setting it.</p>
   <h4>4.1.10 Test Pattern</h4>
-  <p>테스트 패턴 이미지를 보여줍니다. ‘Off’는 일반 이미지이며, ‘On’은 Test Pattern입니다.</p>
+  <p>Displays a test pattern image. Off shows the normal image, and On shows the test pattern.</p>
   <div class="image-grid cols-3"><figure class="pdf-figure"><img src="images/pdf-extracted/test_horizontal.jpg" alt="Grey Horizontal Ramp"><figcaption>Grey Horizontal Ramp</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/test_vertical.jpg" alt="Grey Vertical Ramp"><figcaption>Grey Vertical Ramp</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/test_horizontal_vertical.jpg" alt="Grey Horizontal Vertical Ramp"><figcaption>Grey Horizontal Vertical Ramp</figcaption></figure></div>
 </article>
 
 <article class="pdf-page-block" data-page="16-20">
   <h3 id="acquisition-control">4.2 Acquisition Control</h3>
   <h4>4.2.1 Trigger Mode</h4>
-  <p><strong>Off</strong> : 카메라가 Freerun 모드로 동작합니다. Internal Trigger 신호가 생성되며 그 주기는 Acquisition Frame Rate에 의해 결정됩니다. Acquisition Frame Rate Enable이 Off이면 현재 설정에서 가능한 최대 Frame Rate로 동작합니다.</p>
-  <p><strong>On</strong> : 카메라가 Trigger 모드로 동작합니다. Frame Grabber의 CC1~CC4(Line1~4), GPIO(Line5~6) 또는 Software Trigger를 통해 Trigger를 입력받을 수 있습니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Trigger Source</td><td>Line1, Line2, Line3, Line4, Line5, Line6, Software</td><td>Trigger 입력으로 사용하고자 하는 Source를 선택합니다.</td></tr><tr><td>Trigger Delay</td><td>0x1 ~ 0xFFFFFFFF<br>0 ~ 57,844,677µs</td><td>Trigger Delay를 조정합니다. (TRGDLY)</td></tr><tr><td>Line Debounce Time</td><td>0x1 ~ 0xFFFF<br>0 ~ 882µs</td><td>Line Debounce Time을 조정합니다. (TRGFLTNUM)</td></tr></tbody></table></div>
+  <p><strong>Off</strong> : The camera operates in Freerun mode. An internal trigger signal is generated, and its period is determined by Acquisition Frame Rate. If Acquisition Frame Rate Enable is Off, the camera runs at the maximum frame rate possible with the current settings.</p>
+  <p><strong>On</strong> : The camera operates in Trigger mode. Triggers can be input through CC1 to CC4 (Line1 to Line4), GPIO (Line5 to Line6), or Software Trigger from the Frame Grabber.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Trigger Source</td><td>Line1, Line2, Line3, Line4, Line5, Line6, Software</td><td>Selects the source to be used as the trigger input.</td></tr><tr><td>Trigger Delay</td><td>0x1 ~ 0xFFFFFFFF<br>0 ~ 57,844,677µs</td><td>Adjusts Trigger Delay. (TRGDLY)</td></tr><tr><td>Line Debounce Time</td><td>0x1 ~ 0xFFFF<br>0 ~ 882µs</td><td>Adjusts Line Debounce Time. (TRGFLTNUM)</td></tr></tbody></table></div>
   <h4>4.2.2 Trigger Software</h4>
-  <p>Trigger Mode를 ‘On’, Trigger Source를 ‘Software’로 설정하면 적용됩니다. Execute 시 Trigger Pulse를 하나 입력받아 영상 Frame을 한 장 취득할 수 있습니다.</p>
+  <p>This applies when Trigger Mode is set to On and Trigger Source is set to Software. Executing it inputs one trigger pulse and acquires one image frame.</p>
   <h4>4.2.3 Trigger Source</h4>
-  <ol><li><strong>Camera Link Connector</strong> — Line1~4 : CC1~CC4 핀을 통해 Frame Grabber에서 Trigger를 입력받습니다.</li><li><strong>4pin Connector</strong> — Line5 : 2번 핀(GPIO1), Line6 : 3번 핀(GPIO2)을 통해 Trigger를 입력받습니다.</li><li><strong>Software Trigger</strong> — Software 함수를 통해 Trigger를 생성합니다.</li></ol>
+  <ol><li><strong>Camera Link Connector</strong> - Line1 to Line4: trigger input from the Frame Grabber through CC1 to CC4 pins.</li><li><strong>4pin Connector</strong> - Line5: trigger input through pin 2 (GPIO1), and Line6: trigger input through pin 3 (GPIO2).</li><li><strong>Software Trigger</strong> - Generates a trigger through the software function.</li></ol>
   <h4>4.2.4 Trigger Delay</h4>
-  <p>Trigger 입력 후 사용자가 설정한 Delay 시간만큼 지연한 뒤 동작하도록 설정하는 기능입니다. TRGDLY 명령으로 µs 단위 조정이 가능합니다.</p>
+  <p>This function delays operation by the user-set delay time after trigger input. It can be adjusted in microseconds with the TRGDLY command.</p>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/trigger_delay.jpg" alt="Trigger delay timing"><figcaption>Trigger Delay Timing</figcaption></figure>
-  <div class="manual-note"><p>※ 1H = 74.25MHz(Global Model) 또는 72MHz(Rolling Model) × HMAX (RHMAX 명령어 또는 CamGuideCL에서 확인)</p><p>※ Hardware Delay : &lt; 2µs (4.3.1 참고)</p></div>
+  <div class="manual-note"><p>Note: 1H = 74.25 MHz (Global Model) or 72 MHz (Rolling Model) x HMAX. Check RHMAX command or CamGuideCL.</p><p>Note: Hardware Delay: &lt; 2 us (see 4.3.1)</p></div>
   <h4>4.2.5 Line Debounce Time</h4>
-  <p>외부 I/O로 전송된 Trigger 신호의 채터링 노이즈를 필터링하는 기능입니다. Line Debounce Time보다 폭이 짧은 Trigger Signal을 노이즈로 간주하여 필터링합니다. TRGFLTNUM 명령으로 µs 단위 조정이 가능합니다.</p>
+  <p>This function filters chattering noise in trigger signals transferred through external I/O. Trigger signals shorter than Line Debounce Time are treated as noise and filtered. It can be adjusted in microseconds with the TRGFLTNUM command.</p>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/line_debounce.jpg" alt="Line debounce timing"><figcaption>Line Debounce Timing</figcaption></figure>
   <h4>4.2.6 Fine Shutter Enable (Unit Control)</h4>
-  <p>Pixel Clock 기준으로 노광 시간을 1µs 단위로 조절하도록 지원하는 기능입니다. ‘On’일 때는 µs 단위, ‘Off’일 때는 HD 단위로 조절합니다.</p>
+  <p>This function supports exposure-time adjustment in 1 us units based on Pixel Clock. When On, exposure is adjusted in microseconds; when Off, it is adjusted in HD units.</p>
   <h4>4.2.7 Exposure Mode</h4>
-  <p>카메라 노광 방식을 결정하는 기능입니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Mode</th><th>Description</th></tr></thead><tbody><tr><td>Timed</td><td>설정되어 있는 시간 값만큼 노광합니다.</td></tr><tr><td>Trigger Width</td><td>입력된 Trigger 신호의 Pulse 폭만큼 노광합니다. Trigger Active가 Rising Edge이면 High인 시간, Falling Edge이면 Low인 시간만큼 노광합니다.</td></tr></tbody></table></div>
-  <p>※ Exposure Mode별 Timing</p>
+  <p>This function determines the camera exposure method.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Mode</th><th>Description</th></tr></thead><tbody><tr><td>Timed</td><td>Exposes for the configured time value.</td></tr><tr><td>Trigger Width</td><td>Exposes for the pulse width of the input trigger signal. If Trigger Active is Rising Edge, exposure lasts while the signal is High; if Falling Edge, exposure lasts while the signal is Low.</td></tr></tbody></table></div>
+  <p>Note: Timing by Exposure Mode</p>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/timing_freerun.jpg" alt="Freerun mode timing"><figcaption>1) Freerun Mode Timing</figcaption></figure>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/timing_trigger_timed.jpg" alt="Trigger timed mode timing"><figcaption>2) Trigger Timed Mode Timing</figcaption></figure>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/timing_trigger_width.jpg" alt="Trigger width mode timing"><figcaption>3) Trigger Width Mode Timing</figcaption></figure>
   <h4>4.2.8 Exposure Time</h4>
-  <p>노광 시간을 설정합니다. Timed 모드로 설정되어 있을 때만 적용됩니다. SHTSET 명령으로 µs 단위 조정이 가능합니다. (Range : 0x1 ~ 0xFFFFFFFF)</p>
-  <p>※ 실제 노광 시간 : 설정 시간 + 13.73µs (2.2 주요 사양 참고)</p>
+  <p>Sets the exposure time. This applies only when Exposure Mode is set to Timed. It can be adjusted in microseconds with the SHTSET command. (Range: 0x1 to 0xFFFFFFFF)</p>
+  <p>Note: Actual exposure time = setting time + 13.73 us (see 2.2 Main Specifications)</p>
   <h4>4.2.9 Exposure Auto</h4>
-  <p>Exposure Time을 자동 조정하여 사용자가 원하는 밝기를 일정하게 유지하는 기능입니다. Exposure Mode가 Timed로 설정되어 있을 때 사용할 수 있습니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td rowspan="3">Exposure Auto</td><td>Off</td><td>Exposure Time을 수동으로 설정합니다.</td></tr><tr><td>Once</td><td>한 번만 노광 시간을 조절하여 원하는 밝기 값으로 변경합니다.</td></tr><tr><td>Continuous</td><td>지속적으로 노광 시간을 조절하여 원하는 밝기 값을 유지합니다.</td></tr><tr><td>Auto Exposure Target</td><td>0 ~ 255</td><td>사용자가 원하는 밝기 값 설정 (DN, 8bit 기준)</td></tr><tr><td>Auto Exposure Time Lower Limit</td><td>100µs ~ 3sec</td><td>자동 설정 가능한 Exposure Time 최소값 (AEMIN). Upper Limit보다 클 수 없습니다.</td></tr><tr><td>Auto Exposure Time Upper Limit</td><td>100µs ~ 3sec</td><td>자동 설정 가능한 Exposure Time 최대값 (AEMAX). Lower Limit보다 작을 수 없습니다.</td></tr></tbody></table></div>
-  <p>※ Exposure Time 설정 값은 Width/ADC Bit 설정에 따라 달라질 수 있습니다.</p>
+  <p>This function automatically adjusts Exposure Time to keep the brightness desired by the user. It can be used when Exposure Mode is set to Timed.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td rowspan="3">Exposure Auto</td><td>Off</td><td>Sets Exposure Time manually.</td></tr><tr><td>Once</td><td>Adjusts exposure time once to change the image to the desired brightness value.</td></tr><tr><td>Continuous</td><td>Continuously adjusts exposure time to maintain the desired brightness value.</td></tr><tr><td>Auto Exposure Target</td><td>0 ~ 255</td><td>Sets the desired brightness value (DN, based on 8-bit).</td></tr><tr><td>Auto Exposure Time Lower Limit</td><td>100µs ~ 3sec</td><td>Minimum automatically configurable Exposure Time (AEMIN). It cannot be greater than the Upper Limit.</td></tr><tr><td>Auto Exposure Time Upper Limit</td><td>100µs ~ 3sec</td><td>Maximum automatically configurable Exposure Time (AEMAX). It cannot be less than the Lower Limit.</td></tr></tbody></table></div>
+  <p>Note: Exposure Time setting values may vary depending on Width and ADC Bit settings.</p>
   <h4>4.2.10 Acquisition Frame Rate Enable</h4>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td rowspan="2">Acquisition Frame Rate Enable</td><td>Off</td><td>현재 카메라 설정에서 최대 Frame Rate로 동작합니다.</td></tr><tr><td>On</td><td>설정된 Frame Rate로 동작합니다.</td></tr><tr><td>Acquisition Frame Rate</td><td>1 ~ Max Value</td><td>Max 값은 모델과 해상도에 따라 달라집니다.</td></tr></tbody></table></div>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td rowspan="2">Acquisition Frame Rate Enable</td><td>Off</td><td>Operates at the maximum frame rate available with the current camera settings.</td></tr><tr><td>On</td><td>Operates at the configured frame rate.</td></tr><tr><td>Acquisition Frame Rate</td><td>1 ~ Max Value</td><td>The maximum value differs by model and resolution.</td></tr></tbody></table></div>
 </article>
 
 <article class="pdf-page-block" data-page="20-21">
   <h3 id="digital-io-control">4.3 Digital I/O Control</h3>
-  <p>외부 I/O 신호를 설정할 수 있는 기능입니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Line Selector</td><td>Line1, Line2, Line3, Line4, Line5, Line6, Software</td><td>설정을 원하는 Line을 선택합니다.</td></tr><tr><td>Line Mode</td><td>Input, Output</td><td>Line 5, Line 6만 Output으로 설정할 수 있으며 이후 Line Source가 적용됩니다.</td></tr><tr><td>Line Inverter</td><td>0, 1</td><td>Enable 시 입력된 신호를 반전시킵니다.</td></tr><tr><td>Line Status</td><td>0, 1</td><td>선택된 Line의 현재 상태를 반환합니다.</td></tr><tr><td rowspan="5">Line Source</td><td>Off</td><td>사용 안 함</td></tr><tr><td>Timer1 Active</td><td>카메라 내 생성된 파형을 출력합니다.</td></tr><tr><td>Exposure Active</td><td>카메라 노광 시간 동안 활성화됩니다.</td></tr><tr><td>UserOutput1 / 2 / 3</td><td>Input과 별개로 사용자가 설정한 출력값을 유지합니다.</td></tr><tr><td>User Output Selector</td><td>사용할 저장값을 선택합니다.</td></tr><tr><td>User Output Value</td><td>0, 1</td><td>User Output Selector에 의해 선택된 값을 설정합니다.</td></tr></tbody></table></div>
+  <p>This function configures external I/O signals.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Line Selector</td><td>Line1, Line2, Line3, Line4, Line5, Line6, Software</td><td>Selects the Line to configure.</td></tr><tr><td>Line Mode</td><td>Input, Output</td><td>Only Line 5 and Line 6 can be set as Output; Line Source is applied afterward.</td></tr><tr><td>Line Inverter</td><td>0, 1</td><td>When enabled, the input signal is inverted.</td></tr><tr><td>Line Status</td><td>0, 1</td><td>Returns the current state of the selected Line.</td></tr><tr><td rowspan="5">Line Source</td><td>Off</td><td>Not used</td></tr><tr><td>Timer1 Active</td><td>Outputs a waveform generated inside the camera.</td></tr><tr><td>Exposure Active</td><td>Active during the camera exposure time.</td></tr><tr><td>UserOutput1 / 2 / 3</td><td>Maintains the user-configured output value independently of Input.</td></tr><tr><td>User Output Selector</td><td>Selects the stored value to use.</td></tr><tr><td>User Output Value</td><td>0, 1</td><td>Sets the value selected by User Output Selector.</td></tr></tbody></table></div>
   <h4>4.3.1 Hardware Propagation Delay (GPI/O)</h4>
   <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th></th><th>Rising (tPLH) (&lt;20%)</th><th>Falling (tPHL) (&gt;80%)</th></tr></thead><tbody><tr><td>Input Line</td><td>0.52µs</td><td>0.03µs</td></tr><tr><td>Output Line</td><td>1.34µs</td><td>0.17µs</td></tr></tbody></table></div>
   <div class="image-grid"><figure class="pdf-figure"><img src="images/pdf-extracted/propagation_input.jpg" alt="Propagation delays on input lines"><figcaption>Propagation Delays on Input Lines</figcaption></figure><figure class="pdf-figure"><img src="images/pdf-extracted/propagation_output.jpg" alt="Propagation delays on output lines"><figcaption>Propagation Delays on Output Lines</figcaption></figure></div>
@@ -265,59 +265,59 @@
 
 <article class="pdf-page-block" data-page="21-22">
   <h3 id="counter-timer-control">4.4 Counter and Timer Control</h3>
-  <p>Strobe 신호 설정 및 영상 출력을 확인하는 기능입니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Timer Selector</td><td>Exposure<br>External Trigger<br>Internal VD</td><td>Exposure : 노광 시작 시점부터 파형 생성<br>External Trigger : 외부 Trigger 입력 시점부터 파형 생성<br>Internal VD : 내부 VD 시작 시점부터 파형 생성</td></tr><tr><td>Timer Duration</td><td>0 ~ 57,844,677</td><td>Strobe 신호의 High 시간을 설정합니다. (FLASHTIME)</td></tr><tr><td>Timer Delay</td><td>0 ~ 57,844,677</td><td>Strobe 신호의 Delay 시간을 설정합니다. (FLASHDELAY)</td></tr><tr><td>Counter Event Source</td><td>ExternalTriggerStart<br>ExposureStart<br>ExposureEnd<br>FrameEnd<br>ExposureStartMissed<br>ExposureStopMissed</td><td>외부 Trigger 입력 개수, 노광 시작/종료 횟수, Sensor FVAL 개수 및 비정상 노광 시작/종료 횟수를 선택해 Count합니다.</td></tr><tr><td>Counter Value</td><td>0 ~ 4,294,967,295</td><td>Event Source의 Count 값을 표시합니다. Acquisition Start 시 초기화됩니다.</td></tr></tbody></table></div>
-  <ol><li><strong>Timer Duration</strong> — FLASHTIME 명령으로 µs 단위 조정</li><li><strong>Timer Delay</strong> — FLASHDELAY 명령으로 µs 단위 조정</li></ol>
+  <p>This function configures the strobe signal and checks image output.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Timer Selector</td><td>Exposure<br>External Trigger<br>Internal VD</td><td>Exposure: generates a waveform from the exposure start point.<br>External Trigger: generates a waveform from the external trigger input point.<br>Internal VD: generates a waveform from the internal VD start point.</td></tr><tr><td>Timer Duration</td><td>0 ~ 57,844,677</td><td>Sets the High time of the strobe signal. (FLASHTIME)</td></tr><tr><td>Timer Delay</td><td>0 ~ 57,844,677</td><td>Sets the Delay time of the strobe signal. (FLASHDELAY)</td></tr><tr><td>Counter Event Source</td><td>ExternalTriggerStart<br>ExposureStart<br>ExposureEnd<br>FrameEnd<br>ExposureStartMissed<br>ExposureStopMissed</td><td>Selects and counts the number of external trigger inputs, exposure start/end counts, Sensor FVAL count, and abnormal exposure start/end counts.</td></tr><tr><td>Counter Value</td><td>0 ~ 4,294,967,295</td><td>Displays the Count value of Event Source. It is initialized at Acquisition Start.</td></tr></tbody></table></div>
+  <ol><li><strong>Timer Duration</strong> - Adjusted in microseconds with the FLASHTIME command.</li><li><strong>Timer Delay</strong> - Adjusted in microseconds with the FLASHDELAY command.</li></ol>
 </article>
 
 <article class="pdf-page-block" data-page="22-23">
   <h3 id="analog-control">4.5 Analog Control</h3>
   <h4>4.5.1 Gain Control</h4>
-  <p>Gain을 조정할 수 있는 기능입니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Gain Selector</td><td>All, DigitalAll</td><td>설정할 Gain을 선택합니다.</td></tr><tr><td>Gain Raw</td><td>All : 0 ~ 240<br>Rolling Model : 65535 ~ 1474537<br>DigitalAll : 0 ~ 7168</td><td>Gain 값을 수치로 적용합니다. 이미지 신호와 Noise가 함께 증가할 수 있습니다.</td></tr><tr><td>Gain Abs</td><td>All : 1 ~ 15.8<br>Rolling Model : 1 ~ 22.49<br>DigitalAll : 1 ~ 8.0</td><td>Gain 값을 배율로 적용합니다.</td></tr><tr><td rowspan="3">Gain Auto</td><td>Off</td><td>Gain을 수동으로 설정합니다.</td></tr><tr><td>Once</td><td>한 번만 Gain을 조절하여 원하는 밝기로 변경합니다.</td></tr><tr><td>Continuous</td><td>지속적으로 Gain을 조절하여 원하는 밝기를 유지합니다.</td></tr></tbody></table></div>
-  <p>Gain Auto와 Auto Exposure를 함께 사용할 경우, 밝아지는 경우 Exposure Control 후 Gain이 적용되고, 어두워지는 경우 Gain Control 후 Exposure가 적용됩니다.</p>
+  <p>This function adjusts Gain.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Gain Selector</td><td>All, DigitalAll</td><td>Selects the Gain to configure.</td></tr><tr><td>Gain Raw</td><td>All : 0 ~ 240<br>Rolling Model : 65535 ~ 1474537<br>DigitalAll : 0 ~ 7168</td><td>Applies the Gain value numerically. Image signal and noise may increase together.</td></tr><tr><td>Gain Abs</td><td>All : 1 ~ 15.8<br>Rolling Model : 1 ~ 22.49<br>DigitalAll : 1 ~ 8.0</td><td>Applies the Gain value as a multiplier.</td></tr><tr><td rowspan="3">Gain Auto</td><td>Off</td><td>Sets Gain manually.</td></tr><tr><td>Once</td><td>Adjusts Gain once to change the image to the desired brightness.</td></tr><tr><td>Continuous</td><td>Continuously adjusts Gain to maintain the desired brightness.</td></tr></tbody></table></div>
+  <p>When Gain Auto and Auto Exposure are used together, Exposure Control is applied first when the image becomes brighter, and Gain Control is applied first when the image becomes darker.</p>
   <h4>4.5.2 Black Level Control</h4>
-  <p>영상 신호의 DC Offset을 조정하는 기능입니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Black Level Selector</td><td>All, DigitalAll</td><td>설정할 Black Level을 선택합니다.</td></tr><tr><td>Black Level Raw</td><td>All(ADC 8bit) : 0 ~ 255<br>All(ADC 10bit) : 0 ~ 1023<br>All(ADC 12bit) : 0 ~ 4095<br>Rolling Model : 0 ~ 255<br>DigitalAll : 0 ~ 1023</td><td>아날로그 Black Level을 제어하고 이미지 신호의 DC Offset을 조정합니다.</td></tr></tbody></table></div>
+  <p>This function adjusts the DC offset of the image signal.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Black Level Selector</td><td>All, DigitalAll</td><td>Selects the Black Level to configure.</td></tr><tr><td>Black Level Raw</td><td>All(ADC 8bit) : 0 ~ 255<br>All(ADC 10bit) : 0 ~ 1023<br>All(ADC 12bit) : 0 ~ 4095<br>Rolling Model : 0 ~ 255<br>DigitalAll : 0 ~ 1023</td><td>Controls the analog Black Level and adjusts the DC offset of the image signal.</td></tr></tbody></table></div>
   <h4>4.5.3 Gamma Control</h4>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Gamma Enable</td><td>Disable, Enable</td><td>Gamma 기능 활성화 여부를 결정합니다.</td></tr><tr><td>Gamma</td><td>0 ~ 4.0</td><td>Gamma 수치를 조정합니다.</td></tr></tbody></table></div>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Gamma Enable</td><td>Disable, Enable</td><td>Determines whether the Gamma function is enabled.</td></tr><tr><td>Gamma</td><td>0 ~ 4.0</td><td>Adjusts the Gamma value.</td></tr></tbody></table></div>
   <h4>4.5.4 Balance Ratio Control</h4>
-  <p>색 Gain을 맞추기 위한 기능입니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Balance Ratio Selector</td><td>Red, Green, Blue</td><td>색 Gain을 조정할 색을 선택합니다.</td></tr><tr><td>Balance Ratio</td><td>0 ~ 4095</td><td>선택된 색상에 대해 Gain 수치를 조정합니다.</td></tr><tr><td>Balance White Auto</td><td>Off, Once, Continuous</td><td>Once : 한 번만 White Balance 조정<br>Continuous : 지속적으로 White Balance 유지</td></tr></tbody></table></div>
-  <p>※ Balance White Auto 사용 시 흰 종이처럼 일정한 밝기의 피사체 조건에서 동작시키면 더 나은 결과를 얻을 수 있습니다.</p>
+  <p>This function matches color Gain.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Balance Ratio Selector</td><td>Red, Green, Blue</td><td>Selects the color whose Gain will be adjusted.</td></tr><tr><td>Balance Ratio</td><td>0 ~ 4095</td><td>Adjusts the Gain value for the selected color.</td></tr><tr><td>Balance White Auto</td><td>Off, Once, Continuous</td><td>Once: adjusts White Balance only once.<br>Continuous: continuously maintains White Balance.</td></tr></tbody></table></div>
+  <p>Note: When using Balance White Auto, better results can be obtained under a subject condition with uniform brightness, such as white paper.</p>
   <h4>4.5.5 Noise Reduction</h4>
-  <p>Noise Filter로 영상 Noise를 줄이는 기능입니다. 사용 시 영상의 Edge가 손상될 수 있습니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Noise Reduction Enable</td><td>Disable, Enable</td><td>Noise Reduction 기능을 활성화합니다.</td></tr></tbody></table></div>
+  <p>This function reduces image noise with a Noise Filter. When used, image edges may be damaged.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Noise Reduction Enable</td><td>Disable, Enable</td><td>Enables the Noise Reduction function.</td></tr></tbody></table></div>
 </article>
 
 <article class="pdf-page-block" data-page="24-25">
   <h3 id="lut-control">4.6 LUT Control</h3>
-  <p>LUT 기능은 영상 신호를 비선형으로 조정하기 위한 기능입니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>LUT Enable</td><td>Disable, Enable</td><td>LUT 기능 활성화 여부를 결정합니다.</td></tr><tr><td>LUT Index</td><td>0 ~ 1023</td><td>LUT의 Index 값을 조정합니다.</td></tr><tr><td>LUT Value</td><td>0 ~ 1023</td><td>해당 LUT Index의 값을 조정합니다.</td></tr></tbody></table></div>
+  <p>The LUT function nonlinearly adjusts the image signal.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>LUT Enable</td><td>Disable, Enable</td><td>Determines whether the LUT function is enabled.</td></tr><tr><td>LUT Index</td><td>0 ~ 1023</td><td>Adjusts the Index value of the LUT.</td></tr><tr><td>LUT Value</td><td>0 ~ 1023</td><td>Adjusts the value of the corresponding LUT Index.</td></tr></tbody></table></div>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/lut_graph.jpg" alt="LUT input output graph"><figcaption>LUT Example (V=I)</figcaption></figure>
   <h3 id="defect-pixel">4.7 Defect Pixel Correction</h3>
-  <p>Defect Pixel을 조정해 주는 기능입니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Defect Filter Enable</td><td>Off, On</td><td>보정 값의 활성화 여부를 선택합니다.</td></tr><tr><td>Defect Filter Test Mode Selector</td><td>Off, Mark Black, Mark White, Mark White with Black Background</td><td>보정 위치를 검게, 밝게, 또는 검은 배경 위 밝게 표시합니다.</td></tr><tr><td>Defect Pixel Replacement Count</td><td>1 ~ 512</td><td>최대 보정할 Defect Pixel 개수를 지정합니다.</td></tr><tr><td>Defect Pixel Index</td><td>0 ~ 511</td><td>보정할 Defect Pixel Index를 선택합니다.</td></tr><tr><td>Defect Pixel X Coordinate</td><td>0 ~ WidthMax-1</td><td>보정할 Pixel의 X축 좌표를 입력합니다.</td></tr><tr><td>Defect Pixel Y Coordinate</td><td>0 ~ HeightMax-1</td><td>보정할 Pixel의 Y축 좌표를 입력합니다.</td></tr><tr><td>Defect Pixel Replace Execute</td><td>Execute</td><td>입력된 보정값을 정렬 후 적용합니다.</td></tr></tbody></table></div>
+  <p>This function corrects Defect Pixels.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>Defect Filter Enable</td><td>Off, On</td><td>Selects whether the correction value is enabled.</td></tr><tr><td>Defect Filter Test Mode Selector</td><td>Off, Mark Black, Mark White, Mark White with Black Background</td><td>Displays the correction position in black, bright, or bright on a black background.</td></tr><tr><td>Defect Pixel Replacement Count</td><td>1 ~ 512</td><td>Specifies the maximum number of Defect Pixels to correct.</td></tr><tr><td>Defect Pixel Index</td><td>0 ~ 511</td><td>Selects the Defect Pixel Index to correct.</td></tr><tr><td>Defect Pixel X Coordinate</td><td>0 ~ WidthMax-1</td><td>Enters the X-axis coordinate of the Pixel to correct.</td></tr><tr><td>Defect Pixel Y Coordinate</td><td>0 ~ HeightMax-1</td><td>Enters the Y-axis coordinate of the Pixel to correct.</td></tr><tr><td>Defect Pixel Replace Execute</td><td>Execute</td><td>Sorts and applies the entered correction values.</td></tr></tbody></table></div>
   <h3 id="ffc">4.8 Flat Field Correction</h3>
-  <p>촬상한 이미지의 밝기 값을 균일하게 보정하는 기능입니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>FFC Enable</td><td>Off, On</td><td>보정 값의 활성화 여부를 선택합니다.</td></tr><tr><td>Black Calibration</td><td>Execute</td><td>어두운 이미지를 통해 FPN을 보정합니다.</td></tr><tr><td>White Calibration</td><td>Execute</td><td>밝은 이미지를 통해 PRNU를 보정합니다.</td></tr><tr><td>FFC Save Load Flash Select</td><td>0 ~ 3</td><td>FFC 데이터를 읽고 저장할 영역을 선택합니다.</td></tr><tr><td>FFC Save</td><td>Execute</td><td>선택된 영역에 FFC 데이터를 저장합니다.</td></tr><tr><td>FFC Load</td><td>Execute</td><td>선택된 영역의 FFC 데이터를 읽어옵니다.</td></tr></tbody></table></div>
+  <p>This function uniformly corrects the brightness values of the captured image.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>FFC Enable</td><td>Off, On</td><td>Selects whether the correction value is enabled.</td></tr><tr><td>Black Calibration</td><td>Execute</td><td>Corrects FPN using a dark image.</td></tr><tr><td>White Calibration</td><td>Execute</td><td>Corrects PRNU using a bright image.</td></tr><tr><td>FFC Save Load Flash Select</td><td>0 ~ 3</td><td>Selects the area where FFC data is read and stored.</td></tr><tr><td>FFC Save</td><td>Execute</td><td>Saves FFC data to the selected area.</td></tr><tr><td>FFC Load</td><td>Execute</td><td>Loads FFC data from the selected area.</td></tr></tbody></table></div>
   <h3 id="user-set">4.9 User Set Control</h3>
-  <p>사용자가 설정한 값을 저장하거나 불러오기 위한 기능입니다.</p>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>User Set Selector</td><td>Default, UserSet1, UserSet2, UserSet3</td><td>Default는 출하 설정으로 Load만 가능합니다. UserSet1/2/3은 사용자가 Save/Load할 수 있으며 전원 Off/On 시에도 유지됩니다.</td></tr><tr><td>User Set Load</td><td>Execute</td><td>선택된 User Set 설정을 불러옵니다.</td></tr><tr><td>User Set Save</td><td>Execute</td><td>선택된 User Set 영역에 설정을 저장합니다.</td></tr></tbody></table></div>
+  <p>This function saves or loads values configured by the user.</p>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th><th>Description</th></tr></thead><tbody><tr><td>User Set Selector</td><td>Default, UserSet1, UserSet2, UserSet3</td><td>Default is the factory setting and can only be loaded. UserSet1/2/3 can be saved and loaded by the user and are retained even after power Off/On.</td></tr><tr><td>User Set Load</td><td>Execute</td><td>Loads the selected User Set configuration.</td></tr><tr><td>User Set Save</td><td>Execute</td><td>Saves the configuration to the selected User Set area.</td></tr></tbody></table></div>
 </article>
 
 <article class="pdf-page-block" data-page="26">
-  <h2 id="appearance">5. 카메라 외관</h2>
+  <h2 id="appearance">5. Camera Appearance</h2>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/camera_dimensions.jpg" alt="SMCL2 camera dimensions drawing"><figcaption>SMCL2 Series Camera Dimensions</figcaption></figure>
 </article>
 
 <article class="pdf-page-block" data-page="27">
-  <h2 id="uart">6. UART 통신</h2>
+  <h2 id="uart">6. UART Communication</h2>
   <h3 id="communication-setting">6.1 Communication Setting</h3>
   <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Item</th><th>Setting Value</th></tr></thead><tbody><tr><td>Baud Rate</td><td>Default 9,600bps</td></tr><tr><td>Data Bit</td><td>8bit</td></tr><tr><td>Parity</td><td>None</td></tr><tr><td>Stop Bit</td><td>1bit</td></tr><tr><td>Flow Control</td><td>None</td></tr></tbody></table></div>
   <h3 id="communication-format">6.2 Communication Format</h3>
   <div class="table-container manual-data-table pdf-rebuilt-table"><table><tbody><tr><td>W or R<sup>note1</sup></td><td>Command</td><td>Space</td><td>Value<sup>note2</sup></td><td>Enter</td></tr></tbody></table></div>
-  <p>※ note1 : W — Write, R — Read<br>※ note2 : Write 및 Return Read Value — Hex Base</p>
+  <p>※ note1 : W — Write, R — Read<br>Note 2: Write and Return Read Value - Hex Base</p>
   <h3 id="register-area">6.3 Register Area</h3>
   <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Area</th><th>Read</th><th>Write</th></tr></thead><tbody><tr><td>Factory Area</td><td>O</td><td>X (Only factory write)</td></tr><tr><td>User 1 Area</td><td>O</td><td>O</td></tr><tr><td>User 2 Area</td><td>O</td><td>O</td></tr><tr><td>User 3 Area</td><td>O</td><td>O</td></tr></tbody></table></div>
   <h4>6.3.1 Register SAVE</h4>
@@ -325,7 +325,7 @@
   <h4>6.3.2 Register LOAD</h4>
   <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Command</th><th>Index</th><th>Description</th></tr></thead><tbody><tr><td>LOAD</td><td>0</td><td>Factory Area Register Load</td></tr><tr><td>LOAD</td><td>1 ~ 3</td><td>User Area Register Load</td></tr></tbody></table></div>
   <h3 id="register-list">6.4 Register List</h3>
-  <p>CamGuide_CL software 및 Appendix A를 참조하십시오.</p>
+  <p>Refer to CamGuide_CL software and Appendix A.</p>
 </article>
 
 <article class="pdf-page-block" data-page="28-31">
@@ -433,34 +433,34 @@
   </div>
 
   <h3>Appendix A Notes</h3>
-  <h4>Note 1 — Model별 ADC / Binning / Decimation 지원</h4>
+  <h4>Note 1 - Model-specific ADC / Binning / Decimation Support</h4>
   <div class="table-container manual-data-table pdf-rebuilt-table support-matrix"><table><thead><tr><th rowspan="2">Model</th><th rowspan="2">ADC Bit</th><th colspan="3">Binning</th><th colspan="3">Decimation</th></tr><tr><th>H</th><th>V</th><th>H+V</th><th>H</th><th>V</th><th>H+V</th></tr></thead><tbody><tr><td>MC-A500M</td><td>8,10,12</td><td>X</td><td>O</td><td>X</td><td>O</td><td>O</td><td>O</td></tr><tr><td>MC-A500K</td><td>8,10,12</td><td>X</td><td>X</td><td>X</td><td>O</td><td>O</td><td>O</td></tr><tr><td>MC-A121M</td><td>8,10,12</td><td>X</td><td>O</td><td>O</td><td>O</td><td>O</td><td>O</td></tr><tr><td>MC-A121K</td><td>8,10,12</td><td>X</td><td>X</td><td>X</td><td>O</td><td>O</td><td>O</td></tr></tbody></table></div>
   <p>※ H : Horizontal, V : Vertical, H+V : Horizontal Vertical</p>
-  <h4>Note 2 — 카메라별 최소 HMAX 값</h4>
+  <h4>Note 2 - Minimum HMAX Value by Camera</h4>
   <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Model</th><th>Pixel Clock</th><th>HMAX(min)</th><th>1H(min)</th></tr></thead><tbody><tr><td>MC-A500x-163</td><td>74.25MHz</td><td>245 Clock</td><td>3.30µs</td></tr><tr><td>MC-A121x-67</td><td>74.25MHz</td><td>375 Clock</td><td>5.05µs</td></tr></tbody></table></div>
-  <p>※ 1H = 74.25MHz × HMAX (RHMAX 명령어 또는 CamGuideCL에서 확인)</p>
+  <p>Note: 1H = 74.25 MHz x HMAX. Check RHMAX command or CamGuideCL.</p>
 </article>
 
 <article class="pdf-page-block" data-page="32-33">
-  <h2 id="appendix-b">Appendix B. 카메라 동작 준비</h2>
-  <h3>1. SDK 설치</h3>
-  <ul class="pdf-bullet-list"><li>다운로드 링크 : <a href="http://www.crevis.co.kr/kor/support/download/CamGuideCL.zip">CamGuideCL.zip</a></li><li>운영체제에 맞는 설치 프로그램을 설치합니다.</li></ul>
-  <p>CamGuideCL_V2.3.4_x64.exe : Windows 64bit용 설치 프로그램<br>CamGuideCL_V2.3.4_x86.exe : Windows 32bit용 설치 프로그램</p>
-  <p>※ 버전은 향후 업데이트될 수 있습니다.</p>
-  <h3>2. 카메라 통신 연결 방법</h3>
-  <h4>2.1 CamGuideCL 실행</h4>
-  <h4>2.2 Select Port : 카메라가 연결된 포트 선택</h4>
+  <h2 id="appendix-b">Appendix B. Preparation for Camera Operation</h2>
+  <h3>1. SDK Installation</h3>
+  <ul class="pdf-bullet-list"><li>Download link: <a href="http://www.crevis.co.kr/kor/support/download/CamGuideCL.zip">CamGuideCL.zip</a></li><li>Install the installer that matches your operating system.</li></ul>
+  <p>CamGuideCL_V2.3.4_x64.exe: installer for Windows 64-bit<br>CamGuideCL_V2.3.4_x86.exe: installer for Windows 32-bit</p>
+  <p>Note: The version may be updated in the future.</p>
+  <h3>2. Camera Communication Connection Method</h3>
+  <h4>2.1 Run CamGuideCL</h4>
+  <h4>2.2 Select Port: select the port connected to the camera</h4>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/camguide_select_port.jpg" alt="CamGuideCL Select Port"><figcaption>Select Port</figcaption></figure>
-  <h4>2.3 Connect 클릭</h4>
+  <h4>2.3 Click Connect</h4>
   <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/camguide_connect.jpg" alt="CamGuideCL Connect"><figcaption>Connect</figcaption></figure>
-  <h4>2.4 연결 완료</h4>
-  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/camguide_connected.jpg" alt="CamGuideCL connected"><figcaption>연결 완료</figcaption></figure>
-  <p>※ 상세 설명은 CamGuideCL 매뉴얼을 참조하십시오.</p>
+  <h4>2.4 Connection Complete</h4>
+  <figure class="figure-wide pdf-figure"><img src="images/pdf-extracted/camguide_connected.jpg" alt="CamGuideCL connected"><figcaption>Connection Complete</figcaption></figure>
+  <p>Note: For detailed instructions, refer to the CamGuideCL manual.</p>
 </article>
 
 <article class="pdf-page-block" data-page="34">
   <h2 id="revision-history">Revision History</h2>
-  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Revision</th><th>Date</th><th>Changes</th><th>Remark</th></tr></thead><tbody><tr><td>1.0</td><td>2019.04</td><td>제정</td><td></td></tr><tr><td>1.1</td><td>2020.08</td><td>목차 수정 및 Fine Shutter 설명 추가<br>Appendix A, B 수정</td><td></td></tr><tr><td>1.2</td><td>2020.09</td><td>Trigger Delay, Line Debounce 항목 개선</td><td></td></tr><tr><td>1.3</td><td>2026.01</td><td>4 pin Circular Connector 이미지 변경</td><td></td></tr></tbody></table></div>
+  <div class="table-container manual-data-table pdf-rebuilt-table"><table><thead><tr><th>Revision</th><th>Date</th><th>Changes</th><th>Remark</th></tr></thead><tbody><tr><td>1.0</td><td>2019.04</td><td>Issued</td><td></td></tr><tr><td>1.1</td><td>2020.08</td><td>Table of contents revised and Fine Shutter description added<br>Appendix A and B revised</td><td></td></tr><tr><td>1.2</td><td>2020.09</td><td>Trigger Delay and Line Debounce items improved</td><td></td></tr><tr><td>1.3</td><td>2026.01</td><td>4-pin Circular Connector image changed</td><td></td></tr></tbody></table></div>
 </article>
 
 <section id="contact">
@@ -508,10 +508,10 @@
   const toolbar = document.createElement('div');
   toolbar.className = 'uart-command-toolbar';
   toolbar.innerHTML = `
-    <p>그룹을 클릭하면 해당 UART 명령만 펼쳐서 볼 수 있습니다.</p>
+    <p>Click a group to view only the UART commands in that section.</p>
     <div class="uart-command-actions">
-      <button type="button" class="uart-command-action" data-uart-expand>전체 펼치기</button>
-      <button type="button" class="uart-command-action" data-uart-collapse>전체 접기</button>
+      <button type="button" class="uart-command-action" data-uart-expand>Expand all</button>
+      <button type="button" class="uart-command-action" data-uart-collapse>Collapse all</button>
     </div>
   `;
   browser.append(toolbar);
