@@ -169,11 +169,31 @@ body {
 }
 
 .header-camera-main {
-    width: 100%;
-    max-width: 260px;
-    height: auto;
-    mix-blend-mode: multiply;
+    width: 280px !important;
+    max-width: 280px !important;
+    height: 224px !important;
+    max-height: 224px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    mix-blend-mode: normal !important;
     display: block;
+}
+
+.scu-hero-views {
+    display: none !important;
+}
+
+@media screen and (min-width: 901px) {
+    .scu-manual-header .scu-hero-visual {
+        grid-template-columns: 1fr !important;
+        justify-items: end !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .scu-manual-header .scu-hero-main {
+        justify-self: end !important;
+    }
 }
 
 .category-label {
@@ -475,6 +495,13 @@ footer {
         flex: 0 0 auto;
         width: 100%;
         margin-top: 20px;
+    }
+
+    .header-camera-main {
+        width: 220px !important;
+        max-width: 220px !important;
+        height: 176px !important;
+        max-height: 176px !important;
     }
 
     .interface-card {
