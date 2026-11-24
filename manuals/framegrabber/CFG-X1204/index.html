@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CFG-X1204 Hardware Manual</title>
     <style>
         :root { --primary-color: #2c3e50; --accent-color: #e67e22; --sidebar-bg: #f8f9fa; --border-color: #dee2e6; --surface-bg: #fff; --panel-bg: #fff; --muted-bg: #f1f3f5; --text-color: #333; --subtle-text: #555; --footer-text: #777; --shadow-color: rgba(0,0,0,0.08); }
@@ -18,10 +19,12 @@
         .sidebar .sub-item { padding-left: 15px; font-size: 0.85rem; }
 
         /* 메인 컨텐츠 스타일 */
-        .main-content { margin-left: 340px; padding: 60px; max-width: 1000px; box-sizing: border-box; }
-        header { border-bottom: 1px solid var(--border-color); margin-bottom: 50px; padding-bottom: 20px; }
+        .main-content { margin-left: 340px; padding: 32px clamp(20px, 4vw, 60px) 60px; max-width: 1000px; box-sizing: border-box; }
+        header { border-bottom: 1px solid var(--border-color); margin-bottom: 24px; padding-bottom: 12px; }
+        header p { margin: 6px 0 0; }
+        header + section > h2:first-child { margin-top: 0; }
         .confidential { color: #e74c3c; font-weight: bold; font-size: 0.8rem; letter-spacing: 2px; }
-        h1 { font-size: 2.8rem; color: var(--primary-color); margin: 10px 0; }
+        h1 { font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; color: var(--primary-color); margin: 6px 0; }
         h2 { font-size: 2rem; color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 60px; }
         h3 { font-size: 1.5rem; color: #34495e; margin-top: 40px; border-left: 5px solid var(--accent-color); padding-left: 15px; }
         h4 { font-size: 1.2rem; color: var(--accent-color); margin-top: 25px; }
@@ -73,6 +76,19 @@
 
         footer { margin-top: 100px; padding-top: 30px; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--footer-text); text-align: center; }
 
+        @media screen and (max-width: 900px) {
+            body { display: block; }
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                max-height: min(36vh, 180px);
+                padding: 12px 16px;
+                border-right: 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .main-content { margin-left: 0; padding: 20px 16px 40px; overflow-wrap: anywhere; }
+        }
         @media print { .sidebar { display: none; } .main-content { margin-left: 0; padding: 20px; } }
     </style>
 </head>
